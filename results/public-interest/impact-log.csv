@@ -1,2 +1,2 @@
-as_of_utc,study_id,status,independent_reproductions,independent_human_reannotations,citations,accepted_upstream_corrections,measured_user_benefit_outcomes
-2026-07-26T00:00:00Z,joss-issue-121-external-validation,NO_VERIFIED_EXTERNAL_OUTCOMES_YET,0,0,0,0,0
+record_type,as_of_utc,study_id,log_status,evidence_id,evidence_type,date,source,independent_party,verification_status,possible_duplication,conflict_of_interest,outcome_status,supporting_url_or_archive,reviewer_identity_or_role,notes,counted,independent_reproductions,independent_human_reannotations,external_citations,accepted_upstream_corrections,measured_user_benefit_outcomes,protocol_adoptions,documented_productization_decision_changes
+SUMMARY,2026-07-26T00:00:00Z,joss-issue-121-external-validation,NO_VERIFIED_EXTERNAL_OUTCOMES_YET,,,,,,,,,,,,No verified external outcomes. Reach and activity metrics are excluded.,false,0,0,0,0,0,0,0
