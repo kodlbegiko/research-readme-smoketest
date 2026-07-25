@@ -5,18 +5,16 @@ on:
   pull_request:
     paths:
       - "scripts/acquire_issue_121.py"
-      - "scripts/evaluate_issue_121.py"
-      - "data/issue-121/**"
+      - "data/issue-121/sampling-frame.json"
       - "src/readme_smoketest/**"
       - "tests/test_issue121_pipeline.py"
-      - "tests/test_issue121_reference.py"
       - ".github/workflows/external-validation.yml"
 
 permissions:
   contents: read
 
 jobs:
-  acquire-predict-and-evaluate:
+  reacquire-and-verify-predictions:
     runs-on: ubuntu-latest
     timeout-minutes: 40
     steps:
@@ -27,13 +25,11 @@ jobs:
           cache: pip
       - name: Install frozen package and test tools
         run: python -m pip install -e ".[dev]"
-      - name: Check study code and tests
+      - name: Check acquisition code and tests
         run: |
-          ruff check scripts/acquire_issue_121.py scripts/evaluate_issue_121.py \
-            tests/test_issue121_pipeline.py tests/test_issue121_reference.py
-          ruff format --check scripts/acquire_issue_121.py scripts/evaluate_issue_121.py \
-            tests/test_issue121_pipeline.py tests/test_issue121_reference.py
-          pytest tests/test_issue121_pipeline.py tests/test_issue121_reference.py
+          ruff check scripts/acquire_issue_121.py tests/test_issue121_pipeline.py
+          ruff format --check scripts/acquire_issue_121.py tests/test_issue121_pipeline.py
+          pytest tests/test_issue121_pipeline.py
       - name: Reacquire outside the checkout and verify frozen predictions
         env:
           GH_TOKEN: ${{ github.token }}
@@ -45,23 +41,15 @@ jobs:
             /tmp/issue-121/predictions/predictions.json
           test "$(sha256sum /tmp/issue-121/predictions/predictions.json | cut -d' ' -f1)" = \
             "028437d2203fb4d4bd417362618c7d55069dc40f177e28eb646eef8484ca19c1"
-      - name: Reproduce reference evaluation outside the checkout
+      - name: Explain validation boundary
         run: |
-          python scripts/evaluate_issue_121.py \
-            --data-dir /tmp/issue-121 \
-            --results-dir /tmp/issue-121-results
-          diff -u \
-            data/issue-121/annotations/reference-labels.json \
-            /tmp/issue-121/annotations/reference-labels.json
-          diff -u \
-            results/issue-121/static-validation-results.json \
-            /tmp/issue-121-results/static-validation-results.json
-      - name: Upload read-only validation bundle
+          echo "Fresh acquisition validates prediction stability only."
+          echo "Frozen reference-result reproduction is owned by reference-evaluation.yml."
+          echo "Fresh prediction-lock metadata is intentionally not byte-compared with the frozen lock."
+      - name: Upload read-only acquisition bundle
         uses: actions/upload-artifact@v4
         with:
-          name: issue-121-external-validation-reproduction
-          path: |
-            /tmp/issue-121/
-            /tmp/issue-121-results/
+          name: issue-121-fresh-acquisition
+          path: /tmp/issue-121/
           if-no-files-found: error
           retention-days: 30
