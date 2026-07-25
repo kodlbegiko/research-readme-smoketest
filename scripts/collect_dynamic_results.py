@@ -92,18 +92,12 @@ def main() -> int:
                 "attempt_duration_seconds": document["attempt_duration_seconds"],
                 "installation_seconds": document["installation_seconds"],
                 "task_seconds": document["task_seconds"],
-                "total_seconds_to_first_output": (
-                    document["total_seconds_to_first_output"] or ""
-                ),
+                "total_seconds_to_first_output": (document["total_seconds_to_first_output"] or ""),
                 "manual_command_steps": document["manual_command_steps"],
                 "non_root_document_pages": document["non_root_document_pages"],
                 "workspace_bytes": document["workspace_bytes"],
-                "strict_false_negative_completed": relations[
-                    "strict_false_negative_completed"
-                ],
-                "external_docs_supplemented": relations[
-                    "external_docs_supplemented"
-                ],
+                "strict_false_negative_completed": relations["strict_false_negative_completed"],
+                "external_docs_supplemented": relations["external_docs_supplemented"],
                 "hard_findings_disproved_by_runtime_paths": relations[
                     "predicted_hard_findings_disproved_by_runtime_paths"
                 ],
@@ -112,12 +106,8 @@ def main() -> int:
     csv_path = args.output_dir / "dynamic-raw-index.csv"
     write_csv(csv_path, rows)
     hashed_paths = [index_path, csv_path]
-    hashed_paths.extend(
-        args.results_root / case_id / "result.json" for case_id in expected
-    )
-    sums = "".join(
-        f"{sha256(path)}  {path.as_posix()}\n" for path in hashed_paths
-    )
+    hashed_paths.extend(args.results_root / case_id / "result.json" for case_id in expected)
+    sums = "".join(f"{sha256(path)}  {path.as_posix()}\n" for path in hashed_paths)
     (args.output_dir / "DYNAMIC-SHA256SUMS").write_text(sums, encoding="utf-8")
     counts: dict[str, int] = {}
     for document in documents:
