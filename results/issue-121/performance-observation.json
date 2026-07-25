@@ -1,0 +1,6 @@
+{
+  "iterations": 1000,
+  "median_seconds": 0.03340045599999897,
+  "note": "Machine-specific observation; excluded from deterministic result hashes.",
+  "peak_tracemalloc_bytes": 180629
+}

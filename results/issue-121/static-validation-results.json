@@ -1,0 +1,316 @@
+{
+  "annotation": {
+    "agreement": null,
+    "annotators": 1,
+    "batch_completed_at": "2026-07-25T14:31:06Z",
+    "batch_started_at": "2026-07-25T14:27:04Z",
+    "cohens_kappa": null,
+    "limitation": "Sequential single-annotator reference labels; no inter-rater claim.",
+    "per_repository_timing": "not_instrumented",
+    "second_human_annotator": false
+  },
+  "ecosystem_stratification": [
+    {
+      "accuracy": 0.75,
+      "ecosystem": "C++",
+      "fn": 1,
+      "fp": 0,
+      "n": 4,
+      "predicted_strict": 0,
+      "reference_strict": 1,
+      "tn": 3,
+      "tp": 0
+    },
+    {
+      "accuracy": 0.0,
+      "ecosystem": "Fortran",
+      "fn": 1,
+      "fp": 0,
+      "n": 1,
+      "predicted_strict": 0,
+      "reference_strict": 1,
+      "tn": 0,
+      "tp": 0
+    },
+    {
+      "accuracy": 0.3333333333333333,
+      "ecosystem": "HTML",
+      "fn": 2,
+      "fp": 0,
+      "n": 3,
+      "predicted_strict": 1,
+      "reference_strict": 3,
+      "tn": 0,
+      "tp": 1
+    },
+    {
+      "accuracy": 1.0,
+      "ecosystem": "Haskell",
+      "fn": 0,
+      "fp": 0,
+      "n": 1,
+      "predicted_strict": 0,
+      "reference_strict": 0,
+      "tn": 1,
+      "tp": 0
+    },
+    {
+      "accuracy": 1.0,
+      "ecosystem": "Java",
+      "fn": 0,
+      "fp": 0,
+      "n": 1,
+      "predicted_strict": 1,
+      "reference_strict": 1,
+      "tn": 0,
+      "tp": 1
+    },
+    {
+      "accuracy": 1.0,
+      "ecosystem": "Jupyter Notebook",
+      "fn": 0,
+      "fp": 0,
+      "n": 2,
+      "predicted_strict": 0,
+      "reference_strict": 0,
+      "tn": 2,
+      "tp": 0
+    },
+    {
+      "accuracy": 0.55,
+      "ecosystem": "Python",
+      "fn": 9,
+      "fp": 0,
+      "n": 20,
+      "predicted_strict": 4,
+      "reference_strict": 13,
+      "tn": 7,
+      "tp": 4
+    },
+    {
+      "accuracy": 0.0,
+      "ecosystem": "R",
+      "fn": 3,
+      "fp": 0,
+      "n": 3,
+      "predicted_strict": 0,
+      "reference_strict": 3,
+      "tn": 0,
+      "tp": 0
+    },
+    {
+      "accuracy": 1.0,
+      "ecosystem": "Rust",
+      "fn": 0,
+      "fp": 0,
+      "n": 2,
+      "predicted_strict": 1,
+      "reference_strict": 1,
+      "tn": 1,
+      "tp": 1
+    },
+    {
+      "accuracy": 0.0,
+      "ecosystem": "SWIG",
+      "fn": 1,
+      "fp": 0,
+      "n": 1,
+      "predicted_strict": 0,
+      "reference_strict": 1,
+      "tn": 0,
+      "tp": 0
+    }
+  ],
+  "eligible_github_repositories": 38,
+  "engineering_gates": {
+    "hard_defect_false_positive_rate_max": 0.1,
+    "hard_defect_false_positive_rate_observed": 0.02631578947368421,
+    "hard_defect_false_positive_rate_pass": true,
+    "hard_defect_precision_min": 0.8,
+    "hard_defect_precision_observed": 0.0,
+    "hard_defect_precision_pass": false,
+    "static_productization_gate_pass": false,
+    "strict_accuracy_min": 0.75,
+    "strict_accuracy_observed": 0.5526315789473685,
+    "strict_accuracy_pass": false
+  },
+  "excluded": 1,
+  "external_doc_sensitivity": {
+    "relaxed_prediction": [
+      35,
+      38
+    ],
+    "relaxed_reference": [
+      38,
+      38
+    ],
+    "strict_prediction": [
+      7,
+      38
+    ],
+    "strict_reference": [
+      24,
+      38
+    ]
+  },
+  "hard_defects": {
+    "pair_level": {
+      "actual": 0,
+      "fn": 0,
+      "fp": 3,
+      "precision": 0.0,
+      "predicted": 3,
+      "recall": null,
+      "recall_status": "not_estimable_no_reference_positives",
+      "tp": 0
+    },
+    "per_rule": {
+      "apt_get_typo": {
+        "actual": 0,
+        "fn": 0,
+        "fp": 0,
+        "precision": null,
+        "predicted": 0,
+        "recall": null,
+        "tp": 0
+      },
+      "missing_git_clone_target": {
+        "actual": 0,
+        "fn": 0,
+        "fp": 0,
+        "precision": null,
+        "predicted": 0,
+        "recall": null,
+        "tp": 0
+      },
+      "missing_relative_path": {
+        "actual": 0,
+        "fn": 0,
+        "fp": 3,
+        "precision": 0.0,
+        "predicted": 3,
+        "recall": null,
+        "tp": 0
+      },
+      "undeclared_module_assignment": {
+        "actual": 0,
+        "fn": 0,
+        "fp": 0,
+        "precision": null,
+        "predicted": 0,
+        "recall": null,
+        "tp": 0
+      }
+    },
+    "repository_level": {
+      "actual_positive_repositories": 0,
+      "false_positive_rate": 0.02631578947368421,
+      "false_positive_repositories": 1,
+      "predicted_positive_repositories": 1
+    }
+  },
+  "prediction_lock": {
+    "annotations_present_when_locked": false,
+    "baseline_commit": "2caeecc8678a4614f6fe6771df0ace6827a5f434",
+    "prediction_csv_sha256": "64992a0bcfa02d168a629931b7a6337966fade69af051b6ffd3b027dceb95601",
+    "prediction_json_sha256": "028437d2203fb4d4bd417362618c7d55069dc40f177e28eb646eef8484ca19c1",
+    "workflow_head_sha": "7c6c06a5176f6de02705cd3cc9c2951ded991758",
+    "workflow_run_id": 30161626831
+  },
+  "prevalence": {
+    "predicted_relaxed_count": 35,
+    "predicted_relaxed_rate": 0.9210526315789473,
+    "predicted_strict_count": 7,
+    "predicted_strict_rate": 0.18421052631578946,
+    "predicted_strict_wilson_95": [
+      0.09221765185221271,
+      0.334188580711314
+    ],
+    "reference_relaxed_count": 38,
+    "reference_relaxed_rate": 1.0,
+    "reference_strict_count": 24,
+    "reference_strict_rate": 0.631578947368421,
+    "reference_strict_wilson_95": [
+      0.47283959557009003,
+      0.7661578075284404
+    ]
+  },
+  "primary_static_verdict": "NOT SUPPORTED",
+  "readme_length_sensitivity": [
+    {
+      "accuracy": 0.8888888888888888,
+      "max_bytes": 4397,
+      "median_bytes": 3506,
+      "min_bytes": 1328,
+      "n": 9,
+      "predicted_strict": 0,
+      "quartile": 1,
+      "reference_strict": 1
+    },
+    {
+      "accuracy": 0.5,
+      "max_bytes": 7782,
+      "median_bytes": 6160.5,
+      "min_bytes": 4534,
+      "n": 10,
+      "predicted_strict": 3,
+      "quartile": 2,
+      "reference_strict": 8
+    },
+    {
+      "accuracy": 0.4444444444444444,
+      "max_bytes": 17572,
+      "median_bytes": 11367,
+      "min_bytes": 8328,
+      "n": 9,
+      "predicted_strict": 2,
+      "quartile": 3,
+      "reference_strict": 7
+    },
+    {
+      "accuracy": 0.4,
+      "max_bytes": 53065,
+      "median_bytes": 21865.0,
+      "min_bytes": 17977,
+      "n": 10,
+      "predicted_strict": 2,
+      "quartile": 4,
+      "reference_strict": 8
+    }
+  ],
+  "sample_total": 39,
+  "strict_ready_classification": {
+    "frozen_detector": {
+      "confusion": {
+        "fn": 17,
+        "fp": 0,
+        "tn": 14,
+        "tp": 7
+      },
+      "metrics": {
+        "accuracy": 0.5526315789473685,
+        "f1": 0.45161290322580644,
+        "precision": 1.0,
+        "recall": 0.2916666666666667,
+        "specificity": 1.0
+      }
+    },
+    "naive_baseline": {
+      "confusion": {
+        "fn": 12,
+        "fp": 2,
+        "tn": 12,
+        "tp": 12
+      },
+      "metrics": {
+        "accuracy": 0.631578947368421,
+        "f1": 0.631578947368421,
+        "precision": 0.8571428571428571,
+        "recall": 0.5,
+        "specificity": 0.8571428571428571
+      }
+    }
+  },
+  "study": "joss-issue-121-external-validation",
+  "verdict_reason": "Strict-ready accuracy is below the preregistered engineering gate, and all three predicted hard-defect pairs are reference false positives."
+}

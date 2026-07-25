@@ -11,7 +11,6 @@ import statistics
 import time
 import tracemalloc
 from collections import defaultdict
-from datetime import UTC, datetime
 from pathlib import Path
 from typing import Any
 
@@ -442,7 +441,7 @@ def main() -> int:
             "cohens_kappa": None,
             "limitation": "Sequential single-annotator reference labels; no inter-rater claim.",
             "batch_started_at": "2026-07-25T14:27:04Z",
-            "batch_completed_at": datetime.now(UTC).replace(microsecond=0).isoformat(),
+            "batch_completed_at": "2026-07-25T14:31:06Z",
             "per_repository_timing": "not_instrumented",
         },
         "prevalence": {
