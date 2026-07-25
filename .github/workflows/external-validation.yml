@@ -27,10 +27,10 @@ jobs:
           cache: pip
       - name: Install frozen package and test tools
         run: python -m pip install -e ".[dev]"
-      - name: Apply deterministic style fixes
+      - name: Check acquisition implementation only
         run: |
-          ruff check . --fix
-          ruff format .
+          ruff check scripts/acquire_issue_121.py tests/test_issue121_pipeline.py
+          ruff format --check scripts/acquire_issue_121.py tests/test_issue121_pipeline.py
       - name: Validate acquisition unit tests
         run: pytest tests/test_issue121_pipeline.py
       - name: Run frozen acquisition and prediction
@@ -64,46 +64,14 @@ jobs:
           PY
           diff -u /tmp/hash-seed-0/recomputed.json /tmp/hash-seed-321/recomputed.json
           diff -u /tmp/issue-121/predictions/predictions.json /tmp/hash-seed-0/recomputed.json
-      - name: Persist first prediction lock
-        env:
-          HEAD_SHA: ${{ github.event.pull_request.head.sha || github.sha }}
-          RUN_ID: ${{ github.run_id }}
+      - name: Verify committed prediction lock
         run: |
-          if test -f data/issue-121/predictions/PREDICTION_LOCK.json; then
-            diff -u \
-              data/issue-121/predictions/predictions.json \
-              /tmp/issue-121/predictions/predictions.json
-            exit 0
-          fi
-          mkdir -p data/issue-121/raw data/issue-121/predictions
-          cp /tmp/issue-121/raw/source-records.json data/issue-121/raw/
-          cp /tmp/issue-121/raw/repository-metadata.json data/issue-121/raw/
-          cp /tmp/issue-121/raw/acquisition-environment.json data/issue-121/raw/
-          cp /tmp/issue-121/exclusions.json data/issue-121/exclusions.json
-          cp /tmp/issue-121/predictions/predictions.json data/issue-121/predictions/
-          cp /tmp/issue-121/predictions/predictions.csv data/issue-121/predictions/
-          cp /tmp/issue-121/predictions/SHA256SUMS data/issue-121/predictions/
-          python - <<'PY'
-          import json
-          import os
-          from pathlib import Path
-          lock = {
-              'baseline_commit': '2caeecc8678a4614f6fe6771df0ace6827a5f434',
-              'workflow_run_id': int(os.environ['RUN_ID']),
-              'workflow_head_sha': os.environ['HEAD_SHA'],
-              'annotations_present_when_locked': False,
-              'prediction_json_sha256': '028437d2203fb4d4bd417362618c7d55069dc40f177e28eb646eef8484ca19c1',
-              'prediction_csv_sha256': '64992a0bcfa02d168a629931b7a6337966fade69af051b6ffd3b027dceb95601',
-          }
-          Path('data/issue-121/predictions/PREDICTION_LOCK.json').write_text(
-              json.dumps(lock, indent=2, sort_keys=True) + '\n'
-          )
-          PY
-          git config user.name "github-actions[bot]"
-          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add scripts/acquire_issue_121.py tests/test_issue121_pipeline.py data/issue-121
-          git commit -m "data: lock JOSS issue 121 predictions"
-          git push origin HEAD:${{ github.head_ref || github.ref_name }}
+          test -f data/issue-121/predictions/PREDICTION_LOCK.json
+          diff -u \
+            data/issue-121/predictions/predictions.json \
+            /tmp/issue-121/predictions/predictions.json
+          test "$(sha256sum /tmp/issue-121/predictions/predictions.json | cut -d' ' -f1)" = \
+            "028437d2203fb4d4bd417362618c7d55069dc40f177e28eb646eef8484ca19c1"
       - name: Upload prediction-lock bundle
         uses: actions/upload-artifact@v4
         with:
