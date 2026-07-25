@@ -1,0 +1,9 @@
+{
+  "dataset": "data/processed/readme-blocks.json",
+  "mean_seconds": 0.0025374213950010473,
+  "median_seconds": 0.0023781214998734868,
+  "note": "Machine-specific exploratory measurement; excluded from deterministic result hash.",
+  "p95_seconds": 0.003171558999838453,
+  "peak_tracemalloc_bytes": 52309,
+  "repeats": 1000
+}

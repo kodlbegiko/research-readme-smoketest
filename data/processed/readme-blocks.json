@@ -1,0 +1,505 @@
+[
+  {
+    "blocks": [
+      {
+        "heading": "Getting Started / Installing from PyPI",
+        "language": "shell",
+        "text": "pip install mymesh[all]"
+      },
+      {
+        "heading": "Getting Started / Installing from source",
+        "language": "shell",
+        "placeholder_explained": true,
+        "text": "pip install <path>/mymesh"
+      }
+    ],
+    "doi": "10.21105/joss.10003",
+    "external_docs": true,
+    "host": "github",
+    "manual_hard_defects": [],
+    "manual_strict_ready": false,
+    "notes": "Root README has install commands but delegates usage to full documentation.",
+    "order": 1,
+    "path_index": {},
+    "readme_sha": "198a46ddc3c44faf509366d1685f0f261f338a4b",
+    "repository": "BU-SMBL/mymesh",
+    "title": "MyMesh"
+  },
+  {
+    "blocks": [
+      {
+        "heading": "Installation",
+        "language": "bash",
+        "text": "pip install finitewave"
+      },
+      {
+        "heading": "Other installation options",
+        "language": "bash",
+        "text": "python -m build\npip install dist/finitewave-<version>.whl"
+      },
+      {
+        "heading": "Quick start",
+        "language": "python",
+        "text": "import numpy as np\nimport matplotlib.pyplot as plt\nimport finitewave as fw\nn = 100\ntissue = fw.CardiacTissue([n, n])\nmodel = fw.AlievPanfilov()\nmodel.cardiac_tissue = tissue\nmodel.t_max = 1\nmodel.run()\nplt.imshow(model.u)\nplt.show()"
+      }
+    ],
+    "doi": "10.21105/joss.09310",
+    "external_docs": true,
+    "host": "github",
+    "manual_hard_defects": [],
+    "manual_strict_ready": true,
+    "notes": "A complete PyPI install and executable Python quick start are present.",
+    "order": 2,
+    "path_index": {},
+    "readme_sha": "3bfb38688f9cd693284ee70884884a2a95a89473",
+    "repository": "finitewave/Finitewave",
+    "title": "Finitewave"
+  },
+  {
+    "blocks": [
+      {
+        "heading": "Install",
+        "language": "bash",
+        "text": "npm install cgview"
+      },
+      {
+        "heading": "Usage",
+        "language": "js",
+        "text": "import * as CGView from 'cgview';\nimport 'cgview/dist/cgview.css';\n\ncgv = new CGView.Viewer('#my-viewer', {\n  height: 500,\n  width: 500,\n  sequence: { length: 1000 }\n});\ncgv.draw();"
+      }
+    ],
+    "doi": "10.21105/joss.09930",
+    "external_docs": true,
+    "host": "github",
+    "manual_hard_defects": [
+      "undeclared_module_assignment:cgv"
+    ],
+    "manual_strict_ready": false,
+    "notes": "The ES module example assigns cgv without const/let/var, which is a ReferenceError in module strict mode.",
+    "order": 3,
+    "path_index": {},
+    "readme_sha": "8b93ebd91962bab116eaec8097631e15c72445da",
+    "repository": "sciguy/cgview-js",
+    "title": "CGView.js"
+  },
+  {
+    "blocks": [
+      {
+        "heading": "Quick install",
+        "language": "bash",
+        "text": "mkdir build && cd build\ncmake ..\nmake -j 5"
+      },
+      {
+        "heading": "Optional test",
+        "language": "bash",
+        "text": "ctest"
+      }
+    ],
+    "doi": "10.21105/joss.10136",
+    "external_docs": true,
+    "host": "github",
+    "manual_hard_defects": [],
+    "manual_strict_ready": false,
+    "notes": "Build and regression-test steps exist, but no end-user first-use command appears in the root README.",
+    "order": 4,
+    "path_index": {},
+    "readme_sha": "2b33e9e241269d481d3ec84ff6d777d0be60a203",
+    "repository": "lstsgroup/vibrant",
+    "title": "Vibrant"
+  },
+  {
+    "blocks": [
+      {
+        "heading": "Getting started",
+        "language": "shell",
+        "text": "pip install nyaml"
+      }
+    ],
+    "doi": "10.21105/joss.10231",
+    "external_docs": true,
+    "host": "github",
+    "manual_hard_defects": [],
+    "manual_strict_ready": false,
+    "notes": "The CLI name is mentioned inline, but no concrete conversion command or input is provided.",
+    "order": 5,
+    "path_index": {},
+    "readme_sha": "639a2333a096a1b4f73ceba0903d3ba96e883d16",
+    "repository": "FAIRmat-NFDI/nyaml",
+    "title": "nyaml"
+  },
+  {
+    "blocks": [
+      {
+        "heading": "Python Installation",
+        "language": "bash",
+        "text": "pip install FAIRLinked"
+      },
+      {
+        "heading": "Quick Start / Serializing with RDFTableConversion.MDS_DF",
+        "language": "python",
+        "referenced_paths": [
+          "resources/worked-example-RDFTableConversion/microindentation/sa17455_00.csv"
+        ],
+        "text": "import pandas as pd\nfrom FAIRLinked import MatDatSciDf\nraw_df = pd.read_csv('resources/worked-example-RDFTableConversion/microindentation/sa17455_00.csv')\nmds_df = MatDatSciDf(df=raw_df, orcid='0000-0001-2345-6789', df_name='PMMA_Hardness_Test', metadata_rows=True)\nmds_df.view_metadata()"
+      },
+      {
+        "heading": "Quick Start / No metadata rows",
+        "language": "python",
+        "referenced_paths": [
+          "rresources/worked-example-RDFTableConversion.MDS_DF/pmma_no_metadata_rows.csv"
+        ],
+        "text": "import pandas as pd\nfrom FAIRLinked import MatDatSciDf\nraw_df = pd.read_csv('rresources/worked-example-RDFTableConversion.MDS_DF/pmma_no_metadata_rows.csv')\nmds_df = MatDatSciDf(df=raw_df, orcid='0000-0001-2345-6789', df_name='PMMA_Hardness_Test')\nmds_df.view_metadata()"
+      }
+    ],
+    "doi": "10.21105/joss.09628",
+    "external_docs": true,
+    "host": "github",
+    "manual_hard_defects": [
+      "missing_relative_path:rresources/worked-example-RDFTableConversion.MDS_DF/pmma_no_metadata_rows.csv"
+    ],
+    "manual_strict_ready": true,
+    "notes": "At least one valid root quick start exists, but a second example contains a confirmed rresources/resources typo.",
+    "order": 6,
+    "path_index": {
+      "resources/worked-example-RDFTableConversion/microindentation/sa17455_00.csv": true,
+      "rresources/worked-example-RDFTableConversion.MDS_DF/pmma_no_metadata_rows.csv": false
+    },
+    "readme_sha": "662519273a29f21af6cbdc6050296669cc424e71",
+    "repository": "cwru-sdle/FAIRLinked",
+    "title": "FAIRLinked"
+  },
+  {
+    "blocks": [],
+    "doi": "10.21105/joss.09633",
+    "external_docs": false,
+    "host": "gitlab",
+    "manual_hard_defects": [],
+    "manual_strict_ready": null,
+    "notes": "Excluded by the preregistered GitHub-only acquisition scope.",
+    "order": 7,
+    "path_index": {},
+    "readme_sha": null,
+    "repository": "gitlab.in2p3.fr/cosmologix",
+    "title": "Cosmologix"
+  },
+  {
+    "blocks": [],
+    "doi": "10.21105/joss.10278",
+    "external_docs": true,
+    "host": "github",
+    "manual_hard_defects": [],
+    "manual_strict_ready": false,
+    "notes": "The root README describes the project and links documentation but has no install or first-use block.",
+    "order": 8,
+    "path_index": {},
+    "readme_sha": "0e680a3c6771f64218065bf8840dd080b4e4d82d",
+    "repository": "fetpype/fetpype",
+    "title": "Fetpype"
+  },
+  {
+    "blocks": [
+      {
+        "heading": "Getting Started / Working with the monorepo",
+        "language": "bash",
+        "text": "git clone --recurse-submodules"
+      },
+      {
+        "heading": "Getting Started / Working with the monorepo",
+        "language": "bash",
+        "text": "cd liblsl.dart\nfvm dart pub get"
+      }
+    ],
+    "doi": "10.21105/joss.10425",
+    "external_docs": true,
+    "host": "github",
+    "manual_hard_defects": [
+      "missing_git_clone_target"
+    ],
+    "manual_strict_ready": false,
+    "notes": "The user-facing package README is nested; the root monorepo clone command omits its repository target.",
+    "order": 9,
+    "path_index": {},
+    "readme_sha": "5477c31b385c74151e1694d4633afb74e4f7c650",
+    "repository": "NexusDynamic/liblsl.dart",
+    "title": "Liblsl.dart"
+  },
+  {
+    "blocks": [
+      {
+        "heading": "Installation / Requirements",
+        "language": "shell",
+        "text": "sudo apt install libhdf5-dev openmpi-bin libopenmpi-dev\npip install cotengra kahypar optuna"
+      },
+      {
+        "heading": "Installation / Usage",
+        "language": "shell",
+        "text": "cargo add --git https://github.com/qc-tum/TNC.git --features cotengra tnc"
+      },
+      {
+        "heading": "Usage example",
+        "language": "shell",
+        "text": "cargo run --example local_contraction"
+      }
+    ],
+    "doi": "10.21105/joss.09598",
+    "external_docs": true,
+    "host": "github",
+    "manual_hard_defects": [],
+    "manual_strict_ready": true,
+    "notes": "The root README gives system prerequisites, a dependency command, and a concrete example command.",
+    "order": 10,
+    "path_index": {},
+    "readme_sha": "25d034c4fc2a213878d754800a985fe6a54acd15",
+    "repository": "qc-tum/TNC",
+    "title": "TNC"
+  },
+  {
+    "blocks": [
+      {
+        "heading": "Installation / Standard Installation",
+        "language": "bash",
+        "text": "pip install site-analysis"
+      },
+      {
+        "heading": "Quick Start",
+        "language": "python",
+        "referenced_paths": [
+          "example_data/XDATCAR"
+        ],
+        "text": "from site_analysis.builders import TrajectoryBuilder\nfrom pymatgen.io.vasp import Xdatcar\nxdatcar = Xdatcar('example_data/XDATCAR')\nmd_structures = xdatcar.structures\ntrajectory = TrajectoryBuilder().with_structure(md_structures[0]).with_mobile_species('Li').with_spherical_sites(centres=[[0.25, 0.25, 0.25]], radii=1.5).build()\ntrajectory.trajectory_from_structures(md_structures)\nprint(trajectory.atoms_trajectory)"
+      }
+    ],
+    "doi": "10.21105/joss.09606",
+    "external_docs": true,
+    "host": "github",
+    "manual_hard_defects": [],
+    "manual_strict_ready": true,
+    "notes": "The example input path was confirmed on the default branch.",
+    "order": 11,
+    "path_index": {
+      "example_data/XDATCAR": true
+    },
+    "readme_sha": "ddd38ec52b01e42fe1dfb877a12dbef4b248cb47",
+    "repository": "bjmorgan/site-analysis",
+    "title": "site-analysis"
+  },
+  {
+    "blocks": [
+      {
+        "heading": "Getting the python package",
+        "language": "bash",
+        "text": "pip install chemiscope"
+      },
+      {
+        "heading": "Getting and running the web app locally",
+        "language": "bash",
+        "text": "git clone https://github.com/lab-cosmo/chemiscope\ncd chemiscope\nnpm install\nnpm start"
+      }
+    ],
+    "doi": "10.21105/joss.10380",
+    "external_docs": true,
+    "host": "github",
+    "manual_hard_defects": [],
+    "manual_strict_ready": true,
+    "notes": "A complete local web-app route exists; the Python-package usage remains in external documentation.",
+    "order": 12,
+    "path_index": {},
+    "readme_sha": "4bac3af03075921a6898b9c483a5e4780e818860",
+    "repository": "lab-cosmo/chemiscope",
+    "title": "Chemiscope"
+  },
+  {
+    "blocks": [
+      {
+        "heading": "Getting started / Installation",
+        "language": "shell",
+        "text": "pip install scpviz"
+      }
+    ],
+    "doi": "10.21105/joss.10303",
+    "external_docs": true,
+    "host": "github",
+    "manual_hard_defects": [],
+    "manual_strict_ready": false,
+    "notes": "The quickstart is an external documentation link rather than a root-README command or code block.",
+    "order": 13,
+    "path_index": {},
+    "readme_sha": "5aba0d91464822456fa40cddc5b7c3a718a38ff2",
+    "repository": "gnaprs/scpviz",
+    "title": "scpviz"
+  },
+  {
+    "blocks": [
+      {
+        "heading": "Getting Started / User Installation",
+        "language": "shell",
+        "text": "python -m pip install scrollstats"
+      },
+      {
+        "heading": "Getting Started / User Installation",
+        "language": "shell",
+        "text": "conda install scrollstats"
+      }
+    ],
+    "doi": "10.21105/joss.09736",
+    "external_docs": true,
+    "host": "github",
+    "manual_hard_defects": [],
+    "manual_strict_ready": false,
+    "notes": "Workflow examples are linked in docs, but no root first-use command is present.",
+    "order": 14,
+    "path_index": {},
+    "readme_sha": "ec4fc84c06be0c6ae3a56b3df95452f59684abff",
+    "repository": "tamu-edu/scrollstats",
+    "title": "ScrollStats"
+  },
+  {
+    "blocks": [
+      {
+        "heading": "Installation",
+        "language": "shell",
+        "text": "pip install solshade"
+      }
+    ],
+    "doi": "10.21105/joss.09944",
+    "external_docs": true,
+    "host": "github",
+    "manual_hard_defects": [],
+    "manual_strict_ready": false,
+    "notes": "Getting-started examples are external links.",
+    "order": 15,
+    "path_index": {},
+    "readme_sha": "da2098f29e235c87ec969fa94e05c7b532c73bc6",
+    "repository": "amanchokshi/solshade",
+    "title": "Solshade"
+  },
+  {
+    "blocks": [
+      {
+        "heading": "Requirements and installation",
+        "language": "julia-pkg",
+        "text": "add TikhonovFenichelReductions"
+      },
+      {
+        "heading": "Unit tests",
+        "language": "shell",
+        "text": "julia --project=./test ./test/runtests.jl"
+      }
+    ],
+    "doi": "10.21105/joss.09924",
+    "external_docs": true,
+    "host": "github",
+    "manual_hard_defects": [],
+    "manual_strict_ready": false,
+    "notes": "Installation is documented for Julia package mode; the practical first-use example is external.",
+    "order": 16,
+    "path_index": {},
+    "readme_sha": "d4bff373b4b1e7b8fc561f44b81b18c7dc41dcd0",
+    "repository": "jo-ap/TikhonovFenichelReductions.jl",
+    "title": "TikhonovFenichelReductions.jl"
+  },
+  {
+    "blocks": [
+      {
+        "heading": "Quick Start / Install directly from PyPI",
+        "language": "bash",
+        "text": "pip install pangeo-fish"
+      },
+      {
+        "heading": "Quick Start / First-time users",
+        "language": "bash",
+        "referenced_paths": [
+          "docs/environment.yaml",
+          "notebooks/pangeo-fish.ipynb"
+        ],
+        "text": "git clone https://github.com/pangeo-fish/pangeo-fish.git\ncd pangeo-fish\nconda env create -n pangeo-fish -f docs/environment.yaml\nconda activate pangeo-fish\njupyter lab"
+      }
+    ],
+    "doi": "10.21105/joss.08332",
+    "external_docs": true,
+    "host": "github",
+    "manual_hard_defects": [],
+    "manual_strict_ready": true,
+    "notes": "The development route reaches a named tutorial notebook; the pip-only route does not explain a first use.",
+    "order": 17,
+    "path_index": {
+      "docs/environment.yaml": true,
+      "notebooks/pangeo-fish.ipynb": true
+    },
+    "readme_sha": "1054aefd07bc7096f57bb69c1de51d64168cfe93",
+    "repository": "pangeo-fish/pangeo-fish",
+    "title": "pangeo-fish"
+  },
+  {
+    "blocks": [],
+    "doi": "10.21105/joss.10490",
+    "external_docs": true,
+    "host": "github",
+    "manual_hard_defects": [],
+    "manual_strict_ready": false,
+    "notes": "The root README describes and links the external application/tutorial site but gives no install or first-use block.",
+    "order": 18,
+    "path_index": {},
+    "readme_sha": "8a259a8c746937d04f53d3f8bd4003687f9ad3cd",
+    "repository": "brainstorm-tools/brainstorm3",
+    "title": "sEEG-Suite / Brainstorm"
+  },
+  {
+    "blocks": [
+      {
+        "heading": "PAIpp / Build Instructions / Quick Start",
+        "language": "bash",
+        "placeholder_explained": true,
+        "text": "git clone https://github.com/NutritionalLungImmunity/PAI.git\ncd PAI/cpp\ncmake -S . -B build\ncmake --build build\n./build/PAIpp <num_neutrophils> <num_aspergillus> <num_macrophages> <num_pneumocytes>"
+      },
+      {
+        "heading": "Linux Requirements",
+        "language": "bash",
+        "text": "sudo apt get update\nsudo apt install g++\nsudo apt install cmake"
+      },
+      {
+        "heading": "Linux Example",
+        "language": "bash",
+        "text": "./build/PAIpp 15 1920 15 640"
+      }
+    ],
+    "doi": "10.21105/joss.10245",
+    "external_docs": false,
+    "host": "github",
+    "manual_hard_defects": [
+      "apt_get_typo"
+    ],
+    "manual_strict_ready": true,
+    "notes": "A concrete run example exists, while a separate Linux prerequisite block contains the confirmed apt get typo.",
+    "order": 19,
+    "path_index": {},
+    "readme_sha": "c2cd13d8d9b6320a19dd59c19a21ba93803ea3e6",
+    "repository": "NutritionalLungImmunity/PAI",
+    "title": "PAI"
+  },
+  {
+    "blocks": [
+      {
+        "heading": "Usage",
+        "language": "bash",
+        "text": "nextflow run ncezid-biome/stylo -r v1.5.1 -profile singularity --input samplesheet.csv --outdir <OUTDIR>"
+      },
+      {
+        "heading": "Testing stylo on your server",
+        "language": "bash",
+        "text": "nextflow run ncezid-biome/stylo -r v1.5.1 -profile test,singularity --outdir stylo_test/"
+      }
+    ],
+    "doi": "10.21105/joss.09695",
+    "external_docs": true,
+    "host": "github",
+    "manual_hard_defects": [],
+    "manual_strict_ready": false,
+    "notes": "The root README relies on external Nextflow setup instructions and the main usage command requires substitution.",
+    "order": 20,
+    "path_index": {},
+    "readme_sha": "9f8f080c48d00a56b831a64481b4cef0d8ad9bcc",
+    "repository": "ncezid-biome/stylo",
+    "title": "stylo"
+  }
+]

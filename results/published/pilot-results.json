@@ -1,0 +1,804 @@
+{
+  "results": [
+    {
+      "blocks": [
+        {
+          "defects": [],
+          "heading": "Getting Started / Installing from PyPI",
+          "language": "shell",
+          "roles": [
+            "install"
+          ],
+          "substitution_required": false
+        },
+        {
+          "defects": [],
+          "heading": "Getting Started / Installing from source",
+          "language": "shell",
+          "roles": [
+            "install"
+          ],
+          "substitution_required": false
+        }
+      ],
+      "doi": "10.21105/joss.10003",
+      "eligible": true,
+      "external_docs": true,
+      "first_use_safe": false,
+      "hard_defects": [],
+      "install_safe": true,
+      "manual_hard_defects": [],
+      "manual_strict_ready": false,
+      "naive_ready": false,
+      "notes": "Root README has install commands but delegates usage to full documentation.",
+      "order": 1,
+      "readme_sha": "198a46ddc3c44faf509366d1685f0f261f338a4b",
+      "relaxed_ready": true,
+      "repository": "BU-SMBL/mymesh",
+      "strict_ready": false,
+      "substitution_blocks": 0,
+      "title": "MyMesh"
+    },
+    {
+      "blocks": [
+        {
+          "defects": [],
+          "heading": "Installation",
+          "language": "bash",
+          "roles": [
+            "install"
+          ],
+          "substitution_required": false
+        },
+        {
+          "defects": [],
+          "heading": "Other installation options",
+          "language": "bash",
+          "roles": [
+            "install"
+          ],
+          "substitution_required": true
+        },
+        {
+          "defects": [],
+          "heading": "Quick start",
+          "language": "python",
+          "roles": [
+            "first_use"
+          ],
+          "substitution_required": false
+        }
+      ],
+      "doi": "10.21105/joss.09310",
+      "eligible": true,
+      "external_docs": true,
+      "first_use_safe": true,
+      "hard_defects": [],
+      "install_safe": true,
+      "manual_hard_defects": [],
+      "manual_strict_ready": true,
+      "naive_ready": true,
+      "notes": "A complete PyPI install and executable Python quick start are present.",
+      "order": 2,
+      "readme_sha": "3bfb38688f9cd693284ee70884884a2a95a89473",
+      "relaxed_ready": true,
+      "repository": "finitewave/Finitewave",
+      "strict_ready": true,
+      "substitution_blocks": 1,
+      "title": "Finitewave"
+    },
+    {
+      "blocks": [
+        {
+          "defects": [],
+          "heading": "Install",
+          "language": "bash",
+          "roles": [
+            "install"
+          ],
+          "substitution_required": false
+        },
+        {
+          "defects": [
+            "undeclared_module_assignment:cgv"
+          ],
+          "heading": "Usage",
+          "language": "js",
+          "roles": [
+            "first_use"
+          ],
+          "substitution_required": false
+        }
+      ],
+      "doi": "10.21105/joss.09930",
+      "eligible": true,
+      "external_docs": true,
+      "first_use_safe": false,
+      "hard_defects": [
+        "undeclared_module_assignment:cgv"
+      ],
+      "install_safe": true,
+      "manual_hard_defects": [
+        "undeclared_module_assignment:cgv"
+      ],
+      "manual_strict_ready": false,
+      "naive_ready": true,
+      "notes": "The ES module example assigns cgv without const/let/var, which is a ReferenceError in module strict mode.",
+      "order": 3,
+      "readme_sha": "8b93ebd91962bab116eaec8097631e15c72445da",
+      "relaxed_ready": true,
+      "repository": "sciguy/cgview-js",
+      "strict_ready": false,
+      "substitution_blocks": 0,
+      "title": "CGView.js"
+    },
+    {
+      "blocks": [
+        {
+          "defects": [],
+          "heading": "Quick install",
+          "language": "bash",
+          "roles": [
+            "install"
+          ],
+          "substitution_required": false
+        },
+        {
+          "defects": [],
+          "heading": "Optional test",
+          "language": "bash",
+          "roles": [
+            "test"
+          ],
+          "substitution_required": false
+        }
+      ],
+      "doi": "10.21105/joss.10136",
+      "eligible": true,
+      "external_docs": true,
+      "first_use_safe": false,
+      "hard_defects": [],
+      "install_safe": true,
+      "manual_hard_defects": [],
+      "manual_strict_ready": false,
+      "naive_ready": true,
+      "notes": "Build and regression-test steps exist, but no end-user first-use command appears in the root README.",
+      "order": 4,
+      "readme_sha": "2b33e9e241269d481d3ec84ff6d777d0be60a203",
+      "relaxed_ready": true,
+      "repository": "lstsgroup/vibrant",
+      "strict_ready": false,
+      "substitution_blocks": 0,
+      "title": "Vibrant"
+    },
+    {
+      "blocks": [
+        {
+          "defects": [],
+          "heading": "Getting started",
+          "language": "shell",
+          "roles": [
+            "install"
+          ],
+          "substitution_required": false
+        }
+      ],
+      "doi": "10.21105/joss.10231",
+      "eligible": true,
+      "external_docs": true,
+      "first_use_safe": false,
+      "hard_defects": [],
+      "install_safe": true,
+      "manual_hard_defects": [],
+      "manual_strict_ready": false,
+      "naive_ready": false,
+      "notes": "The CLI name is mentioned inline, but no concrete conversion command or input is provided.",
+      "order": 5,
+      "readme_sha": "639a2333a096a1b4f73ceba0903d3ba96e883d16",
+      "relaxed_ready": true,
+      "repository": "FAIRmat-NFDI/nyaml",
+      "strict_ready": false,
+      "substitution_blocks": 0,
+      "title": "nyaml"
+    },
+    {
+      "blocks": [
+        {
+          "defects": [],
+          "heading": "Python Installation",
+          "language": "bash",
+          "roles": [
+            "install"
+          ],
+          "substitution_required": false
+        },
+        {
+          "defects": [],
+          "heading": "Quick Start / Serializing with RDFTableConversion.MDS_DF",
+          "language": "python",
+          "roles": [
+            "first_use"
+          ],
+          "substitution_required": false
+        },
+        {
+          "defects": [
+            "missing_relative_path:rresources/worked-example-RDFTableConversion.MDS_DF/pmma_no_metadata_rows.csv"
+          ],
+          "heading": "Quick Start / No metadata rows",
+          "language": "python",
+          "roles": [
+            "first_use"
+          ],
+          "substitution_required": false
+        }
+      ],
+      "doi": "10.21105/joss.09628",
+      "eligible": true,
+      "external_docs": true,
+      "first_use_safe": true,
+      "hard_defects": [
+        "missing_relative_path:rresources/worked-example-RDFTableConversion.MDS_DF/pmma_no_metadata_rows.csv"
+      ],
+      "install_safe": true,
+      "manual_hard_defects": [
+        "missing_relative_path:rresources/worked-example-RDFTableConversion.MDS_DF/pmma_no_metadata_rows.csv"
+      ],
+      "manual_strict_ready": true,
+      "naive_ready": true,
+      "notes": "At least one valid root quick start exists, but a second example contains a confirmed rresources/resources typo.",
+      "order": 6,
+      "readme_sha": "662519273a29f21af6cbdc6050296669cc424e71",
+      "relaxed_ready": true,
+      "repository": "cwru-sdle/FAIRLinked",
+      "strict_ready": true,
+      "substitution_blocks": 0,
+      "title": "FAIRLinked"
+    },
+    {
+      "eligible": false,
+      "exclusion_reason": "non_github",
+      "order": 7,
+      "repository": "gitlab.in2p3.fr/cosmologix"
+    },
+    {
+      "blocks": [],
+      "doi": "10.21105/joss.10278",
+      "eligible": true,
+      "external_docs": true,
+      "first_use_safe": false,
+      "hard_defects": [],
+      "install_safe": false,
+      "manual_hard_defects": [],
+      "manual_strict_ready": false,
+      "naive_ready": false,
+      "notes": "The root README describes the project and links documentation but has no install or first-use block.",
+      "order": 8,
+      "readme_sha": "0e680a3c6771f64218065bf8840dd080b4e4d82d",
+      "relaxed_ready": true,
+      "repository": "fetpype/fetpype",
+      "strict_ready": false,
+      "substitution_blocks": 0,
+      "title": "Fetpype"
+    },
+    {
+      "blocks": [
+        {
+          "defects": [
+            "missing_git_clone_target"
+          ],
+          "heading": "Getting Started / Working with the monorepo",
+          "language": "bash",
+          "roles": [
+            "development",
+            "install"
+          ],
+          "substitution_required": false
+        },
+        {
+          "defects": [],
+          "heading": "Getting Started / Working with the monorepo",
+          "language": "bash",
+          "roles": [
+            "development"
+          ],
+          "substitution_required": false
+        }
+      ],
+      "doi": "10.21105/joss.10425",
+      "eligible": true,
+      "external_docs": true,
+      "first_use_safe": false,
+      "hard_defects": [
+        "missing_git_clone_target"
+      ],
+      "install_safe": false,
+      "manual_hard_defects": [
+        "missing_git_clone_target"
+      ],
+      "manual_strict_ready": false,
+      "naive_ready": true,
+      "notes": "The user-facing package README is nested; the root monorepo clone command omits its repository target.",
+      "order": 9,
+      "readme_sha": "5477c31b385c74151e1694d4633afb74e4f7c650",
+      "relaxed_ready": true,
+      "repository": "NexusDynamic/liblsl.dart",
+      "strict_ready": false,
+      "substitution_blocks": 0,
+      "title": "Liblsl.dart"
+    },
+    {
+      "blocks": [
+        {
+          "defects": [],
+          "heading": "Installation / Requirements",
+          "language": "shell",
+          "roles": [
+            "install"
+          ],
+          "substitution_required": false
+        },
+        {
+          "defects": [],
+          "heading": "Installation / Usage",
+          "language": "shell",
+          "roles": [
+            "install"
+          ],
+          "substitution_required": false
+        },
+        {
+          "defects": [],
+          "heading": "Usage example",
+          "language": "shell",
+          "roles": [
+            "first_use"
+          ],
+          "substitution_required": false
+        }
+      ],
+      "doi": "10.21105/joss.09598",
+      "eligible": true,
+      "external_docs": true,
+      "first_use_safe": true,
+      "hard_defects": [],
+      "install_safe": true,
+      "manual_hard_defects": [],
+      "manual_strict_ready": true,
+      "naive_ready": true,
+      "notes": "The root README gives system prerequisites, a dependency command, and a concrete example command.",
+      "order": 10,
+      "readme_sha": "25d034c4fc2a213878d754800a985fe6a54acd15",
+      "relaxed_ready": true,
+      "repository": "qc-tum/TNC",
+      "strict_ready": true,
+      "substitution_blocks": 0,
+      "title": "TNC"
+    },
+    {
+      "blocks": [
+        {
+          "defects": [],
+          "heading": "Installation / Standard Installation",
+          "language": "bash",
+          "roles": [
+            "install"
+          ],
+          "substitution_required": false
+        },
+        {
+          "defects": [],
+          "heading": "Quick Start",
+          "language": "python",
+          "roles": [
+            "first_use"
+          ],
+          "substitution_required": false
+        }
+      ],
+      "doi": "10.21105/joss.09606",
+      "eligible": true,
+      "external_docs": true,
+      "first_use_safe": true,
+      "hard_defects": [],
+      "install_safe": true,
+      "manual_hard_defects": [],
+      "manual_strict_ready": true,
+      "naive_ready": true,
+      "notes": "The example input path was confirmed on the default branch.",
+      "order": 11,
+      "readme_sha": "ddd38ec52b01e42fe1dfb877a12dbef4b248cb47",
+      "relaxed_ready": true,
+      "repository": "bjmorgan/site-analysis",
+      "strict_ready": true,
+      "substitution_blocks": 0,
+      "title": "site-analysis"
+    },
+    {
+      "blocks": [
+        {
+          "defects": [],
+          "heading": "Getting the python package",
+          "language": "bash",
+          "roles": [
+            "install"
+          ],
+          "substitution_required": false
+        },
+        {
+          "defects": [],
+          "heading": "Getting and running the web app locally",
+          "language": "bash",
+          "roles": [
+            "first_use",
+            "install"
+          ],
+          "substitution_required": false
+        }
+      ],
+      "doi": "10.21105/joss.10380",
+      "eligible": true,
+      "external_docs": true,
+      "first_use_safe": true,
+      "hard_defects": [],
+      "install_safe": true,
+      "manual_hard_defects": [],
+      "manual_strict_ready": true,
+      "naive_ready": true,
+      "notes": "A complete local web-app route exists; the Python-package usage remains in external documentation.",
+      "order": 12,
+      "readme_sha": "4bac3af03075921a6898b9c483a5e4780e818860",
+      "relaxed_ready": true,
+      "repository": "lab-cosmo/chemiscope",
+      "strict_ready": true,
+      "substitution_blocks": 0,
+      "title": "Chemiscope"
+    },
+    {
+      "blocks": [
+        {
+          "defects": [],
+          "heading": "Getting started / Installation",
+          "language": "shell",
+          "roles": [
+            "install"
+          ],
+          "substitution_required": false
+        }
+      ],
+      "doi": "10.21105/joss.10303",
+      "eligible": true,
+      "external_docs": true,
+      "first_use_safe": false,
+      "hard_defects": [],
+      "install_safe": true,
+      "manual_hard_defects": [],
+      "manual_strict_ready": false,
+      "naive_ready": false,
+      "notes": "The quickstart is an external documentation link rather than a root-README command or code block.",
+      "order": 13,
+      "readme_sha": "5aba0d91464822456fa40cddc5b7c3a718a38ff2",
+      "relaxed_ready": true,
+      "repository": "gnaprs/scpviz",
+      "strict_ready": false,
+      "substitution_blocks": 0,
+      "title": "scpviz"
+    },
+    {
+      "blocks": [
+        {
+          "defects": [],
+          "heading": "Getting Started / User Installation",
+          "language": "shell",
+          "roles": [
+            "install"
+          ],
+          "substitution_required": false
+        },
+        {
+          "defects": [],
+          "heading": "Getting Started / User Installation",
+          "language": "shell",
+          "roles": [
+            "install"
+          ],
+          "substitution_required": false
+        }
+      ],
+      "doi": "10.21105/joss.09736",
+      "eligible": true,
+      "external_docs": true,
+      "first_use_safe": false,
+      "hard_defects": [],
+      "install_safe": true,
+      "manual_hard_defects": [],
+      "manual_strict_ready": false,
+      "naive_ready": false,
+      "notes": "Workflow examples are linked in docs, but no root first-use command is present.",
+      "order": 14,
+      "readme_sha": "ec4fc84c06be0c6ae3a56b3df95452f59684abff",
+      "relaxed_ready": true,
+      "repository": "tamu-edu/scrollstats",
+      "strict_ready": false,
+      "substitution_blocks": 0,
+      "title": "ScrollStats"
+    },
+    {
+      "blocks": [
+        {
+          "defects": [],
+          "heading": "Installation",
+          "language": "shell",
+          "roles": [
+            "install"
+          ],
+          "substitution_required": false
+        }
+      ],
+      "doi": "10.21105/joss.09944",
+      "eligible": true,
+      "external_docs": true,
+      "first_use_safe": false,
+      "hard_defects": [],
+      "install_safe": true,
+      "manual_hard_defects": [],
+      "manual_strict_ready": false,
+      "naive_ready": false,
+      "notes": "Getting-started examples are external links.",
+      "order": 15,
+      "readme_sha": "da2098f29e235c87ec969fa94e05c7b532c73bc6",
+      "relaxed_ready": true,
+      "repository": "amanchokshi/solshade",
+      "strict_ready": false,
+      "substitution_blocks": 0,
+      "title": "Solshade"
+    },
+    {
+      "blocks": [
+        {
+          "defects": [],
+          "heading": "Requirements and installation",
+          "language": "julia-pkg",
+          "roles": [
+            "install"
+          ],
+          "substitution_required": false
+        },
+        {
+          "defects": [],
+          "heading": "Unit tests",
+          "language": "shell",
+          "roles": [
+            "test"
+          ],
+          "substitution_required": false
+        }
+      ],
+      "doi": "10.21105/joss.09924",
+      "eligible": true,
+      "external_docs": true,
+      "first_use_safe": false,
+      "hard_defects": [],
+      "install_safe": true,
+      "manual_hard_defects": [],
+      "manual_strict_ready": false,
+      "naive_ready": true,
+      "notes": "Installation is documented for Julia package mode; the practical first-use example is external.",
+      "order": 16,
+      "readme_sha": "d4bff373b4b1e7b8fc561f44b81b18c7dc41dcd0",
+      "relaxed_ready": true,
+      "repository": "jo-ap/TikhonovFenichelReductions.jl",
+      "strict_ready": false,
+      "substitution_blocks": 0,
+      "title": "TikhonovFenichelReductions.jl"
+    },
+    {
+      "blocks": [
+        {
+          "defects": [],
+          "heading": "Quick Start / Install directly from PyPI",
+          "language": "bash",
+          "roles": [
+            "install"
+          ],
+          "substitution_required": false
+        },
+        {
+          "defects": [],
+          "heading": "Quick Start / First-time users",
+          "language": "bash",
+          "roles": [
+            "first_use",
+            "install"
+          ],
+          "substitution_required": false
+        }
+      ],
+      "doi": "10.21105/joss.08332",
+      "eligible": true,
+      "external_docs": true,
+      "first_use_safe": true,
+      "hard_defects": [],
+      "install_safe": true,
+      "manual_hard_defects": [],
+      "manual_strict_ready": true,
+      "naive_ready": true,
+      "notes": "The development route reaches a named tutorial notebook; the pip-only route does not explain a first use.",
+      "order": 17,
+      "readme_sha": "1054aefd07bc7096f57bb69c1de51d64168cfe93",
+      "relaxed_ready": true,
+      "repository": "pangeo-fish/pangeo-fish",
+      "strict_ready": true,
+      "substitution_blocks": 0,
+      "title": "pangeo-fish"
+    },
+    {
+      "blocks": [],
+      "doi": "10.21105/joss.10490",
+      "eligible": true,
+      "external_docs": true,
+      "first_use_safe": false,
+      "hard_defects": [],
+      "install_safe": false,
+      "manual_hard_defects": [],
+      "manual_strict_ready": false,
+      "naive_ready": false,
+      "notes": "The root README describes and links the external application/tutorial site but gives no install or first-use block.",
+      "order": 18,
+      "readme_sha": "8a259a8c746937d04f53d3f8bd4003687f9ad3cd",
+      "relaxed_ready": true,
+      "repository": "brainstorm-tools/brainstorm3",
+      "strict_ready": false,
+      "substitution_blocks": 0,
+      "title": "sEEG-Suite / Brainstorm"
+    },
+    {
+      "blocks": [
+        {
+          "defects": [],
+          "heading": "PAIpp / Build Instructions / Quick Start",
+          "language": "bash",
+          "roles": [
+            "first_use",
+            "install"
+          ],
+          "substitution_required": false
+        },
+        {
+          "defects": [
+            "apt_get_typo"
+          ],
+          "heading": "Linux Requirements",
+          "language": "bash",
+          "roles": [
+            "other"
+          ],
+          "substitution_required": false
+        },
+        {
+          "defects": [],
+          "heading": "Linux Example",
+          "language": "bash",
+          "roles": [
+            "first_use"
+          ],
+          "substitution_required": false
+        }
+      ],
+      "doi": "10.21105/joss.10245",
+      "eligible": true,
+      "external_docs": false,
+      "first_use_safe": true,
+      "hard_defects": [
+        "apt_get_typo"
+      ],
+      "install_safe": true,
+      "manual_hard_defects": [
+        "apt_get_typo"
+      ],
+      "manual_strict_ready": true,
+      "naive_ready": true,
+      "notes": "A concrete run example exists, while a separate Linux prerequisite block contains the confirmed apt get typo.",
+      "order": 19,
+      "readme_sha": "c2cd13d8d9b6320a19dd59c19a21ba93803ea3e6",
+      "relaxed_ready": true,
+      "repository": "NutritionalLungImmunity/PAI",
+      "strict_ready": true,
+      "substitution_blocks": 0,
+      "title": "PAI"
+    },
+    {
+      "blocks": [
+        {
+          "defects": [],
+          "heading": "Usage",
+          "language": "bash",
+          "roles": [
+            "first_use"
+          ],
+          "substitution_required": true
+        },
+        {
+          "defects": [],
+          "heading": "Testing stylo on your server",
+          "language": "bash",
+          "roles": [
+            "first_use",
+            "test"
+          ],
+          "substitution_required": false
+        }
+      ],
+      "doi": "10.21105/joss.09695",
+      "eligible": true,
+      "external_docs": true,
+      "first_use_safe": true,
+      "hard_defects": [],
+      "install_safe": false,
+      "manual_hard_defects": [],
+      "manual_strict_ready": false,
+      "naive_ready": false,
+      "notes": "The root README relies on external Nextflow setup instructions and the main usage command requires substitution.",
+      "order": 20,
+      "readme_sha": "9f8f080c48d00a56b831a64481b4cef0d8ad9bcc",
+      "relaxed_ready": true,
+      "repository": "ncezid-biome/stylo",
+      "strict_ready": false,
+      "substitution_blocks": 1,
+      "title": "stylo"
+    }
+  ],
+  "schema_version": "1.0",
+  "study_id": "joss-122-root-readme-pilot",
+  "summary": {
+    "eligible_github_repositories": 19,
+    "hard_defect_metrics": {
+      "fn": 0,
+      "fp": 0,
+      "precision": 1.0,
+      "recall": 1.0,
+      "tp": 4
+    },
+    "hard_defect_repo_rate": 0.21052631578947367,
+    "hard_defect_repo_wilson_95": [
+      0.08507676632916253,
+      0.43334278443814167
+    ],
+    "naive_confusion": {
+      "fn": 0,
+      "fp": 4,
+      "tn": 8,
+      "tp": 7
+    },
+    "naive_metrics": {
+      "accuracy": 0.7894736842105263,
+      "f1": 0.7777777777777778,
+      "precision": 0.6363636363636364,
+      "recall": 1.0,
+      "specificity": 0.6666666666666666
+    },
+    "proposed_confusion": {
+      "fn": 0,
+      "fp": 0,
+      "tn": 12,
+      "tp": 7
+    },
+    "proposed_metrics": {
+      "accuracy": 1.0,
+      "f1": 1.0,
+      "precision": 1.0,
+      "recall": 1.0,
+      "specificity": 1.0
+    },
+    "relaxed_ready_count": 19,
+    "relaxed_ready_rate": 1.0,
+    "repositories_with_hard_defects": 4,
+    "sample_total": 20,
+    "strict_ready_count": 7,
+    "strict_ready_rate": 0.3684210526315789,
+    "strict_ready_wilson_95": [
+      0.19149512745135075,
+      0.5896046683519692
+    ]
+  }
+}
