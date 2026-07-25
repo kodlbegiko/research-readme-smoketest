@@ -5,7 +5,6 @@ import json
 from pathlib import Path
 
 import pytest
-
 from readme_smoketest.cli import deterministic_payload, load_records, main, run
 
 
@@ -75,7 +74,13 @@ def test_main_missing_dataset_returns_two(
     tmp_path: Path, capsys: pytest.CaptureFixture[str]
 ) -> None:
     code = main(
-        ["pilot", "--dataset", str(tmp_path / "missing.json"), "--output-dir", str(tmp_path)]
+        [
+            "pilot",
+            "--dataset",
+            str(tmp_path / "missing.json"),
+            "--output-dir",
+            str(tmp_path),
+        ]
     )
     assert code == 2
     assert "error:" in capsys.readouterr().out
