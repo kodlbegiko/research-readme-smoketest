@@ -15,7 +15,7 @@ class Block:
     placeholder_explained: bool = False
 
     @classmethod
-    def from_dict(cls, value: dict[str, Any]) -> "Block":
+    def from_dict(cls, value: dict[str, Any]) -> Block:
         return cls(
             heading=str(value.get("heading", "")),
             language=str(value.get("language", "")),
@@ -41,7 +41,7 @@ class Record:
     notes: str
 
     @classmethod
-    def from_dict(cls, value: dict[str, Any]) -> "Record":
+    def from_dict(cls, value: dict[str, Any]) -> Record:
         manual = value.get("manual_strict_ready")
         return cls(
             order=int(value["order"]),
