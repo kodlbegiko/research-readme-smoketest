@@ -2,7 +2,7 @@ name: CI
 
 on:
   push:
-    branches: [main, "research/**"]
+    branches: [main]
   pull_request:
 
 permissions:
@@ -24,80 +24,27 @@ jobs:
       - name: Install
         run: python -m pip install -e ".[dev]"
       - name: Lint
-        id: lint
-        continue-on-error: true
-        shell: bash
-        run: |
-          ruff check . 2>&1 | tee /tmp/ruff.txt
-          exit ${PIPESTATUS[0]}
+        run: ruff check .
       - name: Format check
-        id: format
-        continue-on-error: true
-        shell: bash
-        run: |
-          ruff format --check . 2>&1 | tee /tmp/format.txt
-          exit ${PIPESTATUS[0]}
+        run: ruff format --check .
       - name: Type check
-        id: typecheck
-        continue-on-error: true
-        shell: bash
-        run: |
-          mypy src 2>&1 | tee /tmp/mypy.txt
-          exit ${PIPESTATUS[0]}
+        run: mypy src
       - name: Test
-        id: test
-        continue-on-error: true
-        shell: bash
-        run: |
-          pytest 2>&1 | tee /tmp/pytest.txt
-          exit ${PIPESTATUS[0]}
+        run: pytest
       - name: Coverage
-        id: coverage
-        continue-on-error: true
-        shell: bash
-        run: |
-          pytest --cov --cov-report=term-missing --cov-fail-under=90 2>&1 | tee /tmp/coverage.txt
-          exit ${PIPESTATUS[0]}
+        run: pytest --cov --cov-report=term-missing --cov-fail-under=90
       - name: Build distributions
-        id: build
-        continue-on-error: true
-        shell: bash
-        run: |
-          python -m build 2>&1 | tee /tmp/build.txt
-          exit ${PIPESTATUS[0]}
+        run: python -m build
       - name: Reproduce published result
-        id: reproduce
-        continue-on-error: true
-        shell: bash
         run: |
-          set -o pipefail
-          {
-            PYTHONHASHSEED=0 readme-smoketest pilot --output-dir /tmp/readme-a
-            PYTHONHASHSEED=321 readme-smoketest pilot --output-dir /tmp/readme-b
-            diff -u /tmp/readme-a/pilot-results.json /tmp/readme-b/pilot-results.json
-            diff -u /tmp/readme-a/pilot-results.csv /tmp/readme-b/pilot-results.csv
-            test "$(sha256sum /tmp/readme-a/pilot-results.json | cut -d' ' -f1)" = "531f145706238996c499746bdb46c9f4d281221828b4f07691c68782ca2f80f8"
-          } 2>&1 | tee /tmp/reproduce.txt
-      - name: Upload diagnostics
-        if: always()
-        uses: actions/upload-artifact@v4
-        with:
-          name: quality-diagnostics-${{ matrix.python-version }}
-          path: /tmp/*.txt
+          PYTHONHASHSEED=0 readme-smoketest pilot --output-dir /tmp/readme-a
+          PYTHONHASHSEED=321 readme-smoketest pilot --output-dir /tmp/readme-b
+          diff -u /tmp/readme-a/pilot-results.json /tmp/readme-b/pilot-results.json
+          diff -u /tmp/readme-a/pilot-results.csv /tmp/readme-b/pilot-results.csv
+          test "$(sha256sum /tmp/readme-a/pilot-results.json | cut -d' ' -f1)" = "531f145706238996c499746bdb46c9f4d281221828b4f07691c68782ca2f80f8"
       - name: Upload reproduced outputs
-        if: matrix.python-version == '3.13' && steps.reproduce.outcome == 'success'
+        if: matrix.python-version == '3.13'
         uses: actions/upload-artifact@v4
         with:
           name: reproduced-results
           path: /tmp/readme-a/
-      - name: Enforce quality gate
-        if: always()
-        shell: bash
-        run: |
-          test "${{ steps.lint.outcome }}" = success
-          test "${{ steps.format.outcome }}" = success
-          test "${{ steps.typecheck.outcome }}" = success
-          test "${{ steps.test.outcome }}" = success
-          test "${{ steps.coverage.outcome }}" = success
-          test "${{ steps.build.outcome }}" = success
-          test "${{ steps.reproduce.outcome }}" = success
