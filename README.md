@@ -1,72 +1,95 @@
 # Research README Smoketest
 
-## Research question
+> **Research status:** negative external-validation result  
+> **Productization:** not supported  
+> **GitHub Action:** not planned  
+> **Repository role:** reproducible research archive and independent-replication entry point
 
-In the first 20 papers of **JOSS issue 122 (June 2026)**, how many linked GitHub research-software repositories provide a copyable root-README path from installation/build to first meaningful use, and can a conservative static preflight find unambiguous defects without calling every missing example an error?
+The frozen v0.1.0 detector should **not** be adopted as a general README checker. Its preregistered issue-121 external validation failed the required accuracy and hard-finding precision gates, and its static findings did not predict observed first-use blockers.
 
-## Why it matters
+## Final decisions
 
-A root README is often the first operational interface between research software and a new user. Broken commands, missing local files, or installation-only instructions create avoidable friction before scientific functionality can even be evaluated. This project measures a narrow, testable part of that problem; it does **not** equate root-README incompleteness with an unusable project.
+| Decision | Verdict |
+|---|---|
+| Detector out-of-sample validity | `NOT SUPPORTED` |
+| Static findings' predictive value for first-use friction | `NOT SUPPORTED` |
+| Maintainer intervention actual value | `INCONCLUSIVE` |
+| Overall productization | `NOT SUPPORTED` |
 
-## Pilot design
+There will be no GitHub Action v0.2 and no retuning on JOSS issue 121. A future detector can only be evaluated in a new preregistered study with a newly frozen version, new out-of-sample data, independent human reference annotation, and preserved raw evidence.
 
-- fixed sample: first 20 papers in official JOSS issue-122 order;
-- 19 GitHub repositories eligible; one GitLab repository excluded under the frozen protocol;
-- manual labels for strict root-README readiness and four high-confidence defect families;
-- naive baseline versus a conservative standard-library preflight;
-- strict sensitivity: root README contains a safe install path and safe first-use path;
-- relaxed sensitivity: strict-ready **or** explicit external documentation/tutorial route;
-- preregistered H1 threshold: strict-ready below 70%, at least 15 eligible cases, and 95% Wilson upper bound below 70%.
+## Start here
 
-## Main result
+- [`EXTERNAL-VALIDATION.md`](EXTERNAL-VALIDATION.md) — complete negative-result closeout
+- [`REPLICATION.md`](REPLICATION.md) — independent replication entry point
+- [`PUBLIC-INTEREST.md`](PUBLIC-INTEREST.md) — evidence ladder and current zero-impact baseline
+- [`docs/public-summary.md`](docs/public-summary.md) — plain-language English summary
+- [`docs/archival-plan.md`](docs/archival-plan.md) — long-term preservation and DOI status
+- [`results/issue-121/dynamic-validation-results.json`](results/issue-121/dynamic-validation-results.json) — machine-readable dynamic result
+- [`results/issue-121/DYNAMIC-FINAL-SHA256SUMS`](results/issue-121/DYNAMIC-FINAL-SHA256SUMS) — final evidence checksums
 
-**SUPPORTED within the documented pilot scope.**
+## External-validation result
 
-| Result | Value |
+JOSS issue 121 contained 39 papers. Thirty-eight linked GitHub repositories were eligible and one GitLab repository was excluded under the preregistered rule.
+
+| Static result | Value |
 |---|---:|
-| Strict root-README ready | 7 / 19 (36.8%) |
-| 95% Wilson interval | 19.1%–59.0% |
-| Relaxed-ready with external docs accepted | 19 / 19 (100%) |
-| Repositories with a high-confidence hard defect | 4 / 19 (21.1%) |
-| Naive baseline false positives | 4 |
-| Conservative preflight fit on development sample | 0 FP, 0 FN |
+| Detector strict-ready | 7 / 38 |
+| Human reference strict-ready | 24 / 38 |
+| TP / FP / TN / FN | 7 / 0 / 14 / 17 |
+| Precision | 1.000 |
+| Recall | 0.292 |
+| Specificity | 1.000 |
+| Accuracy | 0.553 |
+| F1 | 0.452 |
+| Preregistered accuracy gate | 0.750 |
 
-The 100% relaxed result is the most important restraint: most strict failures reflect documentation placement, not proven project unusability. The four concrete hard-defect cases were an incomplete `git clone`, a verified missing relative path, `apt get`, and an undeclared assignment in an ES-module example.
+High precision did not compensate for missing 17 of 24 reference-ready repositories. The three predicted sklearn-migrator hard findings were false positives and were marked `DISPROVED` after a documented correction rerun.
 
-## Reproduce in one command
+## Dynamic validation
 
-```bash
-python -m pip install -e . && PYTHONHASHSEED=0 readme-smoketest pilot --output-dir reproduced-results
-```
+Ten cases were locked before execution. The original attempts remain unchanged.
 
-Expected SHA-256 for `reproduced-results/pilot-results.json`:
+Raw results:
 
 ```text
-531f145706238996c499746bdb46c9f4d281221828b4f07691c68782ca2f80f8
+SUCCESS: 4
+FAILURE: 5
+UNTESTABLE_HERE: 1
 ```
 
-## Limitations
+Final adjudication:
 
-This is an exploratory pilot, not a population prevalence estimate. It covers one JOSS issue, uses current root READMEs rather than publication-time tags, develops and evaluates rules on the same small sample, has one annotator, and does not execute heterogeneous scientific stacks. Read `RESEARCH.md` and `docs/red-team.md` before reusing the headline numbers.
-
-## CLI
-
-Run the frozen benchmark:
-
-```bash
-readme-smoketest pilot --output-dir results/reproduced
+```text
+SUCCESS: 6
+SUCCESS_WITH_FRICTION: 2
+FAILURE_DEPENDENCY_COMPATIBILITY: 1
+UNTESTABLE_HERE: 1
+FAILURE_README_BLOCKER: 0
+FAILURE_OTHER: 0
 ```
 
-Exit codes:
+Eight of nine testable cases completed the first meaningful task. None of the three predicted hard findings became a blocker. Adjudication separated harness errors, dependency compatibility, optional components, and official external-document delegation from direct README defects.
 
-| Code | Meaning |
-|---:|---|
-| 0 | analysis completed and outputs written |
-| 2 | invalid input, unreadable dataset, or CLI error |
+The ten-case sample was feasibility-selected and does not support population inference.
 
-The CLI intentionally does not claim arbitrary README code is executable. It checks the frozen extracted blocks for conservative roles, unexplained substitutions, and four high-confidence defect types.
+## Research-integrity controls
 
-## Full validation
+The repository preserves:
+
+- detector and protocol freeze before reference annotation;
+- prediction files and a verified prediction lock;
+- immutable commit pinning for future acquisition and path checks;
+- raw dynamic attempts separate from adjudications and corrections;
+- process-group termination for timed commands;
+- explicit component and blocker classification;
+- read-only PR validation workflows;
+- final SHA-256 manifests;
+- deterministic result checks under different `PYTHONHASHSEED` values.
+
+Historical issue-121 acquisition preserved README blob SHAs but did not cryptographically pin every cross-request path check to one repository commit. Future acquisition is hardened; frozen historical outputs are not rewritten.
+
+## Reproduce
 
 ```bash
 python -m pip install -e ".[dev]"
@@ -76,31 +99,60 @@ mypy src
 pytest
 pytest --cov
 python -m build
-PYTHONHASHSEED=0 readme-smoketest pilot --output-dir /tmp/a
-PYTHONHASHSEED=321 readme-smoketest pilot --output-dir /tmp/b
-diff -u /tmp/a/pilot-results.json /tmp/b/pilot-results.json
-diff -u /tmp/a/pilot-results.csv /tmp/b/pilot-results.csv
+sha256sum -c results/issue-121/DYNAMIC-FINAL-SHA256SUMS
 ```
 
-Validated on Python 3.11 and 3.13: 65 tests passed, measured branch coverage 97.62%, distributions built, and both deterministic reproduction checks matched the published hashes.
+See `REPLICATION.md` for frozen static reproduction, dynamic-evidence review, and requirements for a genuinely new out-of-sample study.
+
+## Public-interest status
+
+At closeout:
+
+```text
+independent reproductions: 0
+independent human re-annotations: 0
+external citations: 0
+accepted upstream corrections: 0
+measured user-benefit outcomes: 0
+```
+
+Internal CI, GitHub activity, issue submission, downloads, and AI-generated review are not counted as external impact.
+
+## Historical pilot
+
+The repository began with an exploratory pilot on the first 20 papers in JOSS issue 122. That development-sample result appeared favorable but was not an out-of-sample validation. The issue-121 study was intentionally designed to test whether the detector generalized; it did not meet the required gates.
+
+The frozen pilot remains reproducible for research history:
+
+```bash
+PYTHONHASHSEED=0 readme-smoketest pilot --output-dir reproduced-results
+```
+
+Expected SHA-256 for `reproduced-results/pilot-results.json`:
+
+```text
+531f145706238996c499746bdb46c9f4d281221828b4f07691c68782ca2f80f8
+```
+
+Do not use the pilot headline as evidence that the detector is generally valid.
 
 ## Repository map
 
-- `RESEARCH.md` — complete report
-- `research-manifest.yml` — sources, hashes, commands, metrics, environment, limitations
-- `docs/methodology-preregistered.md` — hypotheses, definitions, baseline, stopping rule
-- `docs/candidate-selection.md` and `docs/candidates.json` — 21 assessed candidate questions
-- `docs/red-team.md` — twelve adversarial critiques and revised conclusion
-- `data/raw/` — frozen source records
-- `data/processed/` — extracted blocks and manual labels
-- `results/published/` — JSON, CSV, hashes, and secondary performance observation
-- `src/` — dependency-free checker and CLI
-- `tests/` — 65 classification, defect, metric, CLI, and end-to-end tests
+- `data/issue-121/` — frozen acquisition, predictions, annotations, dynamic locks, raw attempts, and adjudications
+- `results/issue-121/` — static and dynamic machine-readable results and checksums
+- `results/interventions/` — maintainer-intervention decisions and evidence
+- `results/public-interest/` — external outcome log, initially all zero
+- `docs/independent-replication-protocol.md` — new-study protocol
+- `docs/replication-result-schema.json` — machine-readable submission schema
+- `docs/outreach/` — non-promotional dissemination drafts
+- `src/` and `tests/` — frozen detector implementation and integrity tests
 
-## Data and ethics
+## License, conduct, and citation
 
-The study uses public repository metadata and short command/example fragments. It stores no intentional personal data and does not redistribute full third-party READMEs. Findings are documentation observations, not security vulnerabilities or judgments about scientific merit.
+Original code, labels, and documentation are MIT licensed. Third-party repository content remains under its original license.
 
-## License and citation
+- Citation: [`CITATION.cff`](CITATION.cff)
+- Contributions: [`CONTRIBUTING.md`](CONTRIBUTING.md)
+- Conduct: [`CODE_OF_CONDUCT.md`](CODE_OF_CONDUCT.md)
 
-Original code, labels, and documentation are MIT licensed. Third-party repository content remains under its original license. Cite this pilot using `CITATION.cff`.
+The permanent DOI and research release are not yet created. Exact manual owner actions are documented in `docs/owner-actions-release-and-archive.md`.
