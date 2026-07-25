@@ -6,6 +6,9 @@ title: >-
   Research README Smoketest: Issue 121 External Validation — Negative Research
   Closeout
 type: software
+version: research-closeout-issue-121
+date-released: '2026-07-26'
+commit: 4dfb0b961470974f9dc80a936db86450303d007a
 authors:
   - family-names: Liu
     given-names: Sean
