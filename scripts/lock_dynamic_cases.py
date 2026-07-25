@@ -265,7 +265,8 @@ CASES: list[dict[str, Any]] = [
         ],
         "predeclared_task": (
             "Follow the root README's documentation/example delegation, compile a minimal "
-            "Boost.Geometry polygon-area program against the cloned header-only library, and run it."
+            "Boost.Geometry polygon-area program against the cloned header-only "
+            "library, and run it."
         ),
         "success_criterion": (
             "C++14 compilation exits 0 and the executable reports polygon area 1 within numeric "
