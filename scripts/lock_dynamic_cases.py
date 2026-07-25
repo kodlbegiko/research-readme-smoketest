@@ -330,13 +330,15 @@ def build_manifest() -> dict[str, Any]:
         "selected_count": len(CASES),
         "cases": CASES,
         "interpretation_rules": {
-            "success": "Predeclared task and observable success criterion both met within cap.",
+            "success": ("Predeclared task and observable success criterion both met within cap."),
             "failure": (
-                "Safe execution completed but the criterion was not met because of documented-path, "
+                "Safe execution completed but the criterion was not met because "
+                "of documented-path, "
                 "compatibility, dependency, or runtime failure."
             ),
             "untestable_here": (
-                "Safety, platform, restricted-data, GPU/HPC, or resource constraints prevent a "
+                "Safety, platform, restricted-data, GPU/HPC, or resource "
+                "constraints prevent a "
                 "valid attempt; not counted as project failure."
             ),
             "static_finding_direct_blocker": (
@@ -344,7 +346,8 @@ def build_manifest() -> dict[str, Any]:
                 "changes the outcome."
             ),
             "material_friction": (
-                "The documented path requires a non-obvious correction, search, or documentation "
+                "The documented path requires a non-obvious correction, search, "
+                "or documentation "
                 "transition that materially changes completion."
             ),
             "external_docs_supplemented": (
