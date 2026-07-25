@@ -258,7 +258,11 @@ CASES: list[dict[str, Any]] = [
         "reference_strict_ready": False,
         "predicted_hard_findings": [],
         "strata": ["true_negative", "external_documentation_delegation", "cpp", "library"],
-        "documentation_scope": ["root_readme", "official_linked_documentation", "repository_example"],
+        "documentation_scope": [
+            "root_readme",
+            "official_linked_documentation",
+            "repository_example",
+        ],
         "predeclared_task": (
             "Follow the root README's documentation/example delegation, compile a minimal "
             "Boost.Geometry polygon-area program against the cloned header-only library, and run it."
@@ -361,9 +365,7 @@ def build_manifest() -> dict[str, Any]:
 
 def parse_args() -> argparse.Namespace:
     parser = argparse.ArgumentParser()
-    parser.add_argument(
-        "--output-dir", type=Path, default=Path("data/issue-121/dynamic-tests")
-    )
+    parser.add_argument("--output-dir", type=Path, default=Path("data/issue-121/dynamic-tests"))
     return parser.parse_args()
 
 
