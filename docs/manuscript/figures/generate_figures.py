@@ -21,10 +21,7 @@ def read_rows(name: str) -> list[dict[str, str]]:
 
 def escape(text: str) -> str:
     return (
-        text.replace("&", "&amp;")
-        .replace("<", "&lt;")
-        .replace(">", "&gt;")
-        .replace('"', "&quot;")
+        text.replace("&", "&amp;").replace("<", "&lt;").replace(">", "&gt;").replace('"', "&quot;")
     )
 
 
@@ -58,10 +55,7 @@ def confusion_svg() -> str:
         ),
     ]
     parts = [
-        (
-            '<svg xmlns="http://www.w3.org/2000/svg" width="760" height="560" '
-            'viewBox="0 0 760 560">'
-        ),
+        ('<svg xmlns="http://www.w3.org/2000/svg" width="760" height="560" viewBox="0 0 760 560">'),
         '<rect width="760" height="560" fill="white"/>',
         (
             '<text x="380" y="40" text-anchor="middle" font-family="sans-serif" '
