@@ -60,8 +60,7 @@ def run_step(
             wrapped,
             cwd=cwd,
             text=True,
-            stdout=subprocess.PIPE,
-            stderr=subprocess.PIPE,
+            capture_output=True,
             timeout=timeout,
             check=False,
             env={**os.environ, "PIP_DISABLE_PIP_VERSION_CHECK": "1"},
@@ -179,7 +178,7 @@ def sklearn_correction(output: Path) -> dict[str, Any]:
             timeout=600,
         )
     )
-    script = r'''import json
+    script = r"""import json
 from pathlib import Path
 
 import numpy as np
@@ -221,8 +220,12 @@ print(json.dumps({
     "input_dir_created_by_user": True,
     "output_dir_created_by_user": True,
 }, sort_keys=True))
-'''
-    command = "cat > corrected_roundtrip.py <<'PY'\n" + script + "PY\nvenv/bin/python corrected_roundtrip.py"
+"""
+    command = (
+        "cat > corrected_roundtrip.py <<'PY'\n"
+        + script
+        + "PY\nvenv/bin/python corrected_roundtrip.py"
+    )
     steps.append(
         run_step(
             root,
@@ -313,7 +316,7 @@ def boost_correction(output: Path) -> dict[str, Any]:
             timeout=900,
         )
     )
-    source = r'''#include <cmath>
+    source = r"""#include <cmath>
 #include <iostream>
 #include <boost/geometry.hpp>
 #include <boost/geometry/geometries/point_xy.hpp>
@@ -329,7 +332,7 @@ int main() {
   std::cout << area << "\n";
   return std::abs(area - 1.0) < 1e-12 ? 0 : 1;
 }
-'''
+"""
     command = (
         "cat > boost_geometry_example.cpp <<'CPP'\n"
         + source
@@ -352,8 +355,7 @@ int main() {
             root,
             "05-capture-toolchain",
             "capture compiler and Boost package versions",
-            "g++ --version && "
-            "dpkg-query -W -f='${Package} ${Version}\\n' 'libboost*-dev' | sort",
+            "g++ --version && dpkg-query -W -f='${Package} ${Version}\\n' 'libboost*-dev' | sort",
             cwd=workspace,
             timeout=60,
         )
@@ -446,8 +448,7 @@ def woodtapper_recheck(output: Path) -> dict[str, Any]:
             root,
             "05-create-current-source-venv",
             "create clean current-source environment",
-            "python -m venv source-venv && "
-            "source-venv/bin/python -m pip install --upgrade pip",
+            "python -m venv source-venv && source-venv/bin/python -m pip install --upgrade pip",
             cwd=workspace,
             timeout=180,
         )
@@ -462,7 +463,7 @@ def woodtapper_recheck(output: Path) -> dict[str, Any]:
             timeout=900,
         )
     )
-    task = r'''from sklearn.datasets import make_classification
+    task = r"""from sklearn.datasets import make_classification
 from sklearn.model_selection import train_test_split
 from woodtapper.extract_rules import SirusClassifier
 
@@ -481,12 +482,8 @@ model.fit(X_train, y_train)
 predictions = model.predict(X_test)
 assert len(predictions) == len(X_test)
 print({"prediction_count": len(predictions)})
-'''
-    command = (
-        "cat > current_task.py <<'PY'\n"
-        + task
-        + "PY\nsource-venv/bin/python current_task.py"
-    )
+"""
+    command = "cat > current_task.py <<'PY'\n" + task + "PY\nsource-venv/bin/python current_task.py"
     steps.append(
         run_step(
             root,
