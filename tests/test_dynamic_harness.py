@@ -68,11 +68,7 @@ def test_timeout_terminates_descendant_process_group(tmp_path: Path) -> None:
     module = load_script()
     logs = tmp_path / "logs"
     logs.mkdir()
-    command = (
-        "sleep 30 & child=$!; "
-        "printf '%s' \"$child\" > child.pid; "
-        "wait \"$child\""
-    )
+    command = 'sleep 30 & child=$!; printf \'%s\' "$child" > child.pid; wait "$child"'
     result = module.run_step(
         module.StepSpec("timeout tree", "task", command, 2),
         tmp_path,
