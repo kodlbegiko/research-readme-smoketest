@@ -39,9 +39,7 @@ def test_no_dynamic_command_requests_sudo() -> None:
 def test_sklearn_success_dynamically_disproves_path_finding() -> None:
     module = load_script()
     manifest = json.loads(MANIFEST.read_text())
-    case = next(
-        case for case in manifest["cases"] if case["case_id"] == "D08-sklearn-migrator"
-    )
+    case = next(case for case in manifest["cases"] if case["case_id"] == "D08-sklearn-migrator")
     relations = module.preliminary_relations(case, "SUCCESS")
     assert relations["strict_false_negative_completed"] is True
     assert relations["predicted_hard_findings_disproved_by_runtime_paths"] is True
