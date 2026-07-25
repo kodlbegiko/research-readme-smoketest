@@ -1,8 +1,9 @@
 study_id: joss-issue-121-external-validation
-status: closeout-complete
+status: archived-as-reproducible-negative-research
 closed_at_utc: '2026-07-26'
 repository: kodlbegiko/research-readme-smoketest
-branch: research/issue-121-external-validation
+historical_study_branch: research/issue-121-external-validation
+evidence_closeout_merge_commit: 0c5dd9bdf9d8e5d77e6bba3828ec1979b895f42c
 baseline:
   version: 0.1.0
   main_commit: 2caeecc8678a4614f6fe6771df0ace6827a5f434
@@ -69,8 +70,33 @@ product_decision:
   github_action_v0_2: prohibited
   detector_rule_changes_in_this_study: prohibited
   future_reassessment: new_preregistered_study_only
+integrity_hardening_after_review:
+  detector_or_labels_changed: false
+  raw_attempts_changed: false
+  process_group_timeout_enforced: true
+  himap_task_artifact_asserted: true
+  prediction_hash_verified_against_lock: true
+  future_acquisition_pinned_to_repository_commit: true
+  pull_request_validation_workflows_read_only: true
+  note: >-
+    These controls harden future reproduction and do not rehabilitate failed
+    scientific gates or alter frozen historical outcomes.
+public_interest_initial_counts:
+  independent_reproductions: 0
+  independent_human_reannotations: 0
+  citations: 0
+  accepted_upstream_corrections: 0
+  measured_user_benefit_outcomes: 0
+archival_status:
+  proposed_tag: research-closeout-issue-121
+  github_release: NOT CREATED
+  doi: NOT ASSIGNED
+  software_heritage_swhid: NOT RECORDED
+  owner_actions: docs/owner-actions-release-and-archive.md
 limitations:
   - ten_case_dynamic_sample_no_population_inference
   - same_autonomous_agent_not_independent_second_human
+  - original_acquisition_did_not_pin_every_readme_and_path_check_to_one_commit
   - ecodive_frozen_state_not_safely_replayed
   - maintainer_acceptance_and_measured_user_benefit_not_observed
+  - independent_replication_and_external_impact_counts_zero_at_closeout
