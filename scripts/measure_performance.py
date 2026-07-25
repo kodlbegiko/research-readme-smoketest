@@ -8,8 +8,8 @@ import time
 import tracemalloc
 from pathlib import Path
 
-from readme_smoketest.cli import load_records
 from readme_smoketest.analyze import analyze_records
+from readme_smoketest.cli import load_records
 from readme_smoketest.metrics import summarize
 
 
