@@ -26,8 +26,26 @@ jobs:
         run: |
           python scripts/apply_integrity_fixes.py
           rm scripts/apply_integrity_fixes.py
+      - name: Upload patched files for diagnosis
+        uses: actions/upload-artifact@v4
+        with:
+          name: integrity-patched-files
+          path: |
+            scripts/run_dynamic_case.py
+            scripts/evaluate_issue_121.py
+            scripts/acquire_issue_121.py
+            tests/test_dynamic_harness.py
+            tests/test_issue121_reference.py
+            tests/test_issue121_pipeline.py
+          if-no-files-found: error
+          retention-days: 7
       - name: Install tools
         run: python -m pip install -e ".[dev]"
+      - name: Parse patched files
+        run: |
+          python -m py_compile scripts/run_dynamic_case.py scripts/evaluate_issue_121.py \
+            scripts/acquire_issue_121.py tests/test_dynamic_harness.py \
+            tests/test_issue121_reference.py tests/test_issue121_pipeline.py
       - name: Format patched files
         run: |
           ruff check scripts/run_dynamic_case.py scripts/evaluate_issue_121.py \
