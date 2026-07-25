@@ -28,12 +28,11 @@ jobs:
           cat .bootstrap/bundle.part.* | base64 --decode > /tmp/research-readme-smoketest.tar.gz
           echo "9d49138e33b5ec0be6f924cf2f67b6c6b0fa9e7f547ced7528b2b1d1c20916b9  /tmp/research-readme-smoketest.tar.gz" | sha256sum --check --strict
 
-      - name: Materialize repository contents
+      - name: Materialize non-workflow repository contents
         shell: bash
         run: |
-          tar -xzf /tmp/research-readme-smoketest.tar.gz -C .
+          tar -xzf /tmp/research-readme-smoketest.tar.gz -C . --exclude='./.github/workflows/ci.yml'
           rm -rf .bootstrap
-          rm -f .github/workflows/materialize.yml
 
       - name: Commit materialized research project
         shell: bash
