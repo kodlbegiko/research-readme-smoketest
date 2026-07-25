@@ -34,17 +34,17 @@ properties:
     C2: 1.23
 YAML"
 	User time (seconds): 0.04
-	System time (seconds): 0.04
-	Percent of CPU this job got: 116%
-	Elapsed (wall clock) time (h:mm:ss or m:ss): 0:00.07
+	System time (seconds): 0.06
+	Percent of CPU this job got: 117%
+	Elapsed (wall clock) time (h:mm:ss or m:ss): 0:00.08
 	Average shared text size (kbytes): 0
 	Average unshared data size (kbytes): 0
 	Average stack size (kbytes): 0
 	Average total size (kbytes): 0
-	Maximum resident set size (kbytes): 19660
+	Maximum resident set size (kbytes): 18108
 	Average resident set size (kbytes): 0
 	Major (requiring I/O) page faults: 0
-	Minor (reclaiming a frame) page faults: 17677
+	Minor (reclaiming a frame) page faults: 17447
 	Voluntary context switches: 276
 	Involuntary context switches: 5
 	Swaps: 0

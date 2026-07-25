@@ -60,7 +60,7 @@ Reading input file: my_input_file.yaml
 *                  PROBLEM SETUP COMPLETED                  *
 *************************************************************
                                                              
-     Writing output into: data/2026-07-25_154328_journal     
+     Writing output into: data/2026-07-25_154711_journal     
                                                              
 -------------------------------------------------------------
 Step   Timestep   Time       CFL        Residual  
@@ -88,5 +88,5 @@ Step   Timestep   Time       CFL        Residual
 200    1.0000e-10 2.0000e-08 1.3169e-01 9.3348e-03
 =================================
 Total walltime   : 0:00:00
-(369.04 steps/s)
+(321.04 steps/s)
 =================================

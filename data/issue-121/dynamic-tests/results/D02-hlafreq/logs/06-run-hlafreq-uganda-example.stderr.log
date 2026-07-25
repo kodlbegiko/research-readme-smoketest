@@ -11,20 +11,20 @@ assert len(caf) > 0
 print(caf.head().to_string())
 print({"downloaded_rows": len(aftab), "combined_rows": len(caf)})
 PY"
-	User time (seconds): 2.52
-	System time (seconds): 0.24
-	Percent of CPU this job got: 38%
-	Elapsed (wall clock) time (h:mm:ss or m:ss): 0:07.11
+	User time (seconds): 2.60
+	System time (seconds): 0.21
+	Percent of CPU this job got: 52%
+	Elapsed (wall clock) time (h:mm:ss or m:ss): 0:05.32
 	Average shared text size (kbytes): 0
 	Average unshared data size (kbytes): 0
 	Average stack size (kbytes): 0
 	Average total size (kbytes): 0
-	Maximum resident set size (kbytes): 170020
+	Maximum resident set size (kbytes): 169164
 	Average resident set size (kbytes): 0
 	Major (requiring I/O) page faults: 9
-	Minor (reclaiming a frame) page faults: 50127
+	Minor (reclaiming a frame) page faults: 50302
 	Voluntary context switches: 780
-	Involuntary context switches: 177
+	Involuntary context switches: 122
 	Swaps: 0
 	File system inputs: 19104
 	File system outputs: 1264

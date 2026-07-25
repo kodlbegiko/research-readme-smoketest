@@ -39,20 +39,20 @@ assert (input_dir / "all_data.json").is_file()
 assert (output_dir / "y_pred_new.csv").is_file()
 print({"max_abs_difference": max_difference})
 PY"
-	User time (seconds): 1.64
-	System time (seconds): 0.14
-	Percent of CPU this job got: 107%
-	Elapsed (wall clock) time (h:mm:ss or m:ss): 0:01.66
+	User time (seconds): 1.77
+	System time (seconds): 0.21
+	Percent of CPU this job got: 127%
+	Elapsed (wall clock) time (h:mm:ss or m:ss): 0:01.56
 	Average shared text size (kbytes): 0
 	Average unshared data size (kbytes): 0
 	Average stack size (kbytes): 0
 	Average total size (kbytes): 0
-	Maximum resident set size (kbytes): 133816
+	Maximum resident set size (kbytes): 132760
 	Average resident set size (kbytes): 0
 	Major (requiring I/O) page faults: 1
-	Minor (reclaiming a frame) page faults: 44850
+	Minor (reclaiming a frame) page faults: 44825
 	Voluntary context switches: 345
-	Involuntary context switches: 142
+	Involuntary context switches: 136
 	Swaps: 0
 	File system inputs: 3056
 	File system outputs: 1608

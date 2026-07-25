@@ -3,8 +3,8 @@ Lockfile is up to date, resolution step is skipped
 Progress: resolved 1, reused 0, downloaded 0, added 0
 Packages: +568
 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-Progress: resolved 568, reused 0, downloaded 318, added 318
-Progress: resolved 568, reused 0, downloaded 531, added 528
+Progress: resolved 568, reused 0, downloaded 265, added 245
+Progress: resolved 568, reused 0, downloaded 566, added 525
 Progress: resolved 568, reused 0, downloaded 568, added 568, done
 
 dependencies:
@@ -33,7 +33,7 @@ devDependencies:
 │                                                                              │
 ╰──────────────────────────────────────────────────────────────────────────────╯
 
-Done in 2.7s using pnpm v10.20.0
+Done in 3s using pnpm v10.20.0
 
 > qubec-talk@1.0.0 build /tmp/artifact/D06-kigali/workspace/source/editor
 > webpack --mode=production
@@ -58,5 +58,5 @@ orphan modules 305 KiB [1m[33m[orphan][39m[22m 1 module
 [1m[33m4 errors have detailed information that is not shown.
 Use 'stats.errorDetails: true' resp. '--stats-error-details' to show it.[39m[22m
 
-webpack 5.105.2 compiled with [1m[31m4 errors[39m[22m in 2263 ms
+webpack 5.105.2 compiled with [1m[31m4 errors[39m[22m in 3677 ms
  ELIFECYCLE  Command failed with exit code 1.

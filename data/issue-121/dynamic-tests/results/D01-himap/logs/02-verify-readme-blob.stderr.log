@@ -1,18 +1,18 @@
 	Command being timed: "bash -lc test "$(git -C source hash-object README.md)" = "910c0bdfb8a9f4968110e6cac13a450573d6f4da""
-	User time (seconds): 0.04
-	System time (seconds): 0.04
-	Percent of CPU this job got: 116%
-	Elapsed (wall clock) time (h:mm:ss or m:ss): 0:00.07
+	User time (seconds): 0.05
+	System time (seconds): 0.08
+	Percent of CPU this job got: 107%
+	Elapsed (wall clock) time (h:mm:ss or m:ss): 0:00.12
 	Average shared text size (kbytes): 0
 	Average unshared data size (kbytes): 0
 	Average stack size (kbytes): 0
 	Average total size (kbytes): 0
-	Maximum resident set size (kbytes): 19676
+	Maximum resident set size (kbytes): 18000
 	Average resident set size (kbytes): 0
 	Major (requiring I/O) page faults: 0
-	Minor (reclaiming a frame) page faults: 17956
-	Voluntary context switches: 275
-	Involuntary context switches: 4
+	Minor (reclaiming a frame) page faults: 17756
+	Voluntary context switches: 270
+	Involuntary context switches: 37
 	Swaps: 0
 	File system inputs: 0
 	File system outputs: 0

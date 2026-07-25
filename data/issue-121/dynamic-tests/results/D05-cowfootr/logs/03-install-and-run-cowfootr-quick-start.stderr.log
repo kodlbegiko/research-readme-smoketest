@@ -40,7 +40,7 @@ installing to /home/runner/work/_temp/Library/00LOCK-writexl/00new/writexl/libs
 * DONE (cowfootR)
 
 The downloaded source packages are in
-	‘/tmp/Rtmpfz0kfh/downloaded_packages’
+	‘/tmp/RtmpTZeYw4/downloaded_packages’
 	Command being timed: "bash -lc Rscript - <<'RS'
 options(repos = c(CRAN = "https://cloud.r-project.org"))
         install.packages("cowfootR")
@@ -89,20 +89,20 @@ options(repos = c(CRAN = "https://cloud.r-project.org"))
 version=", as.character(packageVersion("cowfootR")), "
 ")
 RS"
-	User time (seconds): 10.30
-	System time (seconds): 4.40
-	Percent of CPU this job got: 118%
-	Elapsed (wall clock) time (h:mm:ss or m:ss): 0:12.36
+	User time (seconds): 10.08
+	System time (seconds): 4.38
+	Percent of CPU this job got: 51%
+	Elapsed (wall clock) time (h:mm:ss or m:ss): 0:28.11
 	Average shared text size (kbytes): 0
 	Average unshared data size (kbytes): 0
 	Average stack size (kbytes): 0
 	Average total size (kbytes): 0
-	Maximum resident set size (kbytes): 140732
+	Maximum resident set size (kbytes): 138628
 	Average resident set size (kbytes): 0
 	Major (requiring I/O) page faults: 1902
-	Minor (reclaiming a frame) page faults: 326467
-	Voluntary context switches: 3562
-	Involuntary context switches: 1642
+	Minor (reclaiming a frame) page faults: 325162
+	Voluntary context switches: 3298
+	Involuntary context switches: 2218
 	Swaps: 0
 	File system inputs: 374432
 	File system outputs: 59872

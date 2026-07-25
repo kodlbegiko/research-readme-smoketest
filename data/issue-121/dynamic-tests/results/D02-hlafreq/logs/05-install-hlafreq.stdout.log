@@ -25,7 +25,7 @@ Collecting fonttools>=4.28.2 (from matplotlib>=3.6.0->HLAfreq)
 Collecting kiwisolver>=1.3.1 (from matplotlib>=3.6.0->HLAfreq)
   Downloading kiwisolver-1.5.0-cp311-cp311-manylinux2014_x86_64.manylinux_2_17_x86_64.whl.metadata (5.1 kB)
 Collecting packaging>=20.0 (from matplotlib>=3.6.0->HLAfreq)
-  Downloading packaging-26.2-py3-none-any.whl.metadata (3.5 kB)
+  Using cached packaging-26.2-py3-none-any.whl.metadata (3.5 kB)
 Collecting pillow>=9 (from matplotlib>=3.6.0->HLAfreq)
   Downloading pillow-12.3.0-cp311-cp311-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl.metadata (9.1 kB)
 Collecting pyparsing>=3 (from matplotlib>=3.6.0->HLAfreq)
@@ -43,7 +43,7 @@ Collecting rich>=13.7.1 (from pymc>=3->HLAfreq)
 Collecting threadpoolctl<4.0.0,>=3.1.0 (from pymc>=3->HLAfreq)
   Downloading threadpoolctl-3.6.0-py3-none-any.whl.metadata (13 kB)
 Collecting typing-extensions>=3.7.4 (from pymc>=3->HLAfreq)
-  Downloading typing_extensions-4.16.0-py3-none-any.whl.metadata (3.3 kB)
+  Using cached typing_extensions-4.16.0-py3-none-any.whl.metadata (3.3 kB)
 Requirement already satisfied: setuptools>=60.0.0 in ./venv/lib/python3.11/site-packages (from arviz->HLAfreq) (79.0.1)
 Collecting xarray>=2023.7.0 (from arviz->HLAfreq)
   Downloading xarray-2026.7.0-py3-none-any.whl.metadata (12 kB)
@@ -74,7 +74,7 @@ Collecting six>=1.5 (from python-dateutil>=2.7->matplotlib>=3.6.0->HLAfreq)
 Collecting markdown-it-py>=2.2.0 (from rich>=13.7.1->pymc>=3->HLAfreq)
   Downloading markdown_it_py-4.2.0-py3-none-any.whl.metadata (7.4 kB)
 Collecting pygments<3.0.0,>=2.13.0 (from rich>=13.7.1->pymc>=3->HLAfreq)
-  Downloading pygments-2.20.0-py3-none-any.whl.metadata (2.5 kB)
+  Using cached pygments-2.20.0-py3-none-any.whl.metadata (2.5 kB)
 Collecting mdurl~=0.1 (from markdown-it-py>=2.2.0->rich>=13.7.1->pymc>=3->HLAfreq)
   Downloading mdurl-0.1.2-py3-none-any.whl.metadata (1.6 kB)
 Collecting beautifulsoup4 (from bs4->HLAfreq)
@@ -95,47 +95,46 @@ Collecting certifi>=2023.5.7 (from requests->HLAfreq)
   Downloading certifi-2026.7.22-py3-none-any.whl.metadata (2.5 kB)
 Downloading hlafreq-0.0.6-py3-none-any.whl (17 kB)
 Downloading matplotlib-3.11.1-cp311-cp311-manylinux2014_x86_64.manylinux_2_17_x86_64.whl (10.0 MB)
-   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 10.0/10.0 MB 42.6 MB/s  0:00:00
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 10.0/10.0 MB 173.2 MB/s  0:00:00
 Downloading contourpy-1.3.3-cp311-cp311-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl (355 kB)
 Downloading cycler-0.12.1-py3-none-any.whl (8.3 kB)
 Downloading fonttools-4.63.0-cp311-cp311-manylinux2014_x86_64.manylinux_2_17_x86_64.whl (5.1 MB)
-   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 5.1/5.1 MB 228.9 MB/s  0:00:00
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 5.1/5.1 MB 104.9 MB/s  0:00:00
 Downloading kiwisolver-1.5.0-cp311-cp311-manylinux2014_x86_64.manylinux_2_17_x86_64.whl (1.4 MB)
-   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 1.4/1.4 MB 164.2 MB/s  0:00:00
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 1.4/1.4 MB 79.3 MB/s  0:00:00
 Downloading numpy-2.4.6-cp311-cp311-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl (16.9 MB)
-   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 16.9/16.9 MB 301.3 MB/s  0:00:00
-Downloading packaging-26.2-py3-none-any.whl (100 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 16.9/16.9 MB 294.2 MB/s  0:00:00
+Using cached packaging-26.2-py3-none-any.whl (100 kB)
 Downloading pillow-12.3.0-cp311-cp311-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl (6.9 MB)
-   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 6.9/6.9 MB 302.6 MB/s  0:00:00
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 6.9/6.9 MB 200.7 MB/s  0:00:00
 Downloading pymc-5.28.5-py3-none-any.whl (562 kB)
-   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 562.9/562.9 kB 99.9 MB/s  0:00:00
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 562.9/562.9 kB 87.8 MB/s  0:00:00
 Downloading arviz-0.23.4-py3-none-any.whl (1.7 MB)
-   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 1.7/1.7 MB 229.9 MB/s  0:00:00
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 1.7/1.7 MB 103.5 MB/s  0:00:00
 Downloading cachetools-6.2.6-py3-none-any.whl (11 kB)
 Downloading pytensor-2.38.3-cp311-cp311-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl (2.0 MB)
-   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 2.0/2.0 MB 90.1 MB/s  0:00:00
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 2.0/2.0 MB 132.5 MB/s  0:00:00
 Downloading numba-0.65.1-cp311-cp311-manylinux2014_x86_64.manylinux_2_17_x86_64.whl (3.7 MB)
-   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 3.7/3.7 MB 170.6 MB/s  0:00:00
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 3.7/3.7 MB 36.2 MB/s  0:00:00
 Downloading llvmlite-0.47.0-cp311-cp311-manylinux2014_x86_64.manylinux_2_17_x86_64.whl (56.3 MB)
-   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 56.3/56.3 MB 150.5 MB/s  0:00:00
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 56.3/56.3 MB 85.8 MB/s  0:00:00
 Downloading scipy-1.17.1-cp311-cp311-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl (35.3 MB)
-   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 35.3/35.3 MB 259.5 MB/s  0:00:00
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 35.3/35.3 MB 380.5 MB/s  0:00:00
 Downloading threadpoolctl-3.6.0-py3-none-any.whl (18 kB)
 Downloading filelock-3.32.0-py3-none-any.whl (97 kB)
 Downloading h5netcdf-1.8.1-py3-none-any.whl (62 kB)
 Downloading pandas-3.0.5-cp311-cp311-manylinux_2_24_x86_64.manylinux_2_28_x86_64.whl (11.3 MB)
-   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 11.3/11.3 MB 365.8 MB/s  0:00:00
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 11.3/11.3 MB 370.2 MB/s  0:00:00
 Downloading pyparsing-3.3.2-py3-none-any.whl (122 kB)
 Downloading python_dateutil-2.9.0.post0-py2.py3-none-any.whl (229 kB)
 Downloading rich-15.0.0-py3-none-any.whl (310 kB)
-Downloading pygments-2.20.0-py3-none-any.whl (1.2 MB)
-   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 1.2/1.2 MB 239.0 MB/s  0:00:00
+Using cached pygments-2.20.0-py3-none-any.whl (1.2 MB)
 Downloading markdown_it_py-4.2.0-py3-none-any.whl (91 kB)
 Downloading mdurl-0.1.2-py3-none-any.whl (10.0 kB)
 Downloading six-1.17.0-py2.py3-none-any.whl (11 kB)
-Downloading typing_extensions-4.16.0-py3-none-any.whl (45 kB)
+Using cached typing_extensions-4.16.0-py3-none-any.whl (45 kB)
 Downloading xarray-2026.7.0-py3-none-any.whl (1.4 MB)
-   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 1.4/1.4 MB 265.0 MB/s  0:00:00
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 1.4/1.4 MB 55.8 MB/s  0:00:00
 Downloading xarray_einstats-0.9.1-py3-none-any.whl (39 kB)
 Downloading bs4-0.0.2-py2.py3-none-any.whl (1.2 kB)
 Downloading beautifulsoup4-4.15.0-py3-none-any.whl (109 kB)
@@ -145,7 +144,7 @@ Downloading cons-0.4.7-py3-none-any.whl (8.6 kB)
 Downloading logical_unification-0.4.7-py3-none-any.whl (13 kB)
 Downloading etuples-0.3.10-py3-none-any.whl (12 kB)
 Downloading h5py-3.16.0-cp311-cp311-manylinux_2_28_x86_64.whl (5.0 MB)
-   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 5.0/5.0 MB 200.9 MB/s  0:00:00
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 5.0/5.0 MB 103.5 MB/s  0:00:00
 Downloading minikanren-1.0.5-py3-none-any.whl (24 kB)
 Downloading multipledispatch-1.0.0-py3-none-any.whl (12 kB)
 Downloading platformdirs-4.11.0-py3-none-any.whl (23 kB)

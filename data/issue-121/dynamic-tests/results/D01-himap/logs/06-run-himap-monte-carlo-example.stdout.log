@@ -18,56 +18,56 @@ Folder already exists: /tmp/artifact/D01-himap/workspace/task/himap_results/figu
 Folder already exists: /tmp/artifact/D01-himap/workspace/task/himap_results/models
 Model name not provided. Default name: hmm
 
-FIT hmm: converged at loop 3 with score: -7249.809177625861.
+FIT hmm: converged at loop 3 with score: -7158.0995060871755.
 Folder already exists: /tmp/artifact/D01-himap/workspace/task/himap_results
 Folder already exists: /tmp/artifact/D01-himap/workspace/task/himap_results/dictionaries
 Folder already exists: /tmp/artifact/D01-himap/workspace/task/himap_results/figures
 Folder already exists: /tmp/artifact/D01-himap/workspace/task/himap_results/models
 Model name not provided. Default name: hmm
 
-FIT hmm: converged at loop 6 with score: -5986.3825417049175.
+FIT hmm: converged at loop 6 with score: -5831.896987448814.
 Folder already exists: /tmp/artifact/D01-himap/workspace/task/himap_results
 Folder already exists: /tmp/artifact/D01-himap/workspace/task/himap_results/dictionaries
 Folder already exists: /tmp/artifact/D01-himap/workspace/task/himap_results/figures
 Folder already exists: /tmp/artifact/D01-himap/workspace/task/himap_results/models
 Model name not provided. Default name: hmm
 
-FIT hmm: converged at loop 7 with score: -5243.3139856803955.
+FIT hmm: converged at loop 7 with score: -5203.043762315988.
 Folder already exists: /tmp/artifact/D01-himap/workspace/task/himap_results
 Folder already exists: /tmp/artifact/D01-himap/workspace/task/himap_results/dictionaries
 Folder already exists: /tmp/artifact/D01-himap/workspace/task/himap_results/figures
 Folder already exists: /tmp/artifact/D01-himap/workspace/task/himap_results/models
 Model name not provided. Default name: hmm
 
-FIT hmm: converged at loop 9 with score: -4774.404062178331.
+FIT hmm: converged at loop 8 with score: -4560.0510302887105.
 Folder already exists: /tmp/artifact/D01-himap/workspace/task/himap_results
 Folder already exists: /tmp/artifact/D01-himap/workspace/task/himap_results/dictionaries
 Folder already exists: /tmp/artifact/D01-himap/workspace/task/himap_results/figures
 Folder already exists: /tmp/artifact/D01-himap/workspace/task/himap_results/models
 Model name not provided. Default name: hmm
 
-FIT hmm: converged at loop 9 with score: -4138.338269548493.
+FIT hmm: converged at loop 9 with score: -4103.491664493476.
 Folder already exists: /tmp/artifact/D01-himap/workspace/task/himap_results
 Folder already exists: /tmp/artifact/D01-himap/workspace/task/himap_results/dictionaries
 Folder already exists: /tmp/artifact/D01-himap/workspace/task/himap_results/figures
 Folder already exists: /tmp/artifact/D01-himap/workspace/task/himap_results/models
 Model name not provided. Default name: hmm
 
-FIT hmm: converged at loop 8 with score: -4142.522636270671.
+FIT hmm: converged at loop 8 with score: -4079.586602835893.
 Folder already exists: /tmp/artifact/D01-himap/workspace/task/himap_results
 Folder already exists: /tmp/artifact/D01-himap/workspace/task/himap_results/dictionaries
 Folder already exists: /tmp/artifact/D01-himap/workspace/task/himap_results/figures
 Folder already exists: /tmp/artifact/D01-himap/workspace/task/himap_results/models
 Model name not provided. Default name: hmm
 
-FIT hmm: converged at loop 8 with score: -4120.327270265204.
+FIT hmm: converged at loop 8 with score: -4063.589021422918.
 Folder already exists: /tmp/artifact/D01-himap/workspace/task/himap_results
 Folder already exists: /tmp/artifact/D01-himap/workspace/task/himap_results/dictionaries
 Folder already exists: /tmp/artifact/D01-himap/workspace/task/himap_results/figures
 Folder already exists: /tmp/artifact/D01-himap/workspace/task/himap_results/models
 Model name not provided. Default name: hmm
 
-FIT hmm: converged at loop 8 with score: -4128.255677934619.
+FIT hmm: converged at loop 8 with score: -4045.4768088622404.
 Best model was the model with 6 states.
 Model saved to /tmp/artifact/D01-himap/workspace/task/himap_results/models/hmm.pkl.
 
@@ -78,27 +78,27 @@ RUL plots saved to: /tmp/artifact/D01-himap/workspace/task/himap_results/figures
  Metrics saved to: /tmp/artifact/D01-himap/workspace/task/himap_results
 
         Name       rmse  coverage         wsu
-0    traj_0   6.391154  0.981982    689031.5
-1    traj_1  24.246949  0.982906    801592.0
-2    traj_2  16.852588  0.980583    433911.0
-3    traj_3  37.350391  0.362069    184660.5
-4    traj_4   33.26402  0.386139    128337.0
-5    traj_5   4.975176  0.980952    510383.5
-6    traj_6  32.421419  0.984375    689614.5
-7    traj_7  19.691857  0.984615    914712.5
-8    traj_8   17.82046  0.944954    391405.5
-9    traj_9  13.760298  0.981308    511549.5
-10  traj_10  22.009402  0.982759    905698.5
-11  traj_11  14.887557  0.983607    939442.5
-12  traj_12   22.46592  0.984733    776008.0
-13  traj_13  15.479419  0.984496   1019730.5
-14  traj_14  14.801771  0.983193    750552.0
-15  traj_15    10.0489  0.980392    438519.0
-16  traj_16  16.371516  0.982301    749281.5
-17  traj_17   9.354629  0.981818    653419.5
-18  traj_18  11.453166  0.983333    809586.0
-19  traj_19  10.399879  0.984252    852399.5
-20  Average  17.702324  0.920038  657491.725
+0    traj_0   9.686255  0.983193    704281.0
+1    traj_1  10.203439  0.983051    729939.0
+2    traj_2  14.119277  0.982301    665899.5
+3    traj_3   7.127802  0.981481    620182.5
+4    traj_4  31.715359     0.472    291866.0
+5    traj_5  15.356401  0.980952    584020.0
+6    traj_6  22.504841  0.981651    460010.0
+7    traj_7  11.862256  0.983607    613858.0
+8    traj_8    8.42033  0.980392    517371.5
+9    traj_9   6.535915  0.981818    522617.0
+10  traj_10  23.964486  0.864407    420868.0
+11  traj_11   6.279107  0.980583    536754.5
+12  traj_12  27.384468  0.981818    775281.5
+13  traj_13  12.047731  0.982609    550315.0
+14  traj_14  13.447133  0.984127    925046.5
+15  traj_15  12.253279  0.982143    608793.0
+16  traj_16  10.277676  0.981982    687169.0
+17  traj_17  11.154525  0.981982    682659.0
+18  traj_18  27.060714  0.903226    456219.0
+19  traj_19  16.282103  0.984733    771048.5
+20  Average  14.884155  0.946903  606209.925
 ./himap_results/df_results.csv
 ./himap_results/figures/hmm_RUL_plot_traj_13.png
 ./himap_results/figures/hmm_RUL_plot_traj_18.png

@@ -1147,17 +1147,17 @@
         File "/tmp/artifact/D03-woodtapper/workspace/venv/lib/python3.11/site-packages/pip/_vendor/pyproject_hooks/_in_process/_in_process.py", line 143, in get_requires_for_build_wheel
           return hook(config_settings)
                  ^^^^^^^^^^^^^^^^^^^^^
-        File "/tmp/pip-build-env-kj1ewzb5/overlay/lib/python3.11/site-packages/setuptools/build_meta.py", line 333, in get_requires_for_build_wheel
+        File "/tmp/pip-build-env-pqnpecn3/overlay/lib/python3.11/site-packages/setuptools/build_meta.py", line 333, in get_requires_for_build_wheel
           return self._get_build_requires(config_settings, requirements=[])
                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-        File "/tmp/pip-build-env-kj1ewzb5/overlay/lib/python3.11/site-packages/setuptools/build_meta.py", line 301, in _get_build_requires
+        File "/tmp/pip-build-env-pqnpecn3/overlay/lib/python3.11/site-packages/setuptools/build_meta.py", line 301, in _get_build_requires
           self.run_setup()
-        File "/tmp/pip-build-env-kj1ewzb5/overlay/lib/python3.11/site-packages/setuptools/build_meta.py", line 317, in run_setup
+        File "/tmp/pip-build-env-pqnpecn3/overlay/lib/python3.11/site-packages/setuptools/build_meta.py", line 317, in run_setup
           exec(code, locals())
         File "<string>", line 29, in <module>
-        File "/tmp/pip-build-env-kj1ewzb5/overlay/lib/python3.11/site-packages/Cython/Build/Dependencies.py", line 1153, in cythonize
+        File "/tmp/pip-build-env-pqnpecn3/overlay/lib/python3.11/site-packages/Cython/Build/Dependencies.py", line 1153, in cythonize
           cythonize_one(*args)
-        File "/tmp/pip-build-env-kj1ewzb5/overlay/lib/python3.11/site-packages/Cython/Build/Dependencies.py", line 1297, in cythonize_one
+        File "/tmp/pip-build-env-pqnpecn3/overlay/lib/python3.11/site-packages/Cython/Build/Dependencies.py", line 1297, in cythonize_one
           raise CompileError(None, pyx_file)
       Cython.Compiler.Errors.CompileError: woodtapper/extract_rules/Splitter/_QuantileSplitter.pyx
       [end of output]
@@ -1166,20 +1166,20 @@
 ERROR: Failed to build 'woodtapper' when getting requirements to build wheel
 Command exited with non-zero status 1
 	Command being timed: "bash -lc venv/bin/python -m pip install woodtapper"
-	User time (seconds): 5.91
-	System time (seconds): 0.92
-	Percent of CPU this job got: 97%
-	Elapsed (wall clock) time (h:mm:ss or m:ss): 0:07.05
+	User time (seconds): 5.58
+	System time (seconds): 1.00
+	Percent of CPU this job got: 94%
+	Elapsed (wall clock) time (h:mm:ss or m:ss): 0:07.00
 	Average shared text size (kbytes): 0
 	Average unshared data size (kbytes): 0
 	Average stack size (kbytes): 0
 	Average total size (kbytes): 0
-	Maximum resident set size (kbytes): 253120
+	Maximum resident set size (kbytes): 253196
 	Average resident set size (kbytes): 0
 	Major (requiring I/O) page faults: 5
-	Minor (reclaiming a frame) page faults: 115498
-	Voluntary context switches: 1855
-	Involuntary context switches: 184
+	Minor (reclaiming a frame) page faults: 115852
+	Voluntary context switches: 2340
+	Involuntary context switches: 214
 	Swaps: 0
 	File system inputs: 2768
 	File system outputs: 872656

@@ -1,18 +1,18 @@
 	Command being timed: "bash -lc venv/bin/python -m pip freeze"
 	User time (seconds): 0.23
-	System time (seconds): 0.06
+	System time (seconds): 0.09
 	Percent of CPU this job got: 105%
-	Elapsed (wall clock) time (h:mm:ss or m:ss): 0:00.28
+	Elapsed (wall clock) time (h:mm:ss or m:ss): 0:00.31
 	Average shared text size (kbytes): 0
 	Average unshared data size (kbytes): 0
 	Average stack size (kbytes): 0
 	Average total size (kbytes): 0
-	Maximum resident set size (kbytes): 37692
+	Maximum resident set size (kbytes): 37584
 	Average resident set size (kbytes): 0
 	Major (requiring I/O) page faults: 0
-	Minor (reclaiming a frame) page faults: 24731
-	Voluntary context switches: 273
-	Involuntary context switches: 11
+	Minor (reclaiming a frame) page faults: 24717
+	Voluntary context switches: 271
+	Involuntary context switches: 8
 	Swaps: 0
 	File system inputs: 0
 	File system outputs: 0

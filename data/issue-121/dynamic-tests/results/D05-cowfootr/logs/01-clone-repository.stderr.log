@@ -1,19 +1,19 @@
 Cloning into 'source'...
 	Command being timed: "bash -lc git clone --depth 1 --branch main https://github.com/juanmarcosmoreno-arch/cowfootR.git source"
-	User time (seconds): 0.18
-	System time (seconds): 0.14
-	Percent of CPU this job got: 36%
-	Elapsed (wall clock) time (h:mm:ss or m:ss): 0:00.89
+	User time (seconds): 0.16
+	System time (seconds): 0.12
+	Percent of CPU this job got: 44%
+	Elapsed (wall clock) time (h:mm:ss or m:ss): 0:00.66
 	Average shared text size (kbytes): 0
 	Average unshared data size (kbytes): 0
 	Average stack size (kbytes): 0
 	Average total size (kbytes): 0
-	Maximum resident set size (kbytes): 17628
+	Maximum resident set size (kbytes): 17856
 	Average resident set size (kbytes): 0
 	Major (requiring I/O) page faults: 197
-	Minor (reclaiming a frame) page faults: 21357
-	Voluntary context switches: 1152
-	Involuntary context switches: 21
+	Minor (reclaiming a frame) page faults: 21454
+	Voluntary context switches: 1278
+	Involuntary context switches: 10
 	Swaps: 0
 	File system inputs: 40008
 	File system outputs: 20896

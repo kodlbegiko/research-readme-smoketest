@@ -18,8 +18,8 @@ int main() {
 CPP"
 	User time (seconds): 0.04
 	System time (seconds): 0.07
-	Percent of CPU this job got: 117%
-	Elapsed (wall clock) time (h:mm:ss or m:ss): 0:00.10
+	Percent of CPU this job got: 119%
+	Elapsed (wall clock) time (h:mm:ss or m:ss): 0:00.09
 	Average shared text size (kbytes): 0
 	Average unshared data size (kbytes): 0
 	Average stack size (kbytes): 0
@@ -27,9 +27,9 @@ CPP"
 	Maximum resident set size (kbytes): 18044
 	Average resident set size (kbytes): 0
 	Major (requiring I/O) page faults: 0
-	Minor (reclaiming a frame) page faults: 17459
-	Voluntary context switches: 273
-	Involuntary context switches: 3
+	Minor (reclaiming a frame) page faults: 17530
+	Voluntary context switches: 272
+	Involuntary context switches: 4
 	Swaps: 0
 	File system inputs: 0
 	File system outputs: 8

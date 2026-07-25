@@ -2,27 +2,23 @@
                                  Dload  Upload   Total   Spent    Left  Speed
 
   0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0
-  0 24.4M    0 81709    0     0   201k      0  0:02:04 --:--:--  0:02:04  200k
- 10 24.4M   10 2734k    0     0  1950k      0  0:00:12  0:00:01  0:00:11 1949k
- 28 24.4M   28 7084k    0     0  2957k      0  0:00:08  0:00:02  0:00:06 2956k
- 50 24.4M   50 12.2M    0     0  3708k      0  0:00:06  0:00:03  0:00:03 3708k
- 74 24.4M   74 18.2M    0     0  4267k      0  0:00:05  0:00:04  0:00:01 4267k
-100 24.4M  100 24.4M    0     0  4672k      0  0:00:05  0:00:05 --:--:-- 5031k
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0
+100 24.4M  100 24.4M    0     0  36.6M      0 --:--:-- --:--:-- --:--:-- 36.6M
 	Command being timed: "bash -lc curl --fail --location --retry 3 https://kigalisim.org/kigalisim-fat.jar -o kigalisim-fat.jar"
-	User time (seconds): 0.09
-	System time (seconds): 0.10
-	Percent of CPU this job got: 3%
-	Elapsed (wall clock) time (h:mm:ss or m:ss): 0:05.42
+	User time (seconds): 0.08
+	System time (seconds): 0.14
+	Percent of CPU this job got: 28%
+	Elapsed (wall clock) time (h:mm:ss or m:ss): 0:00.78
 	Average shared text size (kbytes): 0
 	Average unshared data size (kbytes): 0
 	Average stack size (kbytes): 0
 	Average total size (kbytes): 0
-	Maximum resident set size (kbytes): 19568
+	Maximum resident set size (kbytes): 18764
 	Average resident set size (kbytes): 0
 	Major (requiring I/O) page faults: 0
-	Minor (reclaiming a frame) page faults: 19668
-	Voluntary context switches: 4384
-	Involuntary context switches: 7
+	Minor (reclaiming a frame) page faults: 20053
+	Voluntary context switches: 487
+	Involuntary context switches: 20
 	Swaps: 0
 	File system inputs: 0
 	File system outputs: 50032

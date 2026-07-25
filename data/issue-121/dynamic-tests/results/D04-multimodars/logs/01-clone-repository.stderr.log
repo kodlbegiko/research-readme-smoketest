@@ -1,21 +1,21 @@
 Cloning into 'source'...
 	Command being timed: "bash -lc git clone --depth 1 --branch main https://github.com/yungselm/multimoda-rs.git source"
-	User time (seconds): 1.61
-	System time (seconds): 0.56
-	Percent of CPU this job got: 32%
-	Elapsed (wall clock) time (h:mm:ss or m:ss): 0:06.79
+	User time (seconds): 1.26
+	System time (seconds): 0.45
+	Percent of CPU this job got: 24%
+	Elapsed (wall clock) time (h:mm:ss or m:ss): 0:06.96
 	Average shared text size (kbytes): 0
 	Average unshared data size (kbytes): 0
 	Average stack size (kbytes): 0
 	Average total size (kbytes): 0
-	Maximum resident set size (kbytes): 90824
+	Maximum resident set size (kbytes): 91292
 	Average resident set size (kbytes): 0
-	Major (requiring I/O) page faults: 197
-	Minor (reclaiming a frame) page faults: 26776
-	Voluntary context switches: 19067
-	Involuntary context switches: 39
+	Major (requiring I/O) page faults: 3
+	Minor (reclaiming a frame) page faults: 26603
+	Voluntary context switches: 19600
+	Involuntary context switches: 33
 	Swaps: 0
-	File system inputs: 40016
+	File system inputs: 244432
 	File system outputs: 342328
 	Socket messages sent: 0
 	Socket messages received: 0
