@@ -6,10 +6,11 @@ on:
     paths:
       - "scripts/evaluate_issue_121.py"
       - "tests/test_issue121_reference.py"
+      - "tests/test_issue121_pipeline.py"
       - ".github/workflows/reference-evaluation.yml"
 
 permissions:
-  contents: write
+  contents: read
 
 jobs:
   evaluate:
@@ -17,144 +18,40 @@ jobs:
     timeout-minutes: 20
     steps:
       - uses: actions/checkout@v4
-        with:
-          ref: ${{ github.head_ref || github.ref_name }}
       - uses: actions/setup-python@v5
         with:
           python-version: "3.13"
           cache: pip
       - name: Install
         run: python -m pip install -e ".[dev]"
-      - name: Freeze timestamp and format reference files
+      - name: Check formatting and tests
         run: |
-          python - <<'PY'
-          from pathlib import Path
-          path = Path('scripts/evaluate_issue_121.py')
-          text = path.read_text()
-          text = text.replace(
-              'datetime.now(UTC).replace(microsecond=0).isoformat()',
-              '"2026-07-25T14:31:06Z"',
-          )
-          path.write_text(text)
-          PY
-          ruff check scripts/evaluate_issue_121.py tests/test_issue121_reference.py --fix --unsafe-fixes || true
-          ruff format scripts/evaluate_issue_121.py tests/test_issue121_reference.py
-          ruff check scripts/evaluate_issue_121.py tests/test_issue121_reference.py
-          ruff format --check scripts/evaluate_issue_121.py tests/test_issue121_reference.py
-      - name: Test reference schema and decisions
-        run: pytest tests/test_issue121_reference.py tests/test_issue121_pipeline.py
-      - name: Generate reference annotations and metrics
-        run: python scripts/evaluate_issue_121.py
-      - name: Verify deterministic reference outputs
+          ruff check scripts/evaluate_issue_121.py tests/test_issue121_reference.py \
+            tests/test_issue121_pipeline.py
+          ruff format --check scripts/evaluate_issue_121.py tests/test_issue121_reference.py \
+            tests/test_issue121_pipeline.py
+          pytest tests/test_issue121_reference.py tests/test_issue121_pipeline.py
+      - name: Reproduce reference result outside the checkout
         run: |
-          rm -rf /tmp/reference-a /tmp/reference-b
-          mkdir -p /tmp/reference-a/data/issue-121 /tmp/reference-b/data/issue-121
-          cp -R data/issue-121/raw /tmp/reference-a/data/issue-121/
-          cp -R data/issue-121/raw /tmp/reference-b/data/issue-121/
-          cp -R data/issue-121/predictions /tmp/reference-a/data/issue-121/
-          cp -R data/issue-121/predictions /tmp/reference-b/data/issue-121/
-          PYTHONHASHSEED=0 python scripts/evaluate_issue_121.py \
-            --data-dir /tmp/reference-a/data/issue-121 \
-            --results-dir /tmp/reference-a/results
-          PYTHONHASHSEED=321 python scripts/evaluate_issue_121.py \
-            --data-dir /tmp/reference-b/data/issue-121 \
-            --results-dir /tmp/reference-b/results
+          rm -rf /tmp/reference
+          mkdir -p /tmp/reference/data/issue-121
+          cp -R data/issue-121/raw /tmp/reference/data/issue-121/
+          cp -R data/issue-121/predictions /tmp/reference/data/issue-121/
+          python scripts/evaluate_issue_121.py \
+            --data-dir /tmp/reference/data/issue-121 \
+            --results-dir /tmp/reference/results
           diff -u \
-            /tmp/reference-a/data/issue-121/annotations/reference-labels.json \
-            /tmp/reference-b/data/issue-121/annotations/reference-labels.json
+            data/issue-121/annotations/reference-labels.json \
+            /tmp/reference/data/issue-121/annotations/reference-labels.json
           diff -u \
-            /tmp/reference-a/results/static-validation-results.json \
-            /tmp/reference-b/results/static-validation-results.json
-          diff -u \
-            /tmp/reference-a/results/SHA256SUMS \
-            /tmp/reference-b/results/SHA256SUMS
-      - name: Render static validation report
-        run: |
-          python - <<'PY'
-          import json
-          from pathlib import Path
-          result = json.loads(Path('results/issue-121/static-validation-results.json').read_text())
-          p = result['prevalence']
-          detector = result['strict_ready_classification']['frozen_detector']
-          hard = result['hard_defects']
-          gate = result['engineering_gates']
-          text = f'''# JOSS issue 121 external validation
-
-## Status
-
-Static out-of-sample evaluation: **NOT SUPPORTED**.
-
-Dynamic first-use validation and maintainer intervention are reported separately and must not be inferred from the static result.
-
-## Frozen design
-
-- Baseline detector commit: `2caeecc8678a4614f6fe6771df0ace6827a5f434`
-- Official JOSS issue 121 papers: 39
-- Eligible GitHub repositories: 38
-- Excluded: 1 non-GitHub repository
-- Prediction JSON SHA-256: `{result['prediction_lock']['prediction_json_sha256']}`
-- Reference annotators: 1; no inter-rater reliability claim
-
-## Research validity
-
-| Metric | Result |
-|---|---:|
-| Frozen detector strict-ready | {p['predicted_strict_count']} / 38 ({p['predicted_strict_rate']:.1%}) |
-| Reference strict-ready | {p['reference_strict_count']} / 38 ({p['reference_strict_rate']:.1%}) |
-| Frozen detector TP / FP / TN / FN | {detector['confusion']['tp']} / {detector['confusion']['fp']} / {detector['confusion']['tn']} / {detector['confusion']['fn']} |
-| Precision | {detector['metrics']['precision']:.1%} |
-| Recall | {detector['metrics']['recall']:.1%} |
-| Specificity | {detector['metrics']['specificity']:.1%} |
-| Accuracy | {detector['metrics']['accuracy']:.1%} |
-| F1 | {detector['metrics']['f1']:.1%} |
-| Predicted hard-defect pairs | {hard['pair_level']['predicted']} |
-| Reference hard-defect pairs | {hard['pair_level']['actual']} |
-| Hard-defect precision | {hard['pair_level']['precision']:.1%} |
-| Repository-level hard-finding FPR | {hard['repository_level']['false_positive_rate']:.1%} |
-| Predicted relaxed-ready | {p['predicted_relaxed_count']} / 38 |
-| Reference relaxed-ready | {p['reference_relaxed_count']} / 38 |
-
-The detector was conservative in one sense: every predicted strict-ready repository was reference-positive. It was not sufficiently complete: 17 reference-positive repositories were missed, leaving accuracy below the preregistered 75% engineering gate.
-
-The three hard findings all came from `anvaldes/sklearn-migrator`. They were false positives because the README explicitly directs users to create `input_model/` and `output_model/`; those JSON/CSV paths are runtime products rather than missing repository assets.
-
-## Engineering gates
-
-- Strict-ready accuracy gate: **{'PASS' if gate['strict_accuracy_pass'] else 'FAIL'}**
-- Hard-defect precision gate: **{'PASS' if gate['hard_defect_precision_pass'] else 'FAIL'}**
-- Hard-defect false-positive-rate gate: **{'PASS' if gate['hard_defect_false_positive_rate_pass'] else 'FAIL'}**
-- Static productization gate: **FAIL**
-
-## Interpretation
-
-The primary failure mechanism is low recall caused by a narrow first-use vocabulary and acquisition limitations around Markdown/RST code-block extraction. The issue-121 result does not justify deploying the current detector as a GitHub Action.
-
-All 38 reference cases were relaxed-ready after accepting an explicit external documentation route or a strict root path. This rejects any interpretation that non-strict repositories are generally unusable.
-
-## Remaining work
-
-Dynamic tests may quantify root-document friction, but they cannot rescue the failed static productization gate. Upstream contact is not permitted for the disproved sklearn-migrator path findings. No detector rule will be changed inside this primary evaluation.
-'''
-          Path('EXTERNAL-VALIDATION.md').write_text(text)
-          PY
-      - name: Commit reference lock and static result
-        run: |
-          git config user.name "github-actions[bot]"
-          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add scripts/evaluate_issue_121.py tests/test_issue121_reference.py \
-            data/issue-121/annotations results/issue-121 EXTERNAL-VALIDATION.md
-          if git diff --cached --quiet; then
-            exit 0
-          fi
-          git commit -m "research: add issue 121 reference evaluation"
-          git push origin HEAD:${{ github.head_ref || github.ref_name }}
-      - name: Upload static validation bundle
+            results/issue-121/static-validation-results.json \
+            /tmp/reference/results/static-validation-results.json
+      - name: Upload reproduced reference bundle
         uses: actions/upload-artifact@v4
         with:
-          name: issue-121-static-validation
+          name: issue-121-reference-reproduction
           path: |
-            data/issue-121/annotations/
-            results/issue-121/
-            EXTERNAL-VALIDATION.md
+            /tmp/reference/data/issue-121/annotations/
+            /tmp/reference/results/
           if-no-files-found: error
-          retention-days: 90
+          retention-days: 30
