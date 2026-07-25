@@ -51,16 +51,34 @@ No issue or pull request was submitted. Kigali Sim already documented the omitte
 
 **Maintainer intervention actual value: INCONCLUSIVE.** No intervention occurred, and zero submissions are not presented as impact.
 
+## Research-integrity review and hardening
+
+Before merge, review identified five implementation risks that did not justify altering the frozen scientific results but required correction for safe reproduction and future studies:
+
+- timed commands did not terminate the entire descendant process group;
+- the HiMAP task command could mask a failed primary command with a successful trailing pipeline;
+- the reference evaluator did not verify `predictions.json` against the prediction lock;
+- future acquisition could query a README and referenced paths from different moving branch revisions;
+- two pull-request workflows could write generated outputs back to the PR branch.
+
+The merged implementation now terminates timed process groups, asserts HiMAP task artifacts, verifies prediction-file SHA-256 against its lock, resolves one immutable repository commit for README and path checks, and keeps pull-request validation workflows read-only. Regression tests and Python 3.11/3.13 CI cover these controls.
+
+These fixes harden reproduction infrastructure. They do not retune the detector, change reference labels, delete raw attempts, or convert correction successes into detector true positives.
+
 ## Limitations
 
 - The dynamic sample contains ten feasibility-selected cases and supports no population inference.
 - One autonomous agent performed sequential acquisition and reference annotation; this is not independent inter-rater validation.
+- The original frozen issue-121 acquisition retained README blob SHAs but did not record one repository commit SHA for every README/path-check request sequence. No observed case was shown to have crossed revisions, but that possibility was not cryptographically excluded. Future acquisition is commit-pinned; the frozen historical evidence remains unchanged.
 - ecodive could not be safely replayed from the frozen acquisition state.
 - Correction reruns answer narrow harness questions and cannot rehabilitate the failed static gates.
 - Maintainer acceptance, merge, and measured user benefit were not observed.
+- Independent reproduction, independent human re-annotation, citation, accepted upstream correction, and measured user-benefit counts were all zero at publication closeout.
 
 ## Product decision
 
 **Overall productization: NOT SUPPORTED.**
 
 There will be no GitHub Action v0.2, no rule tuning on issue 121, and no presentation of this detector as generally valid. The repository remains useful as a transparent negative result showing how prediction locking, raw-evidence preservation, adjudication, correction separation, and conservative intervention policy prevent favorable-result bias. Local upstream fixes, if accepted in future, must be logged as narrow public-interest outcomes and must not be interpreted as detector success.
+
+The next valid sources of value are durable citation, public methodological translation, and genuinely independent external replication—not further tuning of this detector on the same evidence.
