@@ -1,0 +1,60 @@
+[build-system]
+requires = ["setuptools>=75", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "research-readme-smoketest"
+version = "0.1.0"
+description = "Conservative static preflight and pilot dataset for research-software README install-to-first-use paths"
+readme = "README.md"
+requires-python = ">=3.11"
+license = "MIT"
+authors = [{name = "Frontier Public-Interest Research Mission"}]
+dependencies = []
+classifiers = [
+  "Development Status :: 3 - Alpha",
+  "Programming Language :: Python :: 3",
+  "Programming Language :: Python :: 3.11",
+  "Programming Language :: Python :: 3.12",
+  "Programming Language :: Python :: 3.13",
+  "Topic :: Software Development :: Quality Assurance",
+]
+
+[project.optional-dependencies]
+dev = [
+  "build==1.2.2.post1",
+  "mypy==1.17.0",
+  "pytest==9.0.2",
+  "pytest-cov==7.0.0",
+  "ruff==0.12.5",
+]
+
+[project.scripts]
+readme-smoketest = "readme_smoketest.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.ruff]
+target-version = "py311"
+line-length = 100
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "B", "UP", "RUF"]
+
+[tool.mypy]
+python_version = "3.11"
+strict = true
+mypy_path = "src"
+
+[tool.pytest.ini_options]
+addopts = "-ra --strict-markers"
+testpaths = ["tests"]
+
+[tool.coverage.run]
+source = ["readme_smoketest"]
+branch = true
+
+[tool.coverage.report]
+show_missing = true
+fail_under = 90

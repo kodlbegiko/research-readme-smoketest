@@ -1,0 +1,97 @@
+schema_version: '1.0'
+study_id: joss-122-root-readme-pilot
+title: Root README install-to-first-use paths in a JOSS pilot
+research_question: >-
+  In the first 20 papers listed in JOSS issue 122, what proportion of linked
+  GitHub research-software repositories provide a copyable root-README path
+  from installation/build to first meaningful use, and can a conservative
+  static preflight identify unambiguous defects without treating external
+  documentation or missing examples as hard errors?
+status: SUPPORTED
+study_type: exploratory pilot
+random_seed: null
+determinism:
+  python_hash_seeds_tested: [0, 321]
+  expected_json_sha256: 531f145706238996c499746bdb46c9f4d281221828b4f07691c68782ca2f80f8
+  expected_csv_sha256: d8b4c65d59cbf5a050ad83fd15546aa7ff3f66607ac69831c7213c61f70fe30b
+dataset_sources:
+  - name: Journal of Open Source Software issue 122
+    url: https://joss.theoj.org/toc/issue/122
+    selection: first 20 papers in official issue order
+    accessed: '2026-07-25'
+  - name: Public GitHub root READMEs and repository paths
+    acquisition: GitHub connector/API; README blob SHAs frozen in processed data
+    accessed: '2026-07-25'
+dataset_hashes:
+  data/raw/source-records.json: 2f4d549d1c83249a7456328448b5bafb4a121d9352e4cc123255956687a165f9
+  data/processed/readme-blocks.json: bd52828450825a6bdb8c610cce6741e736f5e6a60ccf39f0f1250181e1c004ff
+  docs/candidates.json: eb6ecd6bded5f4b8a86137cc3c54da374a82da5da778045a4949d51d721d3d38
+sample:
+  papers: 20
+  eligible_github_repositories: 19
+  exclusions:
+    non_github: 1
+hypotheses:
+  H1: >-
+    Strict root-README readiness is below 70%; support additionally requires at
+    least 15 eligible repositories and a two-sided 95% Wilson upper bound below 70%.
+  H0: >-
+    Strict root-README readiness is at least 70%, or evidence is insufficient.
+  H2: >-
+    Low strict readiness is substantially explained by explicit external-document delegation.
+commands:
+  install: python -m pip install -e ".[dev]"
+  lint: ruff check .
+  format_check: ruff format --check .
+  typecheck: mypy src
+  tests: pytest
+  coverage: pytest --cov
+  build: python -m build
+  reproduce: >-
+    PYTHONHASHSEED=0 readme-smoketest pilot --output-dir reproduced-results
+  determinism_a: >-
+    PYTHONHASHSEED=0 readme-smoketest pilot --output-dir /tmp/readme-a
+  determinism_b: >-
+    PYTHONHASHSEED=321 readme-smoketest pilot --output-dir /tmp/readme-b
+  determinism_diff_json: diff -u /tmp/readme-a/pilot-results.json /tmp/readme-b/pilot-results.json
+  determinism_diff_csv: diff -u /tmp/readme-a/pilot-results.csv /tmp/readme-b/pilot-results.csv
+expected_outputs:
+  - results/published/pilot-results.json
+  - results/published/pilot-results.csv
+  - results/published/SHA256SUMS
+  - results/published/performance.json
+metrics:
+  strict_ready_count: 7
+  strict_ready_rate: 0.3684210526315789
+  strict_ready_wilson_95: [0.19149512745135075, 0.5896046683519692]
+  relaxed_ready_count: 19
+  relaxed_ready_rate: 1.0
+  hard_defect_repositories: 4
+  hard_defect_repo_rate: 0.21052631578947367
+  naive_false_positives: 4
+  proposed_false_positives: 0
+  proposed_false_negatives: 0
+environment:
+  local_audit:
+    os: Linux x86_64 kernel 6.12.13
+    python: 3.13.5
+    node: 22.16.0
+    npm: 10.9.2
+    git: 2.47.3
+    logical_cpus: 5
+    ram_gib: 5.9
+    free_disk_gib: 39
+  ci:
+    os: ubuntu-latest
+    python: ['3.11', '3.13']
+licenses:
+  original_code_and_labels: MIT
+  third_party_readmes: original repository licenses; only short extracts and hashes retained
+known_limitations:
+  - One JOSS issue and the first 20 entries only.
+  - Current default-branch READMEs, not publication-time tags.
+  - One annotator; no independent inter-rater reliability estimate.
+  - Rule development and evaluation use the same sample.
+  - Static analysis does not execute heterogeneous scientific software stacks.
+  - Relaxed readiness does not prove external documentation is accessible or correct.
+  - No causal link to failed scientific reproduction or adoption was measured.

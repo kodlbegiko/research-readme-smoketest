@@ -1,0 +1,20 @@
+order,doi,title,repository,readme_sha,external_docs,install_safe,first_use_safe,strict_ready,relaxed_ready,naive_ready,hard_defect_count,hard_defects,substitution_blocks
+1,10.21105/joss.10003,MyMesh,BU-SMBL/mymesh,198a46ddc3c44faf509366d1685f0f261f338a4b,True,True,False,False,True,False,0,,0
+2,10.21105/joss.09310,Finitewave,finitewave/Finitewave,3bfb38688f9cd693284ee70884884a2a95a89473,True,True,True,True,True,True,0,,1
+3,10.21105/joss.09930,CGView.js,sciguy/cgview-js,8b93ebd91962bab116eaec8097631e15c72445da,True,True,False,False,True,True,1,undeclared_module_assignment:cgv,0
+4,10.21105/joss.10136,Vibrant,lstsgroup/vibrant,2b33e9e241269d481d3ec84ff6d777d0be60a203,True,True,False,False,True,True,0,,0
+5,10.21105/joss.10231,nyaml,FAIRmat-NFDI/nyaml,639a2333a096a1b4f73ceba0903d3ba96e883d16,True,True,False,False,True,False,0,,0
+6,10.21105/joss.09628,FAIRLinked,cwru-sdle/FAIRLinked,662519273a29f21af6cbdc6050296669cc424e71,True,True,True,True,True,True,1,missing_relative_path:rresources/worked-example-RDFTableConversion.MDS_DF/pmma_no_metadata_rows.csv,0
+8,10.21105/joss.10278,Fetpype,fetpype/fetpype,0e680a3c6771f64218065bf8840dd080b4e4d82d,True,False,False,False,True,False,0,,0
+9,10.21105/joss.10425,Liblsl.dart,NexusDynamic/liblsl.dart,5477c31b385c74151e1694d4633afb74e4f7c650,True,False,False,False,True,True,1,missing_git_clone_target,0
+10,10.21105/joss.09598,TNC,qc-tum/TNC,25d034c4fc2a213878d754800a985fe6a54acd15,True,True,True,True,True,True,0,,0
+11,10.21105/joss.09606,site-analysis,bjmorgan/site-analysis,ddd38ec52b01e42fe1dfb877a12dbef4b248cb47,True,True,True,True,True,True,0,,0
+12,10.21105/joss.10380,Chemiscope,lab-cosmo/chemiscope,4bac3af03075921a6898b9c483a5e4780e818860,True,True,True,True,True,True,0,,0
+13,10.21105/joss.10303,scpviz,gnaprs/scpviz,5aba0d91464822456fa40cddc5b7c3a718a38ff2,True,True,False,False,True,False,0,,0
+14,10.21105/joss.09736,ScrollStats,tamu-edu/scrollstats,ec4fc84c06be0c6ae3a56b3df95452f59684abff,True,True,False,False,True,False,0,,0
+15,10.21105/joss.09944,Solshade,amanchokshi/solshade,da2098f29e235c87ec969fa94e05c7b532c73bc6,True,True,False,False,True,False,0,,0
+16,10.21105/joss.09924,TikhonovFenichelReductions.jl,jo-ap/TikhonovFenichelReductions.jl,d4bff373b4b1e7b8fc561f44b81b18c7dc41dcd0,True,True,False,False,True,True,0,,0
+17,10.21105/joss.08332,pangeo-fish,pangeo-fish/pangeo-fish,1054aefd07bc7096f57bb69c1de51d64168cfe93,True,True,True,True,True,True,0,,0
+18,10.21105/joss.10490,sEEG-Suite / Brainstorm,brainstorm-tools/brainstorm3,8a259a8c746937d04f53d3f8bd4003687f9ad3cd,True,False,False,False,True,False,0,,0
+19,10.21105/joss.10245,PAI,NutritionalLungImmunity/PAI,c2cd13d8d9b6320a19dd59c19a21ba93803ea3e6,False,True,True,True,True,True,1,apt_get_typo,0
+20,10.21105/joss.09695,stylo,ncezid-biome/stylo,9f8f080c48d00a56b831a64481b4cef0d8ad9bcc,True,False,True,False,True,False,0,,1
