@@ -68,16 +68,9 @@ def test_timeout_terminates_descendant_process_group(tmp_path: Path) -> None:
     module = load_script()
     logs = tmp_path / "logs"
     logs.mkdir()
-    command = (
-        "python - <<'PY'\n"
-        "import pathlib, subprocess, time\n"
-        "p = subprocess.Popen(['sleep', '30'])\n"
-        "pathlib.Path('child.pid').write_text(str(p.pid))\n"
-        "time.sleep(30)\n"
-        "PY"
-    )
+    command = 'sleep 30 & child=$!; printf \'%s\' "$child" > child.pid; wait "$child"'
     result = module.run_step(
-        module.StepSpec("timeout tree", "task", command, 1),
+        module.StepSpec("timeout tree", "task", command, 2),
         tmp_path,
         logs,
         1,
@@ -85,8 +78,10 @@ def test_timeout_terminates_descendant_process_group(tmp_path: Path) -> None:
     )
     assert result["timed_out"] is True
     assert result["return_code"] == 124
-    pid = int((tmp_path / "child.pid").read_text())
-    deadline = time.monotonic() + 3
+    pid_path = tmp_path / "child.pid"
+    assert pid_path.is_file(), "the child PID must be recorded before the timeout"
+    pid = int(pid_path.read_text())
+    deadline = time.monotonic() + 5
     while time.monotonic() < deadline:
         stat = Path(f"/proc/{pid}/stat")
         if not stat.exists() or stat.read_text().split()[2] == "Z":
