@@ -1,0 +1,76 @@
+name: Independent replication submission
+about: Register a computational reproduction, human re-annotation, or new-data replication
+labels: ["independent-replication"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        This repository accepts results that reproduce, partially reproduce, contradict, remain inconclusive, or are blocked. Do not use this form for detector feature requests.
+  - type: input
+    id: study_id
+    attributes:
+      label: Study ID
+      description: A unique public identifier for this replication.
+    validations:
+      required: true
+  - type: dropdown
+    id: mode
+    attributes:
+      label: Replication mode
+      options:
+        - Computational reproduction
+        - Independent human re-annotation
+        - New-data replication
+        - Combined replication
+    validations:
+      required: true
+  - type: input
+    id: preregistration
+    attributes:
+      label: Public preregistration URI
+    validations:
+      required: true
+  - type: textarea
+    id: independence
+    attributes:
+      label: Independence and conflicts
+      description: Disclose relationships, funding, sampled-project involvement, and AI assistance.
+    validations:
+      required: true
+  - type: dropdown
+    id: status
+    attributes:
+      label: Reported outcome
+      options:
+        - REPRODUCED
+        - PARTIALLY_REPRODUCED
+        - CONTRADICTED
+        - INCONCLUSIVE
+        - BLOCKED
+    validations:
+      required: true
+  - type: input
+    id: package
+    attributes:
+      label: Evidence package URI or pull request
+    validations:
+      required: true
+  - type: textarea
+    id: deviations
+    attributes:
+      label: Deviations and missing evidence
+    validations:
+      required: true
+  - type: checkboxes
+    id: integrity
+    attributes:
+      label: Integrity confirmations
+      options:
+        - label: Raw failed attempts are preserved and reported.
+          required: true
+        - label: AI output is not counted as an independent human annotator.
+          required: true
+        - label: No issue-121 outcome-informed detector tuning is presented as out-of-sample evidence.
+          required: true
+        - label: Reach metrics are not presented as impact outcomes.
+          required: true

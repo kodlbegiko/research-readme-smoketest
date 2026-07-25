@@ -1,0 +1,108 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/kodlbegiko/research-readme-smoketest/blob/main/docs/impact-entry-schema.json",
+  "title": "Research README Smoketest verified impact log",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "as_of_utc",
+    "study_id",
+    "status",
+    "measurement_policy",
+    "counts",
+    "entries",
+    "note"
+  ],
+  "properties": {
+    "schema_version": {"const": "1.0.0"},
+    "as_of_utc": {"type": "string", "format": "date-time"},
+    "study_id": {"const": "joss-issue-121-external-validation"},
+    "status": {
+      "enum": [
+        "NO_VERIFIED_EXTERNAL_OUTCOMES_YET",
+        "VERIFIED_EXTERNAL_OUTCOMES_RECORDED",
+        "DISSEMINATION_COMPLETED_NO_EXTERNAL_EVIDENCE",
+        "DISSEMINATION_COMPLETED_EXTERNAL_EVIDENCE_REVIEWED"
+      ]
+    },
+    "measurement_policy": {"type": "string", "minLength": 1},
+    "counts": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "independent_reproductions",
+        "independent_human_reannotations",
+        "external_citations",
+        "accepted_upstream_corrections",
+        "measured_user_benefit_outcomes",
+        "protocol_adoptions",
+        "documented_productization_decision_changes"
+      ],
+      "properties": {
+        "independent_reproductions": {"type": "integer", "minimum": 0},
+        "independent_human_reannotations": {"type": "integer", "minimum": 0},
+        "external_citations": {"type": "integer", "minimum": 0},
+        "accepted_upstream_corrections": {"type": "integer", "minimum": 0},
+        "measured_user_benefit_outcomes": {"type": "integer", "minimum": 0},
+        "protocol_adoptions": {"type": "integer", "minimum": 0},
+        "documented_productization_decision_changes": {"type": "integer", "minimum": 0}
+      }
+    },
+    "entries": {
+      "type": "array",
+      "items": {"$ref": "#/$defs/entry"}
+    },
+    "note": {"type": "string", "minLength": 1}
+  },
+  "$defs": {
+    "entry": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "evidence_id",
+        "evidence_type",
+        "date",
+        "source",
+        "independent_party",
+        "verification_status",
+        "possible_duplication",
+        "conflict_of_interest",
+        "outcome_status",
+        "supporting_url_or_archive",
+        "reviewer_identity_or_role",
+        "notes",
+        "counted"
+      ],
+      "properties": {
+        "evidence_id": {"type": "string", "pattern": "^impact-[0-9]{4}$"},
+        "evidence_type": {
+          "enum": [
+            "independent_reproduction",
+            "independent_human_reannotation",
+            "external_citation",
+            "accepted_upstream_correction",
+            "measured_user_benefit",
+            "protocol_adoption",
+            "documented_productization_decision_change"
+          ]
+        },
+        "date": {"type": "string", "format": "date"},
+        "source": {"type": "string", "minLength": 1},
+        "independent_party": {"type": "string", "minLength": 1},
+        "verification_status": {
+          "enum": ["UNVERIFIED", "VERIFIED", "REJECTED", "DISPUTED", "REVERSED"]
+        },
+        "possible_duplication": {"type": "string", "minLength": 1},
+        "conflict_of_interest": {"type": "string", "minLength": 1},
+        "outcome_status": {
+          "enum": ["ACCEPTED", "REJECTED", "DISPUTED", "REVERSED"]
+        },
+        "supporting_url_or_archive": {"type": "string", "minLength": 1},
+        "reviewer_identity_or_role": {"type": "string", "minLength": 1},
+        "notes": {"type": "string"},
+        "counted": {"type": "boolean"}
+      }
+    }
+  }
+}

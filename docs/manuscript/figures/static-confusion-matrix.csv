@@ -1,0 +1,4 @@
+prediction,reference_strict_ready,reference_not_strict_ready,total
+strict_ready,7,0,7
+not_strict_ready,17,14,31
+total,24,14,38

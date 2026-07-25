@@ -1,0 +1,84 @@
+name: Publication metadata
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - CITATION.cff
+      - research-manifest-issue-121.yml
+      - docs/manuscript/**
+      - docs/replication/**
+      - docs/impact-entry-schema.json
+      - results/public-interest/**
+      - scripts/validate_replication_submission.py
+      - scripts/validate_impact_log.py
+      - .github/workflows/publication-metadata.yml
+  pull_request:
+    paths:
+      - CITATION.cff
+      - research-manifest-issue-121.yml
+      - docs/manuscript/**
+      - docs/replication/**
+      - docs/impact-entry-schema.json
+      - results/public-interest/**
+      - scripts/validate_replication_submission.py
+      - scripts/validate_impact_log.py
+      - .github/workflows/publication-metadata.yml
+
+permissions:
+  contents: read
+
+jobs:
+  validate-publication:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Validate Citation File Format
+        uses: citation-file-format/cffconvert-github-action@2.0.0
+        with:
+          args: "--validate"
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.13'
+          cache: pip
+      - name: Install metadata validators
+        run: python -m pip install "jsonschema[format]==4.26.0" "PyYAML==6.0.3"
+      - name: Validate replication and impact records
+        run: |
+          python scripts/validate_replication_submission.py --check-schema
+          python scripts/validate_impact_log.py
+          sha256sum -c results/public-interest/SHA256SUMS
+      - name: Verify deterministic figures
+        run: python docs/manuscript/figures/generate_figures.py --check
+      - name: Verify research-note length and required conclusions
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+
+          text = Path('docs/manuscript/research-note.md').read_text(encoding='utf-8')
+          words = len(text.split())
+          assert 3000 <= words <= 5000, words
+          required = [
+              'Detector out-of-sample validity: `NOT SUPPORTED`',
+              "Static findings' predictive value for first-use friction: `NOT SUPPORTED`",
+              'Overall productization: `NOT SUPPORTED`',
+              'GitHub Action v0.2: not created and not planned',
+              'no direct README blocker was observed',
+          ]
+          for statement in required:
+              assert statement in text, statement
+          PY
+      - name: Validate publication manifest
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          import yaml
+
+          manifest = yaml.safe_load(Path('research-manifest-issue-121.yml').read_text())
+          assert manifest['publication_commit'] == '4dfb0b961470974f9dc80a936db86450303d007a'
+          assert manifest['research_tag']['target_commit'] == manifest['publication_commit']
+          assert manifest['verdicts']['overall_productization'] == 'NOT SUPPORTED'
+          assert manifest['product_decision']['github_action_v0_2'] == 'prohibited'
+          assert manifest['archival_status']['zenodo_concept_doi'] == 'NOT ASSIGNED'
+          assert manifest['archival_status']['software_heritage_swhid'] == 'NOT RECORDED'
+          PY

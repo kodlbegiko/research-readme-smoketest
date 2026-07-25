@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="920" height="520" viewBox="0 0 920 520">
+<rect width="920" height="520" fill="white"/>
+<text x="460" y="40" text-anchor="middle" font-family="sans-serif" font-size="24" font-weight="700">Adjudicated dynamic outcomes</text>
+<text x="460" y="70" text-anchor="middle" font-family="sans-serif" font-size="15">10 locked cases; 8 of 9 testable first tasks succeeded</text>
+<text x="340" y="137" text-anchor="end" font-family="sans-serif" font-size="14">SUCCESS</text>
+<rect x="360" y="110" width="500" height="38" fill="none" stroke="black" stroke-width="2"/>
+<text x="872" y="137" font-family="sans-serif" font-size="16" font-weight="700">6</text>
+<text x="340" y="199" text-anchor="end" font-family="sans-serif" font-size="14">SUCCESS_WITH_FRICTION</text>
+<rect x="360" y="172" width="167" height="38" fill="none" stroke="black" stroke-width="2"/>
+<text x="539" y="199" font-family="sans-serif" font-size="16" font-weight="700">2</text>
+<text x="340" y="261" text-anchor="end" font-family="sans-serif" font-size="14">FAILURE_DEPENDENCY_COMPATIBILITY</text>
+<rect x="360" y="234" width="83" height="38" fill="none" stroke="black" stroke-width="2"/>
+<text x="455" y="261" font-family="sans-serif" font-size="16" font-weight="700">1</text>
+<text x="340" y="323" text-anchor="end" font-family="sans-serif" font-size="14">UNTESTABLE_HERE</text>
+<rect x="360" y="296" width="83" height="38" fill="none" stroke="black" stroke-width="2"/>
+<text x="455" y="323" font-family="sans-serif" font-size="16" font-weight="700">1</text>
+<text x="340" y="385" text-anchor="end" font-family="sans-serif" font-size="14">FAILURE_README_BLOCKER</text>
+<rect x="360" y="358" width="0" height="38" fill="none" stroke="black" stroke-width="2"/>
+<text x="372" y="385" font-family="sans-serif" font-size="16" font-weight="700">0</text>
+<text x="340" y="447" text-anchor="end" font-family="sans-serif" font-size="14">FAILURE_OTHER</text>
+<rect x="360" y="420" width="0" height="38" fill="none" stroke="black" stroke-width="2"/>
+<text x="372" y="447" font-family="sans-serif" font-size="16" font-weight="700">0</text>
+<text x="460" y="495" text-anchor="middle" font-family="sans-serif" font-size="15">Direct README blockers observed: 0</text>
+</svg>

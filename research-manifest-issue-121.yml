@@ -2,6 +2,12 @@ study_id: joss-issue-121-external-validation
 status: archived-as-reproducible-negative-research
 closed_at_utc: '2026-07-26'
 repository: kodlbegiko/research-readme-smoketest
+publication_commit: 4dfb0b961470974f9dc80a936db86450303d007a
+research_tag:
+  name: research-closeout-issue-121
+  target_commit: 4dfb0b961470974f9dc80a936db86450303d007a
+  resolves_to_target: true
+  annotated_object_type: PENDING_INDEPENDENT_VERIFICATION
 historical_study_branch: research/issue-121-external-validation
 evidence_closeout_merge_commit: 0c5dd9bdf9d8e5d77e6bba3828ec1979b895f42c
 baseline:
@@ -84,15 +90,21 @@ integrity_hardening_after_review:
 public_interest_initial_counts:
   independent_reproductions: 0
   independent_human_reannotations: 0
-  citations: 0
+  external_citations: 0
   accepted_upstream_corrections: 0
   measured_user_benefit_outcomes: 0
+  protocol_adoptions: 0
+  documented_productization_decision_changes: 0
 archival_status:
-  proposed_tag: research-closeout-issue-121
-  github_release: NOT CREATED
-  doi: NOT ASSIGNED
+  github_release:
+    owner_reported_url: https://github.com/kodlbegiko/research-readme-smoketest/releases/tag/research-closeout-issue-121
+    owner_reported_title: Issue 121 External Validation — Negative Research Closeout
+    independent_api_verification: PENDING_OWNER_OR_EXTERNAL_VERIFICATION
+  zenodo_concept_doi: NOT ASSIGNED
+  zenodo_version_doi: NOT ASSIGNED
+  software_heritage_request_id: NOT RECORDED
   software_heritage_swhid: NOT RECORDED
-  owner_actions: docs/owner-actions-release-and-archive.md
+  status_document: docs/archival-and-dissemination-status.md
 limitations:
   - ten_case_dynamic_sample_no_population_inference
   - same_autonomous_agent_not_independent_second_human

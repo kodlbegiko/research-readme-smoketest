@@ -1,0 +1,6 @@
+metric,value,gate,gate_status
+precision,1.000,,
+recall,0.291667,,
+specificity,1.000,,
+accuracy,0.552632,0.750,FAILED
+f1,0.451613,,

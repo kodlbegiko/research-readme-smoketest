@@ -23,8 +23,11 @@ There will be no GitHub Action v0.2 and no retuning on JOSS issue 121. A future 
 - [`EXTERNAL-VALIDATION.md`](EXTERNAL-VALIDATION.md) — complete negative-result closeout
 - [`REPLICATION.md`](REPLICATION.md) — independent replication entry point
 - [`PUBLIC-INTEREST.md`](PUBLIC-INTEREST.md) — evidence ladder and current zero-impact baseline
+- [`docs/manuscript/research-note.md`](docs/manuscript/research-note.md) — submission-oriented English research note
+- [`docs/replication/replicator-onboarding.md`](docs/replication/replicator-onboarding.md) — computational and new-data replication onboarding
+- [`docs/archival-and-dissemination-status.md`](docs/archival-and-dissemination-status.md) — DOI, SWHID, Release verification, and bounded dissemination status
 - [`docs/public-summary.md`](docs/public-summary.md) — plain-language English summary
-- [`docs/archival-plan.md`](docs/archival-plan.md) — long-term preservation and DOI status
+- [`docs/archival-plan.md`](docs/archival-plan.md) — long-term preservation plan
 - [`results/issue-121/dynamic-validation-results.json`](results/issue-121/dynamic-validation-results.json) — machine-readable dynamic result
 - [`results/issue-121/DYNAMIC-FINAL-SHA256SUMS`](results/issue-121/DYNAMIC-FINAL-SHA256SUMS) — final evidence checksums
 
@@ -114,6 +117,8 @@ independent human re-annotations: 0
 external citations: 0
 accepted upstream corrections: 0
 measured user-benefit outcomes: 0
+protocol adoptions: 0
+documented productization decision changes: 0
 ```
 
 Internal CI, GitHub activity, issue submission, downloads, and AI-generated review are not counted as external impact.
@@ -143,8 +148,10 @@ Do not use the pilot headline as evidence that the detector is generally valid.
 - `results/interventions/` — maintainer-intervention decisions and evidence
 - `results/public-interest/` — external outcome log, initially all zero
 - `docs/independent-replication-protocol.md` — new-study protocol
+- `docs/replication/` — replicator onboarding, deviation form, and validation checklist
 - `docs/replication-result-schema.json` — machine-readable submission schema
-- `docs/outreach/` — non-promotional dissemination drafts
+- `docs/manuscript/` — research note, abstract, cover letter, checklist, and deterministic figures
+- `docs/outreach/` — non-promotional dissemination and individually reviewed invitation drafts
 - `src/` and `tests/` — frozen detector implementation and integrity tests
 
 ## License, conduct, and citation
@@ -155,4 +162,4 @@ Original code, labels, and documentation are MIT licensed. Third-party repositor
 - Contributions: [`CONTRIBUTING.md`](CONTRIBUTING.md)
 - Conduct: [`CODE_OF_CONDUCT.md`](CODE_OF_CONDUCT.md)
 
-The permanent DOI and research release are not yet created. Exact manual owner actions are documented in `docs/owner-actions-release-and-archive.md`.
+The formal research tag and owner-reported GitHub Release are tracked in [`docs/archival-and-dissemination-status.md`](docs/archival-and-dissemination-status.md). No DOI or SWHID may be cited until the identifier is genuinely issued and independently verified.
