@@ -18,7 +18,10 @@ from typing import Any
 
 
 def github_json(url: str, token: str | None) -> dict[str, Any]:
-    headers = {"Accept": "application/vnd.github+json", "User-Agent": "readme-smoketest/0.1"}
+    headers = {
+        "Accept": "application/vnd.github+json",
+        "User-Agent": "readme-smoketest/0.1",
+    }
     if token:
         headers["Authorization"] = f"Bearer {token}"
     request = urllib.request.Request(url, headers=headers)
@@ -49,7 +52,9 @@ def main() -> int:
         except (urllib.error.URLError, KeyError, UnicodeDecodeError, ValueError) as exc:
             manifest.append({"repository": repository, "status": "error", "error": str(exc)})
             continue
-        destination = args.output_dir / f"{record['order']:02d}-{repository.replace('/', '__')}.md"
+        destination = (
+            args.output_dir / f"{record['order']:02d}-{repository.replace('/', '__')}.md"
+        )
         destination.write_text(content, encoding="utf-8")
         manifest.append(
             {
