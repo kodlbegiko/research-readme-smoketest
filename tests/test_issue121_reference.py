@@ -1,8 +1,12 @@
 from __future__ import annotations
 
+import hashlib
 import importlib.util
+import json
 from pathlib import Path
 from types import ModuleType
+
+import pytest
 
 SCRIPT = Path(__file__).parents[1] / "scripts" / "evaluate_issue_121.py"
 
@@ -36,3 +40,22 @@ def test_sklearn_path_predictions_are_frozen_for_reference_review() -> None:
         "missing_relative_path:input_model/y_pred.csv",
         "missing_relative_path:output_model/y_pred_new.csv",
     )
+
+
+def test_prediction_file_must_match_prediction_lock(tmp_path: Path) -> None:
+    module = load_script()
+    prediction_dir = tmp_path / "predictions"
+    prediction_dir.mkdir()
+    prediction_path = prediction_dir / "predictions.json"
+    prediction_path.write_text("{}\n")
+    lock = {
+        "annotations_present_when_locked": False,
+        "prediction_json_sha256": "0" * 64,
+    }
+    (prediction_dir / "PREDICTION_LOCK.json").write_text(json.dumps(lock))
+    with pytest.raises(ValueError, match="prediction file hash does not match lock"):
+        module.verify_prediction_lock(tmp_path)
+
+    lock["prediction_json_sha256"] = hashlib.sha256(prediction_path.read_bytes()).hexdigest()
+    (prediction_dir / "PREDICTION_LOCK.json").write_text(json.dumps(lock))
+    assert module.verify_prediction_lock(tmp_path) == lock

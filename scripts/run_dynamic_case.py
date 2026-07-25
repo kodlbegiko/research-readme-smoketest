@@ -9,6 +9,7 @@ import os
 import platform
 import re
 import shutil
+import signal
 import subprocess
 import textwrap
 import time
@@ -52,6 +53,23 @@ def slug(value: str) -> str:
     return re.sub(r"[^a-z0-9]+", "-", value.lower()).strip("-")
 
 
+def terminate_process_group(
+    process: subprocess.Popen[str], grace_seconds: int = 5
+) -> tuple[str, str]:
+    try:
+        os.killpg(os.getpgid(process.pid), signal.SIGTERM)
+    except ProcessLookupError:
+        pass
+    try:
+        return process.communicate(timeout=grace_seconds)
+    except subprocess.TimeoutExpired:
+        try:
+            os.killpg(os.getpgid(process.pid), signal.SIGKILL)
+        except ProcessLookupError:
+            pass
+        return process.communicate()
+
+
 def run_step(
     spec: StepSpec,
     workspace: Path,
@@ -65,25 +83,23 @@ def run_step(
     started = time.perf_counter()
     timed_command = ["/usr/bin/time", "-v", "bash", "-lc", spec.command]
     timed_out = False
+    process = subprocess.Popen(
+        timed_command,
+        cwd=workspace,
+        env=environment,
+        text=True,
+        stdout=subprocess.PIPE,
+        stderr=subprocess.PIPE,
+        start_new_session=True,
+    )
     try:
-        completed = subprocess.run(
-            timed_command,
-            cwd=workspace,
-            env=environment,
-            text=True,
-            capture_output=True,
-            timeout=spec.timeout_seconds,
-            check=False,
-        )
-        return_code = completed.returncode
-        stdout = completed.stdout
-        stderr = completed.stderr
-    except subprocess.TimeoutExpired as error:
+        stdout, stderr = process.communicate(timeout=spec.timeout_seconds)
+        return_code = process.returncode
+    except subprocess.TimeoutExpired:
         timed_out = True
         return_code = 124
-        stdout = error.stdout if isinstance(error.stdout, str) else ""
-        stderr = error.stderr if isinstance(error.stderr, str) else ""
-        stderr += f"\nTIMEOUT after {spec.timeout_seconds} seconds\n"
+        stdout, stderr = terminate_process_group(process)
+        stderr += f"\nTIMEOUT after {spec.timeout_seconds} seconds; process group terminated\n"
     duration = time.perf_counter() - started
     stdout_path.write_text(stdout, encoding="utf-8", errors="replace")
     stderr_path.write_text(stderr, encoding="utf-8", errors="replace")
@@ -150,7 +166,14 @@ def himap_steps() -> list[StepSpec]:
             "run HiMAP Monte Carlo example",
             "task",
             textwrap.dedent(
-                """\n                mkdir -p task\n                cd task\n                ../venv/bin/python -m himap.main --mc_sampling True\n                find . ../venv -type f                   \\( -path '*/results/*' -o -name '*.csv' -o -name '*.png' \\)                   -print | head -n 20\n                """
+                """\n                set -euo pipefail
+                mkdir -p task
+                cd task
+                ../venv/bin/python -m himap.main --mc_sampling True
+                artifact="$(find . -type f \( -path '*/results/*' -o -name '*.csv' -o -name '*.png' \) -print -quit)"
+                test -n "$artifact"
+                find . -type f \( -path '*/results/*' -o -name '*.csv' -o -name '*.png' \) -print | sed -n '1,20p'
+                """
             ).strip(),
             420,
         ),

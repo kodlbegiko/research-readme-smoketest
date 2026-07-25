@@ -162,6 +162,25 @@ def sha256(path: Path) -> str:
     return digest.hexdigest()
 
 
+def verify_prediction_lock(data_dir: Path) -> dict[str, Any]:
+    lock_path = data_dir / "predictions/PREDICTION_LOCK.json"
+    prediction_path = data_dir / "predictions/predictions.json"
+    if not lock_path.exists():
+        raise FileNotFoundError("prediction lock must exist before reference evaluation")
+    lock = read_json(lock_path)
+    if lock.get("annotations_present_when_locked") is not False:
+        raise ValueError("prediction lock does not prove annotations were absent")
+    expected = lock.get("prediction_json_sha256")
+    if not isinstance(expected, str) or not expected:
+        raise ValueError("prediction lock has no prediction_json_sha256")
+    actual = sha256(prediction_path)
+    if actual != expected:
+        raise ValueError(
+            f"prediction file hash does not match lock: expected {expected}, got {actual}"
+        )
+    return lock
+
+
 def reference_annotations(
     records: list[dict[str, Any]], metadata: list[dict[str, Any]]
 ) -> list[dict[str, Any]]:
@@ -385,12 +404,7 @@ def parse_args() -> argparse.Namespace:
 
 def main() -> int:
     args = parse_args()
-    lock_path = args.data_dir / "predictions/PREDICTION_LOCK.json"
-    if not lock_path.exists():
-        raise FileNotFoundError("prediction lock must exist before reference evaluation")
-    lock = read_json(lock_path)
-    if lock.get("annotations_present_when_locked") is not False:
-        raise ValueError("prediction lock does not prove annotations were absent")
+    lock = verify_prediction_lock(args.data_dir)
     records = read_json(args.data_dir / "raw/source-records.json")
     metadata = read_json(args.data_dir / "raw/repository-metadata.json")
     predictions = read_json(args.data_dir / "predictions/predictions.json")

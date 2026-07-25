@@ -2,7 +2,9 @@ from __future__ import annotations
 
 import importlib.util
 import json
+import os
 import sys
+import time
 from pathlib import Path
 from types import ModuleType
 
@@ -52,3 +54,43 @@ def test_failed_case_does_not_claim_dynamic_confirmation() -> None:
     relations = module.preliminary_relations(case, "FAILURE")
     assert relations["strict_false_negative_completed"] is False
     assert relations["external_docs_supplemented"] is False
+
+
+def test_himap_task_propagates_failure_and_requires_task_artifact() -> None:
+    module = load_script()
+    task = next(step for step in module.himap_steps() if step.phase == "task")
+    assert "set -euo pipefail" in task.command
+    assert 'test -n "$artifact"' in task.command
+    assert "find . ../venv" not in task.command
+
+
+def test_timeout_terminates_descendant_process_group(tmp_path: Path) -> None:
+    module = load_script()
+    logs = tmp_path / "logs"
+    logs.mkdir()
+    command = (
+        "python - <<'PY'\n"
+        "import pathlib, subprocess, time\n"
+        "p = subprocess.Popen(['sleep', '30'])\n"
+        "pathlib.Path('child.pid').write_text(str(p.pid))\n"
+        "time.sleep(30)\n"
+        "PY"
+    )
+    result = module.run_step(
+        module.StepSpec("timeout tree", "task", command, 1),
+        tmp_path,
+        logs,
+        1,
+        dict(os.environ),
+    )
+    assert result["timed_out"] is True
+    assert result["return_code"] == 124
+    pid = int((tmp_path / "child.pid").read_text())
+    deadline = time.monotonic() + 3
+    while time.monotonic() < deadline:
+        stat = Path(f"/proc/{pid}/stat")
+        if not stat.exists() or stat.read_text().split()[2] == "Z":
+            break
+        time.sleep(0.05)
+    else:
+        raise AssertionError(f"descendant process {pid} survived timeout")

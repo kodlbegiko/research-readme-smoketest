@@ -267,6 +267,14 @@ def fetch_readme(client: GitHubClient, repository: str, branch: str) -> tuple[st
     return None
 
 
+def resolve_commit(client: GitHubClient, repository: str, branch: str) -> str:
+    encoded_ref = quote(branch, safe="")
+    payload = client.get_json(f"/repos/{repository}/commits/{encoded_ref}")
+    if not isinstance(payload, dict) or not isinstance(payload.get("sha"), str):
+        raise ValueError(f"unable to resolve immutable commit for {repository}@{branch}")
+    return str(payload["sha"])
+
+
 def path_exists(client: GitHubClient, repository: str, branch: str, path: str) -> bool:
     encoded_path = quote(path, safe="/")
     encoded_ref = quote(branch, safe="")
@@ -304,14 +312,16 @@ def acquire_record(
         }
         return None, exclusion, base_metadata
     branch = str(repo_payload["default_branch"])
+    acquired_commit_sha = resolve_commit(client, repository, branch)
     metadata = {
         **base_metadata,
         "default_branch": branch,
+        "acquired_commit_sha": acquired_commit_sha,
         "primary_language": repo_payload.get("language"),
         "repository_url": repo_payload.get("html_url"),
         "archived": bool(repo_payload.get("archived", False)),
     }
-    readme = fetch_readme(client, repository, branch)
+    readme = fetch_readme(client, repository, acquired_commit_sha)
     if readme is None:
         exclusion = {**metadata, "reason": "no_recognizable_root_readme"}
         return None, exclusion, metadata
@@ -325,7 +335,9 @@ def acquire_record(
             if isinstance(path, str)
         }
     )
-    path_index = {path: path_exists(client, repository, branch, path) for path in path_candidates}
+    path_index = {
+        path: path_exists(client, repository, acquired_commit_sha, path) for path in path_candidates
+    }
     external_docs, external_links = external_documentation(text)
     record = {
         "order": item["order"],
