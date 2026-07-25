@@ -138,7 +138,8 @@ CASES: list[dict[str, Any]] = [
         "strata": ["strict_false_negative", "r", "compiled_extension", "library"],
         "documentation_scope": ["root_readme"],
         "predeclared_task": (
-            "Install cowfootR from CRAN and run the documented single-farm quick-start calculations "
+            "Install cowfootR from CRAN and run the documented single-farm "
+            "quick-start calculations "
             "through total emissions and milk intensity."
         ),
         "success_criterion": (
@@ -339,7 +340,8 @@ def build_manifest() -> dict[str, Any]:
                 "valid attempt; not counted as project failure."
             ),
             "static_finding_direct_blocker": (
-                "The exact frozen finding prevents the task and correction or bypass changes the outcome."
+                "The exact frozen finding prevents the task and correction or bypass "
+                "changes the outcome."
             ),
             "material_friction": (
                 "The documented path requires a non-obvious correction, search, or documentation "
@@ -358,7 +360,8 @@ def build_manifest() -> dict[str, Any]:
                 "public package registries, official project assets, and public repositories only"
             ),
             "logs": (
-                "exact commands, exit codes, stdout/stderr, durations, disk use, and installed versions"
+                "exact commands, exit codes, stdout/stderr, durations, disk use, "
+                "and installed versions"
             ),
         },
     }
