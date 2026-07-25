@@ -1,0 +1,61 @@
+study_id: joss-issue-121-external-validation
+status: protocol-frozen
+frozen_at_utc: '2026-07-25'
+repository: kodlbegiko/research-readme-smoketest
+branch: research/issue-121-external-validation
+baseline:
+  version: 0.1.0
+  main_commit: 2caeecc8678a4614f6fe6771df0ace6827a5f434
+  source_blobs:
+    src/readme_smoketest/analyze.py: f9d73e7db4143b7ef898079ba00b6d5cc1fffaaa
+    src/readme_smoketest/model.py: 308ee7647657b0556039cf592204814299a8c5bd
+    src/readme_smoketest/metrics.py: 22dc187b5a62d74932549b7dcb41228051d9eb8e
+    src/readme_smoketest/cli.py: f33106cf7a6415d1d44a472aa39b73e864271362
+    data/processed/readme-blocks.json: 9ccf2349c7cb7ff5fe8bfa24c7206bb10d2cad8b
+  pilot_expected_json_sha256: 531f145706238996c499746bdb46c9f4d281221828b4f07691c68782ca2f80f8
+rules:
+  role_terms:
+    install_headings: [install, setup, requirements, getting_started, quick_install, build_instructions]
+    first_use_headings: [quick_start, quickstart, usage, example, run, first-time]
+    test_headings: [test, testing, verification, regression]
+    development_headings: [development, developer, contributing, monorepo]
+  hard_defects:
+    - missing_git_clone_target
+    - verified_missing_relative_path
+    - sudo_apt_get_typo
+    - undeclared_es_module_new_assignment
+  unsafe_block_conditions:
+    - any_frozen_hard_defect
+    - unexplained_angle_bracket_placeholder
+sampling:
+  source: https://joss.theoj.org/toc/issue/121
+  issue: 121
+  month: '2026-05'
+  official_order: true
+  expected_papers: 39
+  replacement: false
+  exclusions:
+    - non_github
+    - not_software_source_repository
+    - inaccessible_repository
+    - no_recognizable_root_readme
+sequence:
+  - freeze
+  - acquire
+  - predict
+  - commit_prediction_hashes
+  - annotate
+  - evaluate
+  - dynamic_validate
+  - consider_upstream_intervention
+gates:
+  hard_defect_precision_min: 0.80
+  hard_defect_false_positive_rate_max: 0.10
+  strict_ready_accuracy_min: 0.75
+  dynamic_confirmed_friction_min: 3
+  accepted_or_merged_upstream_min: 2
+limitations:
+  - same_autonomous_agent_acquires_and_reference_labels
+  - no_second_human_annotator_currently_available
+  - tag_and_release_creation_not_available_through_connected_tool
+verdicts: [SUPPORTED, NOT_SUPPORTED, INCONCLUSIVE, BLOCKED]
