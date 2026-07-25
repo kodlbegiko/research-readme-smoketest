@@ -10,7 +10,7 @@ import json
 import statistics
 import time
 import tracemalloc
-from collections import Counter, defaultdict
+from collections import defaultdict
 from datetime import UTC, datetime
 from pathlib import Path
 from typing import Any
@@ -336,7 +336,9 @@ def length_sensitivity(
         start = index * len(ranked) // 4
         end = (index + 1) * len(ranked) // 4
         group = ranked[start:end]
-        predicted = [bool(prediction_by_order[int(item["order"])] ["strict_ready"]) for item in group]
+        predicted = [
+            bool(prediction_by_order[int(item["order"])]["strict_ready"]) for item in group
+        ]
         actual = [bool(item["strict_ready"]) for item in group]
         counts = confusion(predicted, actual)
         lengths = [int(item.get("readme_bytes") or 0) for item in group]
@@ -476,9 +478,7 @@ def main() -> int:
             ),
             "strict_accuracy_min": 0.75,
             "strict_accuracy_observed": strict["frozen_detector"]["metrics"]["accuracy"],
-            "strict_accuracy_pass": (
-                strict["frozen_detector"]["metrics"]["accuracy"] >= 0.75
-            ),
+            "strict_accuracy_pass": (strict["frozen_detector"]["metrics"]["accuracy"] >= 0.75),
             "static_productization_gate_pass": False,
         },
         "primary_static_verdict": "NOT SUPPORTED",
@@ -504,9 +504,7 @@ def main() -> int:
         args.results_dir / "ecosystem-stratification.csv",
         args.results_dir / "readme-length-sensitivity.csv",
     ]
-    sums = "".join(
-        f"{sha256(path)}  {path.as_posix()}\n" for path in deterministic_paths
-    )
+    sums = "".join(f"{sha256(path)}  {path.as_posix()}\n" for path in deterministic_paths)
     (args.results_dir / "SHA256SUMS").write_text(sums, encoding="utf-8")
     print(canonical_json(metrics), end="")
     return 0
