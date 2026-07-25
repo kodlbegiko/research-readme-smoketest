@@ -113,18 +113,13 @@ def common_steps(case: dict[str, Any]) -> list[StepSpec]:
         StepSpec(
             "clone repository",
             "acquisition",
-            (
-                f"git clone --depth 1 --branch {branch} "
-                f"https://github.com/{repository}.git source"
-            ),
+            (f"git clone --depth 1 --branch {branch} https://github.com/{repository}.git source"),
             180,
         ),
         StepSpec(
             "verify README blob",
             "acquisition",
-            (
-                f'test "$(git -C source hash-object {readme_path})" = "{readme_sha}"'
-            ),
+            (f'test "$(git -C source hash-object {readme_path})" = "{readme_sha}"'),
             30,
         ),
     ]
@@ -149,28 +144,18 @@ def python_venv_steps(package: str, timeout: int = 300) -> list[StepSpec]:
 
 
 def himap_steps() -> list[StepSpec]:
-    return python_venv_steps("himap", 360) + [
+    return [
+        *python_venv_steps("himap", 360),
         StepSpec(
             "run HiMAP Monte Carlo example",
             "task",
             textwrap.dedent(
-                """
-                mkdir -p task
-                cd task
-                ../venv/bin/python -m himap.main --mc_sampling True
-                find . ../venv -type f \
-                  \( -path '*/results/*' -o -name '*.csv' -o -name '*.png' \) \
-                  -print | head -n 20
-                """
+                """\n                mkdir -p task\n                cd task\n                ../venv/bin/python -m himap.main --mc_sampling True\n                find . ../venv -type f                   \\( -path '*/results/*' -o -name '*.csv' -o -name '*.png' \\)                   -print | head -n 20\n                """
             ).strip(),
             420,
         ),
         StepSpec(
-            "capture Python packages",
-            "environment",
-            "venv/bin/python -m pip freeze",
-            60,
-            False,
+            "capture Python packages", "environment", "venv/bin/python -m pip freeze", 60, False
         ),
     ]
 
@@ -191,19 +176,13 @@ def hlafreq_steps() -> list[StepSpec]:
         print({"downloaded_rows": len(aftab), "combined_rows": len(caf)})
         """
     ).strip()
-    return python_venv_steps("HLAfreq", 420) + [
+    return [
+        *python_venv_steps("HLAfreq", 420),
         StepSpec(
-            "run HLAfreq Uganda example",
-            "task",
-            f"venv/bin/python - <<'PY'\n{script}\nPY",
-            300,
+            "run HLAfreq Uganda example", "task", f"venv/bin/python - <<'PY'\n{script}\nPY", 300
         ),
         StepSpec(
-            "capture Python packages",
-            "environment",
-            "venv/bin/python -m pip freeze",
-            60,
-            False,
+            "capture Python packages", "environment", "venv/bin/python -m pip freeze", 60, False
         ),
     ]
 
@@ -238,7 +217,8 @@ def woodtapper_steps() -> list[StepSpec]:
         print({"predictions": len(predictions), "figure": "woodtapper-rules.png"})
         """
     ).strip()
-    return python_venv_steps("woodtapper", 420) + [
+    return [
+        *python_venv_steps("woodtapper", 420),
         StepSpec(
             "run WoodTapper classifier example",
             "task",
@@ -246,11 +226,7 @@ def woodtapper_steps() -> list[StepSpec]:
             420,
         ),
         StepSpec(
-            "capture Python packages",
-            "environment",
-            "venv/bin/python -m pip freeze",
-            60,
-            False,
+            "capture Python packages", "environment", "venv/bin/python -m pip freeze", 60, False
         ),
     ]
 
@@ -292,19 +268,13 @@ def multimodars_steps() -> list[StepSpec]:
         print({"artifact_count": len(artifacts), "first": str(artifacts[0])})
         """
     ).strip()
-    return python_venv_steps("multimodars", 420) + [
+    return [
+        *python_venv_steps("multimodars", 420),
         StepSpec(
-            "run multimodars quick example",
-            "task",
-            f"venv/bin/python - <<'PY'\n{script}\nPY",
-            420,
+            "run multimodars quick example", "task", f"venv/bin/python - <<'PY'\n{script}\nPY", 420
         ),
         StepSpec(
-            "capture Python packages",
-            "environment",
-            "venv/bin/python -m pip freeze",
-            60,
-            False,
+            "capture Python packages", "environment", "venv/bin/python -m pip freeze", 60, False
         ),
     ]
 
@@ -492,18 +462,14 @@ def gapflow_steps() -> list[StepSpec]:
         """
     ).strip()
     write_yaml = f"cat > my_input_file.yaml <<'YAML'\n{yaml}\nYAML"
-    return python_venv_steps("GaPFlow", 600) + [
+    return [
+        *python_venv_steps("GaPFlow", 600),
         StepSpec("write GaPFlow YAML", "task", write_yaml, 30),
         StepSpec(
             "run GaPFlow minimal simulation",
             "task",
             textwrap.dedent(
-                """
-                venv/bin/python -m GaPFlow -i my_input_file.yaml
-                test -d data/journal
-                find data/journal -maxdepth 1 -type f -print
-                test -n "$(find data/journal -maxdepth 1 -type f -print -quit)"
-                """
+                """\n                venv/bin/python -m GaPFlow -i my_input_file.yaml\n                test -d data/journal\n                find data/journal -maxdepth 1 -type f -print\n                test -n "$(find data/journal -maxdepth 1 -type f -print -quit)"\n                """
             ).strip(),
             600,
         ),
@@ -557,7 +523,8 @@ def sklearn_migrator_steps() -> list[StepSpec]:
         print({"max_abs_difference": max_difference})
         """
     ).strip()
-    return python_venv_steps("sklearn-migrator", 360) + [
+    return [
+        *python_venv_steps("sklearn-migrator", 360),
         StepSpec(
             "run sklearn-migrator round trip",
             "task",
@@ -565,11 +532,7 @@ def sklearn_migrator_steps() -> list[StepSpec]:
             360,
         ),
         StepSpec(
-            "capture Python packages",
-            "environment",
-            "venv/bin/python -m pip freeze",
-            60,
-            False,
+            "capture Python packages", "environment", "venv/bin/python -m pip freeze", 60, False
         ),
     ]
 
@@ -663,9 +626,7 @@ def preliminary_relations(case: dict[str, Any], status: str) -> dict[str, Any]:
     success = status == "SUCCESS"
     return {
         "strict_false_negative_completed": bool(
-            success
-            and not case["predicted_strict_ready"]
-            and case["reference_strict_ready"]
+            success and not case["predicted_strict_ready"] and case["reference_strict_ready"]
         ),
         "external_docs_supplemented": bool(
             success and "external_documentation_delegation" in case["strata"]
@@ -739,9 +700,7 @@ def main() -> int:
         if result["phase"] in {"acquisition", "installation"}
     )
     task_seconds = sum(
-        result["duration_seconds"]
-        for result in required_results
-        if result["phase"] == "task"
+        result["duration_seconds"] for result in required_results if result["phase"] == "task"
     )
     result_document = {
         "case": case,
