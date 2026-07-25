@@ -1,0 +1,41 @@
+{
+  "accepted_or_merged_outcomes": 0,
+  "actual_value_verdict": "INCONCLUSIVE",
+  "contact_limit": 2,
+  "contacts_submitted": 0,
+  "decisions": [
+    {
+      "contact_url": null,
+      "current_default_branch_commit": "3c8f9ff07108d901a662326912a6d82dddaf7047",
+      "current_reproduction": {
+        "current_default_branch_source_succeeded": true,
+        "published_install_succeeded": false
+      },
+      "decision": "NO_CONTACT",
+      "duplicate_check": "No matching open issue or active PR was found by install/scikit-learn/Cython/wheel searches.",
+      "outcome": "NOT_CONTACTED",
+      "readme_blob_sha": "b07652102469791d6b0c1ecab597a849a9aa31ae",
+      "reason": "The published 0.0.13 sdist remains incompatible in a clean environment, but current main already pins scikit-learn 1.6.1, documents binary compatibility, installs successfully, and completes first use. Opening an issue about release timing would not identify a new, unhandled defect.",
+      "related_metadata_blob_sha": "13ecb5be9c59a16735351bd57d8072fc7a518b6c",
+      "repository": "artefactory/woodtapper"
+    },
+    {
+      "contact_url": null,
+      "current_default_branch_commit": "d51a85a8c823925d1a6c7ce478bc005bd8bf5a35",
+      "current_reproduction": {
+        "core_java_first_use_succeeded": true,
+        "official_generation_step_documented": true,
+        "raw_direct_editor_build_succeeded": false
+      },
+      "decision": "NO_CONTACT",
+      "duplicate_check": "Not required after the candidate failed the harness-error eligibility gate.",
+      "outcome": "NOT_CONTACTED",
+      "readme_blob_sha": "ee0bd1e3b319d22db49e5016a8da4ab8040e38b4",
+      "reason": "DEVELOPING.md and editor/support/make.sh already specify dependency setup, grammar copying, ANTLR parser generation, WASM update, and webpack build. The locked harness skipped that official flow, so upstream contact would misattribute a harness error to the repository.",
+      "related_metadata_blob_sha": "e4a808ad074ced3e8dc38464114053fd0e5df370;2c83789c1ac9ac395f3983e49db427fea101443d",
+      "repository": "SchmidtDSE/kigali-sim"
+    }
+  ],
+  "impact_note": "Zero submissions is the correct outcome when no high-confidence, non-duplicate maintainer intervention remains. Submission alone would not count as impact.",
+  "study_id": "joss-issue-121-external-validation"
+}

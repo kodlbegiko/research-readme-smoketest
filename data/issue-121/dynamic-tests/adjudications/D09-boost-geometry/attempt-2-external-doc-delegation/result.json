@@ -1,0 +1,85 @@
+{
+  "attempt": "attempt-2-external-doc-delegation",
+  "case_id": "D09-boost-geometry",
+  "completed_at": "2026-07-25T16:44:03Z",
+  "correction_reason": "Attempt 1 cloned only the geometry subrepository, while the root README identifies it as part of Boost and delegates to official Boost documentation/distribution.",
+  "environment": {
+    "captured_at": "2026-07-25T16:43:34Z",
+    "executable": "/opt/hostedtoolcache/Python/3.11.15/x64/bin/python",
+    "machine": "x86_64",
+    "platform": "Linux-6.17.0-1020-azure-x86_64-with-glibc2.39",
+    "python": "3.11.15 (main, Jun 16 2026, 21:41:52) [GCC 13.3.0]"
+  },
+  "external_docs_supplemented": true,
+  "external_searches": 0,
+  "frozen_readme_blob_sha": "6f898496335b9a0bf64def628d2ff63852af89bf",
+  "logs_compression": "gzip",
+  "non_root_document_pages": 2,
+  "official_installation_path": "Ubuntu archive package libboost-all-dev (complete Boost development headers)",
+  "only_task_semantic_difference": "The same C++ source and success criterion were used; the include source changed from the incomplete subrepository to the complete distribution package.",
+  "original_attempt_relation": "Preserves the locked attempt-1 failure; this is a separate official-distribution correction.",
+  "status": "SUCCESS",
+  "steps": [
+    {
+      "command": "git clone --depth 1 --branch master https://github.com/boostorg/geometry.git source",
+      "completed_at": "2026-07-25T16:43:36Z",
+      "duration_seconds": 1.228971,
+      "name": "clone frozen Boost.Geometry source",
+      "peak_rss_kib": 19644,
+      "return_code": 0,
+      "started_at": "2026-07-25T16:43:34Z",
+      "stderr_log_ref": "logs.json.gz#/01-clone-frozen-source/stderr",
+      "stdout_log_ref": "logs.json.gz#/01-clone-frozen-source/stdout",
+      "step_id": "01-clone-frozen-source"
+    },
+    {
+      "command": "test \"$(git -C source hash-object README.md)\" = \"6f898496335b9a0bf64def628d2ff63852af89bf\"",
+      "completed_at": "2026-07-25T16:43:36Z",
+      "duration_seconds": 0.101813,
+      "name": "verify frozen README blob",
+      "peak_rss_kib": 17984,
+      "return_code": 0,
+      "started_at": "2026-07-25T16:43:36Z",
+      "stderr_log_ref": "logs.json.gz#/02-verify-frozen-readme/stderr",
+      "stdout_log_ref": "logs.json.gz#/02-verify-frozen-readme/stdout",
+      "step_id": "02-verify-frozen-readme"
+    },
+    {
+      "command": "sudo apt-get update && sudo apt-get install -y libboost-all-dev",
+      "completed_at": "2026-07-25T16:43:57Z",
+      "duration_seconds": 21.382512,
+      "name": "install complete Boost development package",
+      "peak_rss_kib": 179224,
+      "return_code": 0,
+      "started_at": "2026-07-25T16:43:36Z",
+      "stderr_log_ref": "logs.json.gz#/03-install-complete-boost-package/stderr",
+      "stdout_log_ref": "logs.json.gz#/03-install-complete-boost-package/stdout",
+      "step_id": "03-install-complete-boost-package"
+    },
+    {
+      "command": "cat > boost_geometry_example.cpp <<'CPP'\n#include <cmath>\n#include <iostream>\n#include <boost/geometry.hpp>\n#include <boost/geometry/geometries/point_xy.hpp>\n#include <boost/geometry/geometries/polygon.hpp>\n\nint main() {\n  namespace bg = boost::geometry;\n  using point = bg::model::d2::point_xy<double>;\n  bg::model::polygon<point> polygon;\n  bg::read_wkt(\"POLYGON((0 0,0 1,1 1,1 0,0 0))\", polygon);\n  bg::correct(polygon);\n  const double area = bg::area(polygon);\n  std::cout << area << \"\\n\";\n  return std::abs(area - 1.0) < 1e-12 ? 0 : 1;\n}\nCPP\ng++ -std=c++14 -O2 boost_geometry_example.cpp -o boost-example\n./boost-example",
+      "completed_at": "2026-07-25T16:44:02Z",
+      "duration_seconds": 5.328312,
+      "name": "compile and run the same polygon-area example",
+      "peak_rss_kib": 727732,
+      "return_code": 0,
+      "started_at": "2026-07-25T16:43:57Z",
+      "stderr_log_ref": "logs.json.gz#/04-compile-and-run-example/stderr",
+      "stdout_log_ref": "logs.json.gz#/04-compile-and-run-example/stdout",
+      "step_id": "04-compile-and-run-example"
+    },
+    {
+      "command": "g++ --version && dpkg-query -W -f='${Package} ${Version}\\n' 'libboost*-dev' | sort",
+      "completed_at": "2026-07-25T16:44:02Z",
+      "duration_seconds": 0.112953,
+      "name": "capture compiler and Boost package versions",
+      "peak_rss_kib": 18044,
+      "return_code": 0,
+      "started_at": "2026-07-25T16:44:02Z",
+      "stderr_log_ref": "logs.json.gz#/05-capture-toolchain/stderr",
+      "stdout_log_ref": "logs.json.gz#/05-capture-toolchain/stdout",
+      "step_id": "05-capture-toolchain"
+    }
+  ],
+  "workspace_bytes": 32928115
+}

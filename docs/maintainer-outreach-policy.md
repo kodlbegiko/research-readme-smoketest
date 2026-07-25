@@ -1,39 +1,34 @@
 # Maintainer outreach policy
 
-No upstream maintainer may be contacted merely because the detector emits a finding.
+Maintainer contact is not a detector-validation metric and is never automatic. At most two repositories may be contacted in this closeout. Zero contacts is a valid outcome.
 
-## Eligibility checklist
+## Eligibility gate
 
-All boxes must be true:
+Before contact, all conditions must hold:
 
-- finding is present in the current default-branch root README at a recorded blob SHA;
-- the frozen rule emitted it before reference annotation;
-- the reference annotator independently rechecked the exact fragment;
-- repository path evidence is verified when applicable;
-- dynamic reproduction was attempted when safely feasible;
-- the correction does not require guessing product or scientific intent;
-- no open or recently merged issue/PR already covers the same defect;
-- the proposed message is specific to that repository.
+1. Reproduce the problem on the current default branch or current documented release in a clean environment.
+2. Save the current README and relevant-document blob SHAs.
+3. Review existing issues and pull requests for the same problem.
+4. Exclude harness errors, incomplete use of official build instructions, transient infrastructure failures, and researcher-created path assumptions.
+5. Separate dependency or compatibility failures from documentation omissions.
+6. Require a correction that does not guess scientific or product intent.
+7. Keep the report repository-specific, short, and independently reproducible.
 
 ## Contact mode
 
-- one-line deterministic correction: small pull request;
-- maintainer judgment required: issue;
-- uncertainty remains: no contact.
+- Deterministic one-line documentation correction: small pull request.
+- Maintainer judgment required: issue.
+- Current branch already fixes the problem, duplicate work exists, or uncertainty remains: no contact.
 
-At most five repositories may be contacted in this study.
+## Message requirements
 
-## Required message content
+A message must identify the exploratory external-validation context, environment and versions, minimal reproduction commands, observed result, and exact documentation fragment. It must invite the maintainer to correct the research interpretation. It must not criticize maintainers, demand a refactor, claim detector validation, or characterize submission as impact.
 
-- exact current README fragment or command;
-- observed failure or syntax/path evidence;
-- reproduction environment when available;
-- minimal suggested correction;
-- disclosure that the report comes from an exploratory documentation-validation study;
-- invitation to correct the study's interpretation.
+## Outcome accounting
 
-Do not criticize maintainer competence, imply a security vulnerability, mass-file templated reports, or claim scientific invalidity.
+Opening an issue or pull request is not social impact. Record the URL, date, maintainer response, correction or rejection, merge date, false-positive feedback, and measured clean-environment change. Count only accepted corrections, merged fixes, maintainer-provided ground truth, confirmed false positives, or verified improvements.
 
-## Outcomes
+## Closeout decisions
 
-Submission alone is not impact. Record URL, date, response, requested changes, acceptance/rejection, merge date, false-positive feedback, and resolution time. Count only merged documentation fixes, accepted corrections, confirmed false positives, maintainer-provided ground truth, or measured clean-environment improvement as intervention outcomes.
+- `artefactory/woodtapper`: no contact. PyPI 0.0.13 still fails, but current main pins scikit-learn 1.6.1, documents compatibility, installs, and completes first use. Release timing is not treated as a new defect.
+- `SchmidtDSE/kigali-sim`: no contact. Official development documentation already contains the ANTLR generation flow omitted by the harness.

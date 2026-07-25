@@ -2,46 +2,49 @@
 
 ## Objective
 
-Measure whether frozen static labels predict practical friction between opening the root README and obtaining one meaningful end-user output.
+Measure whether frozen static labels predict practical friction between opening the root README and obtaining one meaningful end-user output. The dynamic phase is a ten-case feasibility-aware validation sample, not a population estimate.
 
-## Case selection
+## Frozen order
 
-Select 8–12 cases after prediction and reference labels are locked. Stratify across predicted strict-ready/non-strict, external delegation, hard findings, prediction disagreements, ecosystems, CLI/library products, and feasible resource requirements.
-
-Selection is feasibility-aware but not outcome-aware. Record every considered case and exclusion reason.
-
-## Safety gate
-
-Before execution:
-
-1. inspect all proposed commands and package scripts;
-2. reject commands requiring elevated privileges, secrets, external credentials, destructive writes, unrestricted remote scripts, or opaque binaries;
-3. isolate each case in a fresh container or equivalent disposable environment;
-4. cap CPU, memory, disk, and wall-clock duration;
-5. do not execute repository code on the maintainer workstation.
+1. Freeze detector v0.1.0 and the baseline commit.
+2. Acquire issue 121 repositories and record root-README blob SHAs.
+3. Commit detector predictions and hashes.
+4. Create the human reference labels without changing rules or labels after outcomes are observed.
+5. Lock the ten dynamic cases, task commands, success criteria, and safety limits before execution.
+6. Preserve raw attempts before adjudication or correction.
 
 ## First meaningful task
 
-Define a single concrete task before installation. It must produce an observable product-level result rather than only passing tests or importing a module, unless import/initialization is the documented primary first use.
+Each case has one preregistered end-user task that must create an observable output. Import-only checks do not count unless import or initialization is the documented primary use. Optional component builds are reported separately and cannot erase a completed core first-use task.
 
-## Recorded fields
+## Raw evidence and adjudication
 
-- repository and acquired README SHA;
-- environment image, OS, architecture, language/toolchain versions;
-- predeclared task and success criterion;
-- exact commands and ordered documentation pages used;
-- installation duration and total time to first output;
-- manual step count, external search count, and non-root-document page count;
-- stdout/stderr excerpts and exit codes;
-- peak memory and disk use when measurable;
-- success, failure, or `UNTESTABLE HERE`;
-- static finding relation: direct blocker, material friction, minor friction, unrelated, externally repaired, or not exercised;
-- unexpected safety or reproducibility observations.
+Raw status is immutable: `SUCCESS`, `FAILURE`, or `UNTESTABLE_HERE`. Formal adjudication is stored separately and uses only:
+
+- `SUCCESS`
+- `SUCCESS_WITH_FRICTION`
+- `FAILURE_README_BLOCKER`
+- `FAILURE_DEPENDENCY_COMPATIBILITY`
+- `FAILURE_OTHER`
+- `UNTESTABLE_HERE`
+
+Each adjudication records the case ID, raw and final status, task completion, README blocker, dependency/compatibility blocker, minor friction, harness error, external-document supplementation, finding confirmation/disproof, evidence status, reason, supporting step IDs, correction attempt, time to first output, peak memory, and disk use.
+
+A harness assertion or incorrect import is not a repository failure. A dependency failure is not automatically a README defect. Current documentation cannot replace a changed frozen README in the primary result.
+
+## Permitted corrections
+
+Only two post-run corrections were allowed:
+
+1. sklearn-migrator: use the frozen documented random-forest regression module and required version arguments while preserving the same data, model, paths, and round-trip criterion.
+2. Boost.Geometry: use the complete Boost distribution reached through the root README's official delegation while preserving the same C++ example and criterion.
+
+Correction attempts are stored beside, not over, attempt 1. Exact commands, environment, stdout, stderr, reason, relation to the raw attempt, resource observations, and hashes are retained.
 
 ## Interpretation
 
-A static finding predicts friction only when the documented path exercises it or a reasonable new user would select it, and correcting or bypassing it measurably changes the task. Infeasible GPU/HPC/restricted-data/GUI cases are not failures. External docs may repair a root README gap and must be reported separately.
+A static finding predicts first-use friction only when the frozen documented path exercises it and the evidence shows that correcting or bypassing it changes the result. External documentation may supplement a root README and is reported separately. No inference beyond the ten locked dynamic cases is made.
 
-## Stopping
+## Stopping and integrity
 
-Stop an individual case on safety concern, repeated non-documentation infrastructure failure, resource cap, or when success/failure is established. Do not silently change the task after observing results.
+Stop on a safety concern, resource limit, repeated infrastructure failure, or established success/failure. Do not silently change the task. Do not delete raw failures. Do not relabel static references or modify detector rules after observing results.
