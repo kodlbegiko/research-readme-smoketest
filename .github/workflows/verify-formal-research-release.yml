@@ -1,0 +1,118 @@
+name: Verify formal issue 121 research release
+
+on:
+  pull_request:
+    branches: [main]
+    paths:
+      - .github/workflows/verify-formal-research-release.yml
+
+permissions:
+  contents: write
+
+env:
+  TARGET_SHA: 4dfb0b961470974f9dc80a936db86450303d007a
+  RELEASE_TAG: research-closeout-issue-121
+  RELEASE_TITLE: Issue 121 External Validation — Negative Research Closeout
+  OPS_BRANCH: ops/verify-research-release-20260726
+
+jobs:
+  verify-release:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out tagged source commit
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ env.TARGET_SHA }}
+          fetch-depth: 0
+
+      - name: Verify annotated tag target
+        shell: bash
+        run: |
+          set -euo pipefail
+          git fetch --tags --force origin
+          test "$(git cat-file -t "$RELEASE_TAG")" = tag
+          test "$(git rev-list -n 1 "$RELEASE_TAG")" = "$TARGET_SHA"
+          test "$(git ls-remote origin refs/heads/main | cut -f1)" = "$TARGET_SHA"
+
+      - name: Fetch release metadata and assets
+        env:
+          GH_TOKEN: ${{ github.token }}
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p /tmp/release-assets
+          gh release view "$RELEASE_TAG" --repo "$GITHUB_REPOSITORY" \
+            --json url,tagName,name,isDraft,isPrerelease,publishedAt,assets \
+            > /tmp/release-verification.json
+          gh release download "$RELEASE_TAG" --repo "$GITHUB_REPOSITORY" \
+            --dir /tmp/release-assets
+
+      - name: Verify release metadata and exact asset bytes
+        shell: bash
+        run: |
+          set -euo pipefail
+          python - <<'PY'
+          import json
+          from pathlib import Path
+
+          data = json.loads(Path('/tmp/release-verification.json').read_text())
+          expected = {
+              'dynamic-validation-results.json',
+              'dynamic-validation-results.csv',
+              'intervention-log.json',
+              'intervention-log.csv',
+              'DYNAMIC-FINAL-SHA256SUMS',
+              'research-manifest-issue-121.yml',
+              'EXTERNAL-VALIDATION.md',
+          }
+          actual = {asset['name'] for asset in data['assets']}
+          assert data['tagName'] == 'research-closeout-issue-121'
+          assert data['name'] == 'Issue 121 External Validation — Negative Research Closeout'
+          assert data['isDraft'] is False
+          assert data['isPrerelease'] is False
+          assert data['publishedAt']
+          assert data['url'].endswith('/releases/tag/research-closeout-issue-121')
+          assert actual == expected, (actual, expected)
+          PY
+
+          cmp /tmp/release-assets/dynamic-validation-results.json \
+            results/issue-121/dynamic-validation-results.json
+          cmp /tmp/release-assets/dynamic-validation-results.csv \
+            results/issue-121/dynamic-validation-results.csv
+          cmp /tmp/release-assets/intervention-log.json \
+            results/interventions/intervention-log.json
+          cmp /tmp/release-assets/intervention-log.csv \
+            results/interventions/intervention-log.csv
+          cmp /tmp/release-assets/DYNAMIC-FINAL-SHA256SUMS \
+            results/issue-121/DYNAMIC-FINAL-SHA256SUMS
+          cmp /tmp/release-assets/research-manifest-issue-121.yml \
+            research-manifest-issue-121.yml
+          cmp /tmp/release-assets/EXTERNAL-VALIDATION.md \
+            EXTERNAL-VALIDATION.md
+
+          (cd /tmp/release-assets && sha256sum * | sort) \
+            > /tmp/release-assets-sha256.txt
+          printf '%s  %s\n' "$TARGET_SHA" "$RELEASE_TAG" \
+            > /tmp/tag-target.txt
+          cat /tmp/release-verification.json
+          cat /tmp/release-assets-sha256.txt
+
+      - name: Upload verification evidence
+        uses: actions/upload-artifact@v4
+        with:
+          name: verified-formal-research-release
+          path: |
+            /tmp/release-verification.json
+            /tmp/release-assets-sha256.txt
+            /tmp/tag-target.txt
+          retention-days: 30
+
+      - name: Remove temporary verification branch
+        if: success()
+        env:
+          GH_TOKEN: ${{ github.token }}
+        shell: bash
+        run: |
+          gh api --method DELETE \
+            "repos/${GITHUB_REPOSITORY}/git/refs/heads/${OPS_BRANCH}" \
+            || echo "Branch cleanup requires manual follow-up"
