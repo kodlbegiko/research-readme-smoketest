@@ -13,26 +13,42 @@ jobs:
     steps:
       - uses: actions/checkout@v4
         with:
+          ref: ${{ github.head_ref }}
           fetch-depth: 0
-      - name: Restore verified final tree
+      - name: Verify staged archive
         shell: bash
         run: |
-          set -euo pipefail
+          set -euxo pipefail
+          git branch --show-current
+          git rev-parse HEAD
+          ls -l .closeout-final.part-*
           cat .closeout-final.part-* | base64 --decode > /tmp/closeout-final.tar.xz
-          echo "0b1777fdf66627ccdcce28cd0af73df603781f07c7b4f8e6217a104b3fb49862  /tmp/closeout-final.tar.xz" | sha256sum --check
+          actual="$(sha256sum /tmp/closeout-final.tar.xz | cut -d' ' -f1)"
+          echo "archive_sha256=${actual}"
+          test "${actual}" = "0b1777fdf66627ccdcce28cd0af73df603781f07c7b4f8e6217a104b3fb49862"
+          tar -tJf /tmp/closeout-final.tar.xz >/tmp/closeout-final-file-list.txt
+          test "$(wc -l </tmp/closeout-final-file-list.txt)" -ge 20
+      - name: Restore and validate final tree
+        shell: bash
+        run: |
+          set -euxo pipefail
           tar -xJf /tmp/closeout-final.tar.xz -C .
-          rm -f .closeout-final.part-* .github/workflows/finalize-closeout.yml scripts/run_closeout_checks.py
+          rm -f .closeout-final.part-* \
+            .github/workflows/finalize-closeout.yml \
+            scripts/run_closeout_checks.py
           sha256sum --check results/issue-121/DYNAMIC-FINAL-SHA256SUMS
           test -f EXTERNAL-VALIDATION.md
           test -f results/issue-121/dynamic-validation-results.json
           test -f results/interventions/intervention-log.json
+          test -f data/issue-121/dynamic-tests/adjudications/adjudications.json
+          git status --short
       - name: Commit final closeout tree
         shell: bash
         run: |
-          set -euo pipefail
+          set -euxo pipefail
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add -A
           git diff --cached --check
           git commit -m "research: finalize issue 121 external validation closeout"
-          git push origin HEAD:${GITHUB_HEAD_REF}
+          git push origin "HEAD:${GITHUB_HEAD_REF}"
