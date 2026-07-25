@@ -94,7 +94,9 @@ FALSE_NOTES = {
     18: "The README installs rust-script and shows help/tests, not a project install/build path.",
     34: "Root README is a project landing page linking documentation/wiki, without a root path.",
     36: "Root README has user installation and test commands; practical use is in external docs.",
-    39: "Root README is citation-oriented and routes operational material to project websites/wiki.",
+    39: (
+        "Root README is citation-oriented and routes operational material to project websites/wiki."
+    ),
 }
 
 TRUE_NOTES = {
