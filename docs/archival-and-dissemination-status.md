@@ -18,7 +18,7 @@ NO OUTCOME-INFORMED TUNING
 
 | Check | Status | Evidence / limitation |
 |---|---|---|
-| `main` exact commit | VERIFIED | `4dfb0b961470974f9dc80a936db86450303d007a` |
+| Phase 0 baseline `main` before dissemination changes | VERIFIED | `4dfb0b961470974f9dc80a936db86450303d007a`; later metadata-only merges may advance `main` without changing the formal publication commit |
 | Tag resolves to publication commit | VERIFIED | `research-closeout-issue-121` resolves to the same commit |
 | Tag object is annotated | PENDING INDEPENDENT VERIFICATION | Current connector resolves the tag but does not expose the Git object type |
 | Repository is public | VERIFIED | Public repository metadata |
