@@ -208,8 +208,6 @@ jobs:
         if: matrix.runtime == 'kigali'
         with:
           node-version: '22'
-          cache: pnpm
-          cache-dependency-path: source/editor/pnpm-lock.yaml
       - name: Run or reuse locked case
         env:
           CASE_ID: ${{ matrix.case_id }}
