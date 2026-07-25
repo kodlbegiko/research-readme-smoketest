@@ -4,6 +4,7 @@
 The published pilot does not depend on this script. It preserves frozen extracted
 blocks and blob hashes so reproduction does not require network access.
 """
+
 from __future__ import annotations
 
 import argparse
@@ -52,9 +53,7 @@ def main() -> int:
         except (urllib.error.URLError, KeyError, UnicodeDecodeError, ValueError) as exc:
             manifest.append({"repository": repository, "status": "error", "error": str(exc)})
             continue
-        destination = (
-            args.output_dir / f"{record['order']:02d}-{repository.replace('/', '__')}.md"
-        )
+        destination = args.output_dir / f"{record['order']:02d}-{repository.replace('/', '__')}.md"
         destination.write_text(content, encoding="utf-8")
         manifest.append(
             {

@@ -5,8 +5,8 @@ import json
 from pathlib import Path
 
 import pytest
-from readme_smoketest.cli import deterministic_payload, load_records, main, run
 
+from readme_smoketest.cli import deterministic_payload, load_records, main, run
 
 ROOT = Path(__file__).parents[1]
 DATASET = ROOT / "data" / "processed" / "readme-blocks.json"
@@ -59,9 +59,7 @@ def test_run_is_byte_deterministic(tmp_path: Path) -> None:
     assert (first / "pilot-results.json").read_bytes() == (
         second / "pilot-results.json"
     ).read_bytes()
-    assert (first / "pilot-results.csv").read_bytes() == (
-        second / "pilot-results.csv"
-    ).read_bytes()
+    assert (first / "pilot-results.csv").read_bytes() == (second / "pilot-results.csv").read_bytes()
 
 
 def test_main_success(tmp_path: Path, capsys: pytest.CaptureFixture[str]) -> None:
