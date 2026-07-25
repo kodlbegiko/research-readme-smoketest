@@ -25,7 +25,7 @@ jobs:
           cache: pip
       - name: Install
         run: python -m pip install -e ".[dev]"
-      - name: Freeze annotation completion timestamp and style
+      - name: Freeze timestamp and format reference files
         run: |
           python - <<'PY'
           from pathlib import Path
@@ -37,8 +37,10 @@ jobs:
           )
           path.write_text(text)
           PY
-          ruff check . --fix
-          ruff format .
+          ruff check scripts/evaluate_issue_121.py tests/test_issue121_reference.py --fix --unsafe-fixes || true
+          ruff format scripts/evaluate_issue_121.py tests/test_issue121_reference.py
+          ruff check scripts/evaluate_issue_121.py tests/test_issue121_reference.py
+          ruff format --check scripts/evaluate_issue_121.py tests/test_issue121_reference.py
       - name: Test reference schema and decisions
         run: pytest tests/test_issue121_reference.py tests/test_issue121_pipeline.py
       - name: Generate reference annotations and metrics
@@ -63,6 +65,9 @@ jobs:
           diff -u \
             /tmp/reference-a/results/static-validation-results.json \
             /tmp/reference-b/results/static-validation-results.json
+          diff -u \
+            /tmp/reference-a/results/SHA256SUMS \
+            /tmp/reference-b/results/SHA256SUMS
       - name: Render static validation report
         run: |
           python - <<'PY'
@@ -122,13 +127,13 @@ The three hard findings all came from `anvaldes/sklearn-migrator`. They were fal
 
 ## Interpretation
 
-The primary failure mechanism is not random false accusation of strict readiness. It is low recall caused by a narrow first-use vocabulary and by acquisition limitations around Markdown/RST code-block extraction. The issue-121 result does not justify deploying the current detector as a GitHub Action.
+The primary failure mechanism is low recall caused by a narrow first-use vocabulary and acquisition limitations around Markdown/RST code-block extraction. The issue-121 result does not justify deploying the current detector as a GitHub Action.
 
-All 38 reference cases were relaxed-ready after accepting an explicit external documentation route or a strict root path. This again rejects any interpretation that non-strict repositories are generally unusable.
+All 38 reference cases were relaxed-ready after accepting an explicit external documentation route or a strict root path. This rejects any interpretation that non-strict repositories are generally unusable.
 
 ## Remaining work
 
-Dynamic tests may still quantify root-document friction, but they cannot rescue the failed static productization gate. Upstream contact is not permitted for the disproved sklearn-migrator path findings. No detector rule will be changed inside this primary evaluation.
+Dynamic tests may quantify root-document friction, but they cannot rescue the failed static productization gate. Upstream contact is not permitted for the disproved sklearn-migrator path findings. No detector rule will be changed inside this primary evaluation.
 '''
           Path('EXTERNAL-VALIDATION.md').write_text(text)
           PY
