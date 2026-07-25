@@ -21,60 +21,8 @@ jobs:
           cache: pip
       - name: Install formatting toolchain
         run: python -m pip install -e ".[dev]"
-      - name: Apply exact manifest line wraps and Ruff formatting
+      - name: Apply deterministic Ruff fixes
         run: |
-          python - <<'PY'
-          from pathlib import Path
-          path = Path('scripts/lock_dynamic_cases.py')
-          text = path.read_text()
-          replacements = {
-              '            "Install cowfootR from CRAN and run the documented single-farm quick-start calculations "\n': (
-                  '            "Install cowfootR from CRAN and run the documented single-farm "\n'
-                  '            "quick-start calculations "\n'
-              ),
-              '            "Ten feasibility-screened cases fixed before execution; no outcome-driven replacement."\n': (
-                  '            "Ten feasibility-screened cases fixed before execution; "\n'
-                  '            "no outcome-driven replacement."\n'
-              ),
-              '            "success": "Predeclared task and observable success criterion both met within cap.",\n': (
-                  '            "success": (\n'
-                  '                "Predeclared task and observable success criterion both met "\n'
-                  '                "within cap."\n'
-                  '            ),\n'
-              ),
-              '                "Safe execution completed but the criterion was not met because of documented-path, "\n': (
-                  '                "Safe execution completed but the criterion was not met because "\n'
-                  '                "of documented-path, "\n'
-              ),
-              '                "Safety, platform, restricted-data, GPU/HPC, or resource constraints prevent a "\n': (
-                  '                "Safety, platform, restricted-data, GPU/HPC, or resource "\n'
-                  '                "constraints prevent a "\n'
-              ),
-              '                "The exact frozen finding prevents the task and correction or bypass changes the outcome."\n': (
-                  '                "The exact frozen finding prevents the task and correction or bypass "\n'
-                  '                "changes the outcome."\n'
-              ),
-              '                "The documented path requires a non-obvious correction, search, or documentation "\n': (
-                  '                "The documented path requires a non-obvious correction, search, "\n'
-                  '                "or documentation "\n'
-              ),
-              '                "Root README delegation is followed and supplies missing operational detail."\n': (
-                  '                "Root README delegation is followed and supplies missing "\n'
-                  '                "operational detail."\n'
-              ),
-              '                "public package registries, official project assets, and public repositories only"\n': (
-                  '                "public package registries, official project assets, and public "\n'
-                  '                "repositories only"\n'
-              ),
-              '                "exact commands, exit codes, stdout/stderr, durations, disk use, and installed versions"\n': (
-                  '                "exact commands, exit codes, stdout/stderr, durations, disk use, "\n'
-                  '                "and installed versions"\n'
-              ),
-          }
-          for old, new in replacements.items():
-              text = text.replace(old, new)
-          path.write_text(text)
-          PY
           ruff check . --fix --unsafe-fixes || true
           ruff format .
       - name: Persist PR formatting changes
@@ -86,7 +34,7 @@ jobs:
           if git diff --cached --quiet; then
             exit 0
           fi
-          git commit -m "style: wrap all dynamic manifest prose"
+          git commit -m "style: format dynamic validation harness"
           git push origin HEAD:${{ github.head_ref }}
 
   quality:
@@ -157,7 +105,7 @@ jobs:
           test "$(sha256sum results/issue-121/static-validation-results.json | cut -d' ' -f1)" = \
             "400c404de5338cff630f6147f18288b5b557341a6fb11d3da56b956c13b5f316"
           pytest tests/test_issue121_reference.py tests/test_issue121_pipeline.py
-      - name: Reproduce reference result outside the committed directories
+      - name: Reproduce reference result outside committed directories
         run: |
           mkdir -p /tmp/reference/data/issue-121
           cp -R data/issue-121/raw /tmp/reference/data/issue-121/
@@ -183,35 +131,151 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: '3.13'
-      - name: Create or verify pre-execution dynamic lock
-        env:
-          SOURCE_COMMIT: ${{ github.event.pull_request.head.sha }}
+      - name: Verify pre-execution dynamic lock
         run: |
-          if test -f data/issue-121/dynamic-tests/DYNAMIC_LOCK.json; then
-            python - <<'PY'
+          python - <<'PY'
           import hashlib
           import json
           from pathlib import Path
+
           manifest = Path('data/issue-121/dynamic-tests/case-manifest.json')
-          lock = json.loads(Path('data/issue-121/dynamic-tests/DYNAMIC_LOCK.json').read_text())
+          lock = json.loads(
+              Path('data/issue-121/dynamic-tests/DYNAMIC_LOCK.json').read_text()
+          )
           digest = hashlib.sha256(manifest.read_bytes()).hexdigest()
           assert digest == lock['manifest_sha256']
+          assert digest == 'e2018faa122fdabbf54babc6bd508eb34d41cd66f9a3fa65e0fee4beb131f3fa'
           assert lock['selected_count'] == 10
           assert lock['execution_results_present_when_locked'] is False
           PY
-            exit 0
-          fi
-          python scripts/lock_dynamic_cases.py
-          test ! -d data/issue-121/dynamic-tests/results
-          git config user.name "github-actions[bot]"
-          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add scripts/lock_dynamic_cases.py data/issue-121/dynamic-tests
-          git commit -m "research: lock dynamic validation cases"
-          git push origin HEAD:${{ github.head_ref }}
+          pytest tests/test_dynamic_harness.py
       - name: Upload dynamic lock
         uses: actions/upload-artifact@v4
         with:
           name: issue-121-dynamic-lock
           path: data/issue-121/dynamic-tests/
+          if-no-files-found: error
+          retention-days: 90
+
+  dynamic-execution:
+    needs: dynamic-lock
+    if: github.event_name == 'pull_request'
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - case_id: D01-himap
+            runtime: python
+          - case_id: D02-hlafreq
+            runtime: python
+          - case_id: D03-woodtapper
+            runtime: python
+          - case_id: D04-multimodars
+            runtime: python
+          - case_id: D05-cowfootr
+            runtime: r
+          - case_id: D06-kigali
+            runtime: kigali
+          - case_id: D07-gapflow
+            runtime: python
+          - case_id: D08-sklearn-migrator
+            runtime: python
+          - case_id: D09-boost-geometry
+            runtime: cpp
+          - case_id: D10-ecodive
+            runtime: r
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.head_ref }}
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+          cache: pip
+      - uses: r-lib/actions/setup-r@v2
+        if: matrix.runtime == 'r'
+        with:
+          r-version: 'release'
+          use-public-rspm: true
+      - uses: actions/setup-java@v4
+        if: matrix.runtime == 'kigali'
+        with:
+          distribution: temurin
+          java-version: '21'
+      - uses: actions/setup-node@v4
+        if: matrix.runtime == 'kigali'
+        with:
+          node-version: '22'
+          cache: pnpm
+          cache-dependency-path: source/editor/pnpm-lock.yaml
+      - name: Run or reuse locked case
+        env:
+          CASE_ID: ${{ matrix.case_id }}
+        run: |
+          mkdir -p "/tmp/artifact/$CASE_ID"
+          committed="data/issue-121/dynamic-tests/results/$CASE_ID"
+          if test -f "$committed/result.json"; then
+            cp -R "$committed/." "/tmp/artifact/$CASE_ID/"
+          else
+            python scripts/run_dynamic_case.py \
+              --case-id "$CASE_ID" \
+              --output-dir "/tmp/artifact/$CASE_ID"
+          fi
+          test -f "/tmp/artifact/$CASE_ID/result.json"
+      - name: Upload raw case result
+        uses: actions/upload-artifact@v4
+        with:
+          name: dynamic-result-${{ matrix.case_id }}
+          path: /tmp/artifact/
+          if-no-files-found: error
+          retention-days: 90
+
+  dynamic-collect:
+    needs: dynamic-execution
+    if: github.event_name == 'pull_request'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.head_ref }}
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.13'
+      - uses: actions/download-artifact@v4
+        with:
+          pattern: dynamic-result-*
+          path: /tmp/dynamic
+          merge-multiple: true
+      - name: Validate and index raw case results
+        run: |
+          test "$(find /tmp/dynamic -mindepth 2 -maxdepth 2 -name result.json | wc -l)" = "10"
+          rm -rf data/issue-121/dynamic-tests/results
+          mkdir -p data/issue-121/dynamic-tests/results
+          cp -R /tmp/dynamic/. data/issue-121/dynamic-tests/results/
+          python scripts/collect_dynamic_results.py
+      - name: Commit raw dynamic evidence
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data/issue-121/dynamic-tests/results \
+            results/issue-121/dynamic-raw-index.json \
+            results/issue-121/dynamic-raw-index.csv \
+            results/issue-121/DYNAMIC-SHA256SUMS
+          if git diff --cached --quiet; then
+            exit 0
+          fi
+          git commit -m "research: record locked dynamic task evidence"
+          git push origin HEAD:${{ github.head_ref }}
+      - name: Upload combined dynamic evidence
+        uses: actions/upload-artifact@v4
+        with:
+          name: issue-121-dynamic-raw-evidence
+          path: |
+            data/issue-121/dynamic-tests/results/
+            results/issue-121/dynamic-raw-index.json
+            results/issue-121/dynamic-raw-index.csv
+            results/issue-121/DYNAMIC-SHA256SUMS
           if-no-files-found: error
           retention-days: 90
