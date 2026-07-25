@@ -82,6 +82,8 @@ diff -u /tmp/a/pilot-results.json /tmp/b/pilot-results.json
 diff -u /tmp/a/pilot-results.csv /tmp/b/pilot-results.csv
 ```
 
+Validated on Python 3.11 and 3.13: 65 tests passed, measured branch coverage 97.62%, distributions built, and both deterministic reproduction checks matched the published hashes.
+
 ## Repository map
 
 - `RESEARCH.md` — complete report
