@@ -66,13 +66,14 @@ jobs:
         run: pytest --cov --cov-report=term-missing --cov-fail-under=90
       - name: Build distributions
         run: python -m build
-      - name: Reproduce published result
+      - name: Reproduce published pilot
         run: |
           PYTHONHASHSEED=0 readme-smoketest pilot --output-dir /tmp/readme-a
           PYTHONHASHSEED=321 readme-smoketest pilot --output-dir /tmp/readme-b
           diff -u /tmp/readme-a/pilot-results.json /tmp/readme-b/pilot-results.json
           diff -u /tmp/readme-a/pilot-results.csv /tmp/readme-b/pilot-results.csv
-          test "$(sha256sum /tmp/readme-a/pilot-results.json | cut -d' ' -f1)" = "531f145706238996c499746bdb46c9f4d281221828b4f07691c68782ca2f80f8"
+          test "$(sha256sum /tmp/readme-a/pilot-results.json | cut -d' ' -f1)" = \
+            "531f145706238996c499746bdb46c9f4d281221828b4f07691c68782ca2f80f8"
       - name: Upload reproduced outputs
         if: matrix.python-version == '3.13'
         uses: actions/upload-artifact@v4
@@ -80,11 +81,11 @@ jobs:
           name: reproduced-results
           path: /tmp/readme-a/
 
-  reference-evaluation:
+  static-verification:
     needs: quality
     if: github.event_name == 'pull_request'
     runs-on: ubuntu-latest
-    timeout-minutes: 20
+    timeout-minutes: 15
     steps:
       - uses: actions/checkout@v4
         with:
@@ -95,70 +96,70 @@ jobs:
           cache: pip
       - name: Install
         run: python -m pip install -e ".[dev]"
-      - name: Freeze annotation completion timestamp
+      - name: Verify frozen hashes and reference result
         run: |
-          python - <<'PY'
-          from pathlib import Path
-          path = Path('scripts/evaluate_issue_121.py')
-          text = path.read_text()
-          text = text.replace(
-              'datetime.now(UTC).replace(microsecond=0).isoformat()',
-              '"2026-07-25T14:31:06Z"',
-          )
-          path.write_text(text)
-          PY
-          ruff check scripts/evaluate_issue_121.py tests/test_issue121_reference.py --fix
-          ruff format scripts/evaluate_issue_121.py tests/test_issue121_reference.py
-      - name: Verify prediction lock precedes annotations
-        run: |
-          test -f data/issue-121/predictions/PREDICTION_LOCK.json
-          test ! -e data/issue-121/annotations/reference-labels.json
           test "$(sha256sum data/issue-121/predictions/predictions.json | cut -d' ' -f1)" = \
             "028437d2203fb4d4bd417362618c7d55069dc40f177e28eb646eef8484ca19c1"
-      - name: Generate reference annotations and metrics
-        run: |
+          test "$(sha256sum data/issue-121/annotations/reference-labels.json | cut -d' ' -f1)" = \
+            "602d6b9a794b93ff3ea823d579917f9dc62530431534b019fed9916d21a74724"
+          test "$(sha256sum results/issue-121/static-validation-results.json | cut -d' ' -f1)" = \
+            "400c404de5338cff630f6147f18288b5b557341a6fb11d3da56b956c13b5f316"
           pytest tests/test_issue121_reference.py tests/test_issue121_pipeline.py
-          python scripts/evaluate_issue_121.py
-      - name: Verify deterministic reference results
+      - name: Reproduce reference result outside the committed directories
         run: |
-          rm -rf /tmp/reference-a /tmp/reference-b
-          mkdir -p /tmp/reference-a/data/issue-121 /tmp/reference-b/data/issue-121
-          cp -R data/issue-121/raw /tmp/reference-a/data/issue-121/
-          cp -R data/issue-121/raw /tmp/reference-b/data/issue-121/
-          cp -R data/issue-121/predictions /tmp/reference-a/data/issue-121/
-          cp -R data/issue-121/predictions /tmp/reference-b/data/issue-121/
-          PYTHONHASHSEED=0 python scripts/evaluate_issue_121.py \
-            --data-dir /tmp/reference-a/data/issue-121 \
-            --results-dir /tmp/reference-a/results >/dev/null
-          PYTHONHASHSEED=321 python scripts/evaluate_issue_121.py \
-            --data-dir /tmp/reference-b/data/issue-121 \
-            --results-dir /tmp/reference-b/results >/dev/null
+          mkdir -p /tmp/reference/data/issue-121
+          cp -R data/issue-121/raw /tmp/reference/data/issue-121/
+          cp -R data/issue-121/predictions /tmp/reference/data/issue-121/
+          python scripts/evaluate_issue_121.py \
+            --data-dir /tmp/reference/data/issue-121 \
+            --results-dir /tmp/reference/results >/dev/null
           diff -u \
-            /tmp/reference-a/data/issue-121/annotations/reference-labels.json \
-            /tmp/reference-b/data/issue-121/annotations/reference-labels.json
+            data/issue-121/annotations/reference-labels.json \
+            /tmp/reference/data/issue-121/annotations/reference-labels.json
           diff -u \
-            /tmp/reference-a/results/static-validation-results.json \
-            /tmp/reference-b/results/static-validation-results.json
-          diff -u \
-            /tmp/reference-a/results/ecosystem-stratification.csv \
-            /tmp/reference-b/results/ecosystem-stratification.csv
-          diff -u \
-            /tmp/reference-a/results/readme-length-sensitivity.csv \
-            /tmp/reference-b/results/readme-length-sensitivity.csv
-      - name: Commit reference lock and results
+            results/issue-121/static-validation-results.json \
+            /tmp/reference/results/static-validation-results.json
+
+  dynamic-lock:
+    needs: static-verification
+    if: github.event_name == 'pull_request'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.head_ref }}
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.13'
+      - name: Create or verify pre-execution dynamic lock
+        env:
+          SOURCE_COMMIT: ${{ github.event.pull_request.head.sha }}
         run: |
+          if test -f data/issue-121/dynamic-tests/DYNAMIC_LOCK.json; then
+            python - <<'PY'
+          import hashlib
+          import json
+          from pathlib import Path
+          manifest = Path('data/issue-121/dynamic-tests/case-manifest.json')
+          lock = json.loads(Path('data/issue-121/dynamic-tests/DYNAMIC_LOCK.json').read_text())
+          digest = hashlib.sha256(manifest.read_bytes()).hexdigest()
+          assert digest == lock['manifest_sha256']
+          assert lock['selected_count'] == 10
+          assert lock['execution_results_present_when_locked'] is False
+          PY
+            exit 0
+          fi
+          python scripts/lock_dynamic_cases.py
+          test ! -d data/issue-121/dynamic-tests/results
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add scripts/evaluate_issue_121.py tests/test_issue121_reference.py \
-            data/issue-121/annotations results/issue-121
-          git commit -m "research: lock issue 121 reference evaluation"
+          git add scripts/lock_dynamic_cases.py data/issue-121/dynamic-tests
+          git commit -m "research: lock dynamic validation cases"
           git push origin HEAD:${{ github.head_ref }}
-      - name: Upload static validation bundle
+      - name: Upload dynamic lock
         uses: actions/upload-artifact@v4
         with:
-          name: issue-121-static-validation
-          path: |
-            data/issue-121/annotations/
-            results/issue-121/
+          name: issue-121-dynamic-lock
+          path: data/issue-121/dynamic-tests/
           if-no-files-found: error
           retention-days: 90
