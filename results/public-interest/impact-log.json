@@ -1,0 +1,15 @@
+{
+  "as_of_utc": "2026-07-26T00:00:00Z",
+  "counts": {
+    "accepted_upstream_corrections": 0,
+    "citations": 0,
+    "independent_human_reannotations": 0,
+    "independent_reproductions": 0,
+    "measured_user_benefit_outcomes": 0
+  },
+  "entries": [],
+  "measurement_policy": "docs/impact-measurement-policy.md",
+  "note": "Internal research completion, CI success, GitHub activity, submissions, downloads, and AI-generated review are not counted as external public-interest outcomes.",
+  "status": "NO_VERIFIED_EXTERNAL_OUTCOMES_YET",
+  "study_id": "joss-issue-121-external-validation"
+}
