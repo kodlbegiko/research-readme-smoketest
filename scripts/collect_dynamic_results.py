@@ -7,6 +7,7 @@ import argparse
 import csv
 import hashlib
 import json
+import shutil
 from pathlib import Path
 from typing import Any
 
@@ -35,6 +36,18 @@ def write_csv(path: Path, rows: list[dict[str, Any]]) -> None:
         writer.writerows(rows)
 
 
+def strip_non_evidence_files(case_dir: Path) -> None:
+    """Keep only the bounded result document and command logs."""
+    allowed = {"result.json", "logs"}
+    for child in case_dir.iterdir():
+        if child.name in allowed:
+            continue
+        if child.is_dir():
+            shutil.rmtree(child)
+        else:
+            child.unlink()
+
+
 def parse_args() -> argparse.Namespace:
     parser = argparse.ArgumentParser()
     parser.add_argument(
@@ -61,9 +74,11 @@ def main() -> int:
     expected = [case["case_id"] for case in manifest["cases"]]
     documents: list[dict[str, Any]] = []
     for case_id in expected:
-        result_path = args.results_root / case_id / "result.json"
+        case_dir = args.results_root / case_id
+        result_path = case_dir / "result.json"
         if not result_path.exists():
             raise FileNotFoundError(f"missing dynamic result: {result_path}")
+        strip_non_evidence_files(case_dir)
         document = read_json(result_path)
         if document["case"]["case_id"] != case_id:
             raise ValueError(f"case mismatch in {result_path}")
@@ -92,12 +107,18 @@ def main() -> int:
                 "attempt_duration_seconds": document["attempt_duration_seconds"],
                 "installation_seconds": document["installation_seconds"],
                 "task_seconds": document["task_seconds"],
-                "total_seconds_to_first_output": (document["total_seconds_to_first_output"] or ""),
+                "total_seconds_to_first_output": (
+                    document["total_seconds_to_first_output"] or ""
+                ),
                 "manual_command_steps": document["manual_command_steps"],
                 "non_root_document_pages": document["non_root_document_pages"],
                 "workspace_bytes": document["workspace_bytes"],
-                "strict_false_negative_completed": relations["strict_false_negative_completed"],
-                "external_docs_supplemented": relations["external_docs_supplemented"],
+                "strict_false_negative_completed": relations[
+                    "strict_false_negative_completed"
+                ],
+                "external_docs_supplemented": relations[
+                    "external_docs_supplemented"
+                ],
                 "hard_findings_disproved_by_runtime_paths": relations[
                     "predicted_hard_findings_disproved_by_runtime_paths"
                 ],
