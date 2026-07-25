@@ -1,39 +1,128 @@
 name: CI
 
 on:
+  push:
+    branches: [main]
   pull_request:
 
 permissions:
-  contents: write
+  contents: read
 
 jobs:
-  finalize-closeout:
-    if: github.actor != 'github-actions[bot]'
+  quality:
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        python-version: ['3.11', '3.13']
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python-version }}
+          cache: pip
+      - name: Install
+        run: python -m pip install -e ".[dev]"
+      - name: Lint
+        run: ruff check .
+      - name: Format check
+        run: ruff format --check .
+      - name: Type check
+        run: mypy src
+      - name: Test
+        run: pytest
+      - name: Coverage
+        run: pytest --cov --cov-report=term-missing --cov-fail-under=90
+      - name: Build distributions
+        run: python -m build
+      - name: Reproduce published pilot deterministically
+        run: |
+          PYTHONHASHSEED=0 readme-smoketest pilot --output-dir /tmp/readme-a
+          PYTHONHASHSEED=321 readme-smoketest pilot --output-dir /tmp/readme-b
+          diff -u /tmp/readme-a/pilot-results.json /tmp/readme-b/pilot-results.json
+          diff -u /tmp/readme-a/pilot-results.csv /tmp/readme-b/pilot-results.csv
+          test "$(sha256sum /tmp/readme-a/pilot-results.json | cut -d' ' -f1)" = \
+            "531f145706238996c499746bdb46c9f4d281221828b4f07691c68782ca2f80f8"
+
+  research-integrity:
+    needs: quality
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
         with:
-          ref: ${{ github.head_ref }}
-          fetch-depth: 0
-          show-progress: false
-      - name: Restore, validate, and commit research files
-        shell: bash
+          python-version: '3.13'
+          cache: pip
+      - name: Install
+        run: python -m pip install -e ".[dev]"
+      - name: Verify frozen hashes and tests
         run: |
-          set -euo pipefail
-          cat .closeout-final.part-* | base64 --decode > /tmp/closeout-final.tar.xz
-          test "$(sha256sum /tmp/closeout-final.tar.xz | cut -d' ' -f1)" = \
-            "0b1777fdf66627ccdcce28cd0af73df603781f07c7b4f8e6217a104b3fb49862"
-          tar -xJf /tmp/closeout-final.tar.xz -C .
-          git checkout HEAD -- .github/workflows/ci.yml .github/workflows/finalize-closeout.yml
-          rm -f .closeout-final.part-* scripts/run_closeout_checks.py
-          sha256sum --check results/issue-121/DYNAMIC-FINAL-SHA256SUMS >/dev/null
-          test -f EXTERNAL-VALIDATION.md
-          test -f results/issue-121/dynamic-validation-results.json
-          test -f results/interventions/intervention-log.json
-          test -f data/issue-121/dynamic-tests/adjudications/adjudications.json
-          git config user.name "github-actions[bot]"
-          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add -A
-          git diff --cached --check
-          git commit -m "research: add issue 121 final adjudication and evidence"
-          git push origin "HEAD:${GITHUB_HEAD_REF}"
+          test "$(sha256sum data/issue-121/predictions/predictions.json | cut -d' ' -f1)" = \
+            "028437d2203fb4d4bd417362618c7d55069dc40f177e28eb646eef8484ca19c1"
+          test "$(sha256sum data/issue-121/annotations/reference-labels.json | cut -d' ' -f1)" = \
+            "602d6b9a794b93ff3ea823d579917f9dc62530431534b019fed9916d21a74724"
+          test "$(sha256sum results/issue-121/static-validation-results.json | cut -d' ' -f1)" = \
+            "400c404de5338cff630f6147f18288b5b557341a6fb11d3da56b956c13b5f316"
+          python - <<'PY'
+          import hashlib
+          import json
+          from pathlib import Path
+
+          manifest = Path('data/issue-121/dynamic-tests/case-manifest.json')
+          lock = json.loads(Path('data/issue-121/dynamic-tests/DYNAMIC_LOCK.json').read_text())
+          digest = hashlib.sha256(manifest.read_bytes()).hexdigest()
+          assert digest == lock['manifest_sha256']
+          assert digest == 'e2018faa122fdabbf54babc6bd508eb34d41cd66f9a3fa65e0fee4beb131f3fa'
+          assert lock['selected_count'] == 10
+          assert lock['execution_results_present_when_locked'] is False
+          PY
+          pytest tests/test_issue121_reference.py \
+            tests/test_issue121_pipeline.py \
+            tests/test_dynamic_harness.py
+      - name: Verify final evidence hashes
+        run: sha256sum -c results/issue-121/DYNAMIC-FINAL-SHA256SUMS
+      - name: Validate final adjudication schema and metrics
+        run: |
+          python - <<'PY'
+          import json
+          from collections import Counter
+          from pathlib import Path
+
+          allowed = {
+              'SUCCESS', 'SUCCESS_WITH_FRICTION', 'FAILURE_README_BLOCKER',
+              'FAILURE_DEPENDENCY_COMPATIBILITY', 'FAILURE_OTHER', 'UNTESTABLE_HERE'
+          }
+          required = {
+              'case_id', 'raw_status', 'final_status',
+              'first_meaningful_task_completed', 'direct_readme_blocker',
+              'dependency_or_compatibility_blocker', 'minor_friction',
+              'harness_error', 'external_docs_supplemented',
+              'predicted_finding_confirmed', 'predicted_finding_disproved',
+              'evidence_status', 'reason', 'supporting_step_ids',
+              'correction_attempt', 'time_to_first_output', 'peak_memory', 'disk_use'
+          }
+          cases = json.loads(
+              Path('data/issue-121/dynamic-tests/adjudications/adjudications.json').read_text()
+          )
+          assert len(cases) == 10
+          assert all(required <= case.keys() for case in cases)
+          assert all(case['final_status'] in allowed for case in cases)
+          result = json.loads(Path('results/issue-121/dynamic-validation-results.json').read_text())
+          assert result['cases'] == cases
+          assert Counter(case['raw_status'] for case in cases) == Counter({'FAILURE': 5, 'SUCCESS': 4, 'UNTESTABLE_HERE': 1})
+          assert Counter(case['final_status'] for case in cases) == Counter({'SUCCESS': 6, 'SUCCESS_WITH_FRICTION': 2, 'FAILURE_DEPENDENCY_COMPATIBILITY': 1, 'UNTESTABLE_HERE': 1})
+          assert result['verdicts']['overall_productization'] == 'NOT SUPPORTED'
+          PY
+      - name: Verify final JSON is byte-identical across hash seeds
+        run: |
+          for seed in 0 321; do
+            PYTHONHASHSEED="$seed" python - <<'PY' > "/tmp/final-$seed.json"
+          import json
+          from pathlib import Path
+
+          data = json.loads(Path('results/issue-121/dynamic-validation-results.json').read_text())
+          print(json.dumps(data, indent=2, sort_keys=True))
+          PY
+          done
+          diff -u /tmp/final-0.json /tmp/final-321.json
+          diff -u results/issue-121/dynamic-validation-results.json /tmp/final-0.json
