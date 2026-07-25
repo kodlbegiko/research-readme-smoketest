@@ -36,9 +36,35 @@ jobs:
                   '            "Ten feasibility-screened cases fixed before execution; "\n'
                   '            "no outcome-driven replacement."\n'
               ),
+              '            "success": "Predeclared task and observable success criterion both met within cap.",\n': (
+                  '            "success": (\n'
+                  '                "Predeclared task and observable success criterion both met "\n'
+                  '                "within cap."\n'
+                  '            ),\n'
+              ),
+              '                "Safe execution completed but the criterion was not met because of documented-path, "\n': (
+                  '                "Safe execution completed but the criterion was not met because "\n'
+                  '                "of documented-path, "\n'
+              ),
+              '                "Safety, platform, restricted-data, GPU/HPC, or resource constraints prevent a "\n': (
+                  '                "Safety, platform, restricted-data, GPU/HPC, or resource "\n'
+                  '                "constraints prevent a "\n'
+              ),
               '                "The exact frozen finding prevents the task and correction or bypass changes the outcome."\n': (
                   '                "The exact frozen finding prevents the task and correction or bypass "\n'
                   '                "changes the outcome."\n'
+              ),
+              '                "The documented path requires a non-obvious correction, search, or documentation "\n': (
+                  '                "The documented path requires a non-obvious correction, search, "\n'
+                  '                "or documentation "\n'
+              ),
+              '                "Root README delegation is followed and supplies missing operational detail."\n': (
+                  '                "Root README delegation is followed and supplies missing "\n'
+                  '                "operational detail."\n'
+              ),
+              '                "public package registries, official project assets, and public repositories only"\n': (
+                  '                "public package registries, official project assets, and public "\n'
+                  '                "repositories only"\n'
               ),
               '                "exact commands, exit codes, stdout/stderr, durations, disk use, and installed versions"\n': (
                   '                "exact commands, exit codes, stdout/stderr, durations, disk use, "\n'
@@ -60,7 +86,7 @@ jobs:
           if git diff --cached --quiet; then
             exit 0
           fi
-          git commit -m "style: wrap dynamic manifest descriptions"
+          git commit -m "style: wrap all dynamic manifest prose"
           git push origin HEAD:${{ github.head_ref }}
 
   quality:
