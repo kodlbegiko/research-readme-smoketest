@@ -98,7 +98,7 @@ class GitHubClient:
             headers["Authorization"] = f"Bearer {self.token}"
         self.request_count += 1
         request = Request(url, headers=headers)
-        with urlopen(request, timeout=45) as response:  # noqa: S310
+        with urlopen(request, timeout=45) as response:
             return json.loads(response.read().decode("utf-8"))
 
     def get_text(self, url: str) -> str:
@@ -107,7 +107,7 @@ class GitHubClient:
             headers["Authorization"] = f"Bearer {self.token}"
         self.request_count += 1
         request = Request(url, headers=headers)
-        with urlopen(request, timeout=45) as response:  # noqa: S310
+        with urlopen(request, timeout=45) as response:
             return response.read().decode("utf-8")
 
 
@@ -249,9 +249,7 @@ def decode_content(payload: dict[str, Any], client: GitHubClient) -> str:
     raise ValueError("GitHub content response has no readable content")
 
 
-def fetch_readme(
-    client: GitHubClient, repository: str, branch: str
-) -> tuple[str, str, str] | None:
+def fetch_readme(client: GitHubClient, repository: str, branch: str) -> tuple[str, str, str] | None:
     for candidate in README_CANDIDATES:
         encoded_path = quote(candidate, safe="")
         encoded_ref = quote(branch, safe="")
@@ -327,9 +325,7 @@ def acquire_record(
             if isinstance(path, str)
         }
     )
-    path_index = {
-        path: path_exists(client, repository, branch, path) for path in path_candidates
-    }
+    path_index = {path: path_exists(client, repository, branch, path) for path in path_candidates}
     external_docs, external_links = external_documentation(text)
     record = {
         "order": item["order"],

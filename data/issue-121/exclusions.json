@@ -1,0 +1,11 @@
+[
+  {
+    "doi": "10.21105/joss.08498",
+    "host": "gitlab",
+    "order": 15,
+    "reason": "non_github",
+    "repository": "gitlab.fysik.su.se/poleval/poleval",
+    "retrieved_at": "2026-07-25T14:26:27Z",
+    "title": "POLEVAL: A Python package for HAXPES analysis"
+  }
+]

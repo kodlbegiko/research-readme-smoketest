@@ -1,0 +1,8 @@
+{
+  "annotations_present_when_locked": false,
+  "baseline_commit": "2caeecc8678a4614f6fe6771df0ace6827a5f434",
+  "prediction_csv_sha256": "64992a0bcfa02d168a629931b7a6337966fade69af051b6ffd3b027dceb95601",
+  "prediction_json_sha256": "028437d2203fb4d4bd417362618c7d55069dc40f177e28eb646eef8484ca19c1",
+  "workflow_head_sha": "7c6c06a5176f6de02705cd3cc9c2951ded991758",
+  "workflow_run_id": 30161626831
+}
