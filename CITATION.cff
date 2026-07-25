@@ -1,8 +1,10 @@
 cff-version: 1.2.0
-message: If you use this pilot, please cite it using this metadata.
-title: Research README Smoketest
-version: 0.1.0
-date-released: '2026-07-25'
+message: >-
+  If you use the issue-121 negative external-validation result, evidence bundle,
+  or replication protocol, please cite this repository using this metadata.
+title: >-
+  Research README Smoketest: Issue 121 External Validation — Negative Research
+  Closeout
 type: software
 authors:
   - family-names: Liu
@@ -10,12 +12,22 @@ authors:
 repository-code: https://github.com/kodlbegiko/research-readme-smoketest
 license: MIT
 abstract: >-
-  A reproducible exploratory pilot and conservative static preflight for
-  install-to-first-use paths in root READMEs of research software linked from
-  the first 20 papers in JOSS issue 122.
+  A reproducible negative external validation of a frozen static detector for
+  install-to-first-use paths in research-software root READMEs. On 38 eligible
+  GitHub repositories from JOSS issue 121, detector productization was not
+  supported: recall and accuracy were below the preregistered decision gates,
+  three predicted hard findings were disproved, and locked dynamic validation
+  did not show that the static findings predicted first-use blockers. The
+  repository preserves prediction locks, raw attempts, adjudications,
+  corrections, checksums, intervention decisions, and an independent
+  replication protocol. It is not a recommended README checker and no GitHub
+  Action v0.2 is planned.
 keywords:
+  - negative results
+  - external validation
   - research software
   - reproducibility
   - README
   - documentation testing
-  - JOSS
+  - independent replication
+identifiers: []
