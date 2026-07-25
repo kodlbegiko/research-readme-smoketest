@@ -126,3 +126,23 @@ jobs:
           done
           diff -u /tmp/final-0.json /tmp/final-321.json
           diff -u results/issue-121/dynamic-validation-results.json /tmp/final-0.json
+      - name: Validate publication and public-interest metadata
+        run: |
+          python -m json.tool docs/replication-result-schema.json >/dev/null
+          python -m json.tool results/public-interest/impact-log.json >/dev/null
+          sha256sum -c results/public-interest/SHA256SUMS
+          grep -F "Research status:** negative external-validation result" README.md
+          grep -F "Productization:** not supported" README.md
+          grep -F "GitHub Action:** not planned" README.md
+          python - <<'PY'
+          import json
+          from pathlib import Path
+
+          log = json.loads(Path('results/public-interest/impact-log.json').read_text())
+          assert all(value == 0 for value in log['counts'].values())
+          assert log['entries'] == []
+          assert log['status'] == 'NO_VERIFIED_EXTERNAL_OUTCOMES_YET'
+          schema = json.loads(Path('docs/replication-result-schema.json').read_text())
+          assert schema['$schema'].endswith('2020-12/schema')
+          assert schema['title']
+          PY
