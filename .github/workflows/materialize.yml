@@ -4,17 +4,22 @@ on:
   push:
     branches:
       - research/joss-122-pilot
+  pull_request:
+    branches:
+      - main
 
 permissions:
   contents: write
 
 jobs:
   materialize:
+    if: github.actor != 'github-actions[bot]'
     runs-on: ubuntu-latest
     steps:
       - name: Check out research branch
         uses: actions/checkout@v4
         with:
+          ref: ${{ github.head_ref || github.ref_name }}
           fetch-depth: 0
 
       - name: Decode and verify deterministic bundle
@@ -41,4 +46,4 @@ jobs:
             exit 0
           fi
           git commit -m "feat: publish reproducible JOSS README pilot"
-          git push origin "HEAD:${GITHUB_REF_NAME}"
+          git push origin "HEAD:${{ github.head_ref || github.ref_name }}"
