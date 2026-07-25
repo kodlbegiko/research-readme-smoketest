@@ -1,0 +1,134 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/kodlbegiko/research-readme-smoketest/blob/main/docs/replication-result-schema.json",
+  "title": "Research README Smoketest independent replication result",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "study_id",
+    "status",
+    "independence",
+    "preregistration",
+    "dataset",
+    "detector",
+    "prediction_lock",
+    "reference_annotation",
+    "static_result",
+    "dynamic_result",
+    "deviations",
+    "artifacts",
+    "verdict"
+  ],
+  "properties": {
+    "study_id": {"type": "string", "minLength": 1},
+    "status": {
+      "enum": ["REPRODUCED", "PARTIALLY_REPRODUCED", "CONTRADICTED", "INCONCLUSIVE", "BLOCKED"]
+    },
+    "independence": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["independent_of_original_annotation", "human_annotators", "ai_assistance", "conflicts"],
+      "properties": {
+        "independent_of_original_annotation": {"type": "boolean"},
+        "human_annotators": {"type": "integer", "minimum": 0},
+        "ai_assistance": {"type": "string"},
+        "conflicts": {"type": "array", "items": {"type": "string"}}
+      }
+    },
+    "preregistration": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["uri", "timestamp", "deposited_before_outcomes"],
+      "properties": {
+        "uri": {"type": "string"},
+        "timestamp": {"type": "string", "format": "date-time"},
+        "deposited_before_outcomes": {"type": "boolean"}
+      }
+    },
+    "dataset": {
+      "type": "object",
+      "required": ["identifier", "sampling_source", "selected_count", "eligible_count", "exclusions", "manifest_sha256"],
+      "properties": {
+        "identifier": {"type": "string"},
+        "sampling_source": {"type": "string"},
+        "selected_count": {"type": "integer", "minimum": 0},
+        "eligible_count": {"type": "integer", "minimum": 0},
+        "exclusions": {"type": "array", "items": {"type": "object"}},
+        "manifest_sha256": {"type": "string", "pattern": "^[a-f0-9]{64}$"}
+      }
+    },
+    "detector": {
+      "type": "object",
+      "required": ["version", "commit", "source_hashes", "frozen_before_annotation"],
+      "properties": {
+        "version": {"type": "string"},
+        "commit": {"type": "string", "pattern": "^[a-f0-9]{40}$"},
+        "source_hashes": {"type": "object", "additionalProperties": {"type": "string", "pattern": "^[a-f0-9]{64}$"}},
+        "frozen_before_annotation": {"type": "boolean"}
+      }
+    },
+    "prediction_lock": {
+      "type": "object",
+      "required": ["prediction_sha256", "locked_before_reference_labels", "verified"],
+      "properties": {
+        "prediction_sha256": {"type": "string", "pattern": "^[a-f0-9]{64}$"},
+        "locked_before_reference_labels": {"type": "boolean"},
+        "verified": {"type": "boolean"}
+      }
+    },
+    "reference_annotation": {
+      "type": "object",
+      "required": ["human_annotators", "independent_initial_labels_preserved", "agreement", "label_file_sha256"],
+      "properties": {
+        "human_annotators": {"type": "integer", "minimum": 0},
+        "independent_initial_labels_preserved": {"type": "boolean"},
+        "agreement": {"type": ["number", "null"], "minimum": -1, "maximum": 1},
+        "label_file_sha256": {"type": "string", "pattern": "^[a-f0-9]{64}$"}
+      }
+    },
+    "static_result": {
+      "type": "object",
+      "required": ["confusion", "metrics", "gate_outcomes"],
+      "properties": {
+        "confusion": {
+          "type": "object",
+          "required": ["tp", "fp", "tn", "fn"],
+          "properties": {
+            "tp": {"type": "integer", "minimum": 0},
+            "fp": {"type": "integer", "minimum": 0},
+            "tn": {"type": "integer", "minimum": 0},
+            "fn": {"type": "integer", "minimum": 0}
+          }
+        },
+        "metrics": {"type": "object"},
+        "gate_outcomes": {"type": "object"}
+      }
+    },
+    "dynamic_result": {
+      "type": "object",
+      "required": ["locked_cases", "testable_cases", "final_status_counts", "raw_attempts_preserved", "corrections_separate"],
+      "properties": {
+        "locked_cases": {"type": "integer", "minimum": 0},
+        "testable_cases": {"type": "integer", "minimum": 0},
+        "final_status_counts": {"type": "object", "additionalProperties": {"type": "integer", "minimum": 0}},
+        "raw_attempts_preserved": {"type": "boolean"},
+        "corrections_separate": {"type": "boolean"}
+      }
+    },
+    "deviations": {"type": "array", "items": {"type": "object"}},
+    "artifacts": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["path_or_uri", "sha256"],
+        "properties": {
+          "path_or_uri": {"type": "string"},
+          "sha256": {"type": "string", "pattern": "^[a-f0-9]{64}$"}
+        }
+      }
+    },
+    "verdict": {
+      "enum": ["SUPPORTED", "NOT_SUPPORTED", "INCONCLUSIVE", "BLOCKED"]
+    }
+  }
+}
