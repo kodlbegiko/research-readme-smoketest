@@ -1,0 +1,10 @@
+1 pages of results
+ Parsing page 1
+Download complete
+    allele loci       wav       c  sample_size  alpha  allele_freq
+0  A*01:01    A  0.074146  49.826          336      1     0.070131
+1  A*01:02    A  0.004562   3.066          336      1     0.005610
+2  A*01:03    A  0.001563   1.050          336      1     0.002829
+3  A*01:09    A  0.001563   1.050          336      1     0.002829
+4  A*01:23    A  0.001563   1.050          336      1     0.002829
+{'downloaded_rows': 81, 'combined_rows': 52}

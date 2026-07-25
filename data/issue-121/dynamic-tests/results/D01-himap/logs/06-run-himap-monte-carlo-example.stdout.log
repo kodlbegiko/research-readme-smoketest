@@ -1,0 +1,121 @@
+This is the code for applying the hmm models to CMAPSS data or to Monte-Carlo Simulated data 
+
+Code running...
+
+Created folder: /tmp/artifact/D01-himap/workspace/task/himap_results
+Created folder: /tmp/artifact/D01-himap/workspace/task/himap_results/dictionaries
+Created folder: /tmp/artifact/D01-himap/workspace/task/himap_results/figures
+Created folder: /tmp/artifact/D01-himap/workspace/task/himap_results/models
+Model name not provided. Default name: hmm
+Folder already exists: /tmp/artifact/D01-himap/workspace/task/himap_results
+Folder already exists: /tmp/artifact/D01-himap/workspace/task/himap_results/dictionaries
+Folder already exists: /tmp/artifact/D01-himap/workspace/task/himap_results/figures
+Folder already exists: /tmp/artifact/D01-himap/workspace/task/himap_results/models
+Model name not provided. Default name: hmm
+Folder already exists: /tmp/artifact/D01-himap/workspace/task/himap_results
+Folder already exists: /tmp/artifact/D01-himap/workspace/task/himap_results/dictionaries
+Folder already exists: /tmp/artifact/D01-himap/workspace/task/himap_results/figures
+Folder already exists: /tmp/artifact/D01-himap/workspace/task/himap_results/models
+Model name not provided. Default name: hmm
+
+FIT hmm: converged at loop 3 with score: -7249.809177625861.
+Folder already exists: /tmp/artifact/D01-himap/workspace/task/himap_results
+Folder already exists: /tmp/artifact/D01-himap/workspace/task/himap_results/dictionaries
+Folder already exists: /tmp/artifact/D01-himap/workspace/task/himap_results/figures
+Folder already exists: /tmp/artifact/D01-himap/workspace/task/himap_results/models
+Model name not provided. Default name: hmm
+
+FIT hmm: converged at loop 6 with score: -5986.3825417049175.
+Folder already exists: /tmp/artifact/D01-himap/workspace/task/himap_results
+Folder already exists: /tmp/artifact/D01-himap/workspace/task/himap_results/dictionaries
+Folder already exists: /tmp/artifact/D01-himap/workspace/task/himap_results/figures
+Folder already exists: /tmp/artifact/D01-himap/workspace/task/himap_results/models
+Model name not provided. Default name: hmm
+
+FIT hmm: converged at loop 7 with score: -5243.3139856803955.
+Folder already exists: /tmp/artifact/D01-himap/workspace/task/himap_results
+Folder already exists: /tmp/artifact/D01-himap/workspace/task/himap_results/dictionaries
+Folder already exists: /tmp/artifact/D01-himap/workspace/task/himap_results/figures
+Folder already exists: /tmp/artifact/D01-himap/workspace/task/himap_results/models
+Model name not provided. Default name: hmm
+
+FIT hmm: converged at loop 9 with score: -4774.404062178331.
+Folder already exists: /tmp/artifact/D01-himap/workspace/task/himap_results
+Folder already exists: /tmp/artifact/D01-himap/workspace/task/himap_results/dictionaries
+Folder already exists: /tmp/artifact/D01-himap/workspace/task/himap_results/figures
+Folder already exists: /tmp/artifact/D01-himap/workspace/task/himap_results/models
+Model name not provided. Default name: hmm
+
+FIT hmm: converged at loop 9 with score: -4138.338269548493.
+Folder already exists: /tmp/artifact/D01-himap/workspace/task/himap_results
+Folder already exists: /tmp/artifact/D01-himap/workspace/task/himap_results/dictionaries
+Folder already exists: /tmp/artifact/D01-himap/workspace/task/himap_results/figures
+Folder already exists: /tmp/artifact/D01-himap/workspace/task/himap_results/models
+Model name not provided. Default name: hmm
+
+FIT hmm: converged at loop 8 with score: -4142.522636270671.
+Folder already exists: /tmp/artifact/D01-himap/workspace/task/himap_results
+Folder already exists: /tmp/artifact/D01-himap/workspace/task/himap_results/dictionaries
+Folder already exists: /tmp/artifact/D01-himap/workspace/task/himap_results/figures
+Folder already exists: /tmp/artifact/D01-himap/workspace/task/himap_results/models
+Model name not provided. Default name: hmm
+
+FIT hmm: converged at loop 8 with score: -4120.327270265204.
+Folder already exists: /tmp/artifact/D01-himap/workspace/task/himap_results
+Folder already exists: /tmp/artifact/D01-himap/workspace/task/himap_results/dictionaries
+Folder already exists: /tmp/artifact/D01-himap/workspace/task/himap_results/figures
+Folder already exists: /tmp/artifact/D01-himap/workspace/task/himap_results/models
+Model name not provided. Default name: hmm
+
+FIT hmm: converged at loop 8 with score: -4128.255677934619.
+Best model was the model with 6 states.
+Model saved to /tmp/artifact/D01-himap/workspace/task/himap_results/models/hmm.pkl.
+
+Prognostics complete. Results saved to: /tmp/artifact/D01-himap/workspace/task/himap_results/dictionaries
+
+RUL plots saved to: /tmp/artifact/D01-himap/workspace/task/himap_results/figures
+
+ Metrics saved to: /tmp/artifact/D01-himap/workspace/task/himap_results
+
+        Name       rmse  coverage         wsu
+0    traj_0   6.391154  0.981982    689031.5
+1    traj_1  24.246949  0.982906    801592.0
+2    traj_2  16.852588  0.980583    433911.0
+3    traj_3  37.350391  0.362069    184660.5
+4    traj_4   33.26402  0.386139    128337.0
+5    traj_5   4.975176  0.980952    510383.5
+6    traj_6  32.421419  0.984375    689614.5
+7    traj_7  19.691857  0.984615    914712.5
+8    traj_8   17.82046  0.944954    391405.5
+9    traj_9  13.760298  0.981308    511549.5
+10  traj_10  22.009402  0.982759    905698.5
+11  traj_11  14.887557  0.983607    939442.5
+12  traj_12   22.46592  0.984733    776008.0
+13  traj_13  15.479419  0.984496   1019730.5
+14  traj_14  14.801771  0.983193    750552.0
+15  traj_15    10.0489  0.980392    438519.0
+16  traj_16  16.371516  0.982301    749281.5
+17  traj_17   9.354629  0.981818    653419.5
+18  traj_18  11.453166  0.983333    809586.0
+19  traj_19  10.399879  0.984252    852399.5
+20  Average  17.702324  0.920038  657491.725
+./himap_results/df_results.csv
+./himap_results/figures/hmm_RUL_plot_traj_13.png
+./himap_results/figures/hmm_RUL_plot_traj_18.png
+./himap_results/figures/hmm_RUL_plot_traj_6.png
+./himap_results/figures/hmm_RUL_plot_traj_11.png
+./himap_results/figures/hmm_RUL_plot_traj_16.png
+./himap_results/figures/hmm_RUL_plot_traj_7.png
+./himap_results/figures/hmm_RUL_plot_traj_5.png
+./himap_results/figures/hmm_RUL_plot_traj_12.png
+./himap_results/figures/hmm_RUL_plot_traj_3.png
+./himap_results/figures/hmm_RUL_plot_traj_8.png
+./himap_results/figures/hmm_RUL_plot_traj_19.png
+./himap_results/figures/hmm_RUL_plot_traj_15.png
+./himap_results/figures/hmm_RUL_plot_traj_17.png
+./himap_results/figures/hmm_RUL_plot_traj_14.png
+./himap_results/figures/hmm_RUL_plot_traj_4.png
+./himap_results/figures/hmm_RUL_plot_traj_10.png
+./himap_results/figures/hmm_RUL_plot_traj_9.png
+./himap_results/figures/hmm_RUL_plot_traj_20.png
+./himap_results/figures/hmm_RUL_plot_traj_2.png

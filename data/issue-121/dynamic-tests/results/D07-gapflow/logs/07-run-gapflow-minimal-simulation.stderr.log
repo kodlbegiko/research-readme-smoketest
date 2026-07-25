@@ -1,0 +1,29 @@
+find: ‘data/journal’: No such file or directory
+find: ‘data/journal’: No such file or directory
+Command exited with non-zero status 1
+	Command being timed: "bash -lc venv/bin/python -m GaPFlow -i my_input_file.yaml
+test -d data/journal
+find data/journal -maxdepth 1 -type f -print
+test -n "$(find data/journal -maxdepth 1 -type f -print -quit)""
+	User time (seconds): 3.93
+	System time (seconds): 0.27
+	Percent of CPU this job got: 96%
+	Elapsed (wall clock) time (h:mm:ss or m:ss): 0:04.34
+	Average shared text size (kbytes): 0
+	Average unshared data size (kbytes): 0
+	Average stack size (kbytes): 0
+	Average total size (kbytes): 0
+	Maximum resident set size (kbytes): 457920
+	Average resident set size (kbytes): 0
+	Major (requiring I/O) page faults: 13
+	Minor (reclaiming a frame) page faults: 88330
+	Voluntary context switches: 1254
+	Involuntary context switches: 173
+	Swaps: 0
+	File system inputs: 50800
+	File system outputs: 7520
+	Socket messages sent: 0
+	Socket messages received: 0
+	Signals delivered: 0
+	Page size (bytes): 4096
+	Exit status: 1

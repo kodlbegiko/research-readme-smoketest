@@ -1,0 +1,94 @@
+{
+  "attempt_duration_seconds": 1.9309430259999942,
+  "case": {
+    "case_id": "D10-ecodive",
+    "default_branch": "main",
+    "documentation_scope": [
+      "root_readme"
+    ],
+    "ecosystem": "R/C library",
+    "order": 37,
+    "predeclared_task": "Install ecodive from CRAN and run the README's basic-object workflow using ex_counts, rarefy, shannon, faith, bray, and weighted_unifrac.",
+    "predicted_hard_findings": [],
+    "predicted_strict_ready": false,
+    "readme_path": "README.md",
+    "readme_sha": "aba4ddfd2fc0fbfc0d4df5de10a7d94f7bc0",
+    "reference_strict_ready": true,
+    "repository": "cmmr/ecodive",
+    "resource_caps": {
+      "disk_gib": 10,
+      "job_minutes": 18,
+      "runner": "ubuntu-latest"
+    },
+    "safety_review": "Isolated runner; CRAN package; bundled example objects; no external personal or restricted data.",
+    "strata": [
+      "strict_false_negative",
+      "r",
+      "compiled_extension",
+      "library"
+    ],
+    "success_criterion": "R exits 0 and returns the documented-size alpha/beta diversity results without external study data.",
+    "timeout_seconds": 480
+  },
+  "completed_at": "2026-07-25T15:43:24Z",
+  "external_searches": 0,
+  "failure_reason": "Root README changed after acquisition; frozen task not executed.",
+  "installation_seconds": 1.9302830699999873,
+  "interpretation_note": "Raw execution result only. Friction/blocker classification requires post-run review and cannot change the locked case or command.",
+  "manual_command_steps": 2,
+  "non_root_document_pages": 0,
+  "preliminary_relations": {
+    "external_docs_supplemented": false,
+    "manual_friction_classification_required": true,
+    "predicted_hard_findings_disproved_by_runtime_paths": false,
+    "strict_false_negative_completed": false
+  },
+  "runner": {
+    "github_job": "dynamic-execution",
+    "github_run_id": "30164095879",
+    "machine": "x86_64",
+    "platform": "Linux-6.17.0-1020-azure-x86_64-with-glibc2.39",
+    "python": "3.11.15"
+  },
+  "started_at": "2026-07-25T15:43:22Z",
+  "status": "UNTESTABLE_HERE",
+  "steps": [
+    {
+      "command": "git clone --depth 1 --branch main https://github.com/cmmr/ecodive.git source",
+      "completed_at": "2026-07-25T15:43:24Z",
+      "duration_seconds": 1.8198376689999947,
+      "name": "clone repository",
+      "peak_rss_kib": 19888,
+      "phase": "acquisition",
+      "required": true,
+      "return_code": 0,
+      "started_at": "2026-07-25T15:43:22Z",
+      "stderr_excerpt": "Cloning into 'source'...\n\tCommand being timed: \"bash -lc git clone --depth 1 --branch main https://github.com/cmmr/ecodive.git source\"\n\tUser time (seconds): 0.22\n\tSystem time (seconds): 0.20\n\tPercent of CPU this job got: 23%\n\tElapsed (wall clock) time (h:mm:ss or m:ss): 0:01.81\n\tAverage shared text size (kbytes): 0\n\tAverage unshared data size (kbytes): 0\n\tAverage stack size (kbytes): 0\n\tAverage total size (kbytes): 0\n\tMaximum resident set size (kbytes): 19888\n\tAverage resident set size (kbytes): 0\n\tMajor (requiring I/O) page faults: 197\n\tMinor (reclaiming a frame) page faults: 22723\n\tVoluntary context switches: 3592\n\tInvoluntary context switches: 22\n\tSwaps: 0\n\tFile system inputs: 40008\n\tFile system outputs: 47432\n\tSocket messages sent: 0\n\tSocket messages received: 0\n\tSignals delivered: 0\n\tPage size (bytes): 4096\n\tExit status: 0\n",
+      "stderr_log": "01-clone-repository.stderr.log",
+      "stdout_excerpt": "",
+      "stdout_log": "01-clone-repository.stdout.log",
+      "timed_out": false,
+      "timeout_seconds": 180
+    },
+    {
+      "command": "test \"$(git -C source hash-object README.md)\" = \"aba4ddfd2fc0fbfc0d4df5de10a7d94f7bc0\"",
+      "completed_at": "2026-07-25T15:43:24Z",
+      "duration_seconds": 0.11044540099999267,
+      "name": "verify README blob",
+      "peak_rss_kib": 18044,
+      "phase": "acquisition",
+      "required": true,
+      "return_code": 1,
+      "started_at": "2026-07-25T15:43:24Z",
+      "stderr_excerpt": "Command exited with non-zero status 1\n\tCommand being timed: \"bash -lc test \"$(git -C source hash-object README.md)\" = \"aba4ddfd2fc0fbfc0d4df5de10a7d94f7bc0\"\"\n\tUser time (seconds): 0.04\n\tSystem time (seconds): 0.08\n\tPercent of CPU this job got: 118%\n\tElapsed (wall clock) time (h:mm:ss or m:ss): 0:00.10\n\tAverage shared text size (kbytes): 0\n\tAverage unshared data size (kbytes): 0\n\tAverage stack size (kbytes): 0\n\tAverage total size (kbytes): 0\n\tMaximum resident set size (kbytes): 18044\n\tAverage resident set size (kbytes): 0\n\tMajor (requiring I/O) page faults: 0\n\tMinor (reclaiming a frame) page faults: 17503\n\tVoluntary context switches: 273\n\tInvoluntary context switches: 6\n\tSwaps: 0\n\tFile system inputs: 0\n\tFile system outputs: 0\n\tSocket messages sent: 0\n\tSocket messages received: 0\n\tSignals delivered: 0\n\tPage size (bytes): 4096\n\tExit status: 1\n",
+      "stderr_log": "02-verify-readme-blob.stderr.log",
+      "stdout_excerpt": "",
+      "stdout_log": "02-verify-readme-blob.stdout.log",
+      "timed_out": false,
+      "timeout_seconds": 30
+    }
+  ],
+  "task_seconds": 0,
+  "total_seconds_to_first_output": null,
+  "workspace_bytes": 23772425
+}

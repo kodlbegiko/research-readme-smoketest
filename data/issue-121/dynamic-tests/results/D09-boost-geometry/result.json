@@ -1,0 +1,130 @@
+{
+  "attempt_duration_seconds": 3.0048330409999977,
+  "case": {
+    "case_id": "D09-boost-geometry",
+    "default_branch": "master",
+    "documentation_scope": [
+      "root_readme",
+      "official_linked_documentation",
+      "repository_example"
+    ],
+    "ecosystem": "C++ header-only library",
+    "order": 34,
+    "predeclared_task": "Follow the root README's documentation/example delegation, compile a minimal Boost.Geometry polygon-area program against the cloned header-only library, and run it.",
+    "predicted_hard_findings": [],
+    "predicted_strict_ready": false,
+    "readme_path": "README.md",
+    "readme_sha": "6f898496335b9a0bf64def628d2ff63852af89bf",
+    "reference_strict_ready": false,
+    "repository": "boostorg/geometry",
+    "resource_caps": {
+      "disk_gib": 10,
+      "job_minutes": 12,
+      "runner": "ubuntu-latest"
+    },
+    "safety_review": "Isolated runner; header-only public source; compiler invocation only; no package scripts or elevated privileges.",
+    "strata": [
+      "true_negative",
+      "external_documentation_delegation",
+      "cpp",
+      "library"
+    ],
+    "success_criterion": "C++14 compilation exits 0 and the executable reports polygon area 1 within numeric tolerance.",
+    "timeout_seconds": 300
+  },
+  "completed_at": "2026-07-25T15:42:46Z",
+  "external_searches": 0,
+  "failure_reason": "Required step failed: compile Boost.Geometry example",
+  "installation_seconds": 1.509054127000006,
+  "interpretation_note": "Raw execution result only. Friction/blocker classification requires post-run review and cannot change the locked case or command.",
+  "manual_command_steps": 4,
+  "non_root_document_pages": 2,
+  "preliminary_relations": {
+    "external_docs_supplemented": false,
+    "manual_friction_classification_required": true,
+    "predicted_hard_findings_disproved_by_runtime_paths": false,
+    "strict_false_negative_completed": false
+  },
+  "runner": {
+    "github_job": "dynamic-execution",
+    "github_run_id": "30164095879",
+    "machine": "x86_64",
+    "platform": "Linux-6.17.0-1020-azure-x86_64-with-glibc2.39",
+    "python": "3.11.15"
+  },
+  "started_at": "2026-07-25T15:42:43Z",
+  "status": "FAILURE",
+  "steps": [
+    {
+      "command": "git clone --depth 1 --branch master https://github.com/boostorg/geometry.git source",
+      "completed_at": "2026-07-25T15:42:44Z",
+      "duration_seconds": 1.4026894990000045,
+      "name": "clone repository",
+      "peak_rss_kib": 19612,
+      "phase": "acquisition",
+      "required": true,
+      "return_code": 0,
+      "started_at": "2026-07-25T15:42:43Z",
+      "stderr_excerpt": "Cloning into 'source'...\n\tCommand being timed: \"bash -lc git clone --depth 1 --branch master https://github.com/boostorg/geometry.git source\"\n\tUser time (seconds): 0.42\n\tSystem time (seconds): 0.27\n\tPercent of CPU this job got: 50%\n\tElapsed (wall clock) time (h:mm:ss or m:ss): 0:01.37\n\tAverage shared text size (kbytes): 0\n\tAverage unshared data size (kbytes): 0\n\tAverage stack size (kbytes): 0\n\tAverage total size (kbytes): 0\n\tMaximum resident set size (kbytes): 19612\n\tAverage resident set size (kbytes): 0\n\tMajor (requiring I/O) page faults: 197\n\tMinor (reclaiming a frame) page faults: 25059\n\tVoluntary context switches: 3572\n\tInvoluntary context switches: 41\n\tSwaps: 0\n\tFile system inputs: 40016\n\tFile system outputs: 75928\n\tSocket messages sent: 0\n\tSocket messages received: 0\n\tSignals delivered: 0\n\tPage size (bytes): 4096\n\tExit status: 0\n",
+      "stderr_log": "01-clone-repository.stderr.log",
+      "stdout_excerpt": "",
+      "stdout_log": "01-clone-repository.stdout.log",
+      "timed_out": false,
+      "timeout_seconds": 180
+    },
+    {
+      "command": "test \"$(git -C source hash-object README.md)\" = \"6f898496335b9a0bf64def628d2ff63852af89bf\"",
+      "completed_at": "2026-07-25T15:42:44Z",
+      "duration_seconds": 0.10636462800000146,
+      "name": "verify README blob",
+      "peak_rss_kib": 18044,
+      "phase": "acquisition",
+      "required": true,
+      "return_code": 0,
+      "started_at": "2026-07-25T15:42:44Z",
+      "stderr_excerpt": "\tCommand being timed: \"bash -lc test \"$(git -C source hash-object README.md)\" = \"6f898496335b9a0bf64def628d2ff63852af89bf\"\"\n\tUser time (seconds): 0.04\n\tSystem time (seconds): 0.07\n\tPercent of CPU this job got: 117%\n\tElapsed (wall clock) time (h:mm:ss or m:ss): 0:00.10\n\tAverage shared text size (kbytes): 0\n\tAverage unshared data size (kbytes): 0\n\tAverage stack size (kbytes): 0\n\tAverage total size (kbytes): 0\n\tMaximum resident set size (kbytes): 18044\n\tAverage resident set size (kbytes): 0\n\tMajor (requiring I/O) page faults: 0\n\tMinor (reclaiming a frame) page faults: 17758\n\tVoluntary context switches: 276\n\tInvoluntary context switches: 3\n\tSwaps: 0\n\tFile system inputs: 0\n\tFile system outputs: 0\n\tSocket messages sent: 0\n\tSocket messages received: 0\n\tSignals delivered: 0\n\tPage size (bytes): 4096\n\tExit status: 0\n",
+      "stderr_log": "02-verify-readme-blob.stderr.log",
+      "stdout_excerpt": "",
+      "stdout_log": "02-verify-readme-blob.stdout.log",
+      "timed_out": false,
+      "timeout_seconds": 30
+    },
+    {
+      "command": "cat > boost_geometry_example.cpp <<'CPP'\n#include <cmath>\n#include <iostream>\n#include <boost/geometry.hpp>\n#include <boost/geometry/geometries/point_xy.hpp>\n#include <boost/geometry/geometries/polygon.hpp>\n\nint main() {\n  namespace bg = boost::geometry;\n  using point = bg::model::d2::point_xy<double>;\n  bg::model::polygon<point> polygon;\n  bg::read_wkt(\"POLYGON((0 0,0 1,1 1,1 0,0 0))\", polygon);\n  bg::correct(polygon);\n  const double area = bg::area(polygon);\n  std::cout << area << \"\\n\";\n  return std::abs(area - 1.0) < 1e-12 ? 0 : 1;\n}\nCPP",
+      "completed_at": "2026-07-25T15:42:44Z",
+      "duration_seconds": 0.1024387080000011,
+      "name": "write Boost.Geometry example",
+      "peak_rss_kib": 18044,
+      "phase": "task",
+      "required": true,
+      "return_code": 0,
+      "started_at": "2026-07-25T15:42:44Z",
+      "stderr_excerpt": "\tCommand being timed: \"bash -lc cat > boost_geometry_example.cpp <<'CPP'\n#include <cmath>\n#include <iostream>\n#include <boost/geometry.hpp>\n#include <boost/geometry/geometries/point_xy.hpp>\n#include <boost/geometry/geometries/polygon.hpp>\n\nint main() {\n  namespace bg = boost::geometry;\n  using point = bg::model::d2::point_xy<double>;\n  bg::model::polygon<point> polygon;\n  bg::read_wkt(\"POLYGON((0 0,0 1,1 1,1 0,0 0))\", polygon);\n  bg::correct(polygon);\n  const double area = bg::area(polygon);\n  std::cout << area << \"\\n\";\n  return std::abs(area - 1.0) < 1e-12 ? 0 : 1;\n}\nCPP\"\n\tUser time (seconds): 0.04\n\tSystem time (seconds): 0.07\n\tPercent of CPU this job got: 117%\n\tElapsed (wall clock) time (h:mm:ss or m:ss): 0:00.10\n\tAverage shared text size (kbytes): 0\n\tAverage unshared data size (kbytes): 0\n\tAverage stack size (kbytes): 0\n\tAverage total size (kbytes): 0\n\tMaximum resident set size (kbytes): 18044\n\tAverage resident set size (kbytes): 0\n\tMajor (requiring I/O) page faults: 0\n\tMinor (reclaiming a frame) page faults: 17459\n\tVoluntary context switches: 273\n\tInvoluntary context switches: 3\n\tSwaps: 0\n\tFile system inputs: 0\n\tFile system outputs: 8\n\tSocket messages sent: 0\n\tSocket messages received: 0\n\tSignals delivered: 0\n\tPage size (bytes): 4096\n\tExit status: 0\n",
+      "stderr_log": "03-write-boost-geometry-example.stderr.log",
+      "stdout_excerpt": "",
+      "stdout_log": "03-write-boost-geometry-example.stdout.log",
+      "timed_out": false,
+      "timeout_seconds": 30
+    },
+    {
+      "command": "g++ -std=c++14 -O2 -Isource/include boost_geometry_example.cpp -o boost-example",
+      "completed_at": "2026-07-25T15:42:46Z",
+      "duration_seconds": 1.3919737590000025,
+      "name": "compile Boost.Geometry example",
+      "peak_rss_kib": 26164,
+      "phase": "task",
+      "required": true,
+      "return_code": 1,
+      "started_at": "2026-07-25T15:42:44Z",
+      "stderr_excerpt": "In file included from source/include/boost/geometry.hpp:17,\n                 from boost_geometry_example.cpp:3:\nsource/include/boost/geometry/geometry.hpp:23:10: fatal error: boost/config.hpp: No such file or directory\n   23 | #include <boost/config.hpp>\n      |          ^~~~~~~~~~~~~~~~~~\ncompilation terminated.\nCommand exited with non-zero status 1\n\tCommand being timed: \"bash -lc g++ -std=c++14 -O2 -Isource/include boost_geometry_example.cpp -o boost-example\"\n\tUser time (seconds): 0.11\n\tSystem time (seconds): 0.08\n\tPercent of CPU this job got: 14%\n\tElapsed (wall clock) time (h:mm:ss or m:ss): 0:01.39\n\tAverage shared text size (kbytes): 0\n\tAverage unshared data size (kbytes): 0\n\tAverage stack size (kbytes): 0\n\tAverage total size (kbytes): 0\n\tMaximum resident set size (kbytes): 26164\n\tAverage resident set size (kbytes): 0\n\tMajor (requiring I/O) page faults: 67\n\tMinor (reclaiming a frame) page faults: 18700\n\tVoluntary context switches: 585\n\tInvoluntary context switches: 8\n\tSwaps: 0\n\tFile system inputs: 21016\n\tFile system outputs: 8\n\tSocket messages sent: 0\n\tSocket messages received: 0\n\tSignals delivered: 0\n\tPage size (bytes): 4096\n\tExit status: 1\n",
+      "stderr_log": "04-compile-boost-geometry-example.stderr.log",
+      "stdout_excerpt": "",
+      "stdout_log": "04-compile-boost-geometry-example.stdout.log",
+      "timed_out": false,
+      "timeout_seconds": 180
+    }
+  ],
+  "task_seconds": 1.4944124670000036,
+  "total_seconds_to_first_output": null,
+  "workspace_bytes": 32855041
+}
