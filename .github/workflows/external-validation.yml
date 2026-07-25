@@ -1,0 +1,55 @@
+name: Issue 121 external validation
+
+on:
+  workflow_dispatch:
+  pull_request:
+    paths:
+      - "scripts/acquire_issue_121.py"
+      - "data/issue-121/sampling-frame.json"
+      - "src/readme_smoketest/**"
+      - "tests/test_issue121_pipeline.py"
+      - ".github/workflows/external-validation.yml"
+
+permissions:
+  contents: read
+
+jobs:
+  reacquire-and-verify-predictions:
+    runs-on: ubuntu-latest
+    timeout-minutes: 40
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.13"
+          cache: pip
+      - name: Install frozen package and test tools
+        run: python -m pip install -e ".[dev]"
+      - name: Check acquisition code and tests
+        run: |
+          ruff check scripts/acquire_issue_121.py tests/test_issue121_pipeline.py
+          ruff format --check scripts/acquire_issue_121.py tests/test_issue121_pipeline.py
+          pytest tests/test_issue121_pipeline.py
+      - name: Reacquire outside the checkout and verify frozen predictions
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          rm -rf /tmp/issue-121
+          python scripts/acquire_issue_121.py --output-dir /tmp/issue-121
+          diff -u \
+            data/issue-121/predictions/predictions.json \
+            /tmp/issue-121/predictions/predictions.json
+          test "$(sha256sum /tmp/issue-121/predictions/predictions.json | cut -d' ' -f1)" = \
+            "028437d2203fb4d4bd417362618c7d55069dc40f177e28eb646eef8484ca19c1"
+      - name: Explain validation boundary
+        run: |
+          echo "Fresh acquisition validates prediction stability only."
+          echo "Frozen reference-result reproduction is owned by reference-evaluation.yml."
+          echo "Fresh prediction-lock metadata is intentionally not byte-compared with the frozen lock."
+      - name: Upload read-only acquisition bundle
+        uses: actions/upload-artifact@v4
+        with:
+          name: issue-121-fresh-acquisition
+          path: /tmp/issue-121/
+          if-no-files-found: error
+          retention-days: 30

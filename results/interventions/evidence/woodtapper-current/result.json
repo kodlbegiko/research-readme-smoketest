@@ -1,0 +1,121 @@
+{
+  "candidate_intervention": false,
+  "completed_at": "2026-07-25T16:44:49Z",
+  "current_default_branch_source_succeeded": true,
+  "default_branch_commit": "3c8f9ff07108d901a662326912a6d82dddaf7047",
+  "environment": {
+    "captured_at": "2026-07-25T16:44:03Z",
+    "executable": "/opt/hostedtoolcache/Python/3.11.15/x64/bin/python",
+    "machine": "x86_64",
+    "platform": "Linux-6.17.0-1020-azure-x86_64-with-glibc2.39",
+    "python": "3.11.15 (main, Jun 16 2026, 21:41:52) [GCC 13.3.0]"
+  },
+  "logs_compression": "gzip",
+  "package_metadata_blob_sha": "13ecb5be9c59a16735351bd57d8072fc7a518b6c",
+  "package_metadata_pins_scikit_learn": "==1.6.1",
+  "published_install_succeeded": false,
+  "purpose": "Maintainer-intervention eligibility recheck; not part of the locked 10-case primary result.",
+  "readme_blob_sha": "b07652102469791d6b0c1ecab597a849a9aa31ae",
+  "readme_contains_binary_compatibility_warning": true,
+  "reason": "Contact is potentially warranted only if both the documented published install and the current default branch remain broken. If current source succeeds, the problem is already addressed upstream and release timing is not treated as a new defect.",
+  "repository": "artefactory/woodtapper",
+  "steps": [
+    {
+      "command": "git clone --depth 1 https://github.com/artefactory/woodtapper.git source && git -C source checkout 3c8f9ff07108d901a662326912a6d82dddaf7047",
+      "completed_at": "2026-07-25T16:44:03Z",
+      "duration_seconds": 0.378567,
+      "name": "clone current default branch",
+      "peak_rss_kib": 18044,
+      "return_code": 0,
+      "started_at": "2026-07-25T16:44:03Z",
+      "stderr_log_ref": "logs.json.gz#/01-clone-current-default-branch/stderr",
+      "stdout_log_ref": "logs.json.gz#/01-clone-current-default-branch/stdout",
+      "step_id": "01-clone-current-default-branch"
+    },
+    {
+      "command": "test \"$(git -C source hash-object README.md)\" = \"b07652102469791d6b0c1ecab597a849a9aa31ae\" && test \"$(git -C source hash-object pyproject.toml)\" = \"13ecb5be9c59a16735351bd57d8072fc7a518b6c\"",
+      "completed_at": "2026-07-25T16:44:03Z",
+      "duration_seconds": 0.105383,
+      "name": "verify current README and package metadata blobs",
+      "peak_rss_kib": 18044,
+      "return_code": 0,
+      "started_at": "2026-07-25T16:44:03Z",
+      "stderr_log_ref": "logs.json.gz#/02-verify-current-documentation/stderr",
+      "stdout_log_ref": "logs.json.gz#/02-verify-current-documentation/stdout",
+      "step_id": "02-verify-current-documentation"
+    },
+    {
+      "command": "python -m venv published-venv && published-venv/bin/python -m pip install --upgrade pip",
+      "completed_at": "2026-07-25T16:44:08Z",
+      "duration_seconds": 5.036778,
+      "name": "create clean published-package environment",
+      "peak_rss_kib": 79592,
+      "return_code": 0,
+      "started_at": "2026-07-25T16:44:03Z",
+      "stderr_log_ref": "logs.json.gz#/03-create-published-venv/stderr",
+      "stdout_log_ref": "logs.json.gz#/03-create-published-venv/stdout",
+      "step_id": "03-create-published-venv"
+    },
+    {
+      "command": "published-venv/bin/python -m pip install woodtapper",
+      "completed_at": "2026-07-25T16:44:15Z",
+      "duration_seconds": 6.885143,
+      "name": "rerun documented published install command",
+      "peak_rss_kib": 252940,
+      "return_code": 1,
+      "started_at": "2026-07-25T16:44:08Z",
+      "stderr_log_ref": "logs.json.gz#/04-install-published-command/stderr",
+      "stdout_log_ref": "logs.json.gz#/04-install-published-command/stdout",
+      "step_id": "04-install-published-command"
+    },
+    {
+      "command": "python -m venv source-venv && source-venv/bin/python -m pip install --upgrade pip",
+      "completed_at": "2026-07-25T16:44:20Z",
+      "duration_seconds": 5.054616,
+      "name": "create clean current-source environment",
+      "peak_rss_kib": 80120,
+      "return_code": 0,
+      "started_at": "2026-07-25T16:44:15Z",
+      "stderr_log_ref": "logs.json.gz#/05-create-current-source-venv/stderr",
+      "stdout_log_ref": "logs.json.gz#/05-create-current-source-venv/stdout",
+      "step_id": "05-create-current-source-venv"
+    },
+    {
+      "command": "source-venv/bin/python -m pip install ./source",
+      "completed_at": "2026-07-25T16:44:47Z",
+      "duration_seconds": 27.04247,
+      "name": "install current default branch",
+      "peak_rss_kib": 263348,
+      "return_code": 0,
+      "started_at": "2026-07-25T16:44:20Z",
+      "stderr_log_ref": "logs.json.gz#/06-install-current-source/stderr",
+      "stdout_log_ref": "logs.json.gz#/06-install-current-source/stdout",
+      "step_id": "06-install-current-source"
+    },
+    {
+      "command": "cat > current_task.py <<'PY'\nfrom sklearn.datasets import make_classification\nfrom sklearn.model_selection import train_test_split\nfrom woodtapper.extract_rules import SirusClassifier\n\nX, y = make_classification(n_samples=120, n_features=6, random_state=0)\nX_train, X_test, y_train, y_test = train_test_split(\n    X, y, test_size=0.2, random_state=0, stratify=y\n)\nmodel = SirusClassifier(\n    n_estimators=50,\n    max_depth=2,\n    quantile=10,\n    p0=0.01,\n    random_state=0,\n)\nmodel.fit(X_train, y_train)\npredictions = model.predict(X_test)\nassert len(predictions) == len(X_test)\nprint({\"prediction_count\": len(predictions)})\nPY\nsource-venv/bin/python current_task.py",
+      "completed_at": "2026-07-25T16:44:48Z",
+      "duration_seconds": 1.262114,
+      "name": "run documented Sirus first-use task",
+      "peak_rss_kib": 139476,
+      "return_code": 0,
+      "started_at": "2026-07-25T16:44:47Z",
+      "stderr_log_ref": "logs.json.gz#/07-run-current-source-task/stderr",
+      "stdout_log_ref": "logs.json.gz#/07-run-current-source-task/stdout",
+      "step_id": "07-run-current-source-task"
+    },
+    {
+      "command": "published-venv/bin/python -m pip freeze || true; echo '--- current source ---'; source-venv/bin/python -m pip freeze || true",
+      "completed_at": "2026-07-25T16:44:49Z",
+      "duration_seconds": 0.536453,
+      "name": "capture package versions",
+      "peak_rss_kib": 36600,
+      "return_code": 0,
+      "started_at": "2026-07-25T16:44:48Z",
+      "stderr_log_ref": "logs.json.gz#/08-capture-package-versions/stderr",
+      "stdout_log_ref": "logs.json.gz#/08-capture-package-versions/stdout",
+      "step_id": "08-capture-package-versions"
+    }
+  ],
+  "workspace_bytes": 335991977
+}

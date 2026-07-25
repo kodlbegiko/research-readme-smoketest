@@ -1,0 +1,8 @@
+{
+  "execution_results_present_when_locked": false,
+  "manifest_sha256": "e2018faa122fdabbf54babc6bd508eb34d41cd66f9a3fa65e0fee4beb131f3fa",
+  "selected_count": 10,
+  "source_commit_before_lock": "bcdb0ff0cb15e426dee128d6ccb5e75e33e67005",
+  "static_result_sha256": "400c404de5338cff630f6147f18288b5b557341a6fb11d3da56b956c13b5f316",
+  "status": "LOCKED_BEFORE_EXECUTION"
+}

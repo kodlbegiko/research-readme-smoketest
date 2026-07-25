@@ -1,0 +1,1190 @@
+  error: subprocess-exited-with-error
+  
+  × Getting requirements to build wheel did not run successfully.
+  │ exit code: 1
+  ╰─> [1157 lines of output]
+      
+      Error compiling Cython file:
+      ------------------------------------------------------------
+      ...
+      from sklearn.tree._partitioner cimport DensePartitioner,SparsePartitioner
+      
+      from sklearn.utils._typedefs cimport (
+          float32_t, float64_t, int8_t, int32_t, intp_t, uint8_t, uint32_t
+      )
+      from sklearn.tree._partitioner cimport (
+      ^
+      ------------------------------------------------------------
+      woodtapper/extract_rules/Splitter/_QuantileSplitter.pyx:35:0: 'sklearn/tree/_partitioner/shift_missing_values_to_left_if_required.pxd' not found
+      
+      Error compiling Cython file:
+      ------------------------------------------------------------
+      ...
+          self.pos = start_pos
+          self.feature = 0
+          self.threshold = 0.
+          self.improvement = -INFINITY
+          self.missing_go_to_left = False
+          self.n_missing = 0
+          ^
+      ------------------------------------------------------------
+      woodtapper/extract_rules/Splitter/_QuantileSplitter.pyx:55:4: Cannot convert 'SplitRecord *' to Python object
+      
+      Error compiling Cython file:
+      ------------------------------------------------------------
+      ...
+          self.pos = start_pos
+          self.feature = 0
+          self.threshold = 0.
+          self.improvement = -INFINITY
+          self.missing_go_to_left = False
+          self.n_missing = 0
+              ^
+      ------------------------------------------------------------
+      woodtapper/extract_rules/Splitter/_QuantileSplitter.pyx:55:8: Assignment of Python object not allowed without gil
+      
+      Error compiling Cython file:
+      ------------------------------------------------------------
+      ...
+                  # optimal split.
+                  n_searches = 2 if has_missing else 1
+      
+                  for i in range(n_searches):
+                      missing_go_to_left = i == 1
+                      criterion.missing_go_to_left = missing_go_to_left
+                               ^
+      ------------------------------------------------------------
+      woodtapper/extract_rules/Splitter/_QuantileSplitter.pyx:206:25: Assignment of Python object not allowed without gil
+      
+      Error compiling Cython file:
+      ------------------------------------------------------------
+      ...
+                      criterion.reset()
+      
+                      p = start
+      
+                      while p < end_non_missing:
+                          partitioner.next_p(&p_prev, &p)
+                                            ^
+      ------------------------------------------------------------
+      woodtapper/extract_rules/Splitter/_QuantileSplitter.pyx:212:38: Call with wrong number of arguments (expected 4, got 3)
+      
+      Error compiling Cython file:
+      ------------------------------------------------------------
+      ...
+                                  current_split.threshold == INFINITY or
+                                  current_split.threshold == -INFINITY
+                              ):
+                                  current_split.threshold = feature_values[p_prev]
+      
+                              current_split.n_missing = n_missing
+                                           ^
+      ------------------------------------------------------------
+      woodtapper/extract_rules/Splitter/_QuantileSplitter.pyx:264:37: Assignment of Python object not allowed without gil
+      
+      Error compiling Cython file:
+      ------------------------------------------------------------
+      ...
+                      n_left, n_right = end - start - n_missing, n_missing
+                      p = end - n_missing
+                      missing_go_to_left = 0
+      
+                      if not (n_left < min_samples_leaf or n_right < min_samples_leaf):
+                          criterion.missing_go_to_left = missing_go_to_left
+                                   ^
+      ------------------------------------------------------------
+      woodtapper/extract_rules/Splitter/_QuantileSplitter.pyx:284:29: Assignment of Python object not allowed without gil
+      
+      Error compiling Cython file:
+      ------------------------------------------------------------
+      ...
+      
+                              if current_proxy_improvement > best_proxy_improvement:
+                                  best_proxy_improvement = current_proxy_improvement
+                                  current_split.threshold = INFINITY
+                                  current_split.missing_go_to_left = missing_go_to_left
+                                  current_split.n_missing = n_missing
+                                               ^
+      ------------------------------------------------------------
+      woodtapper/extract_rules/Splitter/_QuantileSplitter.pyx:295:41: Assignment of Python object not allowed without gil
+      
+      Error compiling Cython file:
+      ------------------------------------------------------------
+      ...
+                                  current_split.pos = p
+                                  best_split = current_split
+      
+              # Reorganize into samples[start:best_split.pos] + samples[best_split.pos:end]
+              if best_split.pos < end:
+                  partitioner.partition_samples_final(
+                                                     ^
+      ------------------------------------------------------------
+      woodtapper/extract_rules/Splitter/_QuantileSplitter.pyx:301:47: Call with wrong number of arguments (expected 2, got 5)
+      
+      Error compiling Cython file:
+      ------------------------------------------------------------
+      ...
+                      best_split.threshold,
+                      best_split.feature,
+                      best_split.n_missing
+                  )
+                  criterion.init_missing(best_split.n_missing)
+                  criterion.missing_go_to_left = best_split.missing_go_to_left
+                           ^
+      ------------------------------------------------------------
+      woodtapper/extract_rules/Splitter/_QuantileSplitter.pyx:308:21: Assignment of Python object not allowed without gil
+      
+      Error compiling Cython file:
+      ------------------------------------------------------------
+      ...
+                      impurity,
+                      best_split.impurity_left,
+                      best_split.impurity_right
+                  )
+      
+                  shift_missing_values_to_left_if_required(&best_split, samples, end)
+                  ^
+      ------------------------------------------------------------
+      woodtapper/extract_rules/Splitter/_QuantileSplitter.pyx:321:12: 'shift_missing_values_to_left_if_required' is not a constant, variable or function identifier
+      
+      Error compiling Cython file:
+      ------------------------------------------------------------
+      ...
+                      impurity,
+                      best_split.impurity_left,
+                      best_split.impurity_right
+                  )
+      
+                  shift_missing_values_to_left_if_required(&best_split, samples, end)
+                                                           ^
+      ------------------------------------------------------------
+      woodtapper/extract_rules/Splitter/_QuantileSplitter.pyx:321:53: Cannot convert 'SplitRecord *' to Python object
+      
+      Error compiling Cython file:
+      ------------------------------------------------------------
+      ...
+                  # optimal split.
+                  n_searches = 2 if has_missing else 1
+      
+                  for i in range(n_searches):
+                      missing_go_to_left = i == 1
+                      criterion.missing_go_to_left = missing_go_to_left
+                               ^
+      ------------------------------------------------------------
+      woodtapper/extract_rules/Splitter/_QuantileSplitter.pyx:206:25: Assignment of Python object not allowed without gil
+      
+      Error compiling Cython file:
+      ------------------------------------------------------------
+      ...
+                      criterion.reset()
+      
+                      p = start
+      
+                      while p < end_non_missing:
+                          partitioner.next_p(&p_prev, &p)
+                                            ^
+      ------------------------------------------------------------
+      woodtapper/extract_rules/Splitter/_QuantileSplitter.pyx:212:38: Call with wrong number of arguments (expected 4, got 3)
+      
+      Error compiling Cython file:
+      ------------------------------------------------------------
+      ...
+                                  current_split.threshold == INFINITY or
+                                  current_split.threshold == -INFINITY
+                              ):
+                                  current_split.threshold = feature_values[p_prev]
+      
+                              current_split.n_missing = n_missing
+                                           ^
+      ------------------------------------------------------------
+      woodtapper/extract_rules/Splitter/_QuantileSplitter.pyx:264:37: Assignment of Python object not allowed without gil
+      
+      Error compiling Cython file:
+      ------------------------------------------------------------
+      ...
+                      n_left, n_right = end - start - n_missing, n_missing
+                      p = end - n_missing
+                      missing_go_to_left = 0
+      
+                      if not (n_left < min_samples_leaf or n_right < min_samples_leaf):
+                          criterion.missing_go_to_left = missing_go_to_left
+                                   ^
+      ------------------------------------------------------------
+      woodtapper/extract_rules/Splitter/_QuantileSplitter.pyx:284:29: Assignment of Python object not allowed without gil
+      
+      Error compiling Cython file:
+      ------------------------------------------------------------
+      ...
+      
+                              if current_proxy_improvement > best_proxy_improvement:
+                                  best_proxy_improvement = current_proxy_improvement
+                                  current_split.threshold = INFINITY
+                                  current_split.missing_go_to_left = missing_go_to_left
+                                  current_split.n_missing = n_missing
+                                               ^
+      ------------------------------------------------------------
+      woodtapper/extract_rules/Splitter/_QuantileSplitter.pyx:295:41: Assignment of Python object not allowed without gil
+      
+      Error compiling Cython file:
+      ------------------------------------------------------------
+      ...
+                                  current_split.pos = p
+                                  best_split = current_split
+      
+              # Reorganize into samples[start:best_split.pos] + samples[best_split.pos:end]
+              if best_split.pos < end:
+                  partitioner.partition_samples_final(
+                                                     ^
+      ------------------------------------------------------------
+      woodtapper/extract_rules/Splitter/_QuantileSplitter.pyx:301:47: Call with wrong number of arguments (expected 2, got 5)
+      
+      Error compiling Cython file:
+      ------------------------------------------------------------
+      ...
+                      best_split.threshold,
+                      best_split.feature,
+                      best_split.n_missing
+                  )
+                  criterion.init_missing(best_split.n_missing)
+                  criterion.missing_go_to_left = best_split.missing_go_to_left
+                           ^
+      ------------------------------------------------------------
+      woodtapper/extract_rules/Splitter/_QuantileSplitter.pyx:308:21: Assignment of Python object not allowed without gil
+      
+      Error compiling Cython file:
+      ------------------------------------------------------------
+      ...
+                      impurity,
+                      best_split.impurity_left,
+                      best_split.impurity_right
+                  )
+      
+                  shift_missing_values_to_left_if_required(&best_split, samples, end)
+                  ^
+      ------------------------------------------------------------
+      woodtapper/extract_rules/Splitter/_QuantileSplitter.pyx:321:12: 'shift_missing_values_to_left_if_required' is not a constant, variable or function identifier
+      
+      Error compiling Cython file:
+      ------------------------------------------------------------
+      ...
+                      impurity,
+                      best_split.impurity_left,
+                      best_split.impurity_right
+                  )
+      
+                  shift_missing_values_to_left_if_required(&best_split, samples, end)
+                                                           ^
+      ------------------------------------------------------------
+      woodtapper/extract_rules/Splitter/_QuantileSplitter.pyx:321:53: Cannot convert 'SplitRecord *' to Python object
+      
+      Error compiling Cython file:
+      ------------------------------------------------------------
+      ...
+          self.pos = start_pos
+          self.feature = 0
+          self.threshold = 0.
+          self.improvement = -INFINITY
+          self.missing_go_to_left = False
+          self.n_missing = 0
+              ^
+      ------------------------------------------------------------
+      woodtapper/extract_rules/Splitter/_QuantileSplitter.pyx:55:8: Accessing Python attribute not allowed without gil
+      
+      Error compiling Cython file:
+      ------------------------------------------------------------
+      ...
+          self.pos = start_pos
+          self.feature = 0
+          self.threshold = 0.
+          self.improvement = -INFINITY
+          self.missing_go_to_left = False
+          self.n_missing = 0
+          ^
+      ------------------------------------------------------------
+      woodtapper/extract_rules/Splitter/_QuantileSplitter.pyx:55:4: Converting to Python object not allowed without gil
+      
+      Error compiling Cython file:
+      ------------------------------------------------------------
+      ...
+                      continue
+      
+                  f_i -= 1
+                  features[f_i], features[f_j] = features[f_j], features[f_i]
+                  has_missing = n_missing != 0
+                  criterion.init_missing(n_missing)  # initialize even when n_missing == 0
+                                        ^
+      ------------------------------------------------------------
+      woodtapper/extract_rules/Splitter/_QuantileSplitter.pyx:193:34: Discarding owned Python object not allowed without gil
+      
+      Error compiling Cython file:
+      ------------------------------------------------------------
+      ...
+                      continue
+      
+                  f_i -= 1
+                  features[f_i], features[f_j] = features[f_j], features[f_i]
+                  has_missing = n_missing != 0
+                  criterion.init_missing(n_missing)  # initialize even when n_missing == 0
+                                        ^
+      ------------------------------------------------------------
+      woodtapper/extract_rules/Splitter/_QuantileSplitter.pyx:193:34: Calling gil-requiring function not allowed without gil
+      
+      Error compiling Cython file:
+      ------------------------------------------------------------
+      ...
+                      continue
+      
+                  f_i -= 1
+                  features[f_i], features[f_j] = features[f_j], features[f_i]
+                  has_missing = n_missing != 0
+                  criterion.init_missing(n_missing)  # initialize even when n_missing == 0
+                           ^
+      ------------------------------------------------------------
+      woodtapper/extract_rules/Splitter/_QuantileSplitter.pyx:193:21: Accessing Python attribute not allowed without gil
+      
+      Error compiling Cython file:
+      ------------------------------------------------------------
+      ...
+                      continue
+      
+                  f_i -= 1
+                  features[f_i], features[f_j] = features[f_j], features[f_i]
+                  has_missing = n_missing != 0
+                  criterion.init_missing(n_missing)  # initialize even when n_missing == 0
+                                        ^
+      ------------------------------------------------------------
+      woodtapper/extract_rules/Splitter/_QuantileSplitter.pyx:193:34: Constructing Python tuple not allowed without gil
+      
+      Error compiling Cython file:
+      ------------------------------------------------------------
+      ...
+                      continue
+      
+                  f_i -= 1
+                  features[f_i], features[f_j] = features[f_j], features[f_i]
+                  has_missing = n_missing != 0
+                  criterion.init_missing(n_missing)  # initialize even when n_missing == 0
+                                         ^
+      ------------------------------------------------------------
+      woodtapper/extract_rules/Splitter/_QuantileSplitter.pyx:193:35: Converting to Python object not allowed without gil
+      
+      Error compiling Cython file:
+      ------------------------------------------------------------
+      ...
+                  # optimal split.
+                  n_searches = 2 if has_missing else 1
+      
+                  for i in range(n_searches):
+                      missing_go_to_left = i == 1
+                      criterion.missing_go_to_left = missing_go_to_left
+                               ^
+      ------------------------------------------------------------
+      woodtapper/extract_rules/Splitter/_QuantileSplitter.pyx:206:25: Accessing Python attribute not allowed without gil
+      
+      Error compiling Cython file:
+      ------------------------------------------------------------
+      ...
+                  # optimal split.
+                  n_searches = 2 if has_missing else 1
+      
+                  for i in range(n_searches):
+                      missing_go_to_left = i == 1
+                      criterion.missing_go_to_left = missing_go_to_left
+                                                     ^
+      ------------------------------------------------------------
+      woodtapper/extract_rules/Splitter/_QuantileSplitter.pyx:206:47: Converting to Python object not allowed without gil
+      
+      Error compiling Cython file:
+      ------------------------------------------------------------
+      ...
+                                  current_split.threshold == INFINITY or
+                                  current_split.threshold == -INFINITY
+                              ):
+                                  current_split.threshold = feature_values[p_prev]
+      
+                              current_split.n_missing = n_missing
+                                           ^
+      ------------------------------------------------------------
+      woodtapper/extract_rules/Splitter/_QuantileSplitter.pyx:264:37: Accessing Python attribute not allowed without gil
+      
+      Error compiling Cython file:
+      ------------------------------------------------------------
+      ...
+                                  current_split.threshold == INFINITY or
+                                  current_split.threshold == -INFINITY
+                              ):
+                                  current_split.threshold = feature_values[p_prev]
+      
+                              current_split.n_missing = n_missing
+                              ^
+      ------------------------------------------------------------
+      woodtapper/extract_rules/Splitter/_QuantileSplitter.pyx:264:24: Converting to Python object not allowed without gil
+      
+      Error compiling Cython file:
+      ------------------------------------------------------------
+      ...
+                                  current_split.threshold == INFINITY or
+                                  current_split.threshold == -INFINITY
+                              ):
+                                  current_split.threshold = feature_values[p_prev]
+      
+                              current_split.n_missing = n_missing
+                                                        ^
+      ------------------------------------------------------------
+      woodtapper/extract_rules/Splitter/_QuantileSplitter.pyx:264:50: Converting to Python object not allowed without gil
+      
+      Error compiling Cython file:
+      ------------------------------------------------------------
+      ...
+                      n_left, n_right = end - start - n_missing, n_missing
+                      p = end - n_missing
+                      missing_go_to_left = 0
+      
+                      if not (n_left < min_samples_leaf or n_right < min_samples_leaf):
+                          criterion.missing_go_to_left = missing_go_to_left
+                                   ^
+      ------------------------------------------------------------
+      woodtapper/extract_rules/Splitter/_QuantileSplitter.pyx:284:29: Accessing Python attribute not allowed without gil
+      
+      Error compiling Cython file:
+      ------------------------------------------------------------
+      ...
+                      n_left, n_right = end - start - n_missing, n_missing
+                      p = end - n_missing
+                      missing_go_to_left = 0
+      
+                      if not (n_left < min_samples_leaf or n_right < min_samples_leaf):
+                          criterion.missing_go_to_left = missing_go_to_left
+                                                         ^
+      ------------------------------------------------------------
+      woodtapper/extract_rules/Splitter/_QuantileSplitter.pyx:284:51: Converting to Python object not allowed without gil
+      
+      Error compiling Cython file:
+      ------------------------------------------------------------
+      ...
+      
+                              if current_proxy_improvement > best_proxy_improvement:
+                                  best_proxy_improvement = current_proxy_improvement
+                                  current_split.threshold = INFINITY
+                                  current_split.missing_go_to_left = missing_go_to_left
+                                  current_split.n_missing = n_missing
+                                               ^
+      ------------------------------------------------------------
+      woodtapper/extract_rules/Splitter/_QuantileSplitter.pyx:295:41: Accessing Python attribute not allowed without gil
+      
+      Error compiling Cython file:
+      ------------------------------------------------------------
+      ...
+      
+                              if current_proxy_improvement > best_proxy_improvement:
+                                  best_proxy_improvement = current_proxy_improvement
+                                  current_split.threshold = INFINITY
+                                  current_split.missing_go_to_left = missing_go_to_left
+                                  current_split.n_missing = n_missing
+                                  ^
+      ------------------------------------------------------------
+      woodtapper/extract_rules/Splitter/_QuantileSplitter.pyx:295:28: Converting to Python object not allowed without gil
+      
+      Error compiling Cython file:
+      ------------------------------------------------------------
+      ...
+      
+                              if current_proxy_improvement > best_proxy_improvement:
+                                  best_proxy_improvement = current_proxy_improvement
+                                  current_split.threshold = INFINITY
+                                  current_split.missing_go_to_left = missing_go_to_left
+                                  current_split.n_missing = n_missing
+                                                            ^
+      ------------------------------------------------------------
+      woodtapper/extract_rules/Splitter/_QuantileSplitter.pyx:295:54: Converting to Python object not allowed without gil
+      
+      Error compiling Cython file:
+      ------------------------------------------------------------
+      ...
+              if best_split.pos < end:
+                  partitioner.partition_samples_final(
+                      best_split.pos,
+                      best_split.threshold,
+                      best_split.feature,
+                      best_split.n_missing
+                                ^
+      ------------------------------------------------------------
+      woodtapper/extract_rules/Splitter/_QuantileSplitter.pyx:305:26: Accessing Python attribute not allowed without gil
+      
+      Error compiling Cython file:
+      ------------------------------------------------------------
+      ...
+              if best_split.pos < end:
+                  partitioner.partition_samples_final(
+                      best_split.pos,
+                      best_split.threshold,
+                      best_split.feature,
+                      best_split.n_missing
+                      ^
+      ------------------------------------------------------------
+      woodtapper/extract_rules/Splitter/_QuantileSplitter.pyx:305:16: Converting to Python object not allowed without gil
+      
+      Error compiling Cython file:
+      ------------------------------------------------------------
+      ...
+                      best_split.pos,
+                      best_split.threshold,
+                      best_split.feature,
+                      best_split.n_missing
+                  )
+                  criterion.init_missing(best_split.n_missing)
+                                        ^
+      ------------------------------------------------------------
+      woodtapper/extract_rules/Splitter/_QuantileSplitter.pyx:307:34: Discarding owned Python object not allowed without gil
+      
+      Error compiling Cython file:
+      ------------------------------------------------------------
+      ...
+                      best_split.pos,
+                      best_split.threshold,
+                      best_split.feature,
+                      best_split.n_missing
+                  )
+                  criterion.init_missing(best_split.n_missing)
+                                        ^
+      ------------------------------------------------------------
+      woodtapper/extract_rules/Splitter/_QuantileSplitter.pyx:307:34: Calling gil-requiring function not allowed without gil
+      
+      Error compiling Cython file:
+      ------------------------------------------------------------
+      ...
+                      best_split.pos,
+                      best_split.threshold,
+                      best_split.feature,
+                      best_split.n_missing
+                  )
+                  criterion.init_missing(best_split.n_missing)
+                           ^
+      ------------------------------------------------------------
+      woodtapper/extract_rules/Splitter/_QuantileSplitter.pyx:307:21: Accessing Python attribute not allowed without gil
+      
+      Error compiling Cython file:
+      ------------------------------------------------------------
+      ...
+                      best_split.pos,
+                      best_split.threshold,
+                      best_split.feature,
+                      best_split.n_missing
+                  )
+                  criterion.init_missing(best_split.n_missing)
+                                        ^
+      ------------------------------------------------------------
+      woodtapper/extract_rules/Splitter/_QuantileSplitter.pyx:307:34: Constructing Python tuple not allowed without gil
+      
+      Error compiling Cython file:
+      ------------------------------------------------------------
+      ...
+                      best_split.pos,
+                      best_split.threshold,
+                      best_split.feature,
+                      best_split.n_missing
+                  )
+                  criterion.init_missing(best_split.n_missing)
+                                                   ^
+      ------------------------------------------------------------
+      woodtapper/extract_rules/Splitter/_QuantileSplitter.pyx:307:45: Accessing Python attribute not allowed without gil
+      
+      Error compiling Cython file:
+      ------------------------------------------------------------
+      ...
+                      best_split.pos,
+                      best_split.threshold,
+                      best_split.feature,
+                      best_split.n_missing
+                  )
+                  criterion.init_missing(best_split.n_missing)
+                                         ^
+      ------------------------------------------------------------
+      woodtapper/extract_rules/Splitter/_QuantileSplitter.pyx:307:35: Converting to Python object not allowed without gil
+      
+      Error compiling Cython file:
+      ------------------------------------------------------------
+      ...
+                      best_split.threshold,
+                      best_split.feature,
+                      best_split.n_missing
+                  )
+                  criterion.init_missing(best_split.n_missing)
+                  criterion.missing_go_to_left = best_split.missing_go_to_left
+                           ^
+      ------------------------------------------------------------
+      woodtapper/extract_rules/Splitter/_QuantileSplitter.pyx:308:21: Accessing Python attribute not allowed without gil
+      
+      Error compiling Cython file:
+      ------------------------------------------------------------
+      ...
+                      best_split.threshold,
+                      best_split.feature,
+                      best_split.n_missing
+                  )
+                  criterion.init_missing(best_split.n_missing)
+                  criterion.missing_go_to_left = best_split.missing_go_to_left
+                                                           ^
+      ------------------------------------------------------------
+      woodtapper/extract_rules/Splitter/_QuantileSplitter.pyx:308:53: Converting to Python object not allowed without gil
+      
+      Error compiling Cython file:
+      ------------------------------------------------------------
+      ...
+                      impurity,
+                      best_split.impurity_left,
+                      best_split.impurity_right
+                  )
+      
+                  shift_missing_values_to_left_if_required(&best_split, samples, end)
+                                                          ^
+      ------------------------------------------------------------
+      woodtapper/extract_rules/Splitter/_QuantileSplitter.pyx:321:52: Discarding owned Python object not allowed without gil
+      
+      Error compiling Cython file:
+      ------------------------------------------------------------
+      ...
+                      impurity,
+                      best_split.impurity_left,
+                      best_split.impurity_right
+                  )
+      
+                  shift_missing_values_to_left_if_required(&best_split, samples, end)
+                                                          ^
+      ------------------------------------------------------------
+      woodtapper/extract_rules/Splitter/_QuantileSplitter.pyx:321:52: Calling gil-requiring function not allowed without gil
+      
+      Error compiling Cython file:
+      ------------------------------------------------------------
+      ...
+                      impurity,
+                      best_split.impurity_left,
+                      best_split.impurity_right
+                  )
+      
+                  shift_missing_values_to_left_if_required(&best_split, samples, end)
+                  ^
+      ------------------------------------------------------------
+      woodtapper/extract_rules/Splitter/_QuantileSplitter.pyx:321:12: Accessing Python global or builtin not allowed without gil
+      
+      Error compiling Cython file:
+      ------------------------------------------------------------
+      ...
+                      impurity,
+                      best_split.impurity_left,
+                      best_split.impurity_right
+                  )
+      
+                  shift_missing_values_to_left_if_required(&best_split, samples, end)
+                                                          ^
+      ------------------------------------------------------------
+      woodtapper/extract_rules/Splitter/_QuantileSplitter.pyx:321:52: Constructing Python tuple not allowed without gil
+      
+      Error compiling Cython file:
+      ------------------------------------------------------------
+      ...
+                      impurity,
+                      best_split.impurity_left,
+                      best_split.impurity_right
+                  )
+      
+                  shift_missing_values_to_left_if_required(&best_split, samples, end)
+                                                           ^
+      ------------------------------------------------------------
+      woodtapper/extract_rules/Splitter/_QuantileSplitter.pyx:321:53: Converting to Python object not allowed without gil
+      
+      Error compiling Cython file:
+      ------------------------------------------------------------
+      ...
+                      impurity,
+                      best_split.impurity_left,
+                      best_split.impurity_right
+                  )
+      
+                  shift_missing_values_to_left_if_required(&best_split, samples, end)
+                                                                        ^
+      ------------------------------------------------------------
+      woodtapper/extract_rules/Splitter/_QuantileSplitter.pyx:321:66: Converting to Python object not allowed without gil
+      
+      Error compiling Cython file:
+      ------------------------------------------------------------
+      ...
+                      impurity,
+                      best_split.impurity_left,
+                      best_split.impurity_right
+                  )
+      
+                  shift_missing_values_to_left_if_required(&best_split, samples, end)
+                                                                                 ^
+      ------------------------------------------------------------
+      woodtapper/extract_rules/Splitter/_QuantileSplitter.pyx:321:75: Converting to Python object not allowed without gil
+      
+      Error compiling Cython file:
+      ------------------------------------------------------------
+      ...
+                      continue
+      
+                  f_i -= 1
+                  features[f_i], features[f_j] = features[f_j], features[f_i]
+                  has_missing = n_missing != 0
+                  criterion.init_missing(n_missing)  # initialize even when n_missing == 0
+                                        ^
+      ------------------------------------------------------------
+      woodtapper/extract_rules/Splitter/_QuantileSplitter.pyx:193:34: Discarding owned Python object not allowed without gil
+      
+      Error compiling Cython file:
+      ------------------------------------------------------------
+      ...
+                      continue
+      
+                  f_i -= 1
+                  features[f_i], features[f_j] = features[f_j], features[f_i]
+                  has_missing = n_missing != 0
+                  criterion.init_missing(n_missing)  # initialize even when n_missing == 0
+                                        ^
+      ------------------------------------------------------------
+      woodtapper/extract_rules/Splitter/_QuantileSplitter.pyx:193:34: Calling gil-requiring function not allowed without gil
+      
+      Error compiling Cython file:
+      ------------------------------------------------------------
+      ...
+                      continue
+      
+                  f_i -= 1
+                  features[f_i], features[f_j] = features[f_j], features[f_i]
+                  has_missing = n_missing != 0
+                  criterion.init_missing(n_missing)  # initialize even when n_missing == 0
+                           ^
+      ------------------------------------------------------------
+      woodtapper/extract_rules/Splitter/_QuantileSplitter.pyx:193:21: Accessing Python attribute not allowed without gil
+      
+      Error compiling Cython file:
+      ------------------------------------------------------------
+      ...
+                      continue
+      
+                  f_i -= 1
+                  features[f_i], features[f_j] = features[f_j], features[f_i]
+                  has_missing = n_missing != 0
+                  criterion.init_missing(n_missing)  # initialize even when n_missing == 0
+                                        ^
+      ------------------------------------------------------------
+      woodtapper/extract_rules/Splitter/_QuantileSplitter.pyx:193:34: Constructing Python tuple not allowed without gil
+      
+      Error compiling Cython file:
+      ------------------------------------------------------------
+      ...
+                      continue
+      
+                  f_i -= 1
+                  features[f_i], features[f_j] = features[f_j], features[f_i]
+                  has_missing = n_missing != 0
+                  criterion.init_missing(n_missing)  # initialize even when n_missing == 0
+                                         ^
+      ------------------------------------------------------------
+      woodtapper/extract_rules/Splitter/_QuantileSplitter.pyx:193:35: Converting to Python object not allowed without gil
+      
+      Error compiling Cython file:
+      ------------------------------------------------------------
+      ...
+                  # optimal split.
+                  n_searches = 2 if has_missing else 1
+      
+                  for i in range(n_searches):
+                      missing_go_to_left = i == 1
+                      criterion.missing_go_to_left = missing_go_to_left
+                               ^
+      ------------------------------------------------------------
+      woodtapper/extract_rules/Splitter/_QuantileSplitter.pyx:206:25: Accessing Python attribute not allowed without gil
+      
+      Error compiling Cython file:
+      ------------------------------------------------------------
+      ...
+                  # optimal split.
+                  n_searches = 2 if has_missing else 1
+      
+                  for i in range(n_searches):
+                      missing_go_to_left = i == 1
+                      criterion.missing_go_to_left = missing_go_to_left
+                                                     ^
+      ------------------------------------------------------------
+      woodtapper/extract_rules/Splitter/_QuantileSplitter.pyx:206:47: Converting to Python object not allowed without gil
+      
+      Error compiling Cython file:
+      ------------------------------------------------------------
+      ...
+                                  current_split.threshold == INFINITY or
+                                  current_split.threshold == -INFINITY
+                              ):
+                                  current_split.threshold = feature_values[p_prev]
+      
+                              current_split.n_missing = n_missing
+                                           ^
+      ------------------------------------------------------------
+      woodtapper/extract_rules/Splitter/_QuantileSplitter.pyx:264:37: Accessing Python attribute not allowed without gil
+      
+      Error compiling Cython file:
+      ------------------------------------------------------------
+      ...
+                                  current_split.threshold == INFINITY or
+                                  current_split.threshold == -INFINITY
+                              ):
+                                  current_split.threshold = feature_values[p_prev]
+      
+                              current_split.n_missing = n_missing
+                              ^
+      ------------------------------------------------------------
+      woodtapper/extract_rules/Splitter/_QuantileSplitter.pyx:264:24: Converting to Python object not allowed without gil
+      
+      Error compiling Cython file:
+      ------------------------------------------------------------
+      ...
+                                  current_split.threshold == INFINITY or
+                                  current_split.threshold == -INFINITY
+                              ):
+                                  current_split.threshold = feature_values[p_prev]
+      
+                              current_split.n_missing = n_missing
+                                                        ^
+      ------------------------------------------------------------
+      woodtapper/extract_rules/Splitter/_QuantileSplitter.pyx:264:50: Converting to Python object not allowed without gil
+      
+      Error compiling Cython file:
+      ------------------------------------------------------------
+      ...
+                      n_left, n_right = end - start - n_missing, n_missing
+                      p = end - n_missing
+                      missing_go_to_left = 0
+      
+                      if not (n_left < min_samples_leaf or n_right < min_samples_leaf):
+                          criterion.missing_go_to_left = missing_go_to_left
+                                   ^
+      ------------------------------------------------------------
+      woodtapper/extract_rules/Splitter/_QuantileSplitter.pyx:284:29: Accessing Python attribute not allowed without gil
+      
+      Error compiling Cython file:
+      ------------------------------------------------------------
+      ...
+                      n_left, n_right = end - start - n_missing, n_missing
+                      p = end - n_missing
+                      missing_go_to_left = 0
+      
+                      if not (n_left < min_samples_leaf or n_right < min_samples_leaf):
+                          criterion.missing_go_to_left = missing_go_to_left
+                                                         ^
+      ------------------------------------------------------------
+      woodtapper/extract_rules/Splitter/_QuantileSplitter.pyx:284:51: Converting to Python object not allowed without gil
+      
+      Error compiling Cython file:
+      ------------------------------------------------------------
+      ...
+      
+                              if current_proxy_improvement > best_proxy_improvement:
+                                  best_proxy_improvement = current_proxy_improvement
+                                  current_split.threshold = INFINITY
+                                  current_split.missing_go_to_left = missing_go_to_left
+                                  current_split.n_missing = n_missing
+                                               ^
+      ------------------------------------------------------------
+      woodtapper/extract_rules/Splitter/_QuantileSplitter.pyx:295:41: Accessing Python attribute not allowed without gil
+      
+      Error compiling Cython file:
+      ------------------------------------------------------------
+      ...
+      
+                              if current_proxy_improvement > best_proxy_improvement:
+                                  best_proxy_improvement = current_proxy_improvement
+                                  current_split.threshold = INFINITY
+                                  current_split.missing_go_to_left = missing_go_to_left
+                                  current_split.n_missing = n_missing
+                                  ^
+      ------------------------------------------------------------
+      woodtapper/extract_rules/Splitter/_QuantileSplitter.pyx:295:28: Converting to Python object not allowed without gil
+      
+      Error compiling Cython file:
+      ------------------------------------------------------------
+      ...
+      
+                              if current_proxy_improvement > best_proxy_improvement:
+                                  best_proxy_improvement = current_proxy_improvement
+                                  current_split.threshold = INFINITY
+                                  current_split.missing_go_to_left = missing_go_to_left
+                                  current_split.n_missing = n_missing
+                                                            ^
+      ------------------------------------------------------------
+      woodtapper/extract_rules/Splitter/_QuantileSplitter.pyx:295:54: Converting to Python object not allowed without gil
+      
+      Error compiling Cython file:
+      ------------------------------------------------------------
+      ...
+              if best_split.pos < end:
+                  partitioner.partition_samples_final(
+                      best_split.pos,
+                      best_split.threshold,
+                      best_split.feature,
+                      best_split.n_missing
+                                ^
+      ------------------------------------------------------------
+      woodtapper/extract_rules/Splitter/_QuantileSplitter.pyx:305:26: Accessing Python attribute not allowed without gil
+      
+      Error compiling Cython file:
+      ------------------------------------------------------------
+      ...
+              if best_split.pos < end:
+                  partitioner.partition_samples_final(
+                      best_split.pos,
+                      best_split.threshold,
+                      best_split.feature,
+                      best_split.n_missing
+                      ^
+      ------------------------------------------------------------
+      woodtapper/extract_rules/Splitter/_QuantileSplitter.pyx:305:16: Converting to Python object not allowed without gil
+      
+      Error compiling Cython file:
+      ------------------------------------------------------------
+      ...
+                      best_split.pos,
+                      best_split.threshold,
+                      best_split.feature,
+                      best_split.n_missing
+                  )
+                  criterion.init_missing(best_split.n_missing)
+                                        ^
+      ------------------------------------------------------------
+      woodtapper/extract_rules/Splitter/_QuantileSplitter.pyx:307:34: Discarding owned Python object not allowed without gil
+      
+      Error compiling Cython file:
+      ------------------------------------------------------------
+      ...
+                      best_split.pos,
+                      best_split.threshold,
+                      best_split.feature,
+                      best_split.n_missing
+                  )
+                  criterion.init_missing(best_split.n_missing)
+                                        ^
+      ------------------------------------------------------------
+      woodtapper/extract_rules/Splitter/_QuantileSplitter.pyx:307:34: Calling gil-requiring function not allowed without gil
+      
+      Error compiling Cython file:
+      ------------------------------------------------------------
+      ...
+                      best_split.pos,
+                      best_split.threshold,
+                      best_split.feature,
+                      best_split.n_missing
+                  )
+                  criterion.init_missing(best_split.n_missing)
+                           ^
+      ------------------------------------------------------------
+      woodtapper/extract_rules/Splitter/_QuantileSplitter.pyx:307:21: Accessing Python attribute not allowed without gil
+      
+      Error compiling Cython file:
+      ------------------------------------------------------------
+      ...
+                      best_split.pos,
+                      best_split.threshold,
+                      best_split.feature,
+                      best_split.n_missing
+                  )
+                  criterion.init_missing(best_split.n_missing)
+                                        ^
+      ------------------------------------------------------------
+      woodtapper/extract_rules/Splitter/_QuantileSplitter.pyx:307:34: Constructing Python tuple not allowed without gil
+      
+      Error compiling Cython file:
+      ------------------------------------------------------------
+      ...
+                      best_split.pos,
+                      best_split.threshold,
+                      best_split.feature,
+                      best_split.n_missing
+                  )
+                  criterion.init_missing(best_split.n_missing)
+                                                   ^
+      ------------------------------------------------------------
+      woodtapper/extract_rules/Splitter/_QuantileSplitter.pyx:307:45: Accessing Python attribute not allowed without gil
+      
+      Error compiling Cython file:
+      ------------------------------------------------------------
+      ...
+                      best_split.pos,
+                      best_split.threshold,
+                      best_split.feature,
+                      best_split.n_missing
+                  )
+                  criterion.init_missing(best_split.n_missing)
+                                         ^
+      ------------------------------------------------------------
+      woodtapper/extract_rules/Splitter/_QuantileSplitter.pyx:307:35: Converting to Python object not allowed without gil
+      
+      Error compiling Cython file:
+      ------------------------------------------------------------
+      ...
+                      best_split.threshold,
+                      best_split.feature,
+                      best_split.n_missing
+                  )
+                  criterion.init_missing(best_split.n_missing)
+                  criterion.missing_go_to_left = best_split.missing_go_to_left
+                           ^
+      ------------------------------------------------------------
+      woodtapper/extract_rules/Splitter/_QuantileSplitter.pyx:308:21: Accessing Python attribute not allowed without gil
+      
+      Error compiling Cython file:
+      ------------------------------------------------------------
+      ...
+                      best_split.threshold,
+                      best_split.feature,
+                      best_split.n_missing
+                  )
+                  criterion.init_missing(best_split.n_missing)
+                  criterion.missing_go_to_left = best_split.missing_go_to_left
+                                                           ^
+      ------------------------------------------------------------
+      woodtapper/extract_rules/Splitter/_QuantileSplitter.pyx:308:53: Converting to Python object not allowed without gil
+      
+      Error compiling Cython file:
+      ------------------------------------------------------------
+      ...
+                      impurity,
+                      best_split.impurity_left,
+                      best_split.impurity_right
+                  )
+      
+                  shift_missing_values_to_left_if_required(&best_split, samples, end)
+                                                          ^
+      ------------------------------------------------------------
+      woodtapper/extract_rules/Splitter/_QuantileSplitter.pyx:321:52: Discarding owned Python object not allowed without gil
+      
+      Error compiling Cython file:
+      ------------------------------------------------------------
+      ...
+                      impurity,
+                      best_split.impurity_left,
+                      best_split.impurity_right
+                  )
+      
+                  shift_missing_values_to_left_if_required(&best_split, samples, end)
+                                                          ^
+      ------------------------------------------------------------
+      woodtapper/extract_rules/Splitter/_QuantileSplitter.pyx:321:52: Calling gil-requiring function not allowed without gil
+      
+      Error compiling Cython file:
+      ------------------------------------------------------------
+      ...
+                      impurity,
+                      best_split.impurity_left,
+                      best_split.impurity_right
+                  )
+      
+                  shift_missing_values_to_left_if_required(&best_split, samples, end)
+                  ^
+      ------------------------------------------------------------
+      woodtapper/extract_rules/Splitter/_QuantileSplitter.pyx:321:12: Accessing Python global or builtin not allowed without gil
+      
+      Error compiling Cython file:
+      ------------------------------------------------------------
+      ...
+                      impurity,
+                      best_split.impurity_left,
+                      best_split.impurity_right
+                  )
+      
+                  shift_missing_values_to_left_if_required(&best_split, samples, end)
+                                                          ^
+      ------------------------------------------------------------
+      woodtapper/extract_rules/Splitter/_QuantileSplitter.pyx:321:52: Constructing Python tuple not allowed without gil
+      
+      Error compiling Cython file:
+      ------------------------------------------------------------
+      ...
+                      impurity,
+                      best_split.impurity_left,
+                      best_split.impurity_right
+                  )
+      
+                  shift_missing_values_to_left_if_required(&best_split, samples, end)
+                                                           ^
+      ------------------------------------------------------------
+      woodtapper/extract_rules/Splitter/_QuantileSplitter.pyx:321:53: Converting to Python object not allowed without gil
+      
+      Error compiling Cython file:
+      ------------------------------------------------------------
+      ...
+                      impurity,
+                      best_split.impurity_left,
+                      best_split.impurity_right
+                  )
+      
+                  shift_missing_values_to_left_if_required(&best_split, samples, end)
+                                                                        ^
+      ------------------------------------------------------------
+      woodtapper/extract_rules/Splitter/_QuantileSplitter.pyx:321:66: Converting to Python object not allowed without gil
+      
+      Error compiling Cython file:
+      ------------------------------------------------------------
+      ...
+                      impurity,
+                      best_split.impurity_left,
+                      best_split.impurity_right
+                  )
+      
+                  shift_missing_values_to_left_if_required(&best_split, samples, end)
+                                                                                 ^
+      ------------------------------------------------------------
+      woodtapper/extract_rules/Splitter/_QuantileSplitter.pyx:321:75: Converting to Python object not allowed without gil
+      Compiling woodtapper/extract_rules/Splitter/_QuantileSplitter.pyx because it changed.
+      Compiling woodtapper/example_sampling/utils/weights.pyx because it changed.
+      [1/2] Cythonizing woodtapper/example_sampling/utils/weights.pyx
+      [2/2] Cythonizing woodtapper/extract_rules/Splitter/_QuantileSplitter.pyx
+      Traceback (most recent call last):
+        File "/tmp/artifact/D03-woodtapper/workspace/venv/lib/python3.11/site-packages/pip/_vendor/pyproject_hooks/_in_process/_in_process.py", line 389, in <module>
+          main()
+        File "/tmp/artifact/D03-woodtapper/workspace/venv/lib/python3.11/site-packages/pip/_vendor/pyproject_hooks/_in_process/_in_process.py", line 373, in main
+          json_out["return_val"] = hook(**hook_input["kwargs"])
+                                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        File "/tmp/artifact/D03-woodtapper/workspace/venv/lib/python3.11/site-packages/pip/_vendor/pyproject_hooks/_in_process/_in_process.py", line 143, in get_requires_for_build_wheel
+          return hook(config_settings)
+                 ^^^^^^^^^^^^^^^^^^^^^
+        File "/tmp/pip-build-env-pqnpecn3/overlay/lib/python3.11/site-packages/setuptools/build_meta.py", line 333, in get_requires_for_build_wheel
+          return self._get_build_requires(config_settings, requirements=[])
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        File "/tmp/pip-build-env-pqnpecn3/overlay/lib/python3.11/site-packages/setuptools/build_meta.py", line 301, in _get_build_requires
+          self.run_setup()
+        File "/tmp/pip-build-env-pqnpecn3/overlay/lib/python3.11/site-packages/setuptools/build_meta.py", line 317, in run_setup
+          exec(code, locals())
+        File "<string>", line 29, in <module>
+        File "/tmp/pip-build-env-pqnpecn3/overlay/lib/python3.11/site-packages/Cython/Build/Dependencies.py", line 1153, in cythonize
+          cythonize_one(*args)
+        File "/tmp/pip-build-env-pqnpecn3/overlay/lib/python3.11/site-packages/Cython/Build/Dependencies.py", line 1297, in cythonize_one
+          raise CompileError(None, pyx_file)
+      Cython.Compiler.Errors.CompileError: woodtapper/extract_rules/Splitter/_QuantileSplitter.pyx
+      [end of output]
+  
+  note: This error originates from a subprocess, and is likely not a problem with pip.
+ERROR: Failed to build 'woodtapper' when getting requirements to build wheel
+Command exited with non-zero status 1
+	Command being timed: "bash -lc venv/bin/python -m pip install woodtapper"
+	User time (seconds): 5.58
+	System time (seconds): 1.00
+	Percent of CPU this job got: 94%
+	Elapsed (wall clock) time (h:mm:ss or m:ss): 0:07.00
+	Average shared text size (kbytes): 0
+	Average unshared data size (kbytes): 0
+	Average stack size (kbytes): 0
+	Average total size (kbytes): 0
+	Maximum resident set size (kbytes): 253196
+	Average resident set size (kbytes): 0
+	Major (requiring I/O) page faults: 5
+	Minor (reclaiming a frame) page faults: 115852
+	Voluntary context switches: 2340
+	Involuntary context switches: 214
+	Swaps: 0
+	File system inputs: 2768
+	File system outputs: 872656
+	Socket messages sent: 0
+	Socket messages received: 0
+	Signals delivered: 0
+	Page size (bytes): 4096
+	Exit status: 1

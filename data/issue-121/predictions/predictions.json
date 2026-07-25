@@ -1,0 +1,3903 @@
+[
+  {
+    "blocks": [
+      {
+        "defects": [],
+        "heading": "Linux users:",
+        "language": "",
+        "roles": [
+          "other"
+        ],
+        "substitution_required": false
+      },
+      {
+        "defects": [],
+        "heading": "Option 1: Install via `pip`",
+        "language": "bash",
+        "roles": [
+          "install"
+        ],
+        "substitution_required": false
+      },
+      {
+        "defects": [],
+        "heading": "Option 2: Install from Source Code",
+        "language": "",
+        "roles": [
+          "other"
+        ],
+        "substitution_required": false
+      },
+      {
+        "defects": [],
+        "heading": "Option 2: Install from Source Code",
+        "language": "",
+        "roles": [
+          "other"
+        ],
+        "substitution_required": false
+      },
+      {
+        "defects": [],
+        "heading": "Option 2: Install from Source Code",
+        "language": "",
+        "roles": [
+          "install"
+        ],
+        "substitution_required": false
+      },
+      {
+        "defects": [],
+        "heading": "Option 2: Install from Source Code",
+        "language": "",
+        "roles": [
+          "install"
+        ],
+        "substitution_required": false
+      },
+      {
+        "defects": [],
+        "heading": "Option 2: Install from Source Code",
+        "language": "",
+        "roles": [
+          "other"
+        ],
+        "substitution_required": false
+      },
+      {
+        "defects": [],
+        "heading": "Option 2: Install from Source Code",
+        "language": "",
+        "roles": [
+          "install"
+        ],
+        "substitution_required": false
+      },
+      {
+        "defects": [],
+        "heading": "Option 2: Install from Source Code",
+        "language": "",
+        "roles": [
+          "other"
+        ],
+        "substitution_required": false
+      },
+      {
+        "defects": [],
+        "heading": "Structure",
+        "language": "",
+        "roles": [
+          "other"
+        ],
+        "substitution_required": false
+      },
+      {
+        "defects": [],
+        "heading": "Run from the rebuild repo",
+        "language": "",
+        "roles": [
+          "other"
+        ],
+        "substitution_required": false
+      },
+      {
+        "defects": [],
+        "heading": "Run from the rebuild repo",
+        "language": "",
+        "roles": [
+          "other"
+        ],
+        "substitution_required": false
+      },
+      {
+        "defects": [],
+        "heading": "Run from the rebuild repo",
+        "language": "",
+        "roles": [
+          "other"
+        ],
+        "substitution_required": false
+      },
+      {
+        "defects": [],
+        "heading": "Run from the installed package",
+        "language": "",
+        "roles": [
+          "other"
+        ],
+        "substitution_required": false
+      }
+    ],
+    "doi": "10.21105/joss.09491",
+    "eligible": true,
+    "external_docs": true,
+    "first_use_safe": false,
+    "hard_defects": [],
+    "install_safe": true,
+    "manual_hard_defects": [],
+    "manual_strict_ready": null,
+    "naive_ready": false,
+    "notes": "Mechanical acquisition; reference annotation not yet created.",
+    "order": 1,
+    "readme_sha": "910c0bdfb8a9f4968110e6cac13a450573d6f4da",
+    "relaxed_ready": true,
+    "repository": "GroupiSP/himap",
+    "strict_ready": false,
+    "substitution_blocks": 0,
+    "title": "HiMAP: Hidden Markov for Advanced Prognostics"
+  },
+  {
+    "blocks": [
+      {
+        "defects": [],
+        "heading": "zarrtraj",
+        "language": "bash",
+        "roles": [
+          "install"
+        ],
+        "substitution_required": false
+      },
+      {
+        "defects": [],
+        "heading": "zarrtraj",
+        "language": "bash",
+        "roles": [
+          "install"
+        ],
+        "substitution_required": false
+      },
+      {
+        "defects": [],
+        "heading": "Citation",
+        "language": "bibtex",
+        "roles": [
+          "other"
+        ],
+        "substitution_required": false
+      }
+    ],
+    "doi": "10.21105/joss.07943",
+    "eligible": true,
+    "external_docs": true,
+    "first_use_safe": false,
+    "hard_defects": [],
+    "install_safe": true,
+    "manual_hard_defects": [],
+    "manual_strict_ready": null,
+    "naive_ready": false,
+    "notes": "Mechanical acquisition; reference annotation not yet created.",
+    "order": 2,
+    "readme_sha": "09a960fc59a5369604583e37050e0a01654e89d2",
+    "relaxed_ready": true,
+    "repository": "Becksteinlab/zarrtraj",
+    "strict_ready": false,
+    "substitution_blocks": 0,
+    "title": "Zarrtraj: A Python package for streaming molecular dynamics trajectories from cloud services"
+  },
+  {
+    "blocks": [
+      {
+        "defects": [],
+        "heading": "Installation",
+        "language": "bash",
+        "roles": [
+          "other"
+        ],
+        "substitution_required": false
+      },
+      {
+        "defects": [],
+        "heading": "Installation",
+        "language": "bash",
+        "roles": [
+          "other"
+        ],
+        "substitution_required": false
+      },
+      {
+        "defects": [],
+        "heading": "Installation",
+        "language": "bash",
+        "roles": [
+          "other"
+        ],
+        "substitution_required": false
+      },
+      {
+        "defects": [],
+        "heading": "Installation",
+        "language": "bash",
+        "roles": [
+          "install"
+        ],
+        "substitution_required": false
+      },
+      {
+        "defects": [],
+        "heading": "Installation",
+        "language": "bash",
+        "roles": [
+          "install"
+        ],
+        "substitution_required": false
+      },
+      {
+        "defects": [],
+        "heading": "Installation",
+        "language": "bash",
+        "roles": [
+          "install"
+        ],
+        "substitution_required": false
+      },
+      {
+        "defects": [],
+        "heading": "Installation",
+        "language": "bash",
+        "roles": [
+          "install"
+        ],
+        "substitution_required": false
+      },
+      {
+        "defects": [],
+        "heading": "Installation",
+        "language": "bash",
+        "roles": [
+          "install"
+        ],
+        "substitution_required": false
+      }
+    ],
+    "doi": "10.21105/joss.07559",
+    "eligible": true,
+    "external_docs": true,
+    "first_use_safe": false,
+    "hard_defects": [],
+    "install_safe": true,
+    "manual_hard_defects": [],
+    "manual_strict_ready": null,
+    "naive_ready": false,
+    "notes": "Mechanical acquisition; reference annotation not yet created.",
+    "order": 3,
+    "readme_sha": "fa5996b0a95094e2c796cf21d651a02cd70d8a99",
+    "relaxed_ready": true,
+    "repository": "CEA-MetroCarac/cdsaxs",
+    "strict_ready": false,
+    "substitution_blocks": 0,
+    "title": "cdsaxs: A model fitting package for CD-SAXS data analysis"
+  },
+  {
+    "blocks": [
+      {
+        "defects": [],
+        "heading": "Quick demonstration",
+        "language": "bash",
+        "roles": [
+          "other"
+        ],
+        "substitution_required": false
+      },
+      {
+        "defects": [],
+        "heading": "Conda Installation",
+        "language": "bash",
+        "roles": [
+          "install"
+        ],
+        "substitution_required": false
+      },
+      {
+        "defects": [],
+        "heading": "Using Conda",
+        "language": "bash",
+        "roles": [
+          "install"
+        ],
+        "substitution_required": false
+      },
+      {
+        "defects": [],
+        "heading": "Using Docker",
+        "language": "",
+        "roles": [
+          "other"
+        ],
+        "substitution_required": false
+      },
+      {
+        "defects": [],
+        "heading": "Commands",
+        "language": "bash",
+        "roles": [
+          "other"
+        ],
+        "substitution_required": false
+      },
+      {
+        "defects": [],
+        "heading": "Commands",
+        "language": "bash",
+        "roles": [
+          "other"
+        ],
+        "substitution_required": false
+      },
+      {
+        "defects": [],
+        "heading": "Commands",
+        "language": "bash",
+        "roles": [
+          "other"
+        ],
+        "substitution_required": false
+      },
+      {
+        "defects": [],
+        "heading": "Commands",
+        "language": "bash",
+        "roles": [
+          "other"
+        ],
+        "substitution_required": false
+      },
+      {
+        "defects": [],
+        "heading": "Commands",
+        "language": "bash",
+        "roles": [
+          "other"
+        ],
+        "substitution_required": false
+      },
+      {
+        "defects": [],
+        "heading": "Reference skeches",
+        "language": "bash",
+        "roles": [
+          "other"
+        ],
+        "substitution_required": false
+      },
+      {
+        "defects": [],
+        "heading": "Reference skeches",
+        "language": "bash",
+        "roles": [
+          "other"
+        ],
+        "substitution_required": false
+      },
+      {
+        "defects": [],
+        "heading": "Reference skeches",
+        "language": "bash",
+        "roles": [
+          "other"
+        ],
+        "substitution_required": false
+      },
+      {
+        "defects": [],
+        "heading": "Reference skeches",
+        "language": "bash",
+        "roles": [
+          "other"
+        ],
+        "substitution_required": false
+      },
+      {
+        "defects": [],
+        "heading": "Sample skeches",
+        "language": "bash",
+        "roles": [
+          "other"
+        ],
+        "substitution_required": true
+      },
+      {
+        "defects": [],
+        "heading": "2. Preprocess the reference genomes (yacht train)",
+        "language": "bash",
+        "roles": [
+          "other"
+        ],
+        "substitution_required": false
+      },
+      {
+        "defects": [],
+        "heading": "Some pre-trained reference databases available on Zenodo",
+        "language": "bash",
+        "roles": [
+          "other"
+        ],
+        "substitution_required": false
+      },
+      {
+        "defects": [],
+        "heading": "3. Run the YACHT algorithm (yacht run)",
+        "language": "bash",
+        "roles": [
+          "other"
+        ],
+        "substitution_required": false
+      },
+      {
+        "defects": [],
+        "heading": "4. Convert YACHT result to other popular output formats (yacht convert)",
+        "language": "bash",
+        "roles": [
+          "other"
+        ],
+        "substitution_required": false
+      }
+    ],
+    "doi": "10.21105/joss.09066",
+    "eligible": true,
+    "external_docs": true,
+    "first_use_safe": false,
+    "hard_defects": [],
+    "install_safe": true,
+    "manual_hard_defects": [],
+    "manual_strict_ready": null,
+    "naive_ready": false,
+    "notes": "Mechanical acquisition; reference annotation not yet created.",
+    "order": 4,
+    "readme_sha": "06337d79eb8c5460afbcc048d77a00163a602494",
+    "relaxed_ready": true,
+    "repository": "KoslickiLab/YACHT",
+    "strict_ready": false,
+    "substitution_blocks": 1,
+    "title": "YACHT: Software for an ANI-based statistical test to detect microbial presence/absence in a metagenomic sample"
+  },
+  {
+    "blocks": [],
+    "doi": "10.21105/joss.09145",
+    "eligible": true,
+    "external_docs": true,
+    "first_use_safe": false,
+    "hard_defects": [],
+    "install_safe": false,
+    "manual_hard_defects": [],
+    "manual_strict_ready": null,
+    "naive_ready": false,
+    "notes": "Mechanical acquisition; reference annotation not yet created.",
+    "order": 5,
+    "readme_sha": "3facfc1b1c43e4e914e291781ea4148af08ff057",
+    "relaxed_ready": true,
+    "repository": "abinit/abipy",
+    "strict_ready": false,
+    "substitution_blocks": 0,
+    "title": "Lumabi: a Python package to streamline the computation of phonon-resolved luminescence spectra of defects and dopants in solids"
+  },
+  {
+    "blocks": [
+      {
+        "defects": [],
+        "heading": "Installation",
+        "language": "bash",
+        "roles": [
+          "install"
+        ],
+        "substitution_required": false
+      },
+      {
+        "defects": [],
+        "heading": "Primary Reference",
+        "language": "bibtex",
+        "roles": [
+          "other"
+        ],
+        "substitution_required": false
+      }
+    ],
+    "doi": "10.21105/joss.09720",
+    "eligible": true,
+    "external_docs": true,
+    "first_use_safe": false,
+    "hard_defects": [],
+    "install_safe": true,
+    "manual_hard_defects": [],
+    "manual_strict_ready": null,
+    "naive_ready": false,
+    "notes": "Mechanical acquisition; reference annotation not yet created.",
+    "order": 6,
+    "readme_sha": "22e67e4e2322cf32f6324c8aa464eefe72c41d9b",
+    "relaxed_ready": true,
+    "repository": "JosephBrunet/cardiotensor",
+    "strict_ready": false,
+    "substitution_blocks": 0,
+    "title": "Cardiotensor: A Python Library for Orientation Analysis and Tractography in 3D Cardiac Imaging"
+  },
+  {
+    "blocks": [],
+    "doi": "10.21105/joss.09943",
+    "eligible": true,
+    "external_docs": true,
+    "first_use_safe": false,
+    "hard_defects": [],
+    "install_safe": false,
+    "manual_hard_defects": [],
+    "manual_strict_ready": null,
+    "naive_ready": false,
+    "notes": "Mechanical acquisition; reference annotation not yet created.",
+    "order": 7,
+    "readme_sha": "b253178829932c3bcaaef50c975ce2395c14370c",
+    "relaxed_ready": true,
+    "repository": "SWeav02/baderkit",
+    "strict_ready": false,
+    "substitution_blocks": 0,
+    "title": "BaderKit: A Python Package for Grid-based Bader Charge Analysis"
+  },
+  {
+    "blocks": [],
+    "doi": "10.21105/joss.09881",
+    "eligible": true,
+    "external_docs": true,
+    "first_use_safe": false,
+    "hard_defects": [],
+    "install_safe": false,
+    "manual_hard_defects": [],
+    "manual_strict_ready": null,
+    "naive_ready": false,
+    "notes": "Mechanical acquisition; reference annotation not yet created.",
+    "order": 8,
+    "readme_sha": "da61e523dbec7548d6a24c58786c01db0b14a4fe",
+    "relaxed_ready": true,
+    "repository": "tue-bmd/zea",
+    "strict_ready": false,
+    "substitution_blocks": 0,
+    "title": "zea: A Toolbox for Cognitive Ultrasound Imaging"
+  },
+  {
+    "blocks": [
+      {
+        "defects": [],
+        "heading": "Install",
+        "language": "",
+        "roles": [
+          "other"
+        ],
+        "substitution_required": false
+      },
+      {
+        "defects": [],
+        "heading": "Troubleshooting",
+        "language": "",
+        "roles": [
+          "other"
+        ],
+        "substitution_required": false
+      },
+      {
+        "defects": [],
+        "heading": "Troubleshooting",
+        "language": "",
+        "roles": [
+          "other"
+        ],
+        "substitution_required": false
+      },
+      {
+        "defects": [],
+        "heading": "Troubleshooting",
+        "language": "",
+        "roles": [
+          "other"
+        ],
+        "substitution_required": false
+      },
+      {
+        "defects": [],
+        "heading": "Minimal example",
+        "language": "",
+        "roles": [
+          "other"
+        ],
+        "substitution_required": false
+      },
+      {
+        "defects": [],
+        "heading": "Minimal example",
+        "language": "",
+        "roles": [
+          "other"
+        ],
+        "substitution_required": false
+      }
+    ],
+    "doi": "10.21105/joss.10122",
+    "eligible": true,
+    "external_docs": true,
+    "first_use_safe": false,
+    "hard_defects": [],
+    "install_safe": false,
+    "manual_hard_defects": [],
+    "manual_strict_ready": null,
+    "naive_ready": false,
+    "notes": "Mechanical acquisition; reference annotation not yet created.",
+    "order": 9,
+    "readme_sha": "3525159e744286f3007d174bd80217d6963e5dd2",
+    "relaxed_ready": true,
+    "repository": "BarinthusBio/HLAfreq",
+    "strict_ready": false,
+    "substitution_blocks": 0,
+    "title": "HLAfreq: Download and combine HLA allele frequency data"
+  },
+  {
+    "blocks": [
+      {
+        "defects": [],
+        "heading": "Installation",
+        "language": "shell",
+        "roles": [
+          "install"
+        ],
+        "substitution_required": false
+      },
+      {
+        "defects": [],
+        "heading": "Testing",
+        "language": "shell",
+        "roles": [
+          "install",
+          "test"
+        ],
+        "substitution_required": false
+      },
+      {
+        "defects": [],
+        "heading": "Unit tests",
+        "language": "shell",
+        "roles": [
+          "test"
+        ],
+        "substitution_required": false
+      },
+      {
+        "defects": [],
+        "heading": "Integration tests",
+        "language": "shell",
+        "roles": [
+          "test"
+        ],
+        "substitution_required": false
+      }
+    ],
+    "doi": "10.21105/joss.09528",
+    "eligible": true,
+    "external_docs": true,
+    "first_use_safe": false,
+    "hard_defects": [],
+    "install_safe": true,
+    "manual_hard_defects": [],
+    "manual_strict_ready": null,
+    "naive_ready": true,
+    "notes": "Mechanical acquisition; reference annotation not yet created.",
+    "order": 10,
+    "readme_sha": "4f3e6049812f903a6e2a217e80071aedfc6aa136",
+    "relaxed_ready": true,
+    "repository": "NPLinker/nplinker",
+    "strict_ready": false,
+    "substitution_blocks": 0,
+    "title": "NPLinker 2: a modular and customizable framework for paired omics analyses"
+  },
+  {
+    "blocks": [
+      {
+        "defects": [],
+        "heading": "Installation",
+        "language": "bash",
+        "roles": [
+          "install"
+        ],
+        "substitution_required": false
+      },
+      {
+        "defects": [],
+        "heading": "Installation",
+        "language": "bash",
+        "roles": [
+          "other"
+        ],
+        "substitution_required": false
+      },
+      {
+        "defects": [],
+        "heading": "Installation",
+        "language": "bash",
+        "roles": [
+          "install"
+        ],
+        "substitution_required": false
+      },
+      {
+        "defects": [],
+        "heading": "Installation",
+        "language": "bash",
+        "roles": [
+          "install"
+        ],
+        "substitution_required": false
+      },
+      {
+        "defects": [],
+        "heading": "Installation",
+        "language": "bash",
+        "roles": [
+          "other"
+        ],
+        "substitution_required": false
+      },
+      {
+        "defects": [],
+        "heading": "Installation",
+        "language": "bash",
+        "roles": [
+          "other"
+        ],
+        "substitution_required": false
+      },
+      {
+        "defects": [],
+        "heading": "Installation",
+        "language": "bash",
+        "roles": [
+          "other"
+        ],
+        "substitution_required": false
+      },
+      {
+        "defects": [],
+        "heading": "Usage",
+        "language": "yml",
+        "roles": [
+          "other"
+        ],
+        "substitution_required": false
+      },
+      {
+        "defects": [],
+        "heading": "Usage",
+        "language": "bash",
+        "roles": [
+          "other"
+        ],
+        "substitution_required": false
+      },
+      {
+        "defects": [],
+        "heading": "Output ordering",
+        "language": "sh",
+        "roles": [
+          "other"
+        ],
+        "substitution_required": false
+      },
+      {
+        "defects": [],
+        "heading": "Whole genome simulation",
+        "language": "yml",
+        "roles": [
+          "other"
+        ],
+        "substitution_required": false
+      },
+      {
+        "defects": [],
+        "heading": "Whole genome simulation",
+        "language": "bash",
+        "roles": [
+          "other"
+        ],
+        "substitution_required": false
+      },
+      {
+        "defects": [],
+        "heading": "Targeted region simulation",
+        "language": "yml",
+        "roles": [
+          "other"
+        ],
+        "substitution_required": false
+      },
+      {
+        "defects": [],
+        "heading": "Targeted region simulation",
+        "language": "bash",
+        "roles": [
+          "other"
+        ],
+        "substitution_required": false
+      },
+      {
+        "defects": [],
+        "heading": "Parallelizing simulation",
+        "language": "yml",
+        "roles": [
+          "other"
+        ],
+        "substitution_required": false
+      },
+      {
+        "defects": [],
+        "heading": "Parallelizing simulation",
+        "language": "",
+        "roles": [
+          "other"
+        ],
+        "substitution_required": false
+      },
+      {
+        "defects": [],
+        "heading": "Multi-node deployment on HPC clusters",
+        "language": "bash",
+        "roles": [
+          "other"
+        ],
+        "substitution_required": false
+      },
+      {
+        "defects": [],
+        "heading": "Multi-node deployment on HPC clusters",
+        "language": "bash",
+        "roles": [
+          "other"
+        ],
+        "substitution_required": false
+      },
+      {
+        "defects": [],
+        "heading": "Insert specific variants",
+        "language": "yml",
+        "roles": [
+          "other"
+        ],
+        "substitution_required": false
+      },
+      {
+        "defects": [],
+        "heading": "Insert specific variants",
+        "language": "bash",
+        "roles": [
+          "other"
+        ],
+        "substitution_required": false
+      },
+      {
+        "defects": [],
+        "heading": "Single-end reads",
+        "language": "yml",
+        "roles": [
+          "other"
+        ],
+        "substitution_required": false
+      },
+      {
+        "defects": [],
+        "heading": "Single-end reads",
+        "language": "bash",
+        "roles": [
+          "other"
+        ],
+        "substitution_required": false
+      },
+      {
+        "defects": [],
+        "heading": "Large single-end reads",
+        "language": "yml",
+        "roles": [
+          "other"
+        ],
+        "substitution_required": false
+      },
+      {
+        "defects": [],
+        "heading": "Large single-end reads",
+        "language": "bash",
+        "roles": [
+          "other"
+        ],
+        "substitution_required": false
+      },
+      {
+        "defects": [],
+        "heading": "`neat model-fraglen`",
+        "language": "bash",
+        "roles": [
+          "other"
+        ],
+        "substitution_required": false
+      },
+      {
+        "defects": [],
+        "heading": "`neat gen-mut-model`",
+        "language": "bash",
+        "roles": [
+          "other"
+        ],
+        "substitution_required": false
+      },
+      {
+        "defects": [],
+        "heading": "`neat model-seq-err`",
+        "language": "bash",
+        "roles": [
+          "other"
+        ],
+        "substitution_required": false
+      },
+      {
+        "defects": [],
+        "heading": "`neat model-seq-err`",
+        "language": "bash",
+        "roles": [
+          "other"
+        ],
+        "substitution_required": false
+      },
+      {
+        "defects": [],
+        "heading": "`neat model-qual-score`",
+        "language": "bash",
+        "roles": [
+          "other"
+        ],
+        "substitution_required": false
+      },
+      {
+        "defects": [],
+        "heading": "Binned quality scoring for modern Illumina instruments",
+        "language": "bash",
+        "roles": [
+          "other"
+        ],
+        "substitution_required": false
+      },
+      {
+        "defects": [],
+        "heading": "Binned quality scoring for modern Illumina instruments",
+        "language": "bash",
+        "roles": [
+          "other"
+        ],
+        "substitution_required": false
+      },
+      {
+        "defects": [],
+        "heading": "`neat model-gc-bias`",
+        "language": "bash",
+        "roles": [
+          "other"
+        ],
+        "substitution_required": false
+      },
+      {
+        "defects": [],
+        "heading": "`neat compare-vcfs`",
+        "language": "bash",
+        "roles": [
+          "other"
+        ],
+        "substitution_required": false
+      },
+      {
+        "defects": [],
+        "heading": "`neat compare-vcfs`",
+        "language": "bash",
+        "roles": [
+          "other"
+        ],
+        "substitution_required": false
+      },
+      {
+        "defects": [],
+        "heading": "`neat bacterial-wrapper`",
+        "language": "bash",
+        "roles": [
+          "other"
+        ],
+        "substitution_required": false
+      },
+      {
+        "defects": [],
+        "heading": "FASTQ validation",
+        "language": "bash",
+        "roles": [
+          "other"
+        ],
+        "substitution_required": false
+      },
+      {
+        "defects": [],
+        "heading": "FASTQ validation",
+        "language": "bash",
+        "roles": [
+          "other"
+        ],
+        "substitution_required": false
+      },
+      {
+        "defects": [],
+        "heading": "BAM validation",
+        "language": "bash",
+        "roles": [
+          "other"
+        ],
+        "substitution_required": false
+      },
+      {
+        "defects": [],
+        "heading": "BAM validation",
+        "language": "bash",
+        "roles": [
+          "other"
+        ],
+        "substitution_required": false
+      },
+      {
+        "defects": [],
+        "heading": "BAM validation",
+        "language": "bash",
+        "roles": [
+          "other"
+        ],
+        "substitution_required": false
+      },
+      {
+        "defects": [],
+        "heading": "VCF validation",
+        "language": "bash",
+        "roles": [
+          "other"
+        ],
+        "substitution_required": false
+      },
+      {
+        "defects": [],
+        "heading": "Guide to run locally",
+        "language": "bash",
+        "roles": [
+          "install"
+        ],
+        "substitution_required": false
+      }
+    ],
+    "doi": "10.21105/joss.09056",
+    "eligible": true,
+    "external_docs": true,
+    "first_use_safe": false,
+    "hard_defects": [],
+    "install_safe": true,
+    "manual_hard_defects": [],
+    "manual_strict_ready": null,
+    "naive_ready": false,
+    "notes": "Mechanical acquisition; reference annotation not yet created.",
+    "order": 11,
+    "readme_sha": "7b4407bac5d8a431d03d515f3d2c3c08c2e47f70",
+    "relaxed_ready": true,
+    "repository": "ncsa/NEAT",
+    "strict_ready": false,
+    "substitution_blocks": 0,
+    "title": "Enhancing short-read sequencing simulation: Updates to NEAT"
+  },
+  {
+    "blocks": [
+      {
+        "defects": [],
+        "heading": "How to cite",
+        "language": "text",
+        "roles": [
+          "other"
+        ],
+        "substitution_required": false
+      },
+      {
+        "defects": [],
+        "heading": "Requirements for Windows",
+        "language": "bash",
+        "roles": [
+          "other"
+        ],
+        "substitution_required": false
+      },
+      {
+        "defects": [],
+        "heading": "Requirements for Windows",
+        "language": "bash",
+        "roles": [
+          "install"
+        ],
+        "substitution_required": false
+      },
+      {
+        "defects": [],
+        "heading": "Requirements for Linux",
+        "language": "bash",
+        "roles": [
+          "install"
+        ],
+        "substitution_required": false
+      },
+      {
+        "defects": [],
+        "heading": "Requirements for Linux",
+        "language": "bash",
+        "roles": [
+          "install"
+        ],
+        "substitution_required": false
+      },
+      {
+        "defects": [],
+        "heading": "Requirements for Linux",
+        "language": "bash",
+        "roles": [
+          "other"
+        ],
+        "substitution_required": false
+      },
+      {
+        "defects": [],
+        "heading": "Requirements for Linux",
+        "language": "bash",
+        "roles": [
+          "other"
+        ],
+        "substitution_required": false
+      },
+      {
+        "defects": [],
+        "heading": "Requirements for Linux",
+        "language": "bash",
+        "roles": [
+          "install"
+        ],
+        "substitution_required": false
+      },
+      {
+        "defects": [],
+        "heading": "Actually build UncertRadio",
+        "language": "bash",
+        "roles": [
+          "install"
+        ],
+        "substitution_required": false
+      },
+      {
+        "defects": [],
+        "heading": "Actually build UncertRadio",
+        "language": "bash",
+        "roles": [
+          "install"
+        ],
+        "substitution_required": false
+      },
+      {
+        "defects": [],
+        "heading": "Actually build UncertRadio",
+        "language": "bash",
+        "roles": [
+          "install"
+        ],
+        "substitution_required": false
+      },
+      {
+        "defects": [],
+        "heading": "Optimization Options",
+        "language": "bash",
+        "roles": [
+          "install"
+        ],
+        "substitution_required": false
+      },
+      {
+        "defects": [],
+        "heading": "Install UncertRadio (mainly intended for Windows)",
+        "language": "bash",
+        "roles": [
+          "install"
+        ],
+        "substitution_required": false
+      },
+      {
+        "defects": [],
+        "heading": "Install UncertRadio (mainly intended for Windows)",
+        "language": "bash",
+        "roles": [
+          "other"
+        ],
+        "substitution_required": false
+      },
+      {
+        "defects": [],
+        "heading": "Update",
+        "language": "bash",
+        "roles": [
+          "other"
+        ],
+        "substitution_required": false
+      },
+      {
+        "defects": [],
+        "heading": "Build the Documentation",
+        "language": "bash",
+        "roles": [
+          "install"
+        ],
+        "substitution_required": false
+      },
+      {
+        "defects": [],
+        "heading": "Build the Documentation",
+        "language": "bash",
+        "roles": [
+          "other"
+        ],
+        "substitution_required": false
+      },
+      {
+        "defects": [],
+        "heading": "Starting UncertRadio",
+        "language": "bash",
+        "roles": [
+          "other"
+        ],
+        "substitution_required": false
+      },
+      {
+        "defects": [],
+        "heading": "Starting UncertRadio",
+        "language": "bash",
+        "roles": [
+          "other"
+        ],
+        "substitution_required": false
+      },
+      {
+        "defects": [],
+        "heading": "Running the included tests",
+        "language": "bash",
+        "roles": [
+          "test"
+        ],
+        "substitution_required": false
+      }
+    ],
+    "doi": "10.21105/joss.07398",
+    "eligible": true,
+    "external_docs": true,
+    "first_use_safe": false,
+    "hard_defects": [],
+    "install_safe": true,
+    "manual_hard_defects": [],
+    "manual_strict_ready": null,
+    "naive_ready": true,
+    "notes": "Mechanical acquisition; reference annotation not yet created.",
+    "order": 12,
+    "readme_sha": "4363f5818216dcdcff1a050dcf84431bf5d8cb3e",
+    "relaxed_ready": true,
+    "repository": "OpenBfS/UncertRadio",
+    "strict_ready": false,
+    "substitution_blocks": 0,
+    "title": "UncertRadio: Software for determining characteristic limits in accordance to DIN EN ISO 11929 for radioactivity measurements"
+  },
+  {
+    "blocks": [],
+    "doi": "10.21105/joss.09057",
+    "eligible": true,
+    "external_docs": true,
+    "first_use_safe": false,
+    "hard_defects": [],
+    "install_safe": false,
+    "manual_hard_defects": [],
+    "manual_strict_ready": null,
+    "naive_ready": false,
+    "notes": "Mechanical acquisition; reference annotation not yet created.",
+    "order": 13,
+    "readme_sha": "7f58edcd0b7c834abcd5b5f2d4c64e3e0acb027c",
+    "relaxed_ready": true,
+    "repository": "GRTLCollaboration/GRTresna",
+    "strict_ready": false,
+    "substitution_blocks": 0,
+    "title": "GRTresna: An open-source code to solve the initial data constraints in numerical relativity"
+  },
+  {
+    "blocks": [
+      {
+        "defects": [],
+        "heading": "Installation",
+        "language": "bash",
+        "roles": [
+          "install"
+        ],
+        "substitution_required": false
+      },
+      {
+        "defects": [],
+        "heading": "Optional acceleration (Numba)",
+        "language": "bash",
+        "roles": [
+          "install"
+        ],
+        "substitution_required": false
+      }
+    ],
+    "doi": "10.21105/joss.10089",
+    "eligible": true,
+    "external_docs": true,
+    "first_use_safe": false,
+    "hard_defects": [],
+    "install_safe": true,
+    "manual_hard_defects": [],
+    "manual_strict_ready": null,
+    "naive_ready": false,
+    "notes": "Mechanical acquisition; reference annotation not yet created.",
+    "order": 14,
+    "readme_sha": "daf2debccbec994e7f96e346d38b2c58aa94ce4a",
+    "relaxed_ready": true,
+    "repository": "omvatten/qdiv",
+    "strict_ready": false,
+    "substitution_blocks": 0,
+    "title": "qdiv: A Python package for microbial ecology analysis using the Hill number framework"
+  },
+  {
+    "blocks": [
+      {
+        "defects": [],
+        "heading": "Installation via precompiled executables",
+        "language": "bash",
+        "roles": [
+          "other"
+        ],
+        "substitution_required": false
+      },
+      {
+        "defects": [],
+        "heading": "Options",
+        "language": "",
+        "roles": [
+          "other"
+        ],
+        "substitution_required": true
+      },
+      {
+        "defects": [],
+        "heading": "VCF output",
+        "language": "",
+        "roles": [
+          "other"
+        ],
+        "substitution_required": true
+      }
+    ],
+    "doi": "10.21105/joss.08634",
+    "eligible": true,
+    "external_docs": true,
+    "first_use_safe": false,
+    "hard_defects": [],
+    "install_safe": false,
+    "manual_hard_defects": [],
+    "manual_strict_ready": null,
+    "naive_ready": false,
+    "notes": "Mechanical acquisition; reference annotation not yet created.",
+    "order": 16,
+    "readme_sha": "7adeabfdebbee89f3150596532e8d527b9a18fda",
+    "relaxed_ready": true,
+    "repository": "stschiff/sequenceTools",
+    "strict_ready": false,
+    "substitution_blocks": 2,
+    "title": "PileupCaller: A command-line tool to sample genotypes from low-coverage sequencing data of ancient DNA"
+  },
+  {
+    "blocks": [
+      {
+        "defects": [],
+        "heading": "🛠 Installation",
+        "language": "bash",
+        "roles": [
+          "install"
+        ],
+        "substitution_required": false
+      },
+      {
+        "defects": [],
+        "heading": "🛠 Installation",
+        "language": "bash",
+        "roles": [
+          "install"
+        ],
+        "substitution_required": false
+      },
+      {
+        "defects": [],
+        "heading": "🌿 WoodTapper RulesExtraction module",
+        "language": "python",
+        "roles": [
+          "other"
+        ],
+        "substitution_required": false
+      },
+      {
+        "defects": [],
+        "heading": "🌱 WoodTapper ExampleExplanation module",
+        "language": "python",
+        "roles": [
+          "first_use"
+        ],
+        "substitution_required": false
+      },
+      {
+        "defects": [],
+        "heading": "📜 Citation",
+        "language": "bibtex",
+        "roles": [
+          "other"
+        ],
+        "substitution_required": false
+      },
+      {
+        "defects": [],
+        "heading": "📜 Citation",
+        "language": "bibtex",
+        "roles": [
+          "other"
+        ],
+        "substitution_required": false
+      }
+    ],
+    "doi": "10.21105/joss.10112",
+    "eligible": true,
+    "external_docs": true,
+    "first_use_safe": true,
+    "hard_defects": [],
+    "install_safe": true,
+    "manual_hard_defects": [],
+    "manual_strict_ready": null,
+    "naive_ready": true,
+    "notes": "Mechanical acquisition; reference annotation not yet created.",
+    "order": 17,
+    "readme_sha": "b07652102469791d6b0c1ecab597a849a9aa31ae",
+    "relaxed_ready": true,
+    "repository": "artefactory/woodtapper",
+    "strict_ready": true,
+    "substitution_blocks": 0,
+    "title": "WoodTapper: a Python package for explaining decision tree ensembles"
+  },
+  {
+    "blocks": [
+      {
+        "defects": [],
+        "heading": "Komodo: Cryptographically-proven Erasure Coding",
+        "language": "bash",
+        "roles": [
+          "other"
+        ],
+        "substitution_required": false
+      },
+      {
+        "defects": [],
+        "heading": "Komodo: Cryptographically-proven Erasure Coding",
+        "language": "bash",
+        "roles": [
+          "other"
+        ],
+        "substitution_required": false
+      },
+      {
+        "defects": [],
+        "heading": "the library",
+        "language": "bash",
+        "roles": [
+          "other"
+        ],
+        "substitution_required": false
+      },
+      {
+        "defects": [],
+        "heading": "the tests",
+        "language": "shell",
+        "roles": [
+          "test"
+        ],
+        "substitution_required": false
+      },
+      {
+        "defects": [],
+        "heading": "development",
+        "language": "shell",
+        "roles": [
+          "development"
+        ],
+        "substitution_required": false
+      },
+      {
+        "defects": [],
+        "heading": "development",
+        "language": "shell",
+        "roles": [
+          "development"
+        ],
+        "substitution_required": false
+      },
+      {
+        "defects": [],
+        "heading": "development",
+        "language": "shell",
+        "roles": [
+          "development"
+        ],
+        "substitution_required": false
+      },
+      {
+        "defects": [],
+        "heading": "citation",
+        "language": "bibtex",
+        "roles": [
+          "other"
+        ],
+        "substitution_required": false
+      }
+    ],
+    "doi": "10.21105/joss.09791",
+    "eligible": true,
+    "external_docs": true,
+    "first_use_safe": false,
+    "hard_defects": [],
+    "install_safe": false,
+    "manual_hard_defects": [],
+    "manual_strict_ready": null,
+    "naive_ready": false,
+    "notes": "Mechanical acquisition; reference annotation not yet created.",
+    "order": 18,
+    "readme_sha": "16afca5e48c95dccb78bef975529233130d19c5c",
+    "relaxed_ready": true,
+    "repository": "dragoon-rs/komodo",
+    "strict_ready": false,
+    "substitution_blocks": 0,
+    "title": "Komodo: Cryptographically-proven Erasure Coding"
+  },
+  {
+    "blocks": [
+      {
+        "defects": [],
+        "heading": "Installation",
+        "language": "bash",
+        "roles": [
+          "other"
+        ],
+        "substitution_required": false
+      },
+      {
+        "defects": [],
+        "heading": "Installation",
+        "language": "bash",
+        "roles": [
+          "install"
+        ],
+        "substitution_required": false
+      },
+      {
+        "defects": [],
+        "heading": "Installation",
+        "language": "bash",
+        "roles": [
+          "install"
+        ],
+        "substitution_required": false
+      },
+      {
+        "defects": [],
+        "heading": "Installation",
+        "language": "bash",
+        "roles": [
+          "install"
+        ],
+        "substitution_required": false
+      },
+      {
+        "defects": [],
+        "heading": "Installation",
+        "language": "bash",
+        "roles": [
+          "other"
+        ],
+        "substitution_required": false
+      },
+      {
+        "defects": [],
+        "heading": "Installation",
+        "language": "bash",
+        "roles": [
+          "install"
+        ],
+        "substitution_required": false
+      },
+      {
+        "defects": [],
+        "heading": "Quick Start",
+        "language": "bash",
+        "roles": [
+          "other"
+        ],
+        "substitution_required": false
+      },
+      {
+        "defects": [],
+        "heading": "Quick Start",
+        "language": "bash",
+        "roles": [
+          "other"
+        ],
+        "substitution_required": false
+      },
+      {
+        "defects": [],
+        "heading": "Example Input File",
+        "language": "yaml",
+        "roles": [
+          "other"
+        ],
+        "substitution_required": false
+      },
+      {
+        "defects": [],
+        "heading": "Example Input File",
+        "language": "bash",
+        "roles": [
+          "other"
+        ],
+        "substitution_required": false
+      },
+      {
+        "defects": [],
+        "heading": "Directory Structure",
+        "language": "bash",
+        "roles": [
+          "other"
+        ],
+        "substitution_required": false
+      },
+      {
+        "defects": [],
+        "heading": "Build Document Locally",
+        "language": "bash",
+        "roles": [
+          "install"
+        ],
+        "substitution_required": false
+      },
+      {
+        "defects": [],
+        "heading": "Code Style and Linting",
+        "language": "bash",
+        "roles": [
+          "install"
+        ],
+        "substitution_required": false
+      },
+      {
+        "defects": [],
+        "heading": "Code Style and Linting",
+        "language": "bash",
+        "roles": [
+          "other"
+        ],
+        "substitution_required": false
+      },
+      {
+        "defects": [],
+        "heading": "Citation",
+        "language": "bibtex",
+        "roles": [
+          "other"
+        ],
+        "substitution_required": false
+      }
+    ],
+    "doi": "10.21105/joss.09468",
+    "eligible": true,
+    "external_docs": true,
+    "first_use_safe": false,
+    "hard_defects": [],
+    "install_safe": true,
+    "manual_hard_defects": [],
+    "manual_strict_ready": null,
+    "naive_ready": false,
+    "notes": "Mechanical acquisition; reference annotation not yet created.",
+    "order": 19,
+    "readme_sha": "e73491d2116dd68f18e76a6a891d30d7953f6d18",
+    "relaxed_ready": true,
+    "repository": "rahulumrao/sparc",
+    "strict_ready": false,
+    "substitution_blocks": 0,
+    "title": "SPARC: An Automated Workflow Toolkit for Accelerated Active Learning of Reactive Machine Learning Interatomic Potentials"
+  },
+  {
+    "blocks": [
+      {
+        "defects": [],
+        "heading": "From CRAN (Recommended)",
+        "language": "r",
+        "roles": [
+          "other"
+        ],
+        "substitution_required": false
+      },
+      {
+        "defects": [],
+        "heading": "Development Version from GitHub",
+        "language": "r",
+        "roles": [
+          "development"
+        ],
+        "substitution_required": false
+      },
+      {
+        "defects": [],
+        "heading": "Load Package and Test Installation",
+        "language": "r",
+        "roles": [
+          "test"
+        ],
+        "substitution_required": false
+      },
+      {
+        "defects": [],
+        "heading": "Basic Usage Examples",
+        "language": "r",
+        "roles": [
+          "other"
+        ],
+        "substitution_required": false
+      },
+      {
+        "defects": [],
+        "heading": "🗺️ Auto-Geocoding Without Coordinates",
+        "language": "r",
+        "roles": [
+          "other"
+        ],
+        "substitution_required": false
+      },
+      {
+        "defects": [],
+        "heading": "Function Reference",
+        "language": "r",
+        "roles": [
+          "other"
+        ],
+        "substitution_required": false
+      },
+      {
+        "defects": [],
+        "heading": "Census Data Analysis (No Coordinates Needed!)",
+        "language": "r",
+        "roles": [
+          "other"
+        ],
+        "substitution_required": false
+      },
+      {
+        "defects": [],
+        "heading": "Watershed Analysis with HUC Codes",
+        "language": "r",
+        "roles": [
+          "other"
+        ],
+        "substitution_required": false
+      },
+      {
+        "defects": [],
+        "heading": "Agricultural Monitoring Crop Codes",
+        "language": "r",
+        "roles": [
+          "other"
+        ],
+        "substitution_required": false
+      },
+      {
+        "defects": [],
+        "heading": "County-Level Environmental Analysis",
+        "language": "r",
+        "roles": [
+          "other"
+        ],
+        "substitution_required": false
+      },
+      {
+        "defects": [],
+        "heading": "Analyse crop vegetation",
+        "language": "r",
+        "roles": [
+          "other"
+        ],
+        "substitution_required": false
+      },
+      {
+        "defects": [],
+        "heading": "Performance Tips",
+        "language": "r",
+        "roles": [
+          "other"
+        ],
+        "substitution_required": false
+      },
+      {
+        "defects": [],
+        "heading": "Required Dependencies",
+        "language": "r",
+        "roles": [
+          "other"
+        ],
+        "substitution_required": false
+      },
+      {
+        "defects": [],
+        "heading": "Optional Enhancement Packages",
+        "language": "r",
+        "roles": [
+          "other"
+        ],
+        "substitution_required": false
+      },
+      {
+        "defects": [],
+        "heading": "📄 Citation",
+        "language": "r",
+        "roles": [
+          "other"
+        ],
+        "substitution_required": false
+      }
+    ],
+    "doi": "10.21105/joss.09536",
+    "eligible": true,
+    "external_docs": true,
+    "first_use_safe": false,
+    "hard_defects": [],
+    "install_safe": false,
+    "manual_hard_defects": [],
+    "manual_strict_ready": null,
+    "naive_ready": false,
+    "notes": "Mechanical acquisition; reference annotation not yet created.",
+    "order": 20,
+    "readme_sha": "4d9e854a5f4a686b7997093098c03ac16001cc79",
+    "relaxed_ready": true,
+    "repository": "cwru-sdle/geospatialsuite",
+    "strict_ready": false,
+    "substitution_blocks": 0,
+    "title": "geospatialsuite: Comprehensive Geospatiotemporal Analysis and Multimodal Integration Toolkit for R"
+  },
+  {
+    "blocks": [
+      {
+        "defects": [],
+        "heading": "Installation",
+        "language": "bash",
+        "roles": [
+          "install"
+        ],
+        "substitution_required": false
+      },
+      {
+        "defects": [],
+        "heading": "Installation",
+        "language": "bash",
+        "roles": [
+          "install"
+        ],
+        "substitution_required": false
+      },
+      {
+        "defects": [],
+        "heading": "Quick Example",
+        "language": "python",
+        "roles": [
+          "first_use"
+        ],
+        "substitution_required": false
+      },
+      {
+        "defects": [],
+        "heading": "Citation",
+        "language": "",
+        "roles": [
+          "other"
+        ],
+        "substitution_required": false
+      }
+    ],
+    "doi": "10.21105/joss.10131",
+    "eligible": true,
+    "external_docs": true,
+    "first_use_safe": true,
+    "hard_defects": [],
+    "install_safe": true,
+    "manual_hard_defects": [],
+    "manual_strict_ready": null,
+    "naive_ready": true,
+    "notes": "Mechanical acquisition; reference annotation not yet created.",
+    "order": 21,
+    "readme_sha": "e800131c61b0278714977389d92dd6999dbbd52f",
+    "relaxed_ready": true,
+    "repository": "yungselm/multimoda-rs",
+    "strict_ready": true,
+    "substitution_blocks": 0,
+    "title": "multimodars: A Rust-powered toolkit for multi-modality cardiac image fusion and registration"
+  },
+  {
+    "blocks": [
+      {
+        "defects": [],
+        "heading": "Installation",
+        "language": "r",
+        "roles": [
+          "other"
+        ],
+        "substitution_required": false
+      },
+      {
+        "defects": [],
+        "heading": "Installation",
+        "language": "r",
+        "roles": [
+          "other"
+        ],
+        "substitution_required": false
+      },
+      {
+        "defects": [],
+        "heading": "Quick Start",
+        "language": "r",
+        "roles": [
+          "other"
+        ],
+        "substitution_required": false
+      },
+      {
+        "defects": [],
+        "heading": "Batch processing (typical real-world use)",
+        "language": "r",
+        "roles": [
+          "other"
+        ],
+        "substitution_required": false
+      },
+      {
+        "defects": [],
+        "heading": "System Boundaries",
+        "language": "r",
+        "roles": [
+          "other"
+        ],
+        "substitution_required": false
+      }
+    ],
+    "doi": "10.21105/joss.09572",
+    "eligible": true,
+    "external_docs": true,
+    "first_use_safe": false,
+    "hard_defects": [],
+    "install_safe": false,
+    "manual_hard_defects": [],
+    "manual_strict_ready": null,
+    "naive_ready": false,
+    "notes": "Mechanical acquisition; reference annotation not yet created.",
+    "order": 22,
+    "readme_sha": "c1ed625b365128550d66a7997c9ad6d624df3459",
+    "relaxed_ready": true,
+    "repository": "juanmarcosmoreno-arch/cowfootR",
+    "strict_ready": false,
+    "substitution_blocks": 0,
+    "title": "cowfootR: An R Package for Dairy Farm Carbon Footprint Assessment"
+  },
+  {
+    "blocks": [
+      {
+        "defects": [],
+        "heading": "1️⃣ Install Miniforge (Lightweight Conda)",
+        "language": "bash",
+        "roles": [
+          "other"
+        ],
+        "substitution_required": false
+      },
+      {
+        "defects": [],
+        "heading": "2️⃣ Setup Conda and Restart Shell",
+        "language": "bash",
+        "roles": [
+          "other"
+        ],
+        "substitution_required": false
+      },
+      {
+        "defects": [],
+        "heading": "3️⃣ Update Conda and Add MOOSE Channel",
+        "language": "bash",
+        "roles": [
+          "other"
+        ],
+        "substitution_required": false
+      },
+      {
+        "defects": [],
+        "heading": "4️⃣ Create and Activate MOOSE Environment",
+        "language": "bash",
+        "roles": [
+          "other"
+        ],
+        "substitution_required": false
+      },
+      {
+        "defects": [],
+        "heading": "5️⃣ Clone and Checkout MOOSE",
+        "language": "bash",
+        "roles": [
+          "install"
+        ],
+        "substitution_required": false
+      },
+      {
+        "defects": [],
+        "heading": "6️⃣ Build and Test MOOSE",
+        "language": "bash",
+        "roles": [
+          "test"
+        ],
+        "substitution_required": false
+      },
+      {
+        "defects": [],
+        "heading": "🐾 Felino Installation",
+        "language": "bash",
+        "roles": [
+          "install"
+        ],
+        "substitution_required": false
+      },
+      {
+        "defects": [],
+        "heading": "▶️ Running a Test",
+        "language": "bash",
+        "roles": [
+          "test"
+        ],
+        "substitution_required": false
+      },
+      {
+        "defects": [],
+        "heading": "▶️ Running a Tutorial for v1.0.2 Geomaterial Analysis",
+        "language": "bash",
+        "roles": [
+          "other"
+        ],
+        "substitution_required": false
+      },
+      {
+        "defects": [],
+        "heading": "🔄 Updating Felino",
+        "language": "bash",
+        "roles": [
+          "other"
+        ],
+        "substitution_required": false
+      },
+      {
+        "defects": [],
+        "heading": "Citation",
+        "language": "bibtex",
+        "roles": [
+          "other"
+        ],
+        "substitution_required": false
+      }
+    ],
+    "doi": "10.21105/joss.09406",
+    "eligible": true,
+    "external_docs": true,
+    "first_use_safe": false,
+    "hard_defects": [],
+    "install_safe": true,
+    "manual_hard_defects": [],
+    "manual_strict_ready": null,
+    "naive_ready": true,
+    "notes": "Mechanical acquisition; reference annotation not yet created.",
+    "order": 23,
+    "readme_sha": "f04e5ca2de2f91c3cdcfcc9ce584e41284f281ef",
+    "relaxed_ready": true,
+    "repository": "DanielChou0916/felino",
+    "strict_ready": false,
+    "substitution_blocks": 0,
+    "title": "Felino: Extension of an open-source phase-field framework to geomaterial fracture"
+  },
+  {
+    "blocks": [
+      {
+        "defects": [],
+        "heading": "Quickstart",
+        "language": "",
+        "roles": [
+          "other"
+        ],
+        "substitution_required": false
+      },
+      {
+        "defects": [],
+        "heading": "Local jar file",
+        "language": "",
+        "roles": [
+          "first_use"
+        ],
+        "substitution_required": false
+      },
+      {
+        "defects": [],
+        "heading": "Docker (CLI)",
+        "language": "",
+        "roles": [
+          "other"
+        ],
+        "substitution_required": false
+      },
+      {
+        "defects": [],
+        "heading": "Code-based authoring",
+        "language": "",
+        "roles": [
+          "other"
+        ],
+        "substitution_required": false
+      },
+      {
+        "defects": [],
+        "heading": "Other Local Setup",
+        "language": "bash",
+        "roles": [
+          "other"
+        ],
+        "substitution_required": false
+      },
+      {
+        "defects": [],
+        "heading": "Other Local Setup",
+        "language": "bash",
+        "roles": [
+          "other"
+        ],
+        "substitution_required": false
+      },
+      {
+        "defects": [],
+        "heading": "Other Local Setup",
+        "language": "bash",
+        "roles": [
+          "other"
+        ],
+        "substitution_required": false
+      },
+      {
+        "defects": [],
+        "heading": "Other Local Setup",
+        "language": "bash",
+        "roles": [
+          "other"
+        ],
+        "substitution_required": false
+      },
+      {
+        "defects": [],
+        "heading": "Other Local Setup",
+        "language": "bash",
+        "roles": [
+          "other"
+        ],
+        "substitution_required": false
+      },
+      {
+        "defects": [],
+        "heading": "Other Local Setup",
+        "language": "bash",
+        "roles": [
+          "install"
+        ],
+        "substitution_required": false
+      },
+      {
+        "defects": [],
+        "heading": "Other Local Setup",
+        "language": "bash",
+        "roles": [
+          "other"
+        ],
+        "substitution_required": false
+      },
+      {
+        "defects": [],
+        "heading": "Other Local Setup",
+        "language": "bash",
+        "roles": [
+          "other"
+        ],
+        "substitution_required": false
+      },
+      {
+        "defects": [],
+        "heading": "Other Local Setup",
+        "language": "bash",
+        "roles": [
+          "other"
+        ],
+        "substitution_required": false
+      },
+      {
+        "defects": [],
+        "heading": "Other Local Setup",
+        "language": "bash",
+        "roles": [
+          "other"
+        ],
+        "substitution_required": false
+      }
+    ],
+    "doi": "10.21105/joss.10104",
+    "eligible": true,
+    "external_docs": true,
+    "first_use_safe": true,
+    "hard_defects": [],
+    "install_safe": true,
+    "manual_hard_defects": [],
+    "manual_strict_ready": null,
+    "naive_ready": true,
+    "notes": "Mechanical acquisition; reference annotation not yet created.",
+    "order": 24,
+    "readme_sha": "ee0bd1e3b319d22db49e5016a8da4ab8040e38b4",
+    "relaxed_ready": true,
+    "repository": "SchmidtDSE/kigali-sim",
+    "strict_ready": true,
+    "substitution_blocks": 0,
+    "title": "Kigali Sim: Open source simulation toolkit for modeling substances and policies related to the Montreal Protocol"
+  },
+  {
+    "blocks": [
+      {
+        "defects": [],
+        "heading": "Using pip (Recommended)",
+        "language": "bash",
+        "roles": [
+          "install"
+        ],
+        "substitution_required": false
+      },
+      {
+        "defects": [],
+        "heading": "From Source",
+        "language": "bash",
+        "roles": [
+          "install"
+        ],
+        "substitution_required": false
+      },
+      {
+        "defects": [],
+        "heading": "Basic Example - Improve Mesh Quality",
+        "language": "python",
+        "roles": [
+          "first_use"
+        ],
+        "substitution_required": false
+      },
+      {
+        "defects": [],
+        "heading": "Remeshing Example",
+        "language": "python",
+        "roles": [
+          "first_use"
+        ],
+        "substitution_required": false
+      },
+      {
+        "defects": [],
+        "heading": "Citation",
+        "language": "bibtex",
+        "roles": [
+          "other"
+        ],
+        "substitution_required": false
+      }
+    ],
+    "doi": "10.21105/joss.09729",
+    "eligible": true,
+    "external_docs": true,
+    "first_use_safe": true,
+    "hard_defects": [],
+    "install_safe": true,
+    "manual_hard_defects": [],
+    "manual_strict_ready": null,
+    "naive_ready": true,
+    "notes": "Mechanical acquisition; reference annotation not yet created.",
+    "order": 25,
+    "readme_sha": "837932e06a05305d152544f0f19c6de2814e40ab",
+    "relaxed_ready": true,
+    "repository": "youssef-mesri/sofia-mesh",
+    "strict_ready": true,
+    "substitution_blocks": 0,
+    "title": "SOFIA: A Python Library for High-Quality 2D Triangular Mesh Adaptation"
+  },
+  {
+    "blocks": [
+      {
+        "defects": [],
+        "heading": "Installation",
+        "language": "",
+        "roles": [
+          "install"
+        ],
+        "substitution_required": false
+      },
+      {
+        "defects": [],
+        "heading": "Installation",
+        "language": "",
+        "roles": [
+          "install"
+        ],
+        "substitution_required": false
+      },
+      {
+        "defects": [],
+        "heading": "muGrid",
+        "language": "",
+        "roles": [
+          "other"
+        ],
+        "substitution_required": false
+      },
+      {
+        "defects": [],
+        "heading": "muGrid",
+        "language": "",
+        "roles": [
+          "other"
+        ],
+        "substitution_required": false
+      },
+      {
+        "defects": [],
+        "heading": "examples/journal.yaml",
+        "language": "",
+        "roles": [
+          "other"
+        ],
+        "substitution_required": false
+      },
+      {
+        "defects": [],
+        "heading": "examples/journal.yaml",
+        "language": "",
+        "roles": [
+          "other"
+        ],
+        "substitution_required": false
+      },
+      {
+        "defects": [],
+        "heading": "examples/journal.yaml",
+        "language": "",
+        "roles": [
+          "other"
+        ],
+        "substitution_required": false
+      }
+    ],
+    "doi": "10.21105/joss.09645",
+    "eligible": true,
+    "external_docs": true,
+    "first_use_safe": false,
+    "hard_defects": [],
+    "install_safe": true,
+    "manual_hard_defects": [],
+    "manual_strict_ready": null,
+    "naive_ready": false,
+    "notes": "Mechanical acquisition; reference annotation not yet created.",
+    "order": 26,
+    "readme_sha": "45a5189c6849472e032a999b8cf7e97b08a0ef3c",
+    "relaxed_ready": true,
+    "repository": "hannes-holey/GaPFlow",
+    "strict_ready": false,
+    "substitution_blocks": 0,
+    "title": "GaPFlow: Gap-averaged flow simulations with Gaussian process regression"
+  },
+  {
+    "blocks": [
+      {
+        "defects": [],
+        "heading": "Install from PyPI",
+        "language": "bash",
+        "roles": [
+          "install"
+        ],
+        "substitution_required": false
+      },
+      {
+        "defects": [],
+        "heading": "For contributors",
+        "language": "bash",
+        "roles": [
+          "install"
+        ],
+        "substitution_required": false
+      },
+      {
+        "defects": [],
+        "heading": "Basic Material Creation",
+        "language": "python",
+        "roles": [
+          "other"
+        ],
+        "substitution_required": false
+      },
+      {
+        "defects": [],
+        "heading": "Bundled Example Materials",
+        "language": "python",
+        "roles": [
+          "first_use"
+        ],
+        "substitution_required": false
+      },
+      {
+        "defects": [],
+        "heading": "Command-Line Interface",
+        "language": "bash",
+        "roles": [
+          "other"
+        ],
+        "substitution_required": false
+      },
+      {
+        "defects": [],
+        "heading": "Fast Evaluation Over Many Values",
+        "language": "python",
+        "roles": [
+          "other"
+        ],
+        "substitution_required": false
+      },
+      {
+        "defects": [],
+        "heading": "Assess Fit Quality & Visualize",
+        "language": "python",
+        "roles": [
+          "other"
+        ],
+        "substitution_required": false
+      },
+      {
+        "defects": [],
+        "heading": "Cached Builds",
+        "language": "python",
+        "roles": [
+          "other"
+        ],
+        "substitution_required": false
+      },
+      {
+        "defects": [],
+        "heading": "Property Inversion",
+        "language": "python",
+        "roles": [
+          "other"
+        ],
+        "substitution_required": false
+      },
+      {
+        "defects": [],
+        "heading": "PyPI Distribution",
+        "language": "bash",
+        "roles": [
+          "install"
+        ],
+        "substitution_required": false
+      }
+    ],
+    "doi": "10.21105/joss.09909",
+    "eligible": true,
+    "external_docs": true,
+    "first_use_safe": true,
+    "hard_defects": [],
+    "install_safe": true,
+    "manual_hard_defects": [],
+    "manual_strict_ready": null,
+    "naive_ready": true,
+    "notes": "Mechanical acquisition; reference annotation not yet created.",
+    "order": 27,
+    "readme_sha": "6bd81a69fdcc2ab3b46255f74a4e4355a5dd97fe",
+    "relaxed_ready": true,
+    "repository": "rahildoshi97/materforge",
+    "strict_ready": true,
+    "substitution_blocks": 0,
+    "title": "MaterForge: Materials Formulation Engine with Python"
+  },
+  {
+    "blocks": [
+      {
+        "defects": [],
+        "heading": "Usage",
+        "language": "python",
+        "roles": [
+          "first_use"
+        ],
+        "substitution_required": false
+      },
+      {
+        "defects": [],
+        "heading": "Running on an HPC Cluster",
+        "language": "bash",
+        "roles": [
+          "other"
+        ],
+        "substitution_required": false
+      },
+      {
+        "defects": [],
+        "heading": "Running on an HPC Cluster",
+        "language": "bash",
+        "roles": [
+          "other"
+        ],
+        "substitution_required": false
+      },
+      {
+        "defects": [],
+        "heading": "Using cuDecomp (MPI and NCCL)",
+        "language": "python",
+        "roles": [
+          "other"
+        ],
+        "substitution_required": false
+      },
+      {
+        "defects": [],
+        "heading": "1. Pure JAX Version (Easy / Recommended)",
+        "language": "bash",
+        "roles": [
+          "install"
+        ],
+        "substitution_required": false
+      },
+      {
+        "defects": [],
+        "heading": "1. Pure JAX Version (Easy / Recommended)",
+        "language": "bash",
+        "roles": [
+          "install"
+        ],
+        "substitution_required": false
+      },
+      {
+        "defects": [],
+        "heading": "1. Pure JAX Version (Easy / Recommended)",
+        "language": "bash",
+        "roles": [
+          "install"
+        ],
+        "substitution_required": false
+      },
+      {
+        "defects": [],
+        "heading": "2. JAX + cuDecomp Backend (Advanced)",
+        "language": "bash",
+        "roles": [
+          "install"
+        ],
+        "substitution_required": false
+      },
+      {
+        "defects": [],
+        "heading": "2. JAX + cuDecomp Backend (Advanced)",
+        "language": "bash",
+        "roles": [
+          "install"
+        ],
+        "substitution_required": false
+      },
+      {
+        "defects": [],
+        "heading": "2. JAX + cuDecomp Backend (Advanced)",
+        "language": "bash",
+        "roles": [
+          "other"
+        ],
+        "substitution_required": false
+      },
+      {
+        "defects": [],
+        "heading": "IDRIS [Jean Zay](http://www.idris.fr/eng/jean-zay/cpu/jean-zay-cpu-hw-eng.html) HPE SGI 8600 supercomputer",
+        "language": "bash",
+        "roles": [
+          "install"
+        ],
+        "substitution_required": false
+      },
+      {
+        "defects": [],
+        "heading": "NERSC [Perlmutter](https://docs.nersc.gov/systems/perlmutter/architecture/) HPE Cray EX supercomputer",
+        "language": "bash",
+        "roles": [
+          "install"
+        ],
+        "substitution_required": false
+      },
+      {
+        "defects": [],
+        "heading": "Backend Configuration (cuDecomp Only)",
+        "language": "python",
+        "roles": [
+          "other"
+        ],
+        "substitution_required": false
+      },
+      {
+        "defects": [],
+        "heading": "Autotune Computational Mesh (cuDecomp Only)",
+        "language": "python",
+        "roles": [
+          "other"
+        ],
+        "substitution_required": false
+      }
+    ],
+    "doi": "10.21105/joss.08852",
+    "eligible": true,
+    "external_docs": true,
+    "first_use_safe": true,
+    "hard_defects": [],
+    "install_safe": true,
+    "manual_hard_defects": [],
+    "manual_strict_ready": null,
+    "naive_ready": true,
+    "notes": "Mechanical acquisition; reference annotation not yet created.",
+    "order": 28,
+    "readme_sha": "d466e7bebe51ce43ded3a95a264af64ad570e455",
+    "relaxed_ready": true,
+    "repository": "DifferentiableUniverseInitiative/jaxDecomp",
+    "strict_ready": true,
+    "substitution_blocks": 0,
+    "title": "jaxDecomp: JAX Library for 3D Domain Decomposition and Parallel FFTs"
+  },
+  {
+    "blocks": [
+      {
+        "defects": [],
+        "heading": "Ecosystem",
+        "language": "",
+        "roles": [
+          "other"
+        ],
+        "substitution_required": false
+      },
+      {
+        "defects": [],
+        "heading": "Installation",
+        "language": "console",
+        "roles": [
+          "install"
+        ],
+        "substitution_required": false
+      },
+      {
+        "defects": [],
+        "heading": "Installation",
+        "language": "console",
+        "roles": [
+          "install"
+        ],
+        "substitution_required": false
+      },
+      {
+        "defects": [],
+        "heading": "Installation",
+        "language": "console",
+        "roles": [
+          "install"
+        ],
+        "substitution_required": false
+      },
+      {
+        "defects": [],
+        "heading": "R Package",
+        "language": "r",
+        "roles": [
+          "other"
+        ],
+        "substitution_required": false
+      },
+      {
+        "defects": [],
+        "heading": "Option A — via meta-package",
+        "language": "python",
+        "roles": [
+          "other"
+        ],
+        "substitution_required": false
+      },
+      {
+        "defects": [],
+        "heading": "Option B — direct install (lighter footprint)",
+        "language": "python",
+        "roles": [
+          "install"
+        ],
+        "substitution_required": false
+      },
+      {
+        "defects": [],
+        "heading": "Option B — direct install (lighter footprint)",
+        "language": "python",
+        "roles": [
+          "install"
+        ],
+        "substitution_required": false
+      },
+      {
+        "defects": [],
+        "heading": "Option B — direct install (lighter footprint)",
+        "language": "python",
+        "roles": [
+          "install"
+        ],
+        "substitution_required": false
+      },
+      {
+        "defects": [],
+        "heading": "cat-survey — Survey Responses",
+        "language": "python",
+        "roles": [
+          "other"
+        ],
+        "substitution_required": false
+      },
+      {
+        "defects": [],
+        "heading": "cat-vader — Social Media",
+        "language": "python",
+        "roles": [
+          "other"
+        ],
+        "substitution_required": false
+      },
+      {
+        "defects": [],
+        "heading": "cat-ademic — Academic Papers",
+        "language": "python",
+        "roles": [
+          "other"
+        ],
+        "substitution_required": false
+      },
+      {
+        "defects": [],
+        "heading": "cat-pol — Political Text",
+        "language": "python",
+        "roles": [
+          "other"
+        ],
+        "substitution_required": false
+      },
+      {
+        "defects": [],
+        "heading": "cat-cog — Cognitive Assessment",
+        "language": "python",
+        "roles": [
+          "other"
+        ],
+        "substitution_required": false
+      },
+      {
+        "defects": [],
+        "heading": "cat-web — Web Content",
+        "language": "python",
+        "roles": [
+          "other"
+        ],
+        "substitution_required": false
+      },
+      {
+        "defects": [],
+        "heading": "cat-stack — General-Purpose Base",
+        "language": "python",
+        "roles": [
+          "other"
+        ],
+        "substitution_required": false
+      },
+      {
+        "defects": [],
+        "heading": "`classify()`",
+        "language": "python",
+        "roles": [
+          "other"
+        ],
+        "substitution_required": false
+      },
+      {
+        "defects": [],
+        "heading": "`extract()`",
+        "language": "python",
+        "roles": [
+          "other"
+        ],
+        "substitution_required": false
+      },
+      {
+        "defects": [],
+        "heading": "`explore()`",
+        "language": "python",
+        "roles": [
+          "other"
+        ],
+        "substitution_required": false
+      },
+      {
+        "defects": [],
+        "heading": "`summarize()`",
+        "language": "python",
+        "roles": [
+          "other"
+        ],
+        "substitution_required": false
+      },
+      {
+        "defects": [],
+        "heading": "`image_score_drawing()`",
+        "language": "python",
+        "roles": [
+          "other"
+        ],
+        "substitution_required": false
+      },
+      {
+        "defects": [],
+        "heading": "`image_features()`",
+        "language": "python",
+        "roles": [
+          "other"
+        ],
+        "substitution_required": false
+      },
+      {
+        "defects": [],
+        "heading": "`cerad_drawn_score()`",
+        "language": "python",
+        "roles": [
+          "other"
+        ],
+        "substitution_required": false
+      },
+      {
+        "defects": [],
+        "heading": "Related Projects",
+        "language": "bash",
+        "roles": [
+          "install"
+        ],
+        "substitution_required": false
+      },
+      {
+        "defects": [],
+        "heading": "Testing",
+        "language": "console",
+        "roles": [
+          "test"
+        ],
+        "substitution_required": false
+      },
+      {
+        "defects": [],
+        "heading": "HTTP timeouts on local Ollama runs (cat-stack ≥ 1.6.5)",
+        "language": "python",
+        "roles": [
+          "first_use"
+        ],
+        "substitution_required": false
+      }
+    ],
+    "doi": "10.21105/joss.09678",
+    "eligible": true,
+    "external_docs": true,
+    "first_use_safe": true,
+    "hard_defects": [],
+    "install_safe": true,
+    "manual_hard_defects": [],
+    "manual_strict_ready": null,
+    "naive_ready": true,
+    "notes": "Mechanical acquisition; reference annotation not yet created.",
+    "order": 29,
+    "readme_sha": "d4693d8bcb4af735ff6f17b106e9490df7712b6c",
+    "relaxed_ready": true,
+    "repository": "chrissoria/cat-llm",
+    "strict_ready": true,
+    "substitution_blocks": 0,
+    "title": "CatLLM: A Python package for Generating, Assigning, and Scoring Open-Ended Survey Data and Images"
+  },
+  {
+    "blocks": [
+      {
+        "defects": [],
+        "heading": "Quick Verification",
+        "language": "bash",
+        "roles": [
+          "test"
+        ],
+        "substitution_required": false
+      },
+      {
+        "defects": [],
+        "heading": "Option 1: pip install (Recommended)",
+        "language": "bash",
+        "roles": [
+          "install"
+        ],
+        "substitution_required": false
+      },
+      {
+        "defects": [],
+        "heading": "Option 2: Development/Editable Install",
+        "language": "bash",
+        "roles": [
+          "development",
+          "install"
+        ],
+        "substitution_required": false
+      },
+      {
+        "defects": [],
+        "heading": "Option 3: Traditional Clone (if you have PsychoPy pre-installed)",
+        "language": "bash",
+        "roles": [
+          "install"
+        ],
+        "substitution_required": false
+      },
+      {
+        "defects": [],
+        "heading": "After pip install",
+        "language": "bash",
+        "roles": [
+          "other"
+        ],
+        "substitution_required": false
+      },
+      {
+        "defects": [],
+        "heading": "Traditional usage (if cloned)",
+        "language": "bash",
+        "roles": [
+          "other"
+        ],
+        "substitution_required": false
+      },
+      {
+        "defects": [],
+        "heading": "Automated Installation Verification",
+        "language": "bash",
+        "roles": [
+          "test"
+        ],
+        "substitution_required": false
+      },
+      {
+        "defects": [],
+        "heading": "Window and appearance",
+        "language": "json",
+        "roles": [
+          "other"
+        ],
+        "substitution_required": false
+      },
+      {
+        "defects": [],
+        "heading": "Stimuli Setup",
+        "language": "",
+        "roles": [
+          "other"
+        ],
+        "substitution_required": false
+      },
+      {
+        "defects": [],
+        "heading": "Testing",
+        "language": "bash",
+        "roles": [
+          "test"
+        ],
+        "substitution_required": false
+      }
+    ],
+    "doi": "10.21105/joss.08667",
+    "eligible": true,
+    "external_docs": false,
+    "first_use_safe": false,
+    "hard_defects": [],
+    "install_safe": true,
+    "manual_hard_defects": [],
+    "manual_strict_ready": null,
+    "naive_ready": true,
+    "notes": "Mechanical acquisition; reference annotation not yet created.",
+    "order": 30,
+    "readme_sha": "c08224eb22e1e612f8243ea8ecd5b6c170071a1f",
+    "relaxed_ready": false,
+    "repository": "brodie-neuro/WAND-practice-and-fatigue-induction",
+    "strict_ready": false,
+    "substitution_blocks": 0,
+    "title": "WAND (Working-memory Adaptive-fatigue with N-back Difficulty): A Modular Software Suite for Cognitive Fatigue Research"
+  },
+  {
+    "blocks": [
+      {
+        "defects": [],
+        "heading": "Repository Structure",
+        "language": "",
+        "roles": [
+          "other"
+        ],
+        "substitution_required": false
+      },
+      {
+        "defects": [],
+        "heading": "Run installer",
+        "language": "bash",
+        "roles": [
+          "install"
+        ],
+        "substitution_required": false
+      },
+      {
+        "defects": [],
+        "heading": "Run installer",
+        "language": "",
+        "roles": [
+          "other"
+        ],
+        "substitution_required": false
+      },
+      {
+        "defects": [],
+        "heading": "Optional: Force a frontend",
+        "language": "bash",
+        "roles": [
+          "other"
+        ],
+        "substitution_required": false
+      },
+      {
+        "defects": [],
+        "heading": "Optional: Force a frontend",
+        "language": "",
+        "roles": [
+          "other"
+        ],
+        "substitution_required": false
+      },
+      {
+        "defects": [],
+        "heading": "Validate installation",
+        "language": "bash",
+        "roles": [
+          "other"
+        ],
+        "substitution_required": false
+      },
+      {
+        "defects": [],
+        "heading": "Required columns",
+        "language": "",
+        "roles": [
+          "other"
+        ],
+        "substitution_required": false
+      },
+      {
+        "defects": [],
+        "heading": "Example",
+        "language": "",
+        "roles": [
+          "other"
+        ],
+        "substitution_required": false
+      },
+      {
+        "defects": [],
+        "heading": "Example",
+        "language": "",
+        "roles": [
+          "other"
+        ],
+        "substitution_required": false
+      },
+      {
+        "defects": [],
+        "heading": "Example",
+        "language": "",
+        "roles": [
+          "other"
+        ],
+        "substitution_required": false
+      },
+      {
+        "defects": [],
+        "heading": "Running the Pipeline",
+        "language": "bash",
+        "roles": [
+          "other"
+        ],
+        "substitution_required": false
+      },
+      {
+        "defects": [],
+        "heading": "Manual run example with bundled test data",
+        "language": "bash",
+        "roles": [
+          "test"
+        ],
+        "substitution_required": false
+      },
+      {
+        "defects": [],
+        "heading": "Manual run example with bundled test data",
+        "language": "bash",
+        "roles": [
+          "test"
+        ],
+        "substitution_required": false
+      },
+      {
+        "defects": [],
+        "heading": "Manual run example with bundled test data",
+        "language": "bash",
+        "roles": [
+          "test"
+        ],
+        "substitution_required": false
+      },
+      {
+        "defects": [],
+        "heading": "HPC Execution (SLURM Example)",
+        "language": "bash",
+        "roles": [
+          "other"
+        ],
+        "substitution_required": false
+      },
+      {
+        "defects": [],
+        "heading": "Output Directory Structure",
+        "language": "",
+        "roles": [
+          "other"
+        ],
+        "substitution_required": false
+      },
+      {
+        "defects": [],
+        "heading": "FEL Results",
+        "language": "",
+        "roles": [
+          "other"
+        ],
+        "substitution_required": false
+      },
+      {
+        "defects": [],
+        "heading": "MEME Results",
+        "language": "",
+        "roles": [
+          "other"
+        ],
+        "substitution_required": false
+      },
+      {
+        "defects": [],
+        "heading": "aBSREL Results",
+        "language": "",
+        "roles": [
+          "other"
+        ],
+        "substitution_required": false
+      },
+      {
+        "defects": [],
+        "heading": "BUSTED-S-MH Results",
+        "language": "",
+        "roles": [
+          "other"
+        ],
+        "substitution_required": false
+      },
+      {
+        "defects": [],
+        "heading": "RELAX Results",
+        "language": "",
+        "roles": [
+          "other"
+        ],
+        "substitution_required": false
+      },
+      {
+        "defects": [],
+        "heading": "CFEL Results",
+        "language": "",
+        "roles": [
+          "other"
+        ],
+        "substitution_required": false
+      },
+      {
+        "defects": [],
+        "heading": "Merged Results",
+        "language": "",
+        "roles": [
+          "other"
+        ],
+        "substitution_required": false
+      },
+      {
+        "defects": [],
+        "heading": "Selection Overview Table",
+        "language": "",
+        "roles": [
+          "other"
+        ],
+        "substitution_required": false
+      },
+      {
+        "defects": [],
+        "heading": "Visualizations",
+        "language": "",
+        "roles": [
+          "other"
+        ],
+        "substitution_required": false
+      },
+      {
+        "defects": [],
+        "heading": "Citation",
+        "language": "",
+        "roles": [
+          "other"
+        ],
+        "substitution_required": false
+      }
+    ],
+    "doi": "10.21105/joss.09872",
+    "eligible": true,
+    "external_docs": false,
+    "first_use_safe": false,
+    "hard_defects": [],
+    "install_safe": true,
+    "manual_hard_defects": [],
+    "manual_strict_ready": null,
+    "naive_ready": true,
+    "notes": "Mechanical acquisition; reference annotation not yet created.",
+    "order": 31,
+    "readme_sha": "8da10bd5efcea00393bb6667935f28457601ed9c",
+    "relaxed_ready": false,
+    "repository": "aglucaci/Analysis-of-Orthologous-Collections",
+    "strict_ready": false,
+    "substitution_blocks": 0,
+    "title": "AOC: A Snakemake workflow for the characterization of natural selection in protein-coding genes"
+  },
+  {
+    "blocks": [
+      {
+        "defects": [],
+        "heading": "Installation",
+        "language": "r",
+        "roles": [
+          "other"
+        ],
+        "substitution_required": false
+      },
+      {
+        "defects": [],
+        "heading": "Installation",
+        "language": "r",
+        "roles": [
+          "other"
+        ],
+        "substitution_required": false
+      },
+      {
+        "defects": [],
+        "heading": "1. Import and wrangle **data**",
+        "language": "r",
+        "roles": [
+          "other"
+        ],
+        "substitution_required": true
+      },
+      {
+        "defects": [],
+        "heading": "2. **Scrape** variables from your data frame",
+        "language": "r",
+        "roles": [
+          "other"
+        ],
+        "substitution_required": false
+      },
+      {
+        "defects": [],
+        "heading": "3. **Script** your preferred model",
+        "language": "r",
+        "roles": [
+          "other"
+        ],
+        "substitution_required": false
+      },
+      {
+        "defects": [],
+        "heading": "4. **Fit** and **Inspect** your model via `lavaan`",
+        "language": "r",
+        "roles": [
+          "other"
+        ],
+        "substitution_required": false
+      },
+      {
+        "defects": [],
+        "heading": "4. **Fit** and **Inspect** your model via `lavaan`",
+        "language": "r",
+        "roles": [
+          "other"
+        ],
+        "substitution_required": false
+      },
+      {
+        "defects": [],
+        "heading": "5. **Output** statistical visualizations and/or tables",
+        "language": "r",
+        "roles": [
+          "other"
+        ],
+        "substitution_required": false
+      }
+    ],
+    "doi": "10.21105/joss.10115",
+    "eligible": true,
+    "external_docs": true,
+    "first_use_safe": false,
+    "hard_defects": [],
+    "install_safe": false,
+    "manual_hard_defects": [],
+    "manual_strict_ready": null,
+    "naive_ready": false,
+    "notes": "Mechanical acquisition; reference annotation not yet created.",
+    "order": 32,
+    "readme_sha": "1fd9fe26c1df6aa8f52f51b633c23ee8c8f40f37",
+    "relaxed_ready": true,
+    "repository": "jsakaluk/dySEM",
+    "strict_ready": false,
+    "substitution_blocks": 1,
+    "title": "dySEM: An R Package for Dyadic Structural Equation Modeling with Latent Variables"
+  },
+  {
+    "blocks": [
+      {
+        "defects": [],
+        "heading": "🔢 Version Compatibility Matrix",
+        "language": "python",
+        "roles": [
+          "other"
+        ],
+        "substitution_required": false
+      },
+      {
+        "defects": [],
+        "heading": "📊 Validation Metric",
+        "language": "python",
+        "roles": [
+          "other"
+        ],
+        "substitution_required": false
+      },
+      {
+        "defects": [],
+        "heading": "📂 Installation",
+        "language": "bash",
+        "roles": [
+          "install"
+        ],
+        "substitution_required": false
+      },
+      {
+        "defects": [],
+        "heading": "a. Serialize the model",
+        "language": "python",
+        "roles": [
+          "other"
+        ],
+        "substitution_required": false
+      },
+      {
+        "defects": [],
+        "heading": "b. Deserialize the model",
+        "language": "python",
+        "roles": [
+          "other"
+        ],
+        "substitution_required": false
+      },
+      {
+        "defects": [],
+        "heading": "2. Docker: Step by Step",
+        "language": "bash",
+        "roles": [
+          "other"
+        ],
+        "substitution_required": false
+      },
+      {
+        "defects": [],
+        "heading": "2. Docker: Step by Step",
+        "language": "bash",
+        "roles": [
+          "other"
+        ],
+        "substitution_required": false
+      },
+      {
+        "defects": [],
+        "heading": "2. Docker: Step by Step",
+        "language": "bash",
+        "roles": [
+          "other"
+        ],
+        "substitution_required": false
+      },
+      {
+        "defects": [
+          "missing_relative_path:input_model/all_data.json",
+          "missing_relative_path:input_model/y_pred.csv"
+        ],
+        "heading": "2. Docker: Step by Step",
+        "language": "python",
+        "roles": [
+          "other"
+        ],
+        "substitution_required": false
+      },
+      {
+        "defects": [
+          "missing_relative_path:input_model/all_data.json",
+          "missing_relative_path:output_model/y_pred_new.csv"
+        ],
+        "heading": "2. Docker: Step by Step",
+        "language": "python",
+        "roles": [
+          "other"
+        ],
+        "substitution_required": false
+      },
+      {
+        "defects": [],
+        "heading": "2. Docker: Step by Step",
+        "language": "bash",
+        "roles": [
+          "other"
+        ],
+        "substitution_required": false
+      },
+      {
+        "defects": [],
+        "heading": "2. Docker: Step by Step",
+        "language": "bash",
+        "roles": [
+          "other"
+        ],
+        "substitution_required": false
+      },
+      {
+        "defects": [],
+        "heading": "Run tests locally",
+        "language": "bash",
+        "roles": [
+          "test"
+        ],
+        "substitution_required": false
+      }
+    ],
+    "doi": "10.21105/joss.10374",
+    "eligible": true,
+    "external_docs": false,
+    "first_use_safe": false,
+    "hard_defects": [
+      "missing_relative_path:input_model/all_data.json",
+      "missing_relative_path:input_model/y_pred.csv",
+      "missing_relative_path:output_model/y_pred_new.csv"
+    ],
+    "install_safe": true,
+    "manual_hard_defects": [],
+    "manual_strict_ready": null,
+    "naive_ready": true,
+    "notes": "Mechanical acquisition; reference annotation not yet created.",
+    "order": 33,
+    "readme_sha": "36a51525a013eb98b635f0ce8b2b3db1ae2a7bb4",
+    "relaxed_ready": false,
+    "repository": "anvaldes/sklearn-migrator",
+    "strict_ready": false,
+    "substitution_blocks": 0,
+    "title": "sklearn-migrator: Cross-version migration of scikit-learn models for reproducible MLOps"
+  },
+  {
+    "blocks": [],
+    "doi": "10.21105/joss.10328",
+    "eligible": true,
+    "external_docs": true,
+    "first_use_safe": false,
+    "hard_defects": [],
+    "install_safe": false,
+    "manual_hard_defects": [],
+    "manual_strict_ready": null,
+    "naive_ready": false,
+    "notes": "Mechanical acquisition; reference annotation not yet created.",
+    "order": 34,
+    "readme_sha": "6f898496335b9a0bf64def628d2ff63852af89bf",
+    "relaxed_ready": true,
+    "repository": "boostorg/geometry",
+    "strict_ready": false,
+    "substitution_blocks": 0,
+    "title": "Boost.Geometry: A Generic C++ Geometry Library"
+  },
+  {
+    "blocks": [
+      {
+        "defects": [],
+        "heading": "Try It Out",
+        "language": "shell",
+        "roles": [
+          "install"
+        ],
+        "substitution_required": false
+      },
+      {
+        "defects": [],
+        "heading": "Try It Out",
+        "language": "shell",
+        "roles": [
+          "install"
+        ],
+        "substitution_required": false
+      },
+      {
+        "defects": [],
+        "heading": "Try It Out",
+        "language": "shell",
+        "roles": [
+          "other"
+        ],
+        "substitution_required": false
+      },
+      {
+        "defects": [],
+        "heading": "Try It Out",
+        "language": "shell",
+        "roles": [
+          "other"
+        ],
+        "substitution_required": false
+      },
+      {
+        "defects": [],
+        "heading": "Citation",
+        "language": "bibtex",
+        "roles": [
+          "other"
+        ],
+        "substitution_required": false
+      }
+    ],
+    "doi": "10.21105/joss.10304",
+    "eligible": true,
+    "external_docs": true,
+    "first_use_safe": false,
+    "hard_defects": [],
+    "install_safe": true,
+    "manual_hard_defects": [],
+    "manual_strict_ready": null,
+    "naive_ready": false,
+    "notes": "Mechanical acquisition; reference annotation not yet created.",
+    "order": 35,
+    "readme_sha": "54cba4bf4e73241b178058a0e06bedabba5c4d8d",
+    "relaxed_ready": true,
+    "repository": "IBM/ado",
+    "strict_ready": false,
+    "substitution_blocks": 0,
+    "title": "ado: a Python framework for computational experimentation and benchmarking"
+  },
+  {
+    "blocks": [
+      {
+        "defects": [],
+        "heading": "1.1 For Users",
+        "language": "shell",
+        "roles": [
+          "install"
+        ],
+        "substitution_required": false
+      },
+      {
+        "defects": [],
+        "heading": "1.1 For Users",
+        "language": "shell",
+        "roles": [
+          "install"
+        ],
+        "substitution_required": true
+      },
+      {
+        "defects": [],
+        "heading": "1.2 For Devs/Contributors",
+        "language": "shell",
+        "roles": [
+          "install"
+        ],
+        "substitution_required": true
+      },
+      {
+        "defects": [],
+        "heading": "Running the tests",
+        "language": "shell",
+        "roles": [
+          "test"
+        ],
+        "substitution_required": false
+      },
+      {
+        "defects": [],
+        "heading": "Running the tests",
+        "language": "shell",
+        "roles": [
+          "test"
+        ],
+        "substitution_required": false
+      }
+    ],
+    "doi": "10.21105/joss.07550",
+    "eligible": true,
+    "external_docs": true,
+    "first_use_safe": false,
+    "hard_defects": [],
+    "install_safe": true,
+    "manual_hard_defects": [],
+    "manual_strict_ready": null,
+    "naive_ready": true,
+    "notes": "Mechanical acquisition; reference annotation not yet created.",
+    "order": 36,
+    "readme_sha": "bfdb82ad519646f146b06a3b1cefcafaa36421b4",
+    "relaxed_ready": true,
+    "repository": "GESS-research-group/pyshbundle",
+    "strict_ready": false,
+    "substitution_blocks": 2,
+    "title": "PySHbundle: A Python tool for processing GRACE gravimetry data into global surface mass change datasets"
+  },
+  {
+    "blocks": [
+      {
+        "defects": [],
+        "heading": "Installation",
+        "language": "r",
+        "roles": [
+          "other"
+        ],
+        "substitution_required": false
+      },
+      {
+        "defects": [],
+        "heading": "Installation",
+        "language": "r",
+        "roles": [
+          "other"
+        ],
+        "substitution_required": false
+      },
+      {
+        "defects": [],
+        "heading": "With `phyloseq` or `rbiom` objects",
+        "language": "r",
+        "roles": [
+          "other"
+        ],
+        "substitution_required": false
+      },
+      {
+        "defects": [],
+        "heading": "With basic R objects",
+        "language": "r",
+        "roles": [
+          "other"
+        ],
+        "substitution_required": false
+      },
+      {
+        "defects": [],
+        "heading": "Available Methods",
+        "language": "r",
+        "roles": [
+          "other"
+        ],
+        "substitution_required": false
+      }
+    ],
+    "doi": "10.21105/joss.09777",
+    "eligible": true,
+    "external_docs": true,
+    "first_use_safe": false,
+    "hard_defects": [],
+    "install_safe": false,
+    "manual_hard_defects": [],
+    "manual_strict_ready": null,
+    "naive_ready": false,
+    "notes": "Mechanical acquisition; reference annotation not yet created.",
+    "order": 37,
+    "readme_sha": "aba4ddfd2fc0fbfc0bfc0d4df5de10a7d94f7bc0",
+    "relaxed_ready": true,
+    "repository": "cmmr/ecodive",
+    "strict_ready": false,
+    "substitution_blocks": 0,
+    "title": "ecodive: Parallel and Memory-Efficient R Package for Ecological Diversity Analysis"
+  },
+  {
+    "blocks": [
+      {
+        "defects": [],
+        "heading": "Citation",
+        "language": "bibtex",
+        "roles": [
+          "other"
+        ],
+        "substitution_required": false
+      },
+      {
+        "defects": [],
+        "heading": "Stable version",
+        "language": "r",
+        "roles": [
+          "other"
+        ],
+        "substitution_required": false
+      },
+      {
+        "defects": [],
+        "heading": "Development version",
+        "language": "r",
+        "roles": [
+          "development"
+        ],
+        "substitution_required": false
+      },
+      {
+        "defects": [],
+        "heading": "Usage example",
+        "language": "r",
+        "roles": [
+          "other"
+        ],
+        "substitution_required": true
+      },
+      {
+        "defects": [],
+        "heading": "Using cloud storages",
+        "language": "ini",
+        "roles": [
+          "other"
+        ],
+        "substitution_required": false
+      },
+      {
+        "defects": [],
+        "heading": "Using cloud storages",
+        "language": "ini",
+        "roles": [
+          "other"
+        ],
+        "substitution_required": false
+      },
+      {
+        "defects": [],
+        "heading": "Using cloud storages",
+        "language": "r",
+        "roles": [
+          "other"
+        ],
+        "substitution_required": false
+      },
+      {
+        "defects": [],
+        "heading": "A note on parallel computing",
+        "language": "r",
+        "roles": [
+          "other"
+        ],
+        "substitution_required": false
+      },
+      {
+        "defects": [],
+        "heading": "A note on parallel computing",
+        "language": "r",
+        "roles": [
+          "other"
+        ],
+        "substitution_required": false
+      }
+    ],
+    "doi": "10.21105/joss.10166",
+    "eligible": true,
+    "external_docs": true,
+    "first_use_safe": false,
+    "hard_defects": [],
+    "install_safe": false,
+    "manual_hard_defects": [],
+    "manual_strict_ready": null,
+    "naive_ready": false,
+    "notes": "Mechanical acquisition; reference annotation not yet created.",
+    "order": 38,
+    "readme_sha": "7789542ea8afac9ef7f05a6bcc2cbdefb71c0ca9",
+    "relaxed_ready": true,
+    "repository": "mapme-initiative/mapme.biodiversity",
+    "strict_ready": false,
+    "substitution_blocks": 1,
+    "title": "mapme.biodiversity: Efficient Monitoring of Global Biodiversity Portfolios"
+  },
+  {
+    "blocks": [
+      {
+        "defects": [],
+        "heading": "Citation",
+        "language": "",
+        "roles": [
+          "other"
+        ],
+        "substitution_required": false
+      }
+    ],
+    "doi": "10.21105/joss.09570",
+    "eligible": true,
+    "external_docs": true,
+    "first_use_safe": false,
+    "hard_defects": [],
+    "install_safe": false,
+    "manual_hard_defects": [],
+    "manual_strict_ready": null,
+    "naive_ready": false,
+    "notes": "Mechanical acquisition; reference annotation not yet created.",
+    "order": 39,
+    "readme_sha": "9063a2ec6b5b25b342927dcd35a60a511f6eb0b6",
+    "relaxed_ready": true,
+    "repository": "cmyoo/cosmos",
+    "strict_ready": false,
+    "substitution_blocks": 0,
+    "title": "COSMOS: A numerical relativity code specialized for PBH formation"
+  }
+]

@@ -1,0 +1,2661 @@
+[
+  {
+    "blocks": [
+      {
+        "heading": "Linux users:",
+        "language": "",
+        "text": "sudo apt-get install build-essential python3-dev"
+      },
+      {
+        "heading": "Option 1: Install via `pip`",
+        "language": "bash",
+        "text": "pip install himap"
+      },
+      {
+        "heading": "Option 2: Install from Source Code",
+        "language": "",
+        "text": "conda create -n himap_env python=3.12"
+      },
+      {
+        "heading": "Option 2: Install from Source Code",
+        "language": "",
+        "text": "conda activate himap_env"
+      },
+      {
+        "heading": "Option 2: Install from Source Code",
+        "language": "",
+        "text": "conda install git"
+      },
+      {
+        "heading": "Option 2: Install from Source Code",
+        "language": "",
+        "text": "git clone https://github.com/GroupiSP/himap.git"
+      },
+      {
+        "heading": "Option 2: Install from Source Code",
+        "language": "",
+        "text": "cd himap"
+      },
+      {
+        "heading": "Option 2: Install from Source Code",
+        "language": "",
+        "text": "pip install -r requirements.txt"
+      },
+      {
+        "heading": "Option 2: Install from Source Code",
+        "language": "",
+        "text": "python setup_cython.py build_ext --inplace"
+      },
+      {
+        "heading": "Structure",
+        "language": "",
+        "text": "../root/\n      └── LICENSE\n      └── README.md\n      └── requirements.txt\n      └── ...\n\n    \n      ├── himap/                                                        -- Required\n          └── ab.py                                                     -- Required\n          └── base.py                                                   -- Required\n          └── main.py                                                   -- Required\n          └── plot.py                                                   -- Required\n          └── smoothed.pyd                                              -- Required\n          └── utils.py                                                  -- Required\n          \n          ├── cython_build/                                             -- Required\n              └── __init__.py                                           -- Required      \n              └── fwd_bwd.pyx                                           -- Required\n              └── setup.py                                              -- Required\n\n\n          ├── example_data/                                             -- Required      \n              └── test_FD001_disc_20_mod.csv                            -- Required\n              └── train_FD001_disc_20_mod.csv                           -- Required\n\n          ├── results/                                                  -- Automatically generated      \n              ├── dictionaries                                          -- Automatically generated\n              ├── figures/                                              -- Automatically generated\n              ├── models/                                               -- Automatically generated"
+      },
+      {
+        "heading": "Run from the rebuild repo",
+        "language": "",
+        "text": "python -m himap.main"
+      },
+      {
+        "heading": "Run from the rebuild repo",
+        "language": "",
+        "text": "python -m himap.main --hsmm True "
+      },
+      {
+        "heading": "Run from the rebuild repo",
+        "language": "",
+        "text": "python -m himap.main --mc_sampling True"
+      },
+      {
+        "heading": "Run from the installed package",
+        "language": "",
+        "text": "python -m himap.main"
+      }
+    ],
+    "doi": "10.21105/joss.09491",
+    "external_docs": true,
+    "external_documentation_links": [
+      "https://cython.readthedocs.io/en/latest/src/quickstart/install.html",
+      "https://himap.readthedocs.io/en/latest/"
+    ],
+    "host": "github",
+    "manual_hard_defects": [],
+    "manual_strict_ready": null,
+    "notes": "Mechanical acquisition; reference annotation not yet created.",
+    "order": 1,
+    "path_index": {},
+    "readme_sha": "910c0bdfb8a9f4968110e6cac13a450573d6f4da",
+    "repository": "GroupiSP/himap",
+    "title": "HiMAP: Hidden Markov for Advanced Prognostics"
+  },
+  {
+    "blocks": [
+      {
+        "heading": "zarrtraj",
+        "language": "bash",
+        "text": "pip install zarrtraj"
+      },
+      {
+        "heading": "zarrtraj",
+        "language": "bash",
+        "text": "conda install -c conda-forge zarrtraj"
+      },
+      {
+        "heading": "Citation",
+        "language": "bibtex",
+        "text": "@article{Woods2026zarrtraj,\n  author = {Woods, Lawson and MacDermott-Opeskin, Hugo and Jakupovic, Edis and Zhuang, Yuxuan and Gowers, Richard J and Beckstein, Oliver},\n  title = {Zarrtraj: A Python package for streaming molecular dynamics trajectories from cloud services},\n  journal = {Journal of Open Source Software},\n  year = {2026},\n  volume = {11},\n  number = {121},\n  pages = {7943},\n  doi = {10.21105/joss.07943},\n  url = {https://doi.org/10.21105/joss.07943}\n}"
+      }
+    ],
+    "doi": "10.21105/joss.07943",
+    "external_docs": true,
+    "external_documentation_links": [
+      "https://readthedocs.org/projects/zarrtraj/badge/?version=latest",
+      "https://zarrtraj.readthedocs.io/en/latest/?badge=latest",
+      "https://zarrtraj.readthedocs.io/en/latest/index.html",
+      "https://zarrtraj.readthedocs.io/en/latest/zarrmd-file-spec/v0.2.0.html"
+    ],
+    "host": "github",
+    "manual_hard_defects": [],
+    "manual_strict_ready": null,
+    "notes": "Mechanical acquisition; reference annotation not yet created.",
+    "order": 2,
+    "path_index": {},
+    "readme_sha": "09a960fc59a5369604583e37050e0a01654e89d2",
+    "repository": "Becksteinlab/zarrtraj",
+    "title": "Zarrtraj: A Python package for streaming molecular dynamics trajectories from cloud services"
+  },
+  {
+    "blocks": [
+      {
+        "heading": "Installation",
+        "language": "bash",
+        "text": "    python -m venv cdsaxs-venv"
+      },
+      {
+        "heading": "Installation",
+        "language": "bash",
+        "text": "        cdsaxs-venv\\Scripts\\activate"
+      },
+      {
+        "heading": "Installation",
+        "language": "bash",
+        "text": "        source cdsaxs-venv/bin/activate"
+      },
+      {
+        "heading": "Installation",
+        "language": "bash",
+        "text": "        pip install cdsaxs"
+      },
+      {
+        "heading": "Installation",
+        "language": "bash",
+        "text": "        pip install git+https://github.com/CEA-MetroCarac/cdsaxs.git"
+      },
+      {
+        "heading": "Installation",
+        "language": "bash",
+        "text": "        git clone https://github.com/CEA-MetroCarac/cdsaxs.git\n        cd cdsaxs\n        pip install ."
+      },
+      {
+        "heading": "Installation",
+        "language": "bash",
+        "text": "    pip install cdsaxs[gpu]"
+      },
+      {
+        "heading": "Installation",
+        "language": "bash",
+        "text": "    pip install \"cdsaxs[gpu] @ git+https://github.com/CEA-MetroCarac/cdsaxs.git\""
+      }
+    ],
+    "doi": "10.21105/joss.07559",
+    "external_docs": true,
+    "external_documentation_links": [
+      "https://CEA-MetroCarac.github.io/cdsaxs",
+      "https://cea-metrocarac.github.io/cdsaxs/_images/overlay.png",
+      "https://cea-metrocarac.github.io/cdsaxs/_images/rotation.png",
+      "https://cea-metrocarac.github.io/cdsaxs/_images/trapezoid.png",
+      "https://deap.readthedocs.io/en/master/examples/cmaes.html",
+      "https://emcee.readthedocs.io/en/stable/",
+      "https://github.com/CEA-MetroCarac/cdsaxs/tree/main/Tutorials",
+      "https://img.shields.io/badge/docs-passing-brightgreen"
+    ],
+    "host": "github",
+    "manual_hard_defects": [],
+    "manual_strict_ready": null,
+    "notes": "Mechanical acquisition; reference annotation not yet created.",
+    "order": 3,
+    "path_index": {},
+    "readme_sha": "fa5996b0a95094e2c796cf21d651a02cd70d8a99",
+    "repository": "CEA-MetroCarac/cdsaxs",
+    "title": "cdsaxs: A model fitting package for CD-SAXS data analysis"
+  },
+  {
+    "blocks": [
+      {
+        "heading": "Quick demonstration",
+        "language": "bash",
+        "text": "NUM_THREADS=64 # Adjust based on your machine's capabilities\n\ncd demo # the 'demo' folder can be downloaded via command 'yacht download demo' if it doesn't exist\n\n# build k-mer sketches for the query sample and ref genomes\nyacht sketch sample --infile ./query_data/query_data.fq --kmer 31 --scaled 1000 --outfile sample.sig.zip\nyacht sketch ref --infile ./ref_genomes --kmer 31 --scaled 1000 --outfile ref.sig.zip\n\n# preprocess the reference genomes (training step)\nyacht train --ref_file ref.sig.zip --ksize 31 --num_threads ${NUM_THREADS} --ani_thresh 0.95 --prefix 'demo_ani_thresh_0.95' --outdir ./ --force\n\n# run YACHT algorithm to check the presence of reference genomes in the query sample (inference step)\nyacht run --json demo_ani_thresh_0.95_config.json --sample_file sample.sig.zip --significance 0.99 --num_threads ${NUM_THREADS} --min_coverage_list 1 0.6 0.2 0.1 --outdir ./\n\n# convert result to CAMI profile format (Optional)\nyacht convert --yacht_output_dir ./results --sheet_name min_coverage0.2 --genome_to_taxid toy_genome_to_taxid.tsv --mode cami --sample_name 'MySample' --outfile_prefix cami_result --outdir ./"
+      },
+      {
+        "heading": "Conda Installation",
+        "language": "bash",
+        "text": "# create conda environment\nconda create -n yacht_env\n\n# activiate environment\nconda activate yacht_env\n\n# install YACHT\nconda install -c conda-forge -c bioconda yacht"
+      },
+      {
+        "heading": "Using Conda",
+        "language": "bash",
+        "referenced_paths": [
+          "env/yacht_env.yml"
+        ],
+        "text": "# Clone the YACHT repository\ngit clone https://github.com/KoslickiLab/YACHT.git\ncd YACHT\n\n# Create a new virtual environment named 'yacht_env'\nconda env create -f env/yacht_env.yml\n\n# Activate the newly created environment\nconda activate yacht_env\n\n# Install YACHT within the environment\npip install ."
+      },
+      {
+        "heading": "Using Docker",
+        "language": "",
+        "text": "docker build --tag 'yacht' .\ndocker run -it --entrypoint=/bin/bash yacht -i\nconda activate yacht_env"
+      },
+      {
+        "heading": "Commands",
+        "language": "bash",
+        "text": "  # Example\n  yacht download demo --outfolder ./demo"
+      },
+      {
+        "heading": "Commands",
+        "language": "bash",
+        "text": "  # Example for downloading the k31 sketches of representative genomes of GTDB rs214 version \n  yacht download default_ref_db --database gtdb --db_version rs214 --gtdb_type reps --k 31 --outfolder ./"
+      },
+      {
+        "heading": "Commands",
+        "language": "bash",
+        "text": "  # Example for downloading the pretrained reference database that was trained from GTDB rs214 representative genomes with k=31 and ani_threshold=0.9995\n  yacht download pretrained_ref_db --database gtdb --db_version rs214 --k 31 --ani_thresh 0.9995 --outfolder ./"
+      },
+      {
+        "heading": "Commands",
+        "language": "bash",
+        "text": "  # Example for sketching multiple fasta files as reference genomes in a given folder\n  yacht sketch ref --infile ./demo/ref_genomes --kmer 31 --scaled 1000 --outfile ref.sig.zip\n  "
+      },
+      {
+        "heading": "Commands",
+        "language": "bash",
+        "text": "  # Example for sketching a FASTA/Q file as a metagenomic example\n  yacht sketch sample --infile ./query_data/query_data.fq --kmer 31 --scaled 1000 --outfile sample.sig.zip"
+      },
+      {
+        "heading": "Reference skeches",
+        "language": "bash",
+        "text": "yacht download default_ref_db --database gtdb --db_version rs214 --gtdb_type reps --k 31 --outfolder ./"
+      },
+      {
+        "heading": "Reference skeches",
+        "language": "bash",
+        "text": "wget https://farm.cse.ucdavis.edu/~ctbrown/sourmash-db/gtdb-rs214/gtdb-rs214-reps.k31.zip"
+      },
+      {
+        "heading": "Reference skeches",
+        "language": "bash",
+        "placeholder_explained": true,
+        "text": "# This is equivalent to: sourmash sketch dna -f -p k=31,scaled=1000,abund --singleton <path to your multi-FASTA file> -o training_database.sig.zip\nyacht sketch ref --infile <path to your multi-FASTA file> --kmer 31 --scaled 1000 --outfile training_database.sig.zip"
+      },
+      {
+        "heading": "Reference skeches",
+        "language": "bash",
+        "placeholder_explained": true,
+        "text": "# This is equivalent to: find <path of foler containg FASTA/FASTQ files> > dataset.csv; sourmash sketch fromfile dataset.csv -p dna,k=31,scaled=1000,abund -o training_database.sig.zip\nyacht sketch ref --infile <path of foler containg FASTA/FASTQ files> --kmer 31 --scaled 1000 --outfile training_database.sig.zip"
+      },
+      {
+        "heading": "Sample skeches",
+        "language": "bash",
+        "placeholder_explained": false,
+        "text": "# For a single-end FASTA/Q file\n# the command below is equivalent to: sourmash sketch dna -f -p k=31,scaled=1000,abund -o sample.sig.zip <input FASTA/Q file>\nyacht sketch sample --infile <input FASTA/Q file> --kmer 31 --scaled 1000 --outfile sample.sig.zip\n\n# For pair-end FASTA/Q files, you need to separately specify two FASTA/Q files\n# the command below is equivalent to: cat <FASTA/Q file 1> <FASTA/Q file 2> > combine.fastq (or combine.fasta); sourmash sketch dna -f -p k=31,scaled=1000,abund -o sample.sig.zip combine.fastq (or combine.fasta)\nyacht sketch sample --infile <FASTA/Q file 1> <FASTA/Q file 2> --kmer 31 --scaled 1000 --outfile sample.sig.zip"
+      },
+      {
+        "heading": "2. Preprocess the reference genomes (yacht train)",
+        "language": "bash",
+        "text": "yacht train --ref_file gtdb-rs214-reps.k31.zip --ksize 31 --num_threads 64 --ani_thresh 0.95 --prefix 'gtdb_ani_thresh_0.95' --outdir ./"
+      },
+      {
+        "heading": "Some pre-trained reference databases available on Zenodo",
+        "language": "bash",
+        "placeholder_explained": true,
+        "text": "# remember to replace <zendo_id> and <file_name> for your case before running it\ncurl --cookie zenodo-cookies.txt \"https://zenodo.org/records/<zendo_id>/files/<file_name>?download=1\" --output <file_name>\n\n# Example\n# curl --cookie zenodo-cookies.txt \"https://zenodo.org/records/10113534/files/genbank-2022.03-archaea-k31_0.80_pretrained.zip?download=1\" --output genbank-2022.03-archaea-k31_0.80_pretrained.zip"
+      },
+      {
+        "heading": "3. Run the YACHT algorithm (yacht run)",
+        "language": "bash",
+        "text": "yacht run --json 'gtdb_ani_thresh_0.95_config.json' --sample_file 'sample.sig.zip' --num_threads 64 --keep_raw --significance 0.99 --min_coverage_list 1 0.5 0.1 0.05 0.01 --outdir ./"
+      },
+      {
+        "heading": "4. Convert YACHT result to other popular output formats (yacht convert)",
+        "language": "bash",
+        "text": "yacht convert --yacht_output_dir './results' --sheet_name 'min_coverage0.01' --genome_to_taxid 'genome_to_taxid.tsv' --mode 'cami' --sample_name 'MySample' --outfile_prefix 'cami_result' --outdir ./"
+      }
+    ],
+    "doi": "10.21105/joss.09066",
+    "external_docs": true,
+    "external_documentation_links": [
+      "#manual-download-of-reference-sketches",
+      "#manual-installation",
+      "docs/column_descriptions.csv",
+      "https://conda.io/projects/conda/en/latest/user-guide/install/index.html",
+      "https://sourmash.readthedocs.io/en/latest/",
+      "https://sourmash.readthedocs.io/en/latest/databases.html"
+    ],
+    "host": "github",
+    "manual_hard_defects": [],
+    "manual_strict_ready": null,
+    "notes": "Mechanical acquisition; reference annotation not yet created.",
+    "order": 4,
+    "path_index": {
+      "env/yacht_env.yml": true
+    },
+    "readme_sha": "06337d79eb8c5460afbcc048d77a00163a602494",
+    "repository": "KoslickiLab/YACHT",
+    "title": "YACHT: Software for an ANI-based statistical test to detect microbial presence/absence in a metagenomic sample"
+  },
+  {
+    "blocks": [],
+    "doi": "10.21105/joss.09145",
+    "external_docs": true,
+    "external_documentation_links": [
+      "http://abinit.github.io/abipy",
+      "http://abinit.github.io/abipy/api/index.html",
+      "http://abinit.github.io/abipy/flow_gallery/index.html",
+      "http://abinit.github.io/abipy/gallery/index.html",
+      "http://abinit.github.io/abipy/installation",
+      "http://abinit.github.io/abipy/installation#anaconda-howto",
+      "http://abinit.github.io/abipy/scripts/index.html",
+      "http://abinit.github.io/abipy/workflows/taskmanager.html",
+      "http://unidata.github.io/netcdf4-python/",
+      "https://abinit.github.io/abipy_book/intro.html",
+      "https://conda.io/docs/",
+      "https://docs.pytest.org/en/latest/contents.html",
+      "https://gmatteo.github.io/abipy_abidev2021/#/",
+      "https://gmatteo.github.io/abipy_intro_abidev2019/",
+      "https://gmatteo.github.io/abipy_slides_aps_boston_2019/",
+      "https://img.shields.io/badge/docs-ff69b4.svg",
+      "https://nbviewer.jupyter.org/github/abinit/abitutorials/blob/master/abitutorials/index.ipynb",
+      "https://object.cscs.ch/v1/AUTH_b1d80408b3d340db9f03d373bbde5c1e/learn-public/materials/2019_05_aiida_tutorial/day4_abipy_Petretto.pdf",
+      "https://www.unidata.ucar.edu/software/netcdf/docs/faq.html#whatisit"
+    ],
+    "host": "github",
+    "manual_hard_defects": [],
+    "manual_strict_ready": null,
+    "notes": "Mechanical acquisition; reference annotation not yet created.",
+    "order": 5,
+    "path_index": {},
+    "readme_sha": "3facfc1b1c43e4e914e291781ea4148af08ff057",
+    "repository": "abinit/abipy",
+    "title": "Lumabi: a Python package to streamline the computation of phonon-resolved luminescence spectra of defects and dopants in solids"
+  },
+  {
+    "blocks": [
+      {
+        "heading": "Installation",
+        "language": "bash",
+        "text": "pip install cardiotensor"
+      },
+      {
+        "heading": "Primary Reference",
+        "language": "bibtex",
+        "text": "@article{Brunet2026,\n  doi={10.21105/joss.09720},\n  url={https://doi.org/10.21105/joss.09720},\n  year={2026},\n  publisher={The Open Journal},\n  volume={11},\n  number={121},\n  pages={9720},\n  author={Brunet, Joseph and Chestnutt, Lisa and Chourrout, Matthieu and Dejea, Hector and Sabarigirivasan, Vaishnavi and Lee, Peter D. and Cook, Andrew C.},\n  title={Cardiotensor: A Python Library for Orientation Analysis and Tractography in 3D Cardiac Imaging},\n  journal={Journal of Open Source Software}\n}"
+      }
+    ],
+    "doi": "10.21105/joss.09720",
+    "external_docs": true,
+    "external_documentation_links": [
+      "https://JosephBrunet.github.io/cardiotensor/",
+      "https://img.shields.io/badge/docs-online-blue.svg",
+      "https://www.josephbrunet.fr/cardiotensor/getting-started/examples/"
+    ],
+    "host": "github",
+    "manual_hard_defects": [],
+    "manual_strict_ready": null,
+    "notes": "Mechanical acquisition; reference annotation not yet created.",
+    "order": 6,
+    "path_index": {},
+    "readme_sha": "22e67e4e2322cf32f6324c8aa464eefe72c41d9b",
+    "repository": "JosephBrunet/cardiotensor",
+    "title": "Cardiotensor: A Python Library for Orientation Analysis and Tractography in 3D Cardiac Imaging"
+  },
+  {
+    "blocks": [],
+    "doi": "10.21105/joss.09943",
+    "external_docs": true,
+    "external_documentation_links": [
+      "https://github.com/SWeav02/baderkit/blob/main/docs/images/full_title.svg?raw=true",
+      "https://github.com/SWeav02/baderkit/blob/main/docs/images/joss_badge.svg",
+      "https://img.shields.io/badge/-Tutorials%20%26%20Docs-/?logo=microsoft-academic&color=785abf&logoColor=white",
+      "https://sweav02.github.io/baderkit/"
+    ],
+    "host": "github",
+    "manual_hard_defects": [],
+    "manual_strict_ready": null,
+    "notes": "Mechanical acquisition; reference annotation not yet created.",
+    "order": 7,
+    "path_index": {},
+    "readme_sha": "b253178829932c3bcaaef50c975ce2395c14370c",
+    "repository": "SWeav02/baderkit",
+    "title": "BaderKit: A Python Package for Grid-based Bader Charge Analysis"
+  },
+  {
+    "blocks": [],
+    "doi": "10.21105/joss.09881",
+    "external_docs": true,
+    "external_documentation_links": [
+      "https://raw.githubusercontent.com/tue-bmd/zea/main/docs/_static/zea-logo.png",
+      "https://readthedocs.org/projects/zea/badge/?version=latest",
+      "https://zea.readthedocs.io",
+      "https://zea.readthedocs.io/en/latest/?badge=latest",
+      "https://zea.readthedocs.io/en/latest/about.html",
+      "https://zea.readthedocs.io/en/latest/about.html#papers",
+      "https://zea.readthedocs.io/en/latest/agent.html",
+      "https://zea.readthedocs.io/en/latest/contributing.html",
+      "https://zea.readthedocs.io/en/latest/data-acquisition.html",
+      "https://zea.readthedocs.io/en/latest/examples.html",
+      "https://zea.readthedocs.io/en/latest/getting-started.html#citation",
+      "https://zea.readthedocs.io/en/latest/installation.html",
+      "https://zea.readthedocs.io/en/latest/models.html",
+      "https://zea.readthedocs.io/en/latest/pipeline.html"
+    ],
+    "host": "github",
+    "manual_hard_defects": [],
+    "manual_strict_ready": null,
+    "notes": "Mechanical acquisition; reference annotation not yet created.",
+    "order": 8,
+    "path_index": {},
+    "readme_sha": "da61e523dbec7548d6a24c58786c01db0b14a4fe",
+    "repository": "tue-bmd/zea",
+    "title": "zea: A Toolbox for Cognitive Ultrasound Imaging"
+  },
+  {
+    "blocks": [
+      {
+        "heading": "Install",
+        "language": "",
+        "text": "conda create -n hlafreq bioconda::hlafreq\nconda activate hlafreq"
+      },
+      {
+        "heading": "Troubleshooting",
+        "language": "",
+        "text": "WARNING (pytensor.configdefaults): g++ not detected!  PyTensor will be unable to compile C-implementations and will default to Python. Performance may be severely degraded. To remove this warning, set PyTensor flags cxx to an empty string."
+      },
+      {
+        "heading": "Troubleshooting",
+        "language": "",
+        "text": "conda config --set channel_priority strict"
+      },
+      {
+        "heading": "Troubleshooting",
+        "language": "",
+        "text": "conda create -n hlafreq -c conda-forge -c bioconda hlafreq cxx-compiler"
+      },
+      {
+        "heading": "Minimal example",
+        "language": "",
+        "text": "import HLAfreq\nbase_url = HLAfreq.makeURL(\"Uganda\", locus=\"A\")\naftab = HLAfreq.getAFdata(base_url)"
+      },
+      {
+        "heading": "Minimal example",
+        "language": "",
+        "text": "aftab = HLAfreq.only_complete(aftab)\naftab = HLAfreq.decrease_resolution(aftab, 2)\ncaf = HLAfreq.combineAF(aftab)"
+      }
+    ],
+    "doi": "10.21105/joss.10122",
+    "external_docs": true,
+    "external_documentation_links": [
+      "https://BarinthusBio.github.io/HLAfreq/HLAfreq.html",
+      "https://BarinthusBio.github.io/HLAfreq/HLAfreq/examples/credible_intervals.html",
+      "https://BarinthusBio.github.io/HLAfreq/HLAfreq/examples/multi_country.html",
+      "https://BarinthusBio.github.io/HLAfreq/HLAfreq/examples/single_country.html",
+      "https://BarinthusBio.github.io/HLAfreq/HLAfreq/examples/working_with_priors.html",
+      "https://barinthusbio.github.io/HLAfreq/HLAfreq/HLAfreq.html#combineAF",
+      "https://barinthusbio.github.io/HLAfreq/HLAfreq/HLAfreq.html#makeURL",
+      "https://barinthusbio.github.io/HLAfreq/HLAfreq/examples.html",
+      "https://conda-forge.org/docs/user/tipsandtricks/#using-multiple-channels",
+      "https://conda.io/projects/conda/en/stable/user-guide/install/index.html",
+      "https://docs.conda.io/projects/conda/en/stable/user-guide/index.html",
+      "https://github.com/BarinthusBio/HLAfreq/blob/main/examples/quickstart.py",
+      "https://pip.pypa.io/en/stable/",
+      "https://www.pymc.io/projects/docs/en/stable/installation.html"
+    ],
+    "host": "github",
+    "manual_hard_defects": [],
+    "manual_strict_ready": null,
+    "notes": "Mechanical acquisition; reference annotation not yet created.",
+    "order": 9,
+    "path_index": {},
+    "readme_sha": "3525159e744286f3007d174bd80217d6963e5dd2",
+    "repository": "BarinthusBio/HLAfreq",
+    "title": "HLAfreq: Download and combine HLA allele frequency data"
+  },
+  {
+    "blocks": [
+      {
+        "heading": "Installation",
+        "language": "shell",
+        "text": "# Create a new virtual environment and activate it\nconda create -n npl-3.11 python=3.11\nconda activate npl-3.11 \n\n# install from nplinker releases (requiring ~300MB of disk space)\npip install nplinker\n\n# install nplinker non-pypi dependencies and databases (~4GB)\ninstall-nplinker-deps"
+      },
+      {
+        "heading": "Testing",
+        "language": "shell",
+        "text": "# Create a new virtual environment\nconda create -n npl-3.11 python=3.11\nconda activate npl-3.11\n\n# Clone the repository and install the development dependencies\ngit clone https://github.com/NPLinker/nplinker.git\ncd nplinker\npip install -e \".[dev]\"\ninstall-nplinker-deps"
+      },
+      {
+        "heading": "Unit tests",
+        "language": "shell",
+        "text": "pytest"
+      },
+      {
+        "heading": "Integration tests",
+        "language": "shell",
+        "text": "pytest -n1 tests/integration"
+      }
+    ],
+    "doi": "10.21105/joss.09528",
+    "external_docs": true,
+    "external_documentation_links": [
+      "./docs/images/NPLinker_standard_black.svg",
+      "CONTRIBUTING.md",
+      "https://img.shields.io/badge/Docs_Available-lightgreen",
+      "https://nplinker.github.io/nplinker"
+    ],
+    "host": "github",
+    "manual_hard_defects": [],
+    "manual_strict_ready": null,
+    "notes": "Mechanical acquisition; reference annotation not yet created.",
+    "order": 10,
+    "path_index": {},
+    "readme_sha": "4f3e6049812f903a6e2a217e80071aedfc6aa136",
+    "repository": "NPLinker/nplinker",
+    "title": "NPLinker 2: a modular and customizable framework for paired omics analyses"
+  },
+  {
+    "blocks": [
+      {
+        "heading": "Installation",
+        "language": "bash",
+        "text": "$ git clone https://github.com/ncsa/NEAT.git\n$ cd NEAT"
+      },
+      {
+        "heading": "Installation",
+        "language": "bash",
+        "text": "(base) $ conda create -n neat -c conda-forge -c bioconda neat\n(base) $ conda activate neat\n(neat) $ neat --help # tests that NEAT has installed correctly"
+      },
+      {
+        "heading": "Installation",
+        "language": "bash",
+        "text": "(base) $ conda env create -f environment.yml\n(base) $ conda activate neat\n(neat) $ poetry install\n(neat) $ neat --help # tests that NEAT has installed correctly"
+      },
+      {
+        "heading": "Installation",
+        "language": "bash",
+        "text": "$ conda env create -f environment.yml\n$ conda activate neat\n$ poetry install"
+      },
+      {
+        "heading": "Installation",
+        "language": "bash",
+        "text": "export PYTHON_KEYRING_BACKEND=keyring.backends.null.Keyring"
+      },
+      {
+        "heading": "Installation",
+        "language": "bash",
+        "text": "$ neat --help"
+      },
+      {
+        "heading": "Installation",
+        "language": "bash",
+        "text": "$ python -m neat --help"
+      },
+      {
+        "heading": "Usage",
+        "language": "yml",
+        "text": "reference: /path/to/my/genome.fa\nread_len: 151\nploidy: 4\ncoverage: 15"
+      },
+      {
+        "heading": "Usage",
+        "language": "bash",
+        "text": "neat read-simulator -c neat_config.yml -o simulated_data"
+      },
+      {
+        "heading": "Output ordering",
+        "language": "sh",
+        "text": "# Single-end\nseqkit shuffle reads.fastq.gz -o reads.shuffled.fastq.gz\n\n# Paired-end — use a shared seed so the two files stay mate-aligned\nseqkit shuffle -s 42 reads_r1.fastq.gz -o reads_r1.shuffled.fastq.gz\nseqkit shuffle -s 42 reads_r2.fastq.gz -o reads_r2.shuffled.fastq.gz"
+      },
+      {
+        "heading": "Whole genome simulation",
+        "language": "yml",
+        "text": "reference: hg19.fa\nread_len: 126\nproduce_bam: True\nproduce_vcf: True\npaired_ended: True\nfragment_mean: 300\nfragment_st_dev: 30"
+      },
+      {
+        "heading": "Whole genome simulation",
+        "language": "bash",
+        "text": "neat read-simulator                 \\\n        -c neat_config.yml          \\\n        -o /home/me/simulated_reads/"
+      },
+      {
+        "heading": "Targeted region simulation",
+        "language": "yml",
+        "text": "reference: hg19.fa\nread_len: 126\nproduce_bam: True\nproduce_vcf: True\npaired_ended: True\nfragment_mean: 300\nfragment_st_dev: 30\ntarged_bed: hg19_exome.bed"
+      },
+      {
+        "heading": "Targeted region simulation",
+        "language": "bash",
+        "text": "neat read-simulator                 \\\n        -c neat_config              \\\n        -o /home/me/simulated_reads/"
+      },
+      {
+        "heading": "Parallelizing simulation",
+        "language": "yml",
+        "text": "reference: giant_bacterium.fa\nread_len: 150\nproduce_bam: True\npaired_ended: True\nfragment_mean: 350\nfragment_st_dev: 50\nthreads: 12\n# parallel_block_size omitted: auto-tuned from genome length and thread count.\n# Set explicitly (e.g. parallel_block_size: 1000000) only if you have a reason."
+      },
+      {
+        "heading": "Parallelizing simulation",
+        "language": "",
+        "text": "neat read-simulator                 \\\n        --no-log                    \\\n        -c neat_config.yml          \\\n        -o /home/me/simulated_reads/"
+      },
+      {
+        "heading": "Multi-node deployment on HPC clusters",
+        "language": "bash",
+        "text": "#!/bin/bash\n#SBATCH --job-name=neat-array\n#SBATCH --array=1-24\n#SBATCH --cpus-per-task=64\n#SBATCH --mem=64G\n#SBATCH --time=04:00:00\n\nCHROM=$(awk \"NR==$SLURM_ARRAY_TASK_ID\" chroms.txt)   # e.g. chr1, chr2, ...\nsamtools faidx hg38.fa \"$CHROM\" > \"ref_${CHROM}.fa\"   # one chromosome per task\n\ncat > \"config_${CHROM}.yml\" <<YAML\nreference: ref_${CHROM}.fa\nread_len: 150\ncoverage: 30\npaired_ended: true\nfragment_mean: 400\nfragment_st_dev: 50\nproduce_bam: true\nproduce_fastq: true\nproduce_vcf: true\nthreads: ${SLURM_CPUS_PER_TASK}\nYAML\n\nneat read-simulator -c \"config_${CHROM}.yml\" \\\n                    -o \"out/${CHROM}/\" \\\n                    -p \"${CHROM}\""
+      },
+      {
+        "heading": "Multi-node deployment on HPC clusters",
+        "language": "bash",
+        "text": "# BAMs are already coordinate-sorted within each chromosome; cat in chromosome order\n# produces a globally-sorted whole-genome BAM with no further      2_golden.bam ... out/chrY/chrY_golden.bam\nsamtools index all.bam\n\n# FASTQs: gzip-concat preserves a valid gzip stream\ncat out/*/chr*_r1.fastq.gz > all_r1.fastq.gz\ncat out/*/chr*_r2.fastq.gz > all_r2.fastq.gz\n\n# VCFs: use bcftools concat for proper merging\nbcftools concat -o all.vcf.gz -Oz out/*/chr*_golden.vcf.gz\nbcftools index all.vcf.gz"
+      },
+      {
+        "heading": "Insert specific variants",
+        "language": "yml",
+        "text": "reference: hg19.fa\nread_len: 126\nproduce_bam: True\nproduce_vcf: True\npaired_ended: True\nfragment_mean: 300\nfragment_st_dev: 30\ninclude_vcf: NA12878.vcf\nmutation_rate: 0"
+      },
+      {
+        "heading": "Insert specific variants",
+        "language": "bash",
+        "text": "neat read-simulator                 \\\n        -c neat_config.yml          \\\n        -o /home/me/simulated_reads/"
+      },
+      {
+        "heading": "Single-end reads",
+        "language": "yml",
+        "text": "reference: hg18.fa\nread_len: 126\nproduce_bam: True\nproduce_vcf: True"
+      },
+      {
+        "heading": "Single-end reads",
+        "language": "bash",
+        "text": "neat read-simulator                 \\\n        -c neat_config.yml          \\\n        -o /home/me/simulated_read/ \\\n        -p 126_frags"
+      },
+      {
+        "heading": "Large single-end reads",
+        "language": "yml",
+        "text": "reference: hg19.fa\nread_len: 5000\nerror_model: errorModel_pacbio.pickle.gz\navg_seq_error: 0.1"
+      },
+      {
+        "heading": "Large single-end reads",
+        "language": "bash",
+        "text": "neat read-simulator                 \\\n        -c neat_config.yml          \\\n        -o /home/me/simulated_reads"
+      },
+      {
+        "heading": "`neat model-fraglen`",
+        "language": "bash",
+        "text": "    neat model-fraglen    \\\n        -i input.bam      \\\n        -o /path/to/prefix"
+      },
+      {
+        "heading": "`neat gen-mut-model`",
+        "language": "bash",
+        "text": "neat gen-mut-model reference.fa input_variants.vcf   \\\n        -o /home/me/models"
+      },
+      {
+        "heading": "`neat model-seq-err`",
+        "language": "bash",
+        "text": "gzip -d my_file.fastq.gz\nbgzip my_file.fastq"
+      },
+      {
+        "heading": "`neat model-seq-err`",
+        "language": "bash",
+        "text": "neat model-seq-err                                    \\\n        -i input_read.fq (.gz)                        \\\n        -o /path/to/prefix                            \\\n        -q quality score offset [33]                  \\\n        -Q maximum quality score [2, 11, 24, 37]      \\\n        -m maximum number of reads to process [all]   \\"
+      },
+      {
+        "heading": "`neat model-qual-score`",
+        "language": "bash",
+        "text": "neat model-qual-score \\\n    -i input_reads.fastq(.gz)            \\\n    -q 33                                \\\n    -Q 42                                \\\n    -m 1000000                           \\\n    --markov                             \\\n    -o /path/to/models                   \\\n    -p my_qual_model"
+      },
+      {
+        "heading": "Binned quality scoring for modern Illumina instruments",
+        "language": "bash",
+        "text": "# NovaSeq 6000 / NovaSeq X — Q2, Q12, Q23, Q37\nneat model-qual-score -i reads.fastq.gz --quality-preset novaseq \\\n    -o /path/to/models -p novaseq_model\n\n# NextSeq 2000 — Q2, Q12, Q26, Q37\nneat model-qual-score -i reads.fastq.gz --quality-preset nextseq2000 \\\n    -o /path/to/models -p nextseq2000_model\n\n# NextSeq 500 / MiniSeq — Q2, Q12, Q23, Q27, Q37\nneat model-qual-score -i reads.fastq.gz --quality-preset nextseq500 \\\n    -o /path/to/models -p nextseq500_model"
+      },
+      {
+        "heading": "Binned quality scoring for modern Illumina instruments",
+        "language": "bash",
+        "text": "neat model-qual-score -i reads.fastq.gz -Q 2 12 23 37 --markov \\\n    -o /path/to/models -p custom_binned_model"
+      },
+      {
+        "heading": "`neat model-gc-bias`",
+        "language": "bash",
+        "text": "neat model-gc-bias    \\\n    -i input.bam      \\\n    -r reference.fa   \\\n    -o /path/to/prefix"
+      },
+      {
+        "heading": "`neat compare-vcfs`",
+        "language": "bash",
+        "text": "neat compare-vcfs golden.vcf called.vcf            \\\n        --neat-run-dir /path/to/neat/output/dir    \\\n        --output-dir /path/to/comparison/output    \\\n        --reference reference.fa                   \\\n        [--target-bed target.bed]                  \\\n        [--happy-bin /abs/path/to/hap.py]          \\\n        [--plot]                                   \\\n        [--chrom-aliases aliases.tsv]"
+      },
+      {
+        "heading": "`neat compare-vcfs`",
+        "language": "bash",
+        "text": "conda create -n hap_py_env -c bioconda -c conda-forge hap.py -y"
+      },
+      {
+        "heading": "`neat bacterial-wrapper`",
+        "language": "bash",
+        "text": "neat bacterial-wrapper reference.fa bacteria_name \\\n        -c config.yml                             \\\n        -o /path/to/output/dir"
+      },
+      {
+        "heading": "FASTQ validation",
+        "language": "bash",
+        "text": "fastq read1.fastq.gz            # single-end\nfastqc read1.fastq.gz read2.fastq.gz   # paired-end"
+      },
+      {
+        "heading": "FASTQ validation",
+        "language": "bash",
+        "text": "fastp --in1 read1.fastq.gz --in2 read2.fastq.gz \\\n      --disable_adapter_trimming --disable_quality_filtering \\\n      --disable_length_filtering --thread 4"
+      },
+      {
+        "heading": "BAM validation",
+        "language": "bash",
+        "text": "samtools quickcheck output.bam"
+      },
+      {
+        "heading": "BAM validation",
+        "language": "bash",
+        "text": "samtools flagstat output.bam"
+      },
+      {
+        "heading": "BAM validation",
+        "language": "bash",
+        "text": "picard ValidateSamFile -I output.bam -MODE SUMMARY"
+      },
+      {
+        "heading": "VCF validation",
+        "language": "bash",
+        "text": "bcftools stats output_golden.vcf.gz | grep \"^SN\""
+      },
+      {
+        "heading": "Guide to run locally",
+        "language": "bash",
+        "text": "conda env create -f environment.yml\nconda activate neat\npoetry install --with dev\npytest -q tests"
+      }
+    ],
+    "doi": "10.21105/joss.09056",
+    "external_docs": true,
+    "external_documentation_links": [
+      "#examples",
+      "#guide-to-run-locally",
+      "docs/NEATNEAT.png",
+      "https://docs.icgc.org/portal/access/",
+      "https://docs.icgc.org/portal/access/</a"
+    ],
+    "host": "github",
+    "manual_hard_defects": [],
+    "manual_strict_ready": null,
+    "notes": "Mechanical acquisition; reference annotation not yet created.",
+    "order": 11,
+    "path_index": {},
+    "readme_sha": "7b4407bac5d8a431d03d515f3d2c3c08c2e47f70",
+    "repository": "ncsa/NEAT",
+    "title": "Enhancing short-read sequencing simulation: Updates to NEAT"
+  },
+  {
+    "blocks": [
+      {
+        "heading": "How to cite",
+        "language": "text",
+        "text": "KANISCH, G.; OBER, F.; Aust, M.O.: **UncertRadio**: Software for determining characteristic limits in accordance to DIN EN ISO 11929 for radioactivity measurements\nJournal of Open Source Software (JOSS) 21(22), 7398, 2026\nhttps://doi.org/10.21105/joss.07398\n\nKANISCH, G.: Generalized evaluation of environmental radioactivity measurements with UncertRadio. Part I: Methods without linear unfolding.\nAppl. Radiat. Isot. 110, 2016, 28–41\nhttps://dx.doi.org/10.1016/j.apradiso.2015.12.003\n\nKANISCH, G.: Generalized evaluation of environmental radioactivity measurements with UncertRadio. Part II: Methods with linear unfolding.\nAppl. Radiat. Isot. 110, 2016, 74–86\nhttps://dx.doi.org/10.1016/j.apradiso.2015.12.046"
+      },
+      {
+        "heading": "Requirements for Windows",
+        "language": "bash",
+        "text": "pacman -Syuu"
+      },
+      {
+        "heading": "Requirements for Windows",
+        "language": "bash",
+        "text": "pacman -S git make mingw-w64-ucrt-x86_64-cmake mingw-w64-ucrt-x86_64-toolchain mingw-w64-ucrt-x86_64-gcc-fortran mingw-w64-ucrt-x86_64-gtk3 mingw-w64-ucrt-x86_64-plplot mingw-w64-ucrt-x86_64-wxwidgets3.2-msw mingw-w64-ucrt-x86_64-lapack mingw-w64-ucrt-x86_64-python-sphinx mingw-w64-ucrt-x86_64-python-myst-parser"
+      },
+      {
+        "heading": "Requirements for Linux",
+        "language": "bash",
+        "text": "   pacman -Syu\n   pacman -S base-devel git cmake gcc-fortran lapack gtk3 python-sphinx python-myst-parser"
+      },
+      {
+        "heading": "Requirements for Linux",
+        "language": "bash",
+        "text": "   git clone https://aur.archlinux.org/plplot.git\n   cd plplot\n   makepkg -si"
+      },
+      {
+        "heading": "Requirements for Linux",
+        "language": "bash",
+        "text": "   apt-get update && apt-get upgrade\n   apt-get install build-essential gfortran git libgtk-3-dev libplplot-dev plplot-driver-cairo liblapack-dev python3-sphinx python3-myst-parser"
+      },
+      {
+        "heading": "Requirements for Linux",
+        "language": "bash",
+        "text": "   apt-get update && apt-get upgrade\n   apt-get install build-essential gfortran git libgtk-3-dev libplplot-dev plplot-driver-cairo liblapack-dev"
+      },
+      {
+        "heading": "Requirements for Linux",
+        "language": "bash",
+        "referenced_paths": [
+          "docs/requirements.txt"
+        ],
+        "text": "    # Install pip and python venv\n    apt-get install python3-pip python3.11-venv\n    # Create and activate the virtual environment\n    python3 -m venv venv\n    source venv/bin/activate\n    # Install the required packages\n    pip install -r docs/requirements.txt\n\n    # Optional build the documentation directly\n    cd docs\n    python3 make_docs.py"
+      },
+      {
+        "heading": "Actually build UncertRadio",
+        "language": "bash",
+        "text": "git clone https://github.com/OpenBfS/UncertRadio.git"
+      },
+      {
+        "heading": "Actually build UncertRadio",
+        "language": "bash",
+        "text": "cd UncertRadio\ncmake -B build -DCMAKE_BUILD_TYPE=Release\ncmake --build build -j4"
+      },
+      {
+        "heading": "Actually build UncertRadio",
+        "language": "bash",
+        "text": "cmake -B build -DCMAKE_BUILD_TYPE=Release -G \"MinGW Makefiles\""
+      },
+      {
+        "heading": "Optimization Options",
+        "language": "bash",
+        "text": "cmake -B build -DCMAKE_BUILD_TYPE=Release -DENABLE_OPTIMIZATION=ON"
+      },
+      {
+        "heading": "Install UncertRadio (mainly intended for Windows)",
+        "language": "bash",
+        "text": "cmake --install build --prefix=install"
+      },
+      {
+        "heading": "Install UncertRadio (mainly intended for Windows)",
+        "language": "bash",
+        "text": "tar -czvf UncertRadio.tar.gz install"
+      },
+      {
+        "heading": "Update",
+        "language": "bash",
+        "text": "git checkout main\ngit pull"
+      },
+      {
+        "heading": "Build the Documentation",
+        "language": "bash",
+        "text": "cmake -B build -DBUILD_DOCS=T -DCMAKE_BUILD_TYPE=Release"
+      },
+      {
+        "heading": "Build the Documentation",
+        "language": "bash",
+        "text": "cd docs\npython make_docs.py"
+      },
+      {
+        "heading": "Starting UncertRadio",
+        "language": "bash",
+        "text": "./bin/UncertRadio"
+      },
+      {
+        "heading": "Starting UncertRadio",
+        "language": "bash",
+        "text": "chmod +x UncertRadio_*.AppImage\n./UncertRadio_*.AppImage"
+      },
+      {
+        "heading": "Running the included tests",
+        "language": "bash",
+        "text": "./bin/UncertRadio run_tests"
+      }
+    ],
+    "doi": "10.21105/joss.07398",
+    "external_docs": true,
+    "external_documentation_links": [
+      "https://openbfs.github.io/UncertRadio/",
+      "https://plplot.sourceforge.net/documentation.php",
+      "https://wiki.archlinux.org/title/Arch_User_Repository",
+      "https://www.msys2.org/docs/environments/"
+    ],
+    "host": "github",
+    "manual_hard_defects": [],
+    "manual_strict_ready": null,
+    "notes": "Mechanical acquisition; reference annotation not yet created.",
+    "order": 12,
+    "path_index": {
+      "docs/requirements.txt": true
+    },
+    "readme_sha": "4363f5818216dcdcff1a050dcf84431bf5d8cb3e",
+    "repository": "OpenBfS/UncertRadio",
+    "title": "UncertRadio: Software for determining characteristic limits in accordance to DIN EN ISO 11929 for radioactivity measurements"
+  },
+  {
+    "blocks": [],
+    "doi": "10.21105/joss.09057",
+    "external_docs": true,
+    "external_documentation_links": [
+      "https://github.com/GRTLCollaboration/GRTresna/wiki"
+    ],
+    "host": "github",
+    "manual_hard_defects": [],
+    "manual_strict_ready": null,
+    "notes": "Mechanical acquisition; reference annotation not yet created.",
+    "order": 13,
+    "path_index": {},
+    "readme_sha": "7f58edcd0b7c834abcd5b5f2d4c64e3e0acb027c",
+    "repository": "GRTLCollaboration/GRTresna",
+    "title": "GRTresna: An open-source code to solve the initial data constraints in numerical relativity"
+  },
+  {
+    "blocks": [
+      {
+        "heading": "Installation",
+        "language": "bash",
+        "text": "pip install qdiv"
+      },
+      {
+        "heading": "Optional acceleration (Numba)",
+        "language": "bash",
+        "text": "pip install qdiv[accelerate]"
+      }
+    ],
+    "doi": "10.21105/joss.10089",
+    "external_docs": true,
+    "external_documentation_links": [
+      "https://qdiv.readthedocs.io"
+    ],
+    "host": "github",
+    "manual_hard_defects": [],
+    "manual_strict_ready": null,
+    "notes": "Mechanical acquisition; reference annotation not yet created.",
+    "order": 14,
+    "path_index": {},
+    "readme_sha": "daf2debccbec994e7f96e346d38b2c58aa94ce4a",
+    "repository": "omvatten/qdiv",
+    "title": "qdiv: A Python package for microbial ecology analysis using the Hill number framework"
+  },
+  {
+    "blocks": [
+      {
+        "heading": "Installation via precompiled executables",
+        "language": "bash",
+        "text": "# download the current stable release binary\nwget https://github.com/stschiff/sequenceTools/releases/latest/download/pileupCaller-linux\n# make it executable\nchmod +x pileupCaller-linux\n# run it\n./trident-linux -h"
+      },
+      {
+        "heading": "Options",
+        "language": "",
+        "placeholder_explained": false,
+        "text": "Usage: pileupCaller [--version] \n                    (--randomHaploid | --majorityCall [--downSampling] | \n                      --randomDiploid) [--keepIncongruentReads] \n                    [--seed <RANDOM_SEED>] [-d|--minDepth <DEPTH>] \n                    [--skipTransitions | --transitionsMissing | \n                      --singleStrandMode] (-f|--snpFile <FILE>) \n                    [(-e|--eigenstratOut <FILE_PREFIX>) [-z|----zip] | \n                      (-p|--plinkOut <FILE_PREFIX>) \n                      [--popNameAsPhenotype | --popNameAsBoth] [-z|----zip] |\n                      --vcf] \n                    (--sampleNames NAME1,NAME2,... | --sampleNameFile <FILE>) \n                    [--samplePopName POP(s)]\n\n  PileupCaller is a tool to create genotype calls from bam files using\n  read-sampling methods. To use this tool, you need to convert bam files into\n  the mpileup-format, specified at http://www.htslib.org/doc/samtools.html\n  (under \"mpileup\"). The recommended command line to create a multi-sample\n  mpileup file to be processed with pileupCaller is\n\n      samtools mpileup -B -q30 -Q30 -l <BED_FILE> -R -f <FASTA_REFERENCE_FILE>\n          Sample1.bam Sample2.bam Sample3.bam | pileupCaller ...\n\n  You can lookup what these options do in the samtools documentation. Note that\n  flag -B in samtools is very important to reduce reference bias in low coverage\n  data.\n\n\n  This tool is part of sequenceTools version 1.6.0.0\n\nAvailable options:\n  --version                Print version and exit\n  -h,--help                Show this help text\n  --randomHaploid          This method samples one read at random at each site,\n                           and uses the allele on that read as the one for the\n                           actual genotype. This results in a haploid call\n  --majorityCall           Pick the allele supported by the most reads at a\n                           site. If an equal numbers of alleles fulfil this,\n                           pick one at random. This results in a haploid call.\n                           See --downSampling for best practices for calling\n                           rare variants\n  --downSampling           When this switch is given, the MajorityCalling mode\n                           will downsample from the total number of reads a\n                           number of reads (without replacement) equal to the\n                           --minDepth given. This mitigates reference bias in\n                           the MajorityCalling model, which increases with\n                           higher coverage. The recommendation for rare-allele\n                           calling is --majorityCall --downsampling --minDepth 3\n  --randomDiploid          Sample two reads at random (without replacement) at\n                           each site and represent the individual by a diploid\n                           genotype constructed from those two random picks.\n                           This will always assign missing data to positions\n                           where only one read is present, even if minDepth=1.\n                           The main use case for this option is for estimating\n                           mean heterozygosity across sites.\n  --keepIncongruentReads   By default, pileupCaller now removes reads with\n                           tri-allelic alleles that are neither of the two\n                           alleles specified in the SNP file. To keep those\n                           reads for sampling, set this flag. With this option\n                           given, if the sampled read has a tri-allelic allele\n                           that is neither of the two given alleles in the SNP\n                           file, a missing genotype is generated. IMPORTANT\n                           NOTE: The default behaviour has changed in\n                           pileupCaller version 1.4.0. If you want to emulate\n                           the previous behaviour, use this flag. I recommend\n                           now to NOT set this flag and use the new behaviour.\n  --seed <RANDOM_SEED>     random seed used for the random number generator. If\n                           not given, use system clock to seed the random number\n                           generator.\n  -d,--minDepth <DEPTH>    specify the minimum depth for a call. For sites with\n                           fewer reads than this number, declare Missing\n                           (default: 1)\n  --skipTransitions        skip transition SNPs entirely in the output,\n                           resulting in a dataset with fewer sites.\n  --transitionsMissing     mark transitions as missing in the output, but do\n                           output the sites.\n  --singleStrandMode       [THIS IS CURRENTLY AN EXPERIMENTAL FEATURE]. At C/T\n                           polymorphisms, ignore reads aligning to the forward\n                           strand. At G/A polymorphisms, ignore reads aligning\n                           to the reverse strand. This should remove post-mortem\n                           damage in ancient DNA libraries prepared with the\n                           non-UDG single-stranded protocol.\n  -f,--snpFile <FILE>      an Eigenstrat-formatted SNP list file for the\n                           positions and alleles to call. All positions in the\n                           SNP file will be output, adding missing data where\n                           there is no data. Note that pileupCaller\n                           automatically checks whether alleles in the SNP file\n                           are flipped with respect to the human reference, and\n                           in those cases flips the genotypes accordingly. But\n                           it assumes that the strand-orientation of the SNPs\n                           given in the SNP list is the one in the reference\n                           genome used in the BAM file underlying the pileup\n                           input. Note that both the SNP file and the incoming\n                           pileup data have to be ordered by chromosome and\n                           position, and this is checked. The chromosome order\n                           in humans is 1-22,X,Y,MT. Chromosome can generally\n                           begin with \"chr\". In case of non-human data with\n                           different chromosome names, you should convert all\n                           names to numbers. They will always considered to be\n                           numerically ordered, even beyond 22. Finally, I note\n                           that for internally, X is converted to 23, Y to 24\n                           and MT to 90. This is the most widely used encoding\n                           in Eigenstrat databases for human data, so using a\n                           SNP file with that encoding will automatically be\n                           correctly aligned to pileup data with actual\n                           chromosome names X, Y and MT (or chrX, chrY and\n                           chrMT, respectively).\n  -e,--eigenstratOut <FILE_PREFIX>\n                           Set Eigenstrat as output format. Specify the\n                           filenames for the EigenStrat SNP, IND and GENO file\n                           outputs: <FILE_PREFIX>.snp, <FILE_PREFIX>.ind and\n                           <FILE_PREFIX>.geno. If not set, output will be\n                           FreqSum (Default). Note that freqSum format,\n                           described at\n                           https://rarecoal-docs.readthedocs.io/en/latest/rarecoal-tools.html#vcf2freqsum,\n                           is useful for testing your pipeline, since it's\n                           output to standard out\n  -z,----zip               GZip the output Eigenstrat or Plink genotype and SNP\n                           files. Filenames will be appended with '.gz'. To zip\n                           FreqSum or VCF output, just zip the standard output\n                           of this program, for example `pileupCaller ... --vcf\n                           | gzip -c > out.vcf.gz\n  -p,--plinkOut <FILE_PREFIX>\n                           Set Plink as output format. Specify the filenames for\n                           the Plink BIM, FAM and BED file outputs:\n                           <FILE_PREFIX>.bim, <FILE_PREFIX>.fam and\n                           <FILE_PREFIX>.bed. If not set, output will be FreqSum\n                           (Default). Note that freqSum format, described at\n                           https://rarecoal-docs.readthedocs.io/en/latest/rarecoal-tools.html#vcf2freqsum,\n                           is useful for testing your pipeline, since it's\n                           output to standard out\n  --popNameAsPhenotype     Only valid for Plink Output: Write the population\n                           name into the last column of the fam file, as a\n                           Phenotype according to the Plink Spec. By default,\n                           the population name is specified as the first column\n                           only (family name in the Plink spec)\n  --popNameAsBoth          Only valid for Plink Output: Write the population\n                           name into both the first and last column of the fam\n                           file, so both as Family-ID and as a Phenotype\n                           according to the Plink Spec. By default, the\n                           population name is specified only as the first column\n                           (family name in the Plink spec)\n  -z,----zip               GZip the output Eigenstrat or Plink genotype and SNP\n                           files. Filenames will be appended with '.gz'. To zip\n                           FreqSum or VCF output, just zip the standard output\n                           of this program, for example `pileupCaller ... --vcf\n                           | gzip -c > out.vcf.gz\n  --vcf                    output VCF format to stdout\n  --sampleNames NAME1,NAME2,...\n                           give the names of the samples as comma-separated list\n                           (no spaces)\n  --sampleNameFile <FILE>  give the names of the samples in a file with one name\n                           per line\n  --samplePopName POP(s)   specify the population name(s) of the samples, which\n                           are included in the output *.ind.txt file in\n                           Eigenstrat output. This will be ignored if the output\n                           format is not Eigenstrat. If a single name is given,\n                           it is applied to all samples, if multiple are given,\n                           their number must match the the number of samples\n                           (default: Left \"Unknown\")"
+      },
+      {
+        "heading": "VCF output",
+        "language": "",
+        "placeholder_explained": false,
+        "referenced_paths": [
+          "test/testDat/1240k_eigenstrat_snp_short.snp.txt"
+        ],
+        "text": "##fileformat=VCFv4.2\n##source=pileupCaller_v1.6.0.0\n##command_line=pileupCaller --randomHaploid --sampleNames I1,I2,I3,I4 -f test/testDat/1240k_eigenstrat_snp_short.snp.txt --vcf\n##group_names=Unknown,Unknown,Unknown,Unknown\n##INFO=<ID=NS,Number=1,Type=Integer,Description=\"Number of Samples With Data\">\n##INFO=<ID=DP,Number=1,Type=Integer,Description=\"Total Depth\">\n##INFO=<ID=AF,Number=A,Type=Float,Description=\"Allele Frequency\">\n##FILTER=<ID=s50,Description=\"Less than 50% of samples have data\">\n##FILTER=<ID=s10,Description=\"Less than 10% of samples have data\">\n##FORMAT=<ID=GT,Number=1,Type=String,Description=\"Genotype\">\n##FORMAT=<ID=DP,Number=1,Type=Integer,Description=\"Read Depth\">\n##FORMAT=<ID=DP8,Number=8,Type=Integer,Description=\"Nr of Reads supporting A,C,G,T in forward strand, followed by the same quartet in reverse strand\">\n#CHROM\tPOS\tID\tREF\tALT\tQUAL\tFILTER\tINFO\tFORMAT\tI1\tI2\tI3\tI4\n1\t752566\trs3094315\tG\tA\t.\tPASS\tNS=3;DP=9;AF=1.0\tGT:DP:DP8\t1:2:1,0,0,0,0,0,1,0\t1:4:2,0,0,0,2,0,0,0\t1:3:1,0,0,0,2,0,0,0\t.:0:0,0,0,0,0,0,0,0\n1\t776546\trs12124819\tA\tG\t.\tPASS\tNS=3;DP=6;AF=0.0\tGT:DP:DP8\t0:1:0,0,0,0,1,0,0,0\t0:4:2,0,0,0,2,0,0,0\t0:1:0,0,0,0,1,0,0,0\t.:0:0,0,0,0,0,0,0,0\n1\t832918\trs28765502\tT\tC\t.\tPASS\tNS=4;DP=8;AF=0.25\tGT:DP:DP8\t1:1:0,1,0,0,0,0,0,0\t0:4:0,0,0,2,0,0,0,2\t0:2:0,0,0,0,0,0,0,2\t0:1:0,0,0,1,0,0,0,0\n1\t842013\trs7419119\tT\tG\t.\tPASS\tNS=3;DP=19;AF=0.0\tGT:DP:DP8\t0:2:0,0,0,1,0,0,0,1\t0:11:0,0,0,5,0,0,0,6\t0:6:0,0,0,1,0,0,0,5\t.:0:0,0,0,0,0,0,0,0\n1\t846864\trs950122\tG\tC\t.\tPASS\tNS=4;DP=20;AF=0.0\tGT:DP:DP8\t0:3:0,0,1,0,0,0,2,0\t0:8:0,0,4,0,0,0,4,0\t0:8:0,0,3,0,0,0,5,0\t0:1:0,0,0,0,0,0,1,0\n1\t869303\trs113171913\tC\tT\t.\tPASS\tNS=3;DP=5;AF=0.67\tGT:DP:DP8\t1:2:0,0,0,2,0,0,0,0\t1:1:0,0,0,1,0,0,0,0\t0:2:0,1,0,0,0,1,0,0\t.:0:0,0,0,0,0,0,0,0\n1\t891021\trs13302957\tG\tA\t.\tPASS\tNS=2;DP=14;AF=1.0\tGT:DP:DP8\t.:0:0,0,0,0,0,0,0,0\t1:7:2,0,0,0,5,0,0,0\t1:7:4,0,0,0,3,0,0,0\t.:0:0,0,0,0,0,0,0,0"
+      }
+    ],
+    "doi": "10.21105/joss.08634",
+    "external_docs": true,
+    "external_documentation_links": [
+      "https://rarecoal-docs.readthedocs.io/en/latest/rarecoal-tools.html#vcf2freqsum",
+      "https://rarecoal-docs.readthedocs.io/en/latest/rarecoal-tools.html#vcf2freqsum,",
+      "https://samtools.github.io/hts-specs/VCFv4.5.pdf."
+    ],
+    "host": "github",
+    "manual_hard_defects": [],
+    "manual_strict_ready": null,
+    "notes": "Mechanical acquisition; reference annotation not yet created.",
+    "order": 16,
+    "path_index": {
+      "test/testDat/1240k_eigenstrat_snp_short.snp.txt": true
+    },
+    "readme_sha": "7adeabfdebbee89f3150596532e8d527b9a18fda",
+    "repository": "stschiff/sequenceTools",
+    "title": "PileupCaller: A command-line tool to sample genotypes from low-coverage sequencing data of ancient DNA"
+  },
+  {
+    "blocks": [
+      {
+        "heading": "🛠 Installation",
+        "language": "bash",
+        "text": "pip install woodtapper"
+      },
+      {
+        "heading": "🛠 Installation",
+        "language": "bash",
+        "text": "git clone https://github.com/artefactory/woodtapper.git\ncd woodtapper\npip install -e .[dev,docs]"
+      },
+      {
+        "heading": "🌿 WoodTapper RulesExtraction module",
+        "language": "python",
+        "text": "from woodtapper.extract_rules import SirusClassifier\nfrom woodtapper.extract_rules.visualization import show_rules\n\nsirus = SirusClassifier(n_estimators=1000, max_depth=2,\n                        quantile=10, p0=0.01, random_state=0)\nsirus.fit(X_train, y_train)\ny_pred_sirus = sirus.predict(X_test)\nshow_rules(sirus, max_rules=10)"
+      },
+      {
+        "heading": "🌱 WoodTapper ExampleExplanation module",
+        "language": "python",
+        "text": "from woodtapper.example_sampling import RandomForestClassifierExplained\n\nrf_explained = RandomForestClassifierExplained(n_estimators=100)\nrf_explained.fit(X_train, y_train)\n\n# Get the 5 most similar samples (and target) for each test sample\nXy_explain = rf_explained.explanation(X_test)"
+      },
+      {
+        "heading": "📜 Citation",
+        "language": "bibtex",
+        "text": "@article{Sakho2026,\ndoi = {10.21105/joss.10112},\nurl = {https://doi.org/10.21105/joss.10112},\nyear = {2026}, publisher = {The Open Journal},\nvolume = {11},\nnumber = {121},\npages = {10112},\nauthor = {Sakho, Abdoulaye and Aouad, Jad and Gauthier, Carl-Erik and Malherbe, Emmanuel and Scornet, Erwan},\ntitle = {WoodTapper: a Python package for explaining decision tree ensembles},\njournal = {Journal of Open Source Software} }"
+      },
+      {
+        "heading": "📜 Citation",
+        "language": "bibtex",
+        "text": "@article{benard2021sirus,\n  title={Sirus: Stable and interpretable rule set for classification},\n  author={Benard, Clement and Biau, Gerard and Da Veiga, Sebastien and Scornet, Erwan},\n  year={2021}\n}"
+      }
+    ],
+    "doi": "10.21105/joss.10112",
+    "external_docs": true,
+    "external_documentation_links": [
+      "https://artefactory.github.io/woodtapper/0_tutorials/",
+      "https://img.shields.io/badge/docs-online-blue"
+    ],
+    "host": "github",
+    "manual_hard_defects": [],
+    "manual_strict_ready": null,
+    "notes": "Mechanical acquisition; reference annotation not yet created.",
+    "order": 17,
+    "path_index": {},
+    "readme_sha": "b07652102469791d6b0c1ecab597a849a9aa31ae",
+    "repository": "artefactory/woodtapper",
+    "title": "WoodTapper: a Python package for explaining decision tree ensembles"
+  },
+  {
+    "blocks": [
+      {
+        "heading": "Komodo: Cryptographically-proven Erasure Coding",
+        "language": "bash",
+        "text": "cargo +1.74 install rust-script --locked --rev 99d2c790b303c1d75de5cd90499800283e4b9681 --git https://github.com/fornwall/rust-script"
+      },
+      {
+        "heading": "Komodo: Cryptographically-proven Erasure Coding",
+        "language": "bash",
+        "text": "./make.rs --help"
+      },
+      {
+        "heading": "the library",
+        "language": "bash",
+        "text": "cargo doc                # raw documentation\ncargo doc --all-features # raw documentation with optional features\n./make.rs doc            # with the KaTeX formulae\n./make.rs doc --features # with the KaTeX formulae and all the optional features"
+      },
+      {
+        "heading": "the tests",
+        "language": "shell",
+        "text": "./make.rs check\n./make.rs clippy\n./make.rs test"
+      },
+      {
+        "heading": "development",
+        "language": "shell",
+        "text": "./make.rs container --login"
+      },
+      {
+        "heading": "development",
+        "language": "shell",
+        "text": "./make.rs container"
+      },
+      {
+        "heading": "development",
+        "language": "shell",
+        "text": "./make.rs container --push"
+      },
+      {
+        "heading": "citation",
+        "language": "bibtex",
+        "text": "@software{komodo@main,\n  author  = {Komodo contributors},\n  title   = {\\texttt{komodo}: Cryptographically-proven Erasure Coding},\n  url     = {https://gitlab.isae-supaero.fr/dragoon/komodo/-/tree/main},\n  crate   = {},\n  mirror  = {https://github.com/dragoon-rs/komodo/tree/main},\n  docs    = {},\n  version = {main},\n  year    = {2023},\n}"
+      }
+    ],
+    "doi": "10.21105/joss.09791",
+    "external_docs": true,
+    "external_documentation_links": [
+      "examples/",
+      "https://docs.rs/komodo/latest/komodo/",
+      "https://img.shields.io/docsrs/komodo"
+    ],
+    "host": "github",
+    "manual_hard_defects": [],
+    "manual_strict_ready": null,
+    "notes": "Mechanical acquisition; reference annotation not yet created.",
+    "order": 18,
+    "path_index": {},
+    "readme_sha": "16afca5e48c95dccb78bef975529233130d19c5c",
+    "repository": "dragoon-rs/komodo",
+    "title": "Komodo: Cryptographically-proven Erasure Coding"
+  },
+  {
+    "blocks": [
+      {
+        "heading": "Installation",
+        "language": "bash",
+        "text": "conda create -n sparc python=3.10\nconda activate sparc"
+      },
+      {
+        "heading": "Installation",
+        "language": "bash",
+        "text": "pip install deepmd-kit[gpu,cu12]==2.2.10"
+      },
+      {
+        "heading": "Installation",
+        "language": "bash",
+        "text": "conda install deepmd-kit=2.2.10=*gpu libdeepmd=2.2.10=*gpu lammps horovod -c https://conda.deepmodeling.com -c defaults"
+      },
+      {
+        "heading": "Installation",
+        "language": "bash",
+        "text": "git clone --depth 1 https://github.com/rahulumrao/sparc.git\ncd sparc\npip install ."
+      },
+      {
+        "heading": "Installation",
+        "language": "bash",
+        "text": "./configure --enable-mpi=no --enable-modules=all PYTHON_BIN=$(which python) --prefix=$CONDA_PREFIX\n\nmake -j$(nproc) && make install"
+      },
+      {
+        "heading": "Installation",
+        "language": "bash",
+        "text": "conda install -c conda-forge py-plumed"
+      },
+      {
+        "heading": "Quick Start",
+        "language": "bash",
+        "text": "export VASP_PP_PATH=/path/to/vasp/potcar_files    # POTCAR files path"
+      },
+      {
+        "heading": "Quick Start",
+        "language": "bash",
+        "text": "export PLUMED_KERNEL=\"$CONDA_PREFIX/lib/libplumedKernel.so\"\nexport PYTHONPATH=\"$CONDA_PREFIX/lib/plumed/python:$PYTHONPATH\""
+      },
+      {
+        "heading": "Example Input File",
+        "language": "yaml",
+        "text": "general:\n  structure_file: \"POSCAR\"   # Input structure\n\nmd_simulation:\n  ensemble: \"NVT\"            # Ensemble for MD simulation\n  thermostat: \"Nose\"         # Thermostat type (nose-Hoover)\n  timestep_fs: 1.0           # TimeStep for MD simulation\n  md_steps: 10               # Number of MD Steps\n  temperature: 300           # Temperature in Kelvin\n  log_frequency: 4           # Interval for MD log and save trajectories\n  use_dft_plumed: False      # Use PLUMED for MD simulation\n\ndft_calculator:\n  name: \"VASP\"               # DFT package name\n  prec: \"Normal\"             # Precision level\n  kgamma: True               # Gamma point calculation\n  incar_file: \"INCAR\"        # Path/Name of VASP input file\n\n# Active Learning\nactive_learning: True        # Active Learning protocol\niteration: 10                # Number of Active Learning iteration\nmodel_dev:\n  f_min_dev: 0.1             # Force uncertainity cutoff/s\n  f_max_dev: 0.8"
+      },
+      {
+        "heading": "Example Input File",
+        "language": "bash",
+        "text": "sparc -i input.yaml"
+      },
+      {
+        "heading": "Directory Structure",
+        "language": "bash",
+        "text": ">> Project Root\n├── INCAR\n├── POSCAR\n├── input.json\n├── input.yaml\n├──── Dataset\n│      └── training_data\n│      └── validation_data\n├── iter_000000\n│   ├── 00.dft\n│   ├── 01.train\n│   └── 02.dpmd\n├── iter_000001\n    ├── 00.dft\n    ├── 01.train\n    └── 02.dpmd"
+      },
+      {
+        "heading": "Build Document Locally",
+        "language": "bash",
+        "text": "pip install sphinx sphinx-autodoc-typehints sphinx_rtd_theme\n\ncd docs/\nmake html"
+      },
+      {
+        "heading": "Code Style and Linting",
+        "language": "bash",
+        "text": "pip install ruff\npip install pre-commit"
+      },
+      {
+        "heading": "Code Style and Linting",
+        "language": "bash",
+        "text": "pre-commit run --all-files"
+      },
+      {
+        "heading": "Citation",
+        "language": "bibtex",
+        "text": "@article{joss,\n  author  = {Verma, Rahul and Joshi, Nisarg and Pfaendtner, Jim},\n  title   = {{SPARC}: An Automated Workflow Toolkit for Accelerated Active Learning of Reactive Machine Learning Interatomic Potentials},\n  journal = {Journal of Open Source Software},\n  volume  = {11},\n  number  = {120},\n  pages   = {9468},\n  year    = {2026},\n  month   = {apr},\n  doi     = {10.21105/joss.09468},\n  url     = {https://doi.org/10.21105/joss.09468}\n}\n\n@software{sparc,\n  author = {Verma, Rahul and Joshi, Nisarg and Pfaendtner, Jim},\n  doi    = {https://doi.org/10.5281/zenodo.19389278},\n  license = {MIT},\n  month  = {Apr},\n  title  = {{SPARC}: An Automated Workflow Toolkit for Accelerated Active Learning of Reactive Machine Learning Interatomic Potentials},\n  url    = {https://github.com/rahulumrao/sparc},\n  year   = {2026}\n}\n\n@dataset{sparc,\n  author = {Verma, Rahul and Joshi, Nisarg and Pfaendtner, Jim},\n  doi    = {https://doi.org/10.5281/zenodo.18261342},\n  license = {MIT},\n  month  = {jan},\n  title  = {{SPARC}: An Automated Workflow Toolkit for Accelerated Active Learning of Reactive Machine Learning Interatomic Potentials},\n  url    = {https://zenodo.org/records/18261342},\n  year   = {2026}\n}"
+      }
+    ],
+    "doi": "10.21105/joss.09468",
+    "external_docs": true,
+    "external_documentation_links": [
+      "docs/source/sparc_logo.png",
+      "https://colab.research.google.com/github/rahulumrao/sparc/blob/main/examples/SPARC_Tutorial.ipynb",
+      "https://deepmd-kit.readthedocs.io/en/latest/install/easy-install.html",
+      "https://docs-sparc.readthedocs.io/en/latest/",
+      "https://docs.astral.sh/ruff/",
+      "https://docs.deepmodeling.com/projects/deepmd/en/r2/getting-started/install.html",
+      "https://github.com/rahulumrao/sparc/blob/main/examples/SPARC_Tutorial.ipynb",
+      "https://readthedocs.org/projects/sparc/badge/",
+      "https://wiki.fysik.dtu.dk/ase/"
+    ],
+    "host": "github",
+    "manual_hard_defects": [],
+    "manual_strict_ready": null,
+    "notes": "Mechanical acquisition; reference annotation not yet created.",
+    "order": 19,
+    "path_index": {},
+    "readme_sha": "e73491d2116dd68f18e76a6a891d30d7953f6d18",
+    "repository": "rahulumrao/sparc",
+    "title": "SPARC: An Automated Workflow Toolkit for Accelerated Active Learning of Reactive Machine Learning Interatomic Potentials"
+  },
+  {
+    "blocks": [
+      {
+        "heading": "From CRAN (Recommended)",
+        "language": "r",
+        "text": "# Install the stable version from CRAN\ninstall.packages(\"geospatialsuite\")"
+      },
+      {
+        "heading": "Development Version from GitHub",
+        "language": "r",
+        "text": "# install.packages(\"devtools\")\ndevtools::install_github(\"cwru-sdle/geospatialsuite\")"
+      },
+      {
+        "heading": "Load Package and Test Installation",
+        "language": "r",
+        "text": "library(geospatialsuite)\n\n# Test your installation\ntest_geospatialsuite_package_simple()\n\n# Check function availability\ntest_function_availability(verbose = TRUE)"
+      },
+      {
+        "heading": "Basic Usage Examples",
+        "language": "r",
+        "text": "# Load built-in sample data\nred <- load_sample_data(\"sample_red.rds\")\nnir <- load_sample_data(\"sample_nir.rds\")\nblue <- load_sample_data(\"sample_blue.rds\")\nstudy_sites <- load_sample_data(\"sample_coordinates.csv\")\n\n# 1. One-line mapping (auto-detects everything!)\nquick_map(red, title = \"Red Band\")\n\n# 2. Universal spatial join (most common operation- Requires your own data)\nresult <- universal_spatial_join(\n  source_data = study_sites,\n  target_data = red,\n  method = \"extract\"\n)\n\n# 3. Calculate vegetation indices with sample data\nndvi <- calculate_vegetation_index(\n  red = red, \n  nir = nir, \n  index_type = \"NDVI\",\n  verbose = TRUE\n)\n\n# 4. Enhanced NDVI with quality filtering\nenhanced_ndvi <- calculate_ndvi_enhanced(\n  red = red,\n  nir = nir,\n  quality_filter = TRUE\n)\n\n# 5. Multiple indices at once\nindices <- calculate_multiple_indices(\n  red = red, \n  nir = nir, \n  blue = blue,\n  indices = c(\"NDVI\", \"EVI\", \"SAVI\"),\n  output_stack = TRUE\n)"
+      },
+      {
+        "heading": "🗺️ Auto-Geocoding Without Coordinates",
+        "language": "r",
+        "text": "# Works with state names or abbreviations\nstate_data <- data.frame(\n  state = c(\"Ohio\", \"PA\", \"Michigan\"),\n  population = c(11.8, 13.0, 10.1)\n)\nspatial_data <- auto_geocode_data(state_data)\n\n\n# Works with FIPS codes\ncounty_data <- data.frame(\n  fips = c(\"39049\", \"39035\", \"39113\"),\n  unemployment = c(4.2, 5.1, 4.8)\n)\ncounty_sf <- auto_geocode_data(county_data)\n\n# Works with HUC codes (any format!)\nwatershed_data <- data.frame(\n  HUC_8 = c(\"04100009\", \"04100012\"),  # or HUC-8, huc8, Huc 8, etc.\n  water_quality = c(72, 65)\n)\nhuc_sf <- auto_geocode_data(watershed_data)\n\n# Works with ZIP codes\nzip_data <- data.frame(\n  zip = c(\"43215\", \"44113\", \"45202\"),\n  median_income = c(58000, 45000, 72000)\n)\nzip_sf <- auto_geocode_data(zip_data)\n\n# Preview what will be detected before geocoding\npreview_geocoding(my_data)"
+      },
+      {
+        "heading": "Function Reference",
+        "language": "r",
+        "text": "# View all available functions\nhelp(package = \"geospatialsuite\")\n\n# Auto-geocoding functions\n?auto_geocode_data\n?preview_geocoding\n\n# Test function availability\ntest_function_availability()\n\n# Run basic package tests\ntest_geospatialsuite_package_simple()\n\n# Run minimal functionality test\ntest_package_minimal(verbose = TRUE)"
+      },
+      {
+        "heading": "Census Data Analysis (No Coordinates Needed!)",
+        "language": "r",
+        "text": "# Load census data with just state names - no coordinates!\ncensus_data <- data.frame(\n  state = c(\"California\", \"Texas\", \"Florida\", \"New York\"),\n  population_millions = c(39.5, 29.1, 22.2, 20.2),\n  median_income = c(75000, 64000, 59000, 72000),\n  unemployment_rate = c(4.8, 4.1, 3.2, 4.3)\n)\n\n# Auto-geocode and visualize\ncensus_sf <- auto_geocode_data(census_data, verbose = TRUE)\nquick_map(census_sf, variable = \"median_income\", \n          title = \"Median Household Income by State\")"
+      },
+      {
+        "heading": "Watershed Analysis with HUC Codes",
+        "language": "r",
+        "text": "# Water quality data with HUC-8 codes (no coordinates!)\nwatershed_data <- data.frame(\n  HUC_8 = c(\"04100009\", \"04100012\", \"04110002\", \"05120201\"),\n  basin_name = c(\"Great Miami\", \"Mill Creek-Cincinnati\", \n                 \"Middle Ohio\", \"Upper Wabash\"),\n  nitrogen_mg_l = c(2.3, 3.1, 1.8, 2.7),\n  phosphorus_mg_l = c(0.08, 0.12, 0.06, 0.09)\n)\n\n# Auto-geocode watersheds\nhuc_sf <- auto_geocode_data(watershed_data, verbose = TRUE)\n\n# Comprehensive water quality analysis\nwater_results <- analyze_water_quality_comprehensive(\n  water_data = huc_sf,\n  variable = \"nitrogen_mg_l\",\n  thresholds = list(\n    Normal = c(0, 2), \n    Elevated = c(2, 5),\n    High = c(5, Inf)\n  )\n)\n\nquick_map(huc_sf, variable = \"nitrogen_mg_l\",\n          title = \"Nitrogen Levels by Watershed\")"
+      },
+      {
+        "heading": "Agricultural Monitoring Crop Codes",
+        "language": "r",
+        "text": "# Get crop codes for analysis\ncorn_codes <- get_comprehensive_cdl_codes(\"corn\")\ngrain_codes <- get_comprehensive_cdl_codes(\"grains\")"
+      },
+      {
+        "heading": "County-Level Environmental Analysis",
+        "language": "r",
+        "text": "# County data with FIPS codes (no coordinates needed!)\ncounty_data <- data.frame(\n  fips = c(\"39049\", \"39035\", \"39113\", \"39061\"),\n  county_name = c(\"Franklin\", \"Cuyahoga\", \"Montgomery\", \"Hamilton\"),\n  air_quality_index = c(45, 52, 48, 41),\n  tree_canopy_pct = c(28, 35, 32, 40)\n)\n\n# Auto-geocode counties\ncounty_sf <- auto_geocode_data(county_data, verbose = TRUE)"
+      },
+      {
+        "heading": "Analyse crop vegetation",
+        "language": "r",
+        "text": "red <- load_sample_data(\"sample_red.rds\")\nnir <- load_sample_data(\"sample_nir.rds\")\nblue <- load_sample_data(\"sample_blue.rds\")\n\nspectral_stack <- c(red, nir, blue)\n\nnames(spectral_stack) <- c(\"red\", \"nir\", \"blue\")\n\nresult <- analyze_crop_vegetation(\n  spectral_data = spectral_stack,\n  crop_type = \"corn\",\n  analysis_type = \"comprehensive\"\n)\n\n# Structure:\nresult$vegetation_indices      # SpatRaster with calculated indices\nresult$analysis_results        # Detailed analysis results\nresult$metadata                # Processing metadata"
+      },
+      {
+        "heading": "Performance Tips",
+        "language": "r",
+        "text": "# Test basic functionality\ntest_package_minimal(verbose = TRUE)\n\n# Check which functions are available\ntest_function_availability(verbose = TRUE)"
+      },
+      {
+        "heading": "Required Dependencies",
+        "language": "r",
+        "text": "# Core dependencies (automatically installed with geospatialsuite)\n# These are listed in DESCRIPTION Imports and will be installed automatically\nterra (>= 1.6-17)\nsf (>= 1.0-0)\ndplyr (>= 1.0.0)\nggplot2 (>= 3.3.0)\nmagrittr\nviridis\nleaflet          # Interactive web mapping\nrnaturalearth    # Natural Earth country boundaries\ntigris           # US Census boundaries (states, counties, FIPS)\n# Plus: graphics, grDevices, htmlwidgets, mice, parallel, \n#       RColorBrewer, stats, stringr, tools, utils"
+      },
+      {
+        "heading": "Optional Enhancement Packages",
+        "language": "r",
+        "text": "# These packages provide additional functionality but are not required\n# Install them separately for enhanced capabilities\n\n# Raster visualization enhancements\ninstall.packages(c(\n  \"tidyterra\",    # Efficient raster visualization with ggplot2\n  \"RStoolbox\"     # Remote sensing tools and visualization\n))\n\n# Figure composition and animation\ninstall.packages(c(\n  \"patchwork\",    # Multi-panel figures and layouts\n  \"gganimate\"     # Animated visualizations\n))\n\n# Extended geocoding capabilities (listed in DESCRIPTION Suggests)\ninstall.packages(c(\n  \"nhdplusTools\",  # HUC watershed boundaries\n  \"zipcodeR\",      # ZIP code centroids\n  \"tidygeocoder\"   # City name geocoding\n))"
+      },
+      {
+        "heading": "📄 Citation",
+        "language": "r",
+        "text": "citation(\"geospatialsuite\")"
+      }
+    ],
+    "doi": "10.21105/joss.09536",
+    "external_docs": true,
+    "external_documentation_links": [
+      "#-documentation",
+      "#-real-world-examples",
+      "CONTRIBUTING.md",
+      "https://cran.r-project.org/web/packages/geospatialsuite/vignettes/",
+      "https://cran.r-project.org/web/packages/geospatialsuite/vignettes/agricultural-analysis.html",
+      "https://cran.r-project.org/web/packages/geospatialsuite/vignettes/analyze-crop-vegetation.html",
+      "https://cran.r-project.org/web/packages/geospatialsuite/vignettes/getting-started.html",
+      "https://cran.r-project.org/web/packages/geospatialsuite/vignettes/spatial-analysis.html",
+      "https://cran.r-project.org/web/packages/geospatialsuite/vignettes/spatial-integration.html",
+      "https://cran.r-project.org/web/packages/geospatialsuite/vignettes/vegetation-indices.html",
+      "https://cran.r-project.org/web/packages/geospatialsuite/vignettes/workflows-case-studies.html",
+      "https://exelegch.github.io/geospatialsuite-docs/"
+    ],
+    "host": "github",
+    "manual_hard_defects": [],
+    "manual_strict_ready": null,
+    "notes": "Mechanical acquisition; reference annotation not yet created.",
+    "order": 20,
+    "path_index": {},
+    "readme_sha": "4d9e854a5f4a686b7997093098c03ac16001cc79",
+    "repository": "cwru-sdle/geospatialsuite",
+    "title": "geospatialsuite: Comprehensive Geospatiotemporal Analysis and Multimodal Integration Toolkit for R"
+  },
+  {
+    "blocks": [
+      {
+        "heading": "Installation",
+        "language": "bash",
+        "text": "pip install multimodars"
+      },
+      {
+        "heading": "Installation",
+        "language": "bash",
+        "text": "pip install \"multimodars[viz]\"      # mesh visualisation (pyglet)\npip install \"multimodars[meshlab]\"  # MeshLab integration"
+      },
+      {
+        "heading": "Quick Example",
+        "language": "python",
+        "referenced_paths": [
+          "examples/data/centerline_raw.csv"
+        ],
+        "text": "import multimodars as mm\nimport numpy as np\n\n# Align four intravascular phases (rest-dia, rest-sys, stress-dia, stress-sys)\nrest, stress, dia, sys, _ = mm.from_file_full(\n    \"examples/data/ivus_rest\",    # input_path_ab\n    \"examples/data/ivus_stress\",  # input_path_cd\n    write_obj=True,\n    output_path_ab=\"output/rest\",\n    output_path_cd=\"output/stress\",\n    output_path_ac=\"output/diastole\",\n    output_path_bd=\"output/systole\",\n)\n\n# Align geometry onto a CCTA-derived centerline\ncl_raw = np.genfromtxt(\"examples/data/centerline_raw.csv\", delimiter=\",\")\ncenterline = mm.numpy_to_centerline(cl_raw)\naligned_pair, cl_resampled = mm.align_three_point(\n    centerline, rest,\n    main_ref_pt=(12.2605, -201.3643, 1751.0554),\n    counterclockwise_ref_pt=(11.7567, -202.1920, 1754.7975),\n    clockwise_ref_pt=(15.6605, -202.1920, 1749.9655),\n    write=True,\n    output_dir=\"output/aligned\",\n)"
+      },
+      {
+        "heading": "Citation",
+        "language": "",
+        "text": "@article{Stark2026, \n  doi = {10.21105/joss.10131}, \n  url = {https://doi.org/10.21105/joss.10131}, \n  year = {2026}, \n  publisher = {The Open Journal}, \n  volume = {11}, \n  number = {121}, \n  pages = {10131}, \n  author = {Stark, Anselm W. and Ilic, Marc and Mokhtari, Ali and Kazaj, Pooya Mohammadi and Gräni, Christoph and Shiri, Isaac}, \n  title = {multimodars: A Rust-powered toolkit for multi-modality cardiac image fusion and registration}, \n  journal = {Journal of Open Source Software} \n}"
+      }
+    ],
+    "doi": "10.21105/joss.10131",
+    "external_docs": true,
+    "external_documentation_links": [
+      "https://img.shields.io/readthedocs/multimoda-rs",
+      "https://multimoda-rs.readthedocs.io",
+      "https://multimoda-rs.readthedocs.io/en/latest",
+      "https://multimoda-rs.readthedocs.io/en/latest/installation.html",
+      "https://raw.githubusercontent.com/yungselm/multimoda-rs/main/docs/figures/animation_stress_induced_systolic_deformation.gif",
+      "https://raw.githubusercontent.com/yungselm/multimoda-rs/main/docs/figures/concept.jpg",
+      "https://raw.githubusercontent.com/yungselm/multimoda-rs/main/docs/figures/initial_labeling.jpg",
+      "https://raw.githubusercontent.com/yungselm/multimoda-rs/main/docs/figures/scaling.jpg"
+    ],
+    "host": "github",
+    "manual_hard_defects": [],
+    "manual_strict_ready": null,
+    "notes": "Mechanical acquisition; reference annotation not yet created.",
+    "order": 21,
+    "path_index": {
+      "examples/data/centerline_raw.csv": true
+    },
+    "readme_sha": "e800131c61b0278714977389d92dd6999dbbd52f",
+    "repository": "yungselm/multimoda-rs",
+    "title": "multimodars: A Rust-powered toolkit for multi-modality cardiac image fusion and registration"
+  },
+  {
+    "blocks": [
+      {
+        "heading": "Installation",
+        "language": "r",
+        "text": "install.packages(\"cowfootR\")"
+      },
+      {
+        "heading": "Installation",
+        "language": "r",
+        "text": "devtools::install_github(\"juanmarcosmoreno-arch/cowfootR\")"
+      },
+      {
+        "heading": "Quick Start",
+        "language": "r",
+        "text": "library(cowfootR)\n\n# 1. Define system boundaries\nboundaries <- set_system_boundaries(\"farm_gate\")\n\n# 2. Calculate emissions by source\nenteric <- calc_emissions_enteric(\n  n_animals = 100,\n  cattle_category = \"dairy_cows\",\n  boundaries = boundaries\n)\n\nmanure <- calc_emissions_manure(\n  n_cows = 100,\n  boundaries = boundaries\n)\n\nsoil <- calc_emissions_soil(\n  n_fertilizer_synthetic = 1500,\n  n_excreta_pasture = 5000,\n  area_ha = 120,\n  boundaries = boundaries\n)\n\nenergy <- calc_emissions_energy(\n  diesel_l = 2000,\n  electricity_kwh = 5000,\n  boundaries = boundaries\n)\n\ninputs <- calc_emissions_inputs(\n  conc_kg = 1000,\n  fert_n_kg = 500,\n  boundaries = boundaries\n)\n\n# 3. Aggregate total emissions\ntotal_emissions <- calc_total_emissions(enteric, manure, soil, energy, inputs)\ntotal_emissions\n#> Carbon Footprint - Total Emissions\n#> ==================================\n#> Total CO2eq: 451512.6 kg CO2eq yr-1 \n#> Number of sources: 5 \n#> \n#> Breakdown by source:\n#>   energy : 5740 kg CO2eq yr-1 \n#>   enteric : 312800 kg CO2eq yr-1 \n#>   inputs : 4000 kg CO2eq yr-1 \n#>   manure : 89880 kg CO2eq yr-1 \n#>   soil : 39092.62 kg CO2eq yr-1 \n#> \n#> Calculated on: 2026-01-14\n\n# 4. Intensity metrics\nmilk_intensity <- calc_intensity_litre(\n  total_emissions = total_emissions,\n  milk_litres = 750000,\n  fat = 4.0,\n  protein = 3.3\n)\nmilk_intensity\n#> Carbon Footprint Intensity\n#> ==========================\n#> Intensity: 0.585 kg CO2eq/kg FPCM\n#> \n#> Production data:\n#>  Raw milk (L): 750,000 L\n#>  Raw milk (kg): 772,500 kg\n#>  FPCM (kg): 772,407 kg\n#>  Fat content: 4 %\n#>  Protein content: 3.3 %\n#> \n#> Total emissions: 451,513 kg CO2eq\n#> Calculated on: 2026-01-14\n\narea_intensity <- calc_intensity_area(\n  total_emissions = total_emissions,\n  area_total_ha = 120\n)\narea_intensity\n#> Carbon Footprint Area Intensity\n#> ===============================\n#> Intensity (total area): 3762.61 kg CO2eq/ha\n#> Intensity (productive area): 3762.61 kg CO2eq/ha\n#> \n#> Area summary:\n#>  Total area: 120 ha\n#>  Productive area: 120 ha\n#>  Land use efficiency: 100%\n#> \n#> Total emissions: 451,513 kg CO2eq\n#> Calculated on: 2026-01-14"
+      },
+      {
+        "heading": "Batch processing (typical real-world use)",
+        "language": "r",
+        "text": "library(cowfootR)\n\n# Example dataset with two farms\nfarms <- data.frame(\n  FarmID = c(\"Farm_A\", \"Farm_B\"),\n  Year = c(2023, 2023),\n  Milk_litres = c(500000, 750000),\n  Cows_milking = c(90, 130),\n  Area_total_ha = c(110, 160),\n  Diesel_litres = c(4000, 6500),\n  Electricity_kWh = c(18000, 26000),\n  Concentrate_feed_kg = c(120000, 180000),\n  stringsAsFactors = FALSE\n)\n\n# Define system boundaries\nboundaries <- set_system_boundaries(\"farm_gate\")\n\n# Run batch carbon footprint calculation\nbatch_results <- calc_batch(\n  data = farms,\n  tier = 2,\n  boundaries = boundaries,\n  benchmark_region = \"uruguay\"\n)\n#> Batch: 2 rows; tier=2 ...\n\n# Summary of batch processing\nbatch_results$summary\n#> $n_farms_processed\n#> [1] 2\n#> \n#> $n_farms_successful\n#> [1] 2\n#> \n#> $n_farms_with_errors\n#> [1] 0\n#> \n#> $boundaries_used\n#> $boundaries_used$scope\n#> [1] \"farm_gate\"\n#> \n#> $boundaries_used$include\n#> [1] \"enteric\" \"manure\"  \"soil\"    \"energy\"  \"inputs\" \n#> \n#> \n#> $benchmark_region\n#> [1] \"uruguay\"\n#> \n#> $processing_date\n#> [1] \"2026-01-14\"\n\n# Farm-level results\nbatch_results$farm_results\n#> [[1]]\n#> [[1]]$success\n#> [1] TRUE\n#> \n#> [[1]]$farm_id\n#> [1] \"Farm_A\"\n#> \n#> [[1]]$year\n#> [1] \"2023\"\n#> \n#> [[1]]$emissions_enteric\n#> [1] 230826.6\n#> \n#> [[1]]$emissions_manure\n#> [1] 183066.1\n#> \n#> [[1]]$emissions_soil\n#> [1] 0\n#> \n#> [[1]]$emissions_energy\n#> [1] 13794\n#> \n#> [[1]]$emissions_inputs\n#> [1] 84000\n#> \n#> [[1]]$emissions_total\n#> [1] 511686.8\n#> \n#> [[1]]$intensity_milk_kg_co2eq_per_kg_fpcm\n#> [1] 0.9936858\n#> \n#> [[1]]$intensity_area_kg_co2eq_per_ha_total\n#> [1] 4651.7\n#> \n#> [[1]]$intensity_area_kg_co2eq_per_ha_productive\n#> [1] 4651.7\n#> \n#> [[1]]$fpcm_production_kg\n#> [1] 514938.2\n#> \n#> [[1]]$milk_production_kg\n#> [1] 515000\n#> \n#> [[1]]$milk_production_litres\n#> [1] 5e+05\n#> \n#> [[1]]$land_use_efficiency\n#> [1] 1\n#> \n#> [[1]]$total_animals\n#> [1] 90\n#> \n#> [[1]]$dairy_cows\n#> [1] 90\n#> \n#> [[1]]$benchmark_region\n#> [1] \"uruguay\"\n#> \n#> [[1]]$benchmark_performance\n#> [1] \"Excellent (below typical range)\"\n#> \n#> [[1]]$processing_date\n#> [1] \"2026-01-14\"\n#> \n#> [[1]]$boundaries_used\n#> [1] \"farm_gate\"\n#> \n#> [[1]]$tier_used\n#> [1] \"tier_2\"\n#> \n#> [[1]]$detailed_objects\n#> NULL\n#> \n#> \n#> [[2]]\n#> [[2]]$success\n#> [1] TRUE\n#> \n#> [[2]]$farm_id\n#> [1] \"Farm_B\"\n#> \n#> [[2]]$year\n#> [1] \"2023\"\n#> \n#> [[2]]$emissions_enteric\n#> [1] 333416.3\n#> \n#> [[2]]$emissions_manure\n#> [1] 264428.9\n#> \n#> [[2]]$emissions_soil\n#> [1] 0\n#> \n#> [[2]]$emissions_energy\n#> [1] 22142.25\n#> \n#> [[2]]$emissions_inputs\n#> [1] 126000\n#> \n#> [[2]]$emissions_total\n#> [1] 745987.4\n#> \n#> [[2]]$intensity_milk_kg_co2eq_per_kg_fpcm\n#> [1] 0.9657954\n#> \n#> [[2]]$intensity_area_kg_co2eq_per_ha_total\n#> [1] 4662.42\n#> \n#> [[2]]$intensity_area_kg_co2eq_per_ha_productive\n#> [1] 4662.42\n#> \n#> [[2]]$fpcm_production_kg\n#> [1] 772407.3\n#> \n#> [[2]]$milk_production_kg\n#> [1] 772500\n#> \n#> [[2]]$milk_production_litres\n#> [1] 750000\n#> \n#> [[2]]$land_use_efficiency\n#> [1] 1\n#> \n#> [[2]]$total_animals\n#> [1] 130\n#> \n#> [[2]]$dairy_cows\n#> [1] 130\n#> \n#> [[2]]$benchmark_region\n#> [1] \"uruguay\"\n#> \n#> [[2]]$benchmark_performance\n#> [1] \"Excellent (below typical range)\"\n#> \n#> [[2]]$processing_date\n#> [1] \"2026-01-14\"\n#> \n#> [[2]]$boundaries_used\n#> [1] \"farm_gate\"\n#> \n#> [[2]]$tier_used\n#> [1] \"tier_2\"\n#> \n#> [[2]]$detailed_objects\n#> NULL\n\n# Export results to Excel\nexport_hdc_report(\n  batch_results,\n  file = \"cowfootR_batch_report.xlsx\"\n)\n#> Batch report saved to: cowfootR_batch_report.xlsx"
+      },
+      {
+        "heading": "System Boundaries",
+        "language": "r",
+        "text": "boundaries_fg <- set_system_boundaries(\"farm_gate\")\nboundaries_cfg <- set_system_boundaries(\"cradle_to_farm_gate\")"
+      }
+    ],
+    "doi": "10.21105/joss.09572",
+    "external_docs": true,
+    "external_documentation_links": [
+      "https://img.shields.io/badge/docs-pkgdown-blue.svg",
+      "https://juanmarcosmoreno-arch.github.io/cowfootR/"
+    ],
+    "host": "github",
+    "manual_hard_defects": [],
+    "manual_strict_ready": null,
+    "notes": "Mechanical acquisition; reference annotation not yet created.",
+    "order": 22,
+    "path_index": {},
+    "readme_sha": "c1ed625b365128550d66a7997c9ad6d624df3459",
+    "repository": "juanmarcosmoreno-arch/cowfootR",
+    "title": "cowfootR: An R Package for Dairy Farm Carbon Footprint Assessment"
+  },
+  {
+    "blocks": [
+      {
+        "heading": "1️⃣ Install Miniforge (Lightweight Conda)",
+        "language": "bash",
+        "text": "curl -L -O https://github.com/conda-forge/miniforge/releases/latest/download/Miniforge3-Linux-x86_64.sh\nbash Miniforge3-Linux-x86_64.sh -b -p ~/miniforge"
+      },
+      {
+        "heading": "2️⃣ Setup Conda and Restart Shell",
+        "language": "bash",
+        "text": "export PATH=$HOME/miniforge/bin:$PATH\nconda init --all\nexit"
+      },
+      {
+        "heading": "3️⃣ Update Conda and Add MOOSE Channel",
+        "language": "bash",
+        "text": "conda update --all --yes\nconda config --add channels https://conda.software.inl.gov/public"
+      },
+      {
+        "heading": "4️⃣ Create and Activate MOOSE Environment",
+        "language": "bash",
+        "text": "conda create -n moose moose-dev=2025.07.22=mpich\nconda activate moose"
+      },
+      {
+        "heading": "5️⃣ Clone and Checkout MOOSE",
+        "language": "bash",
+        "text": "mkdir -p ~/projects\ncd ~/projects\ngit clone https://github.com/idaholab/moose.git\ncd moose\ngit checkout master"
+      },
+      {
+        "heading": "6️⃣ Build and Test MOOSE",
+        "language": "bash",
+        "text": "cd ~/projects/moose/test\nmake -j 4\n./run_tests -j 4"
+      },
+      {
+        "heading": "🐾 Felino Installation",
+        "language": "bash",
+        "text": "cd ~/projects\ngit clone https://github.com/DanielChou0916/felino.git\ncd felino\nmake -j 4"
+      },
+      {
+        "heading": "▶️ Running a Test",
+        "language": "bash",
+        "text": "cd ~/projects/felino\nchmod +x felino_test.sh\n./felino_test.sh"
+      },
+      {
+        "heading": "▶️ Running a Tutorial for v1.0.2 Geomaterial Analysis",
+        "language": "bash",
+        "text": "cd ~/projects/felino\nmpiexec -n 4 ./felino-opt -i tutorials/tur4_uniaxial_compression/Ce/Ce_disp.i"
+      },
+      {
+        "heading": "🔄 Updating Felino",
+        "language": "bash",
+        "text": "cd ~/projects/felino\ngit pull\nmake clean\nmake -j 4"
+      },
+      {
+        "heading": "Citation",
+        "language": "bibtex",
+        "text": "@article{chou2026felino,\n  title={Felino: Extension of an open-source phase-field framework to geomaterial fracture},\n  author={Chou, Daniel T.},\n  journal={Journal of Open Source Software},\n  volume={11},\n  number={121},\n  pages={9406},\n  year={2026},\n  doi={10.21105/joss.09406}\n}"
+      }
+    ],
+    "doi": "10.21105/joss.09406",
+    "external_docs": true,
+    "external_documentation_links": [
+      "https://danielchou0916.github.io/felino.github.io/"
+    ],
+    "host": "github",
+    "manual_hard_defects": [],
+    "manual_strict_ready": null,
+    "notes": "Mechanical acquisition; reference annotation not yet created.",
+    "order": 23,
+    "path_index": {},
+    "readme_sha": "f04e5ca2de2f91c3cdcfcc9ce584e41284f281ef",
+    "repository": "DanielChou0916/felino",
+    "title": "Felino: Extension of an open-source phase-field framework to geomaterial fracture"
+  },
+  {
+    "blocks": [
+      {
+        "heading": "Quickstart",
+        "language": "",
+        "text": "start default\n\n  define application \"Commercial Refrigeration\"\n  \n    uses substance \"HFC-134a\"\n      enable domestic\n      initial charge with 1 kg / unit for domestic\n      initial charge with 0 kg / unit for import\n      initial charge with 0 kg / unit for export\n      equals 1430 kgCO2e / kg\n      equals 1 kwh / unit\n      set sales to 1 mt during year 1\n      change sales by +5 % during year 2 to onwards\n      retire 5 % / year\n    end substance\n  \n  end application\n\nend default\n\n\nstart simulations\n\n  simulate \"Business as Usual\"\n  from years 1 to 10\n\nend simulations"
+      },
+      {
+        "heading": "Local jar file",
+        "language": "",
+        "text": "java -jar kigalisim-fat.jar run -o output.csv script.qta"
+      },
+      {
+        "heading": "Docker (CLI)",
+        "language": "",
+        "text": "docker build -t kigalisim .\ndocker run -v $(pwd):/working kigalisim run -o output.csv script.qta"
+      },
+      {
+        "heading": "Code-based authoring",
+        "language": "",
+        "text": "start default\n\n  define application \"Commercial Refrigeration\"\n  \n    uses substance \"HFC-134a\"\n      enable domestic\n      initial charge with 1 kg / unit for domestic\n      initial charge with 0 kg / unit for import\n      initial charge with 0 kg / unit for export\n      equals 1430 kgCO2e / kg\n      equals 1 kwh / unit\n      set sales to 1 mt during year 1\n      retire 5 % / year\n      recharge 5 % with 0.85 kg / unit\n    end substance\n\n\n    uses substance \"R-600a\"\n      enable domestic\n      initial charge with 1 kg / unit for domestic\n      initial charge with 0 kg / unit for import\n      initial charge with 0 kg / unit for export\n      equals 3 kgCO2e / kg\n      equals 1 kwh / unit\n      set sales to 1 kg during year 1\n      retire 5 % / year\n      recharge 5 % with 0.85 kg / unit\n    end substance\n  \n  end application\n\nend default\n\n\nstart policy \"Permit\"\n\n  modify application \"Commercial Refrigeration\"\n  \n    modify substance \"HFC-134a\"\n      cap sales to 80 % displacing \"R-600a\" during years 3 to 10\n    end substance\n  \n  end application\n\nend policy\n\n\nstart simulations\n\n  simulate \"Business as Usual\"\n  from years 1 to 10\n\n\n  simulate \"With Permit\"\n    using \"Permit\"\n  from years 1 to 10\n\nend simulations"
+      },
+      {
+        "heading": "Other Local Setup",
+        "language": "bash",
+        "text": "cd engine"
+      },
+      {
+        "heading": "Other Local Setup",
+        "language": "bash",
+        "text": "./gradlew test"
+      },
+      {
+        "heading": "Other Local Setup",
+        "language": "bash",
+        "text": "./gradlew checkstyleMain checkstyleTest"
+      },
+      {
+        "heading": "Other Local Setup",
+        "language": "bash",
+        "text": "./gradlew build"
+      },
+      {
+        "heading": "Other Local Setup",
+        "language": "bash",
+        "text": "cd editor"
+      },
+      {
+        "heading": "Other Local Setup",
+        "language": "bash",
+        "text": "pnpm install"
+      },
+      {
+        "heading": "Other Local Setup",
+        "language": "bash",
+        "text": "bash ./support/make.sh"
+      },
+      {
+        "heading": "Other Local Setup",
+        "language": "bash",
+        "text": "pnpm exec grunt"
+      },
+      {
+        "heading": "Other Local Setup",
+        "language": "bash",
+        "text": "pnpm exec eslint ./js/*.js\npnpm exec eslint ./test/*.js"
+      },
+      {
+        "heading": "Other Local Setup",
+        "language": "bash",
+        "text": "python -m http.server"
+      }
+    ],
+    "doi": "10.21105/joss.10104",
+    "external_docs": true,
+    "external_documentation_links": [
+      "https://atomiks.github.io/tippyjs/",
+      "https://docs.npmjs.com/downloading-and-installing-node-js-and-npm",
+      "https://github.com/SchmidtDSE/kigali-sim/blob/main/CONTRIBUTING.md#use-of-generative-ai",
+      "https://kigalisim.org/guide/",
+      "https://kigalisim.org/guide/credits.html",
+      "https://kigalisim.org/guide/javadoc",
+      "https://kigalisim.org/guide/jsdoc",
+      "https://kigalisim.org/guide/qubectalk.pdf",
+      "https://kigalisim.org/guide/tutorial_02.html",
+      "https://kigalisim.org/guide/tutorial_02.qta",
+      "https://www.jetbrains.com/help/idea/connect-to-devcontainer.html"
+    ],
+    "host": "github",
+    "manual_hard_defects": [],
+    "manual_strict_ready": null,
+    "notes": "Mechanical acquisition; reference annotation not yet created.",
+    "order": 24,
+    "path_index": {},
+    "readme_sha": "ee0bd1e3b319d22db49e5016a8da4ab8040e38b4",
+    "repository": "SchmidtDSE/kigali-sim",
+    "title": "Kigali Sim: Open source simulation toolkit for modeling substances and policies related to the Montreal Protocol"
+  },
+  {
+    "blocks": [
+      {
+        "heading": "Using pip (Recommended)",
+        "language": "bash",
+        "text": "pip install sofia-mesh"
+      },
+      {
+        "heading": "From Source",
+        "language": "bash",
+        "text": "git clone https://github.com/youssef-mesri/sofia-mesh.git\ncd sofia-mesh\npip install -e ."
+      },
+      {
+        "heading": "Basic Example - Improve Mesh Quality",
+        "language": "python",
+        "text": "import numpy as np\nfrom sofia import PatchBasedMeshEditor\n\n# Create a simple mesh\npoints = np.array([\n    [0.0, 0.0], [1.0, 0.0], [0.5, 0.8],\n    [0.0, 1.0], [1.0, 1.0]\n])\ntriangles = np.array([\n    [0, 1, 2], [0, 2, 3], [1, 4, 2], [3, 2, 4]\n])\n\n# Initialize editor\neditor = PatchBasedMeshEditor(points, triangles)\n\n# Split an edge to refine the mesh\nsuccess = editor.split_edge(edge_id=0, method='midpoint')\nprint(f\"Edge split: {success}\")\n\n# Get the updated mesh\nnew_points = editor.pts\nnew_triangles = editor.tris\n\n# Check mesh quality\nmin_angle = editor.mesh_min_angle()\nprint(f\"Minimum angle: {min_angle:.2f}°\")"
+      },
+      {
+        "heading": "Remeshing Example",
+        "language": "python",
+        "text": "from sofia.core.remesh_driver import greedy_remesh\n\n# Iteratively improve mesh quality\nimproved_editor = greedy_remesh(\n    editor,\n    target_min_angle=25.0,  # Target minimum angle in degrees\n    max_iterations=100\n)\n\nprint(f\"Final quality: {improved_editor.mesh_min_angle():.2f}°\")"
+      },
+      {
+        "heading": "Citation",
+        "language": "bibtex",
+        "text": "@software{sofia2025,\n  author = {Mesri, Youssef},\n    title = {SOFIA: Scalable Operators for Field-driven Iso/Ani Adaptation},\n  year = {2025},\n  url = {https://github.com/youssef-mesri/sofia-mesh},\n  version = {1.0.0}\n}"
+      }
+    ],
+    "doi": "10.21105/joss.09729",
+    "external_docs": true,
+    "external_documentation_links": [
+      "#-examples",
+      "docs/API.md",
+      "docs/CONTRIBUTING.md",
+      "examples/"
+    ],
+    "host": "github",
+    "manual_hard_defects": [],
+    "manual_strict_ready": null,
+    "notes": "Mechanical acquisition; reference annotation not yet created.",
+    "order": 25,
+    "path_index": {},
+    "readme_sha": "837932e06a05305d152544f0f19c6de2814e40ab",
+    "repository": "youssef-mesri/sofia-mesh",
+    "title": "SOFIA: A Python Library for High-Quality 2D Triangular Mesh Adaptation"
+  },
+  {
+    "blocks": [
+      {
+        "heading": "Installation",
+        "language": "",
+        "text": "pip install GaPFlow"
+      },
+      {
+        "heading": "Installation",
+        "language": "",
+        "text": "pip install --no-binary GaPFlow GaPFlow[parallel]"
+      },
+      {
+        "heading": "muGrid",
+        "language": "",
+        "text": "We currently do not use parallel functionalities of µGrid, so MPI support is not\nrequired.\n\nFor installations from source, do not forget to initialize the LAMMPS submodule after cloning the repository"
+      },
+      {
+        "heading": "muGrid",
+        "language": "",
+        "text": "## Minimal example\nSimulation inputs are commonly provided in YAML files. A typical input file\nmight look like this:"
+      },
+      {
+        "heading": "examples/journal.yaml",
+        "language": "",
+        "text": "Note that this example uses fixed-form constitutive laws without GP surrogate\nmodels or MD data. More example input files can be found in the [examples]\n(examples/) directory.\n\nThe input files can be used to start a simulation from the command line"
+      },
+      {
+        "heading": "examples/journal.yaml",
+        "language": "",
+        "text": "or from a Python script"
+      },
+      {
+        "heading": "examples/journal.yaml",
+        "language": "",
+        "referenced_paths": [
+          "LICENSES/MIT.txt"
+        ],
+        "text": "Simulation output is stored under the location specified in the input file.\nAfter successful completion, you should find the following files.\n- `config.yml`: A sanitized version of your simulation input.\n- `topo.nc`: NetCDF file containing the gap height and gradients.\n- `sol.nc`: NetCDF file containing the solution and stress fields.\n- `history.csv`: Contains the time series of scalar quantities (step, Ekin,\n  residual, ...)\n- `gp_[xz,yz,zz].csv` (Optional): Contains the time series of GP hyperparameters,\n  database size, etc.\n- `Xtrain.npy` (Optional): Training data inputs\n- `Ytrain.npy` (Optional): Training data observations\n- `Ytrain_err.npy` (Optional): Training data observation error\n\nThe code comes with a few handy [command line tools](GaPFlow/cli/) for\nvisualizations like this one\n\n![journal](doc/assets/journal.gif)\n\nwhich shows the transient solution of a 1D journal bearing with active learning\nof the constitutive behavior. \n\n## License\n\nThe GaPFlow project is distributed under the terms of the GNU General Public\nLicense version 2 (GPLv2).\n\nThe original GaPFlow source files under `GaPFlow/` are licensed under the MIT\nLicense (see `LICENSES/MIT.txt`). This repository also contains third-party\nsoftware that is not covered by the MIT License, in particular the LAMMPS\ndistribution under `lammps/` and Python bindings vendored under\n`GaPFlow/_vendor/lammps/`, which are licensed under GPLv2. The full text of\nthe GPLv2 is included in the `COPYING` file at the repository root.\n\nIf you distribute a packaged artifact (for example an sdist or wheel) that\nincludes the LAMMPS sources or the vendored LAMMPS Python bindings, the\ncombined distribution is subject to the terms of the GPLv2. In that case,\nrecipients must be granted the rights required by the GPLv2 and the COPYING\nfile must be included in distributed artifacts. This does not change the MIT\nlicense that applies to the original GaPFlow sources; rather, when\ndistributed together with GPLv2-covered files the resulting artifact must\ncomply with GPLv2.\n\n\n## Funding\nThis work received funding from the German Research Foundation (DFG)\nthrough GRK 2450 and from the Alexander von Humboldt Foundation through a\nFeodor Lynen Fellowship."
+      }
+    ],
+    "doi": "10.21105/joss.09645",
+    "external_docs": true,
+    "external_documentation_links": [
+      "https://contactengineering.github.io/ContactMechanics/",
+      "https://docs.lammps.org",
+      "https://docs.lammps.org/Python_head.html",
+      "https://muspectre.github.io/muGrid/",
+      "https://tinygp.readthedocs.io/en/stable/index.html"
+    ],
+    "host": "github",
+    "manual_hard_defects": [],
+    "manual_strict_ready": null,
+    "notes": "Mechanical acquisition; reference annotation not yet created.",
+    "order": 26,
+    "path_index": {
+      "LICENSES/MIT.txt": true
+    },
+    "readme_sha": "45a5189c6849472e032a999b8cf7e97b08a0ef3c",
+    "repository": "hannes-holey/GaPFlow",
+    "title": "GaPFlow: Gap-averaged flow simulations with Gaussian process regression"
+  },
+  {
+    "blocks": [
+      {
+        "heading": "Install from PyPI",
+        "language": "bash",
+        "text": "pip install materforge"
+      },
+      {
+        "heading": "For contributors",
+        "language": "bash",
+        "text": "git clone https://github.com/rahildoshi97/materforge.git\ncd materforge\npip install -e ."
+      },
+      {
+        "heading": "Basic Material Creation",
+        "language": "python",
+        "referenced_paths": [
+          "examples/myAlloy.yaml"
+        ],
+        "text": "import sympy as sp\nfrom materforge import create_material\n\n# Any SymPy symbol works as the dependency variable\nT = sp.Symbol('T')\n\n# Load a material from YAML (see examples/myAlloy.yaml)\nmat = create_material('examples/myAlloy.yaml', dependency=T, enable_plotting=True)\n\n# Access symbolic property expressions directly\nprint(mat.heat_capacity)   # SymPy Piecewise expression in T\nprint(mat.density)         # 7000.0 (constant float)\n\n# Evaluate all properties at a specific value (returns a new Material)\nresults = mat.evaluate(T, 500.0)\nprint(results.heat_capacity)   # float"
+      },
+      {
+        "heading": "Bundled Example Materials",
+        "language": "python",
+        "text": "import sympy as sp\nfrom materforge import list_materials, load_material\n\nprint(list_materials())                       # ['1.4301', 'Al', 'Al2O3']\nsteel = load_material('1.4301', sp.Symbol('T'))"
+      },
+      {
+        "heading": "Command-Line Interface",
+        "language": "bash",
+        "text": "materforge list                       # bundled example materials\nmaterforge validate my_material.yaml  # check a file is structurally valid\nmaterforge info my_material.yaml       # name, properties, and property types\nmaterforge plot my_material.yaml       # write a property figure\nmaterforge evaluate my_material.yaml 500   # evaluate every property at T=500\nmaterforge fit my_material.yaml         # R²/RMSE for every data-backed property"
+      },
+      {
+        "heading": "Fast Evaluation Over Many Values",
+        "language": "python",
+        "text": "import numpy as np\n\nevaluate = mat.compile()              # cache numeric callables once\n\nevaluate(500.0)                       # scalar -> {'density': 7861.2, ...}\ntable = evaluate(np.linspace(300, 1800, 500))   # array -> dict of arrays\ntable['density'].shape                # (500,)"
+      },
+      {
+        "heading": "Assess Fit Quality & Visualize",
+        "language": "python",
+        "text": "import materforge as mf\n\n# How well does each stored curve reproduce its source data?\nprint(mf.fit_quality(mat, 'heat_capacity'))     # R²=0.9996  RMSE=8.9  ...\nreport = mf.fit_report(mat)                      # dict: name -> FitQuality\n\n# Plotting helpers return a Matplotlib Axes - they render inline in Jupyter and\n# never save or close the figure, so you stay in control of styling and output:\nmf.plot_property(mat, 'heat_capacity')           # fitted curve + the source points\nmf.plot_residuals(mat, 'heat_capacity')          # residuals with a zero reference line\nmf.compare_materials([steel, alloy], 'density')  # the same property, several materials"
+      },
+      {
+        "heading": "Cached Builds",
+        "language": "python",
+        "text": "# First call builds and caches; later calls of the unchanged YAML are instant.\nmat = create_material('steel.yaml', dependency=T)"
+      },
+      {
+        "heading": "Property Inversion",
+        "language": "python",
+        "referenced_paths": [
+          "examples/myAlloy.yaml"
+        ],
+        "text": "from materforge.algorithms.piecewise_inverter import PiecewiseInverter\nimport sympy as sp\nfrom materforge import create_material\n\nT = sp.Symbol('T')\nmat = create_material('examples/myAlloy.yaml', dependency=T)\n\nif hasattr(mat, 'energy_density'):\n    E = sp.Symbol('E')\n    inverse = PiecewiseInverter.create_inverse(mat.energy_density, 'T', 'E')\n\n    # Validate round-trip accuracy\n    test_val = 500.0\n    e = float(mat.energy_density.subs(T, test_val))\n    recovered = float(inverse.subs(E, e))\n    print(f\"Round-trip: T={test_val} -> E={e:.2e} -> T={recovered:.2f}\")"
+      },
+      {
+        "heading": "PyPI Distribution",
+        "language": "bash",
+        "text": "git clone https://github.com/rahildoshi97/materforge.git\ncd materforge\ngit submodule update --init --recursive   # populates apps/walberla"
+      }
+    ],
+    "doi": "10.21105/joss.09909",
+    "external_docs": true,
+    "external_documentation_links": [
+      "#-documentation",
+      "https://github.com/rahildoshi97/materforge/blob/master/CONTRIBUTING.md",
+      "https://github.com/rahildoshi97/materforge/blob/master/examples/myAlloy.yaml",
+      "https://materforge.readthedocs.io",
+      "https://materforge.readthedocs.io**",
+      "https://materforge.readthedocs.io/",
+      "https://materforge.readthedocs.io/en/latest/explanation/design_philosophy.html",
+      "https://materforge.readthedocs.io/en/latest/explanation/material_properties.html",
+      "https://materforge.readthedocs.io/en/latest/how-to/assess_fit_quality.html",
+      "https://materforge.readthedocs.io/en/latest/how-to/cache_builds.html",
+      "https://materforge.readthedocs.io/en/latest/how-to/define_materials.html",
+      "https://materforge.readthedocs.io/en/latest/how-to/fast_evaluation.html",
+      "https://materforge.readthedocs.io/en/latest/how-to/load_bundled_materials.html",
+      "https://materforge.readthedocs.io/en/latest/how-to/property_inversion.html",
+      "https://materforge.readthedocs.io/en/latest/how-to/use_the_cli.html",
+      "https://materforge.readthedocs.io/en/latest/how-to/visualize_properties.html",
+      "https://materforge.readthedocs.io/en/latest/reference/api.html",
+      "https://materforge.readthedocs.io/en/latest/reference/yaml_schema.html",
+      "https://materforge.readthedocs.io/en/latest/tutorials/first_simulation.html",
+      "https://materforge.readthedocs.io/en/latest/tutorials/getting_started.html",
+      "https://readthedocs.org/projects/materforge/badge/?version=latest"
+    ],
+    "host": "github",
+    "manual_hard_defects": [],
+    "manual_strict_ready": null,
+    "notes": "Mechanical acquisition; reference annotation not yet created.",
+    "order": 27,
+    "path_index": {
+      "examples/myAlloy.yaml": true
+    },
+    "readme_sha": "6bd81a69fdcc2ab3b46255f74a4e4355a5dd97fe",
+    "repository": "rahildoshi97/materforge",
+    "title": "MaterForge: Materials Formulation Engine with Python"
+  },
+  {
+    "blocks": [
+      {
+        "heading": "Usage",
+        "language": "python",
+        "text": "import os\nos.environ[\"XLA_FLAGS\"] = \"--xla_force_host_platform_device_count=8\"\nos.environ[\"JAX_PLATFORM_NAME\"] = \"cpu\"\n\nimport jax\nfrom jax.sharding import Mesh, PartitionSpec as P, NamedSharding, AxisType\nimport jaxdecomp\n\n# Create a 2x4 mesh of devices on CPU\npdims = (2, 4)\nmesh = jax.make_mesh(pdims, axis_names=('x', 'y') , axis_types=(AxisType.Auto, AxisType.Auto))\nsharding = NamedSharding(mesh, P('x', 'y'))\n\n# Create a random 3D array and enforce sharding\na = jax.random.normal(jax.random.PRNGKey(0), (1024, 1024, 1024))\na = jax.lax.with_sharding_constraint(a, sharding)\n\n# Parallel FFTs\nk_array = jaxdecomp.fft.pfft3d(a)\nrec_array = jaxdecomp.fft.pifft3d(a)\n\n# Parallel halo exchange\nexchanged = jaxdecomp.halo_exchange(a, halo_extents=(16, 16), halo_periods=(True, True))"
+      },
+      {
+        "heading": "Running on an HPC Cluster",
+        "language": "bash",
+        "text": "srun python your_script.py"
+      },
+      {
+        "heading": "Running on an HPC Cluster",
+        "language": "bash",
+        "text": "mpirun -n 8 python your_script.py"
+      },
+      {
+        "heading": "Using cuDecomp (MPI and NCCL)",
+        "language": "python",
+        "text": "import jaxdecomp\n\n# Optionally select communication backends (defaults to NCCL)\njaxdecomp.config.update('halo_comm_backend', jaxdecomp.HALO_COMM_MPI)\njaxdecomp.config.update('transpose_comm_backend', jaxdecomp.TRANSPOSE_COMM_MPI_A2A)\n\n# Then specify 'backend=\"cudecomp\"' in your FFT or halo calls:\nkarray = jaxdecomp.fft.pfft3d(global_array, backend='cudecomp')\nrecarray = jaxdecomp.fft.pifft3d(karray, backend='cudecomp')\nexchanged_array = jaxdecomp.halo_exchange(\n    padded_array, halo_extents=(16, 16), halo_periods=(True, True), backend='cudecomp'\n)"
+      },
+      {
+        "heading": "1. Pure JAX Version (Easy / Recommended)",
+        "language": "bash",
+        "text": "     pip install --upgrade \"jax[cuda]\""
+      },
+      {
+        "heading": "1. Pure JAX Version (Easy / Recommended)",
+        "language": "bash",
+        "text": "     pip install --upgrade \"jax[cpu]\""
+      },
+      {
+        "heading": "1. Pure JAX Version (Easy / Recommended)",
+        "language": "bash",
+        "text": "   pip install jaxdecomp"
+      },
+      {
+        "heading": "2. JAX + cuDecomp Backend (Advanced)",
+        "language": "bash",
+        "text": "pip install -U pip\npip install git+https://github.com/DifferentiableUniverseInitiative/jaxDecomp -Ccmake.define.JD_CUDECOMP_BACKEND=ON"
+      },
+      {
+        "heading": "2. JAX + cuDecomp Backend (Advanced)",
+        "language": "bash",
+        "text": "git clone https://github.com/DifferentiableUniverseInitiative/jaxDecomp.git --recursive\ncd jaxDecomp\npip install -U pip\npip install . -Ccmake.define.JD_CUDECOMP_BACKEND=ON"
+      },
+      {
+        "heading": "2. JAX + cuDecomp Backend (Advanced)",
+        "language": "bash",
+        "text": "  export CMAKE_PREFIX_PATH=$CMAKE_PREFIX_PATH:$NVCOMPILERS/$NVARCH/22.9/cmake"
+      },
+      {
+        "heading": "IDRIS [Jean Zay](http://www.idris.fr/eng/jean-zay/cpu/jean-zay-cpu-hw-eng.html) HPE SGI 8600 supercomputer",
+        "language": "bash",
+        "text": "module load nvidia-compilers/25.1 cuda/12.6.3 openmpi/4.1.6-cuda nccl/2.26.2-1-cuda cudnn  cmake\n# Install JAX\npip install --upgrade \"jax[cuda-local]\"\n\n# Install jaxDecomp with cuDecomp\nexport CMAKE_PREFIX_PATH=$NVHPC_ROOT/cmake # sometimes needed\npip install git+https://github.com/DifferentiableUniverseInitiative/jaxDecomp -Ccmake.define.JD_CUDECOMP_BACKEND=ON"
+      },
+      {
+        "heading": "NERSC [Perlmutter](https://docs.nersc.gov/systems/perlmutter/architecture/) HPE Cray EX supercomputer",
+        "language": "bash",
+        "text": "module load PrgEnv-nvhpc python\nexport CRAY_ACCEL_TARGET=nvidia80\n\n# Install JAX\npip install --upgrade \"jax[cuda]\"\n\n# Install jaxDecomp w/ cuDecomp\nexport CMAKE_PREFIX_PATH=/opt/nvidia/hpc_sdk/Linux_x86_64/22.5/cmake\npip install git+https://github.com/DifferentiableUniverseInitiative/jaxDecomp -Ccmake.define.JD_CUDECOMP_BACKEND=ON"
+      },
+      {
+        "heading": "Backend Configuration (cuDecomp Only)",
+        "language": "python",
+        "text": "import jaxdecomp\n\n# Choose MPI or NVSHMEM for halo and transpose ops\njaxdecomp.config.update('transpose_comm_backend', jaxdecomp.TRANSPOSE_COMM_MPI_A2A)\njaxdecomp.config.update('halo_comm_backend', jaxdecomp.HALO_COMM_MPI)"
+      },
+      {
+        "heading": "Autotune Computational Mesh (cuDecomp Only)",
+        "language": "python",
+        "text": "automesh = jaxdecomp.autotune(shape=[512,512,512])\n# 'automesh' is an optimized partition layout.\n# You can then create a JAX Sharding spec from this:\nfrom jax.sharding import PositionalSharding\nsharding = PositionalSharding(automesh)"
+      }
+    ],
+    "doi": "10.21105/joss.08852",
+    "external_docs": true,
+    "external_documentation_links": [
+      "examples/",
+      "examples/lpt_nbody_demo.py",
+      "http://www.idris.fr/eng/jean-zay/gpu/jean-zay-gpu-exec_partition_slurm-eng.html#a100_partition_gpu_p5",
+      "https://docs.jax.dev/en/latest/shardy_jax_migration.html",
+      "https://docs.nersc.gov/systems/perlmutter/architecture/",
+      "https://github.com/DifferentiableUniverseInitiative/jaxDecomp/tree/main/docs",
+      "https://jaxdecomp.readthedocs.io/en/latest",
+      "https://jaxdecomp.readthedocs.io/en/latest/",
+      "https://jaxdecomp.readthedocs.io/en/latest/01-basic_usage.html",
+      "https://jaxdecomp.readthedocs.io/en/latest/06-caveats.html",
+      "https://nvidia.github.io/cuDecomp/index.html",
+      "https://readthedocs.org/projects/jaxdecomp/badge/?version=latest"
+    ],
+    "host": "github",
+    "manual_hard_defects": [],
+    "manual_strict_ready": null,
+    "notes": "Mechanical acquisition; reference annotation not yet created.",
+    "order": 28,
+    "path_index": {},
+    "readme_sha": "d466e7bebe51ce43ded3a95a264af64ad570e455",
+    "repository": "DifferentiableUniverseInitiative/jaxDecomp",
+    "title": "jaxDecomp: JAX Library for 3D Domain Decomposition and Parallel FFTs"
+  },
+  {
+    "blocks": [
+      {
+        "heading": "Ecosystem",
+        "language": "",
+        "text": "cat-stack                           ← general base + shared infra\n    ↑\ncat-survey  cat-vader  cat-ademic   ← domain packages (each depends on cat-stack)\ncat-pol     cat-cog    cat-web\n    ↑           ↑          ↑\n             cat-llm                ← meta-package (depends on all of the above)"
+      },
+      {
+        "heading": "Installation",
+        "language": "console",
+        "text": "pip install cat-llm"
+      },
+      {
+        "heading": "Installation",
+        "language": "console",
+        "text": "pip install cat-survey    # survey responses — pulls in cat-stack automatically\npip install cat-vader     # social media\npip install cat-ademic    # academic papers\npip install cat-pol       # political text\npip install cat-cog       # cognitive assessment (CERAD scoring)\npip install cat-web       # web content classification\npip install cat-stack     # general-purpose base only, no domain framing"
+      },
+      {
+        "heading": "Installation",
+        "language": "console",
+        "text": "pip install cat-llm[pdf]          # PDF support\npip install cat-llm[embeddings]   # Embedding-based similarity scores\npip install cat-llm[formatter]    # Local JSON formatter fallback"
+      },
+      {
+        "heading": "R Package",
+        "language": "r",
+        "text": "# Install everything from R-universe (recommended)\ninstall.packages(\"cat.llm\",\n                 repos = c(\"https://chrissoria.r-universe.dev\",\n                          \"https://cloud.r-project.org\"))\n\n# Install the Python backend (one-time setup)\nlibrary(cat.llm)\ninstall_cat_stack()"
+      },
+      {
+        "heading": "Option A — via meta-package",
+        "language": "python",
+        "text": "import catllm\n\n# Domain-neutral classification (from cat-stack)\nresults = catllm.classify(\n    input_data=df['responses'],\n    categories=[\"Positive\", \"Negative\", \"Neutral\"],\n    description=\"Customer feedback\",\n    api_key=api_key\n)\n\n# Survey classification — adds survey-tuned prompts\nresults = catllm.classify_survey(\n    input_data=df['responses'],\n    categories=[\"Job change\", \"Family reasons\", \"Cost of living\"],\n    survey_question=\"Why did you move to a new city?\",\n    api_key=api_key\n)\n\n# Academic paper classification — adds journal/field context\nresults = catllm.classify_academic(\n    input_data=[\"paper1.pdf\", \"paper2.pdf\"],\n    categories=[\"Empirical\", \"Theoretical\", \"Review\"],\n    journal_issn=\"0894-4393\",\n    api_key=api_key\n)\n\n# Social media classification — adds platform context\nresults = catllm.classify_social(\n    input_data=df['posts'],\n    categories=[\"Misinformation\", \"Opinion\", \"News\"],\n    platform=\"Reddit\",\n    api_key=api_key\n)\n\n# Political text classification — with built-in data sources\nresults = catllm.classify_policy(\n    source=\"city_san_diego\",\n    categories=[\"Housing\", \"Public Safety\", \"Finance\"],\n    doc_type=\"ordinance\",\n    since=\"2022-01-01\",\n    n=50,\n    api_key=api_key\n)\n\n# Prompt optimization — correct a small sample, get optimized prompts\nresult = catllm.prompt_tune(\n    input_data=df['responses'],\n    categories=[\"Positive\", \"Negative\", \"Neutral\"],\n    api_key=api_key,\n    sample_size=15,\n)\n\n# Cognitive assessment scoring\nscores = catllm.cerad_drawn_score(\n    shape=\"diamond\",\n    image_input=df['drawing_paths'],\n    api_key=api_key\n)"
+      },
+      {
+        "heading": "Option B — direct install (lighter footprint)",
+        "language": "python",
+        "text": "# pip install cat-ademic\nimport catademic as cat\n\nresults = cat.classify(\n    input_data=[\"paper1.pdf\", \"paper2.pdf\"],\n    categories=[\"Empirical\", \"Theoretical\", \"Review\"],\n    journal_issn=\"0894-4393\",\n    api_key=api_key\n)"
+      },
+      {
+        "heading": "Option B — direct install (lighter footprint)",
+        "language": "python",
+        "text": "# pip install cat-vader\nimport catvader as cat\n\nresults = cat.classify(\n    input_data=df['posts'],\n    categories=[\"Misinformation\", \"Opinion\", \"News\"],\n    platform=\"Reddit\",\n    api_key=api_key\n)"
+      },
+      {
+        "heading": "Option B — direct install (lighter footprint)",
+        "language": "python",
+        "text": "# pip install cat-stack (general-purpose, no domain framing)\nimport catstack as cat\n\nresults = cat.classify(\n    input_data=df['text_column'],\n    categories=[\"Category A\", \"Category B\", \"Category C\"],\n    description=\"My text data\",\n    api_key=api_key\n)"
+      },
+      {
+        "heading": "cat-survey — Survey Responses",
+        "language": "python",
+        "text": "import catsurvey as cat\n\nresults = cat.classify(\n    input_data=df['responses'],\n    categories=[\"Job change\", \"Family reasons\", \"Cost of living\"],\n    survey_question=\"Why did you move to a new city?\",\n    example1=\"I got a new job in Seattle|Job change\",\n    api_key=api_key\n)"
+      },
+      {
+        "heading": "cat-vader — Social Media",
+        "language": "python",
+        "text": "import catvader as cat\n\nresults = cat.classify(\n    input_data=df['posts'],\n    categories=[\"Misinformation\", \"Opinion\", \"News sharing\"],\n    platform=\"Reddit\",\n    api_key=api_key\n)"
+      },
+      {
+        "heading": "cat-ademic — Academic Papers",
+        "language": "python",
+        "text": "import catademic as cat\n\nresults = cat.classify(\n    input_data=[\"paper1.pdf\", \"paper2.pdf\"],\n    categories=[\"Empirical\", \"Theoretical\", \"Review\"],\n    journal_issn=\"0894-4393\",\n    api_key=api_key\n)"
+      },
+      {
+        "heading": "cat-pol — Political Text",
+        "language": "python",
+        "text": "import catpol as pol\n\n# Classify ordinances from a built-in source\nresults = pol.classify(\n    source=\"city_san_diego\",\n    categories=[\"Housing\", \"Public Safety\", \"Infrastructure\", \"Finance\"],\n    doc_type=\"ordinance\",\n    since=\"2022-01-01\",\n    n=50,\n    api_key=api_key,\n)\n\n# Optimize prompts with user feedback\nresult = pol.prompt_tune(\n    source=\"city_san_diego\",\n    categories=[\"Pro-Business\", \"Pro-Regulation\", \"Tax Increase\"],\n    api_key=api_key,\n    sample_size=15,\n)\n\n# Summarize executive orders as bullet points\nsummaries = pol.summarize(\n    source=\"federal_executive_orders\",\n    n=10,\n    format=\"bullets\",\n    api_key=api_key,\n)\n\n# Fetch raw data (no API key needed)\ndf = pol.fetch_source(\"social_trump_truth\", since=\"2024-01-01\")\npol.list_sources()  # see all 15 sources"
+      },
+      {
+        "heading": "cat-cog — Cognitive Assessment",
+        "language": "python",
+        "text": "import catcog\n\nscores = catcog.cerad_drawn_score(\n    shape=\"diamond\",\n    image_input=df['drawing_paths'],\n    api_key=api_key\n)"
+      },
+      {
+        "heading": "cat-web — Web Content",
+        "language": "python",
+        "text": "import catweb as cat\n\nresults = cat.classify(\n    input_data=df['urls'],\n    categories=[\"News\", \"Blog\", \"E-commerce\", \"Academic\"],\n    api_key=api_key\n)"
+      },
+      {
+        "heading": "cat-stack — General-Purpose Base",
+        "language": "python",
+        "text": "import catstack as cat\n\nresults = cat.classify(\n    input_data=df['text_column'],\n    categories=[\"Category A\", \"Category B\", \"Category C\"],\n    description=\"My text data\",\n    api_key=api_key\n)"
+      },
+      {
+        "heading": "`classify()`",
+        "language": "python",
+        "text": "import catllm as cat\n\n# Text classification (auto-detected)\nresults = cat.classify(\n    input_data=df['responses'],\n    categories=[\"Positive feedback\", \"Negative feedback\", \"Neutral\"],\n    description=\"Customer satisfaction survey\",\n    api_key=api_key\n)\n\n# Image classification (auto-detected from file paths)\nresults = cat.classify(\n    input_data=\"/path/to/images/\",\n    categories=[\"Contains person\", \"Outdoor scene\", \"Has text\"],\n    description=\"Product photos\",\n    api_key=api_key\n)\n\n# PDF classification (auto-detected, processes each page separately)\nresults = cat.classify(\n    input_data=\"/path/to/reports/\",\n    categories=[\"Contains table\", \"Has chart\", \"Is summary page\"],\n    description=\"Financial reports\",\n    mode=\"both\",  # Use both image and extracted text\n    api_key=api_key\n)\n\n# Single-label classification (pick one best category per response)\nresults = cat.classify(\n    input_data=df['responses'],\n    categories=[\"Positive\", \"Negative\", \"Neutral\"],\n    multi_label=False,\n    api_key=api_key\n)\n\n# Multi-model ensemble for higher accuracy\nresults = cat.classify(\n    input_data=df['responses'],\n    categories=[\"Positive\", \"Negative\", \"Neutral\"],\n    models=[\n        (\"gpt-4o\", \"openai\", \"sk-...\"),\n        (\"claude-sonnet-4-20250514\", \"anthropic\", \"sk-ant-...\"),\n        (\"gemini-2.5-flash\", \"google\", \"AIza...\"),\n    ],\n    consensus_threshold=\"unanimous\",\n)"
+      },
+      {
+        "heading": "`extract()`",
+        "language": "python",
+        "text": "import catllm as cat\n\n# Extract categories from survey responses\nresults = cat.extract(\n    input_data=df['responses'],\n    survey_question=\"Why did you move?\",\n    api_key=api_key,\n    max_categories=10,\n    focus=\"decisions to relocate\"  # Optional focus\n)\n\nprint(results['top_categories'])\n# ['Employment opportunity', 'Family reasons', 'Cost of living', ...]"
+      },
+      {
+        "heading": "`explore()`",
+        "language": "python",
+        "text": "import catllm as cat\n\n# Run extraction with many iterations for saturation analysis\nraw_categories = cat.explore(\n    input_data=df['responses'],\n    description=\"Why did you move?\",\n    api_key=api_key,\n    iterations=20,\n    divisions=5,\n    categories_per_chunk=10,\n)\n\n# Count how often each category appears across runs\nfrom collections import Counter\ncounts = Counter(raw_categories)\nfor category, freq in counts.most_common(15):\n    print(f\"{freq:3d}x  {category}\")"
+      },
+      {
+        "heading": "`summarize()`",
+        "language": "python",
+        "text": "import catllm as cat\n\n# Single model text summarization\nresults = cat.summarize(\n    input_data=df['responses'],\n    description=\"Customer feedback\",\n    api_key=api_key\n)\n\n# PDF summarization (auto-detected from file paths)\nresults = cat.summarize(\n    input_data=\"/path/to/pdfs/\",\n    description=\"Research papers\",\n    mode=\"image\",\n    api_key=api_key\n)\n\n# PDF summarization with specific files and focus\nresults = cat.summarize(\n    input_data=[\"doc1.pdf\", \"doc2.pdf\"],\n    description=\"Financial reports\",\n    mode=\"both\",\n    focus=\"key metrics and trends\",\n    max_length=100,\n    api_key=api_key\n)\n\n# With safety saves and row delay\nresults = cat.summarize(\n    input_data=df['responses'],\n    description=\"Customer feedback\",\n    api_key=api_key,\n    safety=True,\n    filename=\"results.csv\",\n    row_delay=1.0,\n)\n\n# Batch mode (50% cost savings)\nresults = cat.summarize(\n    input_data=df['responses'],\n    description=\"Customer feedback\",\n    api_key=api_key,\n    batch_mode=True,\n    filename=\"batch_results.csv\",\n)\n\n# Multi-model with synthesis\nresults = cat.summarize(\n    input_data=df['responses'],\n    models=[\n        (\"gpt-4o\", \"openai\", \"sk-...\"),\n        (\"claude-sonnet-4-20250514\", \"anthropic\", \"sk-ant-...\"),\n    ],\n)"
+      },
+      {
+        "heading": "`image_score_drawing()`",
+        "language": "python",
+        "text": "import catllm as cat\n\nimage_scores = cat.image_score_drawing(\n    reference_image_description='A hand-drawn circle',\n    image_input=['image1.jpg', 'image2.jpg', 'image3.jpg'],\n    user_model=\"gpt-4o\",\n    api_key=\"OPENAI_API_KEY\"\n)"
+      },
+      {
+        "heading": "`image_features()`",
+        "language": "python",
+        "text": "import catllm as cat\n\nfeatures = cat.image_features(\n    image_description='Product photos from e-commerce site',\n    features_to_extract=['number of items', 'primary color', 'has price tag'],\n    image_input='/path/to/images/',\n    user_model=\"gpt-4o\",\n    api_key=\"OPENAI_API_KEY\"\n)"
+      },
+      {
+        "heading": "`cerad_drawn_score()`",
+        "language": "python",
+        "text": "import catllm as cat\n\ndiamond_scores = cat.cerad_drawn_score(\n    shape=\"diamond\",\n    image_input=df['diamond_pic_path'],\n    api_key=api_key,\n    safety=True,\n    filename=\"diamond_scores.csv\",\n)"
+      },
+      {
+        "heading": "Related Projects",
+        "language": "bash",
+        "text": "pip install llm-web-research"
+      },
+      {
+        "heading": "Testing",
+        "language": "console",
+        "text": "ollama pull llama3.1:8b"
+      },
+      {
+        "heading": "HTTP timeouts on local Ollama runs (cat-stack ≥ 1.6.5)",
+        "language": "python",
+        "text": "# Per-client override (constructed directly)\nfrom catstack._providers import UnifiedLLMClient\nclient = UnifiedLLMClient(\"ollama\", \"\", \"qwen3:14b\",\n                          request_timeout=900,\n                          max_total_wait=1800)\n\n# Process-wide override (all subsequently-constructed clients)\nfrom catstack._providers import set_session_timeouts\nset_session_timeouts(request_timeout=900, max_total_wait=1800)"
+      }
+    ],
+    "doi": "10.21105/joss.09678",
+    "external_docs": true,
+    "external_documentation_links": [
+      "examples/",
+      "examples/Classifying%20Text%20with%20Local%20Models%20(Ollama",
+      "https://rstudio.github.io/reticulate/"
+    ],
+    "host": "github",
+    "manual_hard_defects": [],
+    "manual_strict_ready": null,
+    "notes": "Mechanical acquisition; reference annotation not yet created.",
+    "order": 29,
+    "path_index": {},
+    "readme_sha": "d4693d8bcb4af735ff6f17b106e9490df7712b6c",
+    "repository": "chrissoria/cat-llm",
+    "title": "CatLLM: A Python package for Generating, Assigning, and Scoring Open-Ended Survey Data and Images"
+  },
+  {
+    "blocks": [
+      {
+        "heading": "Quick Verification",
+        "language": "bash",
+        "text": "wand-quicktest"
+      },
+      {
+        "heading": "Option 1: pip install (Recommended)",
+        "language": "bash",
+        "text": "pip install git+https://github.com/brodie-neuro/WAND-practice-and-fatigue-induction.git"
+      },
+      {
+        "heading": "Option 2: Development/Editable Install",
+        "language": "bash",
+        "text": "git clone https://github.com/brodie-neuro/WAND-practice-and-fatigue-induction.git\ncd WAND-practice-and-fatigue-induction\npip install -e ."
+      },
+      {
+        "heading": "Option 3: Traditional Clone (if you have PsychoPy pre-installed)",
+        "language": "bash",
+        "text": "git clone https://github.com/brodie-neuro/WAND-practice-and-fatigue-induction.git\ncd WAND-practice-and-fatigue-induction\npip install -r requirements.txt"
+      },
+      {
+        "heading": "After pip install",
+        "language": "bash",
+        "text": "# Launch the GUI configuration wizard (recommended)\nwand-launcher\n\n# Or run specific scripts directly\nwand-practice      # Calibration/practice mode\nwand-induction     # Full fatigue induction"
+      },
+      {
+        "heading": "Traditional usage (if cloned)",
+        "language": "bash",
+        "text": "# GUI Launcher (recommended)\nwand-launcher\n\n# Or run modules directly\npython -m wand_nback.practice_plateau\npython -m wand_nback.full_induction\n\n# Automated smoke test (~3 seconds, no user input required)\nwand-quicktest"
+      },
+      {
+        "heading": "Automated Installation Verification",
+        "language": "bash",
+        "text": "wand-quicktest"
+      },
+      {
+        "heading": "Window and appearance",
+        "language": "json",
+        "text": "{\n  \"window\": {\n    \"fullscreen\": false,\n    \"size\": [1650, 1000],\n    \"monitor\": \"testMonitor\",\n    \"background_color\": [-1, -1, -1],\n    \"color_space\": \"rgb\",\n    \"use_fbo\": true\n  },\n  \"colors\": {\n    \"default\": \"white\",\n    \"levels\": { \"2\": \"#0072B2\", \"3\": \"#E69F00\", \"4\": \"#009E73\" }\n  },\n  \"timing\": { \"jitter_fraction\": 0.10 }\n}"
+      },
+      {
+        "heading": "Stimuli Setup",
+        "language": "",
+        "text": "/\n├── wand_nback/               # Main package\n│   ├── __init__.py\n│   ├── launcher.py           # GUI wizard (wand-launcher entry point)\n│   ├── practice_plateau.py   # Practice calibration (wand-practice)\n│   ├── full_induction.py     # Main fatigue induction (wand-induction)\n│   ├── block_builder.py      # Visual experiment designer\n│   ├── common.py             # Shared utilities\n│   ├── analysis.py           # SDT metrics and analysis\n│   ├── config/\n│   │   ├── params.json       # Settings (EEG triggers, timings, colors)\n│   │   └── text_en.json      # On-screen instructions\n│   ├── stimuli/\n│   │   └── apophysis/        # Abstract fractal images (24 PNGs)\n│   └── logo/                 # Branding\n├── Tests/\n│   ├── quicktest_induction.py\n│   ├── test_metrics.py\n│   └── ...\n├── docs/                     # Screenshots\n├── Logo/                     # Repository branding\n├── pyproject.toml            # Package configuration\n├── requirements.txt\n├── README.md\n└── data/                     # Output (auto-created)"
+      },
+      {
+        "heading": "Testing",
+        "language": "bash",
+        "text": "python -m pytest"
+      }
+    ],
+    "doi": "10.21105/joss.08667",
+    "external_docs": false,
+    "external_documentation_links": [],
+    "host": "github",
+    "manual_hard_defects": [],
+    "manual_strict_ready": null,
+    "notes": "Mechanical acquisition; reference annotation not yet created.",
+    "order": 30,
+    "path_index": {},
+    "readme_sha": "c08224eb22e1e612f8243ea8ecd5b6c170071a1f",
+    "repository": "brodie-neuro/WAND-practice-and-fatigue-induction",
+    "title": "WAND (Working-memory Adaptive-fatigue with N-back Difficulty): A Modular Software Suite for Cognitive Fatigue Research"
+  },
+  {
+    "blocks": [
+      {
+        "heading": "Repository Structure",
+        "language": "",
+        "text": "AOC/\n├── workflow/\n│   ├── Snakefile\n├── config/\n│   └── config.yaml\n├── scripts/\n├── tests/\n├── envs/\n│   └── AOC.yaml\n├── install.sh\n├── run_AOC.sh\n├── submit_AOC.slurm\n└── README.md"
+      },
+      {
+        "heading": "Run installer",
+        "language": "bash",
+        "text": "git clone https://github.com/aglucaci/AOC.git\ncd AOC"
+      },
+      {
+        "heading": "Run installer",
+        "language": "",
+        "referenced_paths": [
+          "envs/AOC.yaml"
+        ],
+        "text": "bash install.sh AOC envs/AOC.yaml"
+      },
+      {
+        "heading": "Optional: Force a frontend",
+        "language": "bash",
+        "referenced_paths": [
+          "envs/AOC.yaml"
+        ],
+        "text": "FRONTEND_OVERRIDE=conda bash install.sh AOC envs/AOC.yaml\nFRONTEND_OVERRIDE=micromamba bash install.sh AOC envs/AOC.yaml"
+      },
+      {
+        "heading": "Optional: Force a frontend",
+        "language": "",
+        "text": "conda activate AOC"
+      },
+      {
+        "heading": "Validate installation",
+        "language": "bash",
+        "referenced_paths": [
+          "tests/test_installation.sh"
+        ],
+        "text": "bash tests/test_installation.sh"
+      },
+      {
+        "heading": "Required columns",
+        "language": "",
+        "text": "sample,codon_fasta,sequence_labels_csv"
+      },
+      {
+        "heading": "Example",
+        "language": "",
+        "referenced_paths": [
+          "data/BDNF/BDNF-8.sequence_labels.csv"
+        ],
+        "text": "BDNF-8,data/BDNF/BDNF-8.fasta,data/BDNF/BDNF-8.sequence_labels.csv\ntiny-no-labels,tests/data/tiny.fasta,"
+      },
+      {
+        "heading": "Example",
+        "language": "",
+        "text": "sample,codon_fasta,sequence_labels_csv\ntiny-no-labels,tests/data/tiny.fasta,"
+      },
+      {
+        "heading": "Example",
+        "language": "",
+        "text": "label,fasta_sequence_header\nTest,\"NM_001709.5 Homo sapiens brain derived neurotrophic factor (BDNF), transcript variant 4, mRNA\"\nTest,\"NM_001270630.1 Rattus norvegicus brain-derived neurotrophic factor (Bdnf), transcript variant 1, mRNA\"\nBackground,\"XM_011226480.3 PREDICTED: Ailuropoda melanoleuca brain derived neurotrophic factor (BDNF), mRNA\"\nBackground,\"XM_007497196.2 PREDICTED: Monodelphis domestica brain-derived neurotrophic factor (BDNF), transcript variant X1, mRNA\"\nBackground,\"NM_001081787.1 Equus caballus brain derived neurotrophic factor (BDNF), mRNA\""
+      },
+      {
+        "heading": "Running the Pipeline",
+        "language": "bash",
+        "text": "bash run_AOC.sh --samples samples.csv"
+      },
+      {
+        "heading": "Manual run example with bundled test data",
+        "language": "bash",
+        "referenced_paths": [
+          "data/BDNF/BDNF-8.sequence_labels.csv"
+        ],
+        "text": "cat > samples.csv <<'EOF'\nsample,codon_fasta,sequence_labels_csv\nBDNF-8,data/BDNF/BDNF-8.fasta,data/BDNF/BDNF-8.sequence_labels.csv\nEOF\n\nbash run_AOC.sh --samples samples.csv"
+      },
+      {
+        "heading": "Manual run example with bundled test data",
+        "language": "bash",
+        "text": "cat > samples.csv <<'EOF'\nsample,codon_fasta,sequence_labels_csv\ntiny-no-labels,tests/data/tiny.fasta,\nEOF\n\nbash run_AOC.sh --samples samples.csv"
+      },
+      {
+        "heading": "Manual run example with bundled test data",
+        "language": "bash",
+        "referenced_paths": [
+          "tests/test_installation.sh"
+        ],
+        "text": "bash tests/test_installation.sh"
+      },
+      {
+        "heading": "HPC Execution (SLURM Example)",
+        "language": "bash",
+        "text": "sbatch submit_AOC.slurm"
+      },
+      {
+        "heading": "Output Directory Structure",
+        "language": "",
+        "text": "results/\n  {sample}/\n    selection/\n      part1/\n        FEL.json\n        MEME.json\n        ABSREL.json\n        BUSTEDS-MH.json\n        RELAX.json\n        CFEL.json\n      part2/\n        ...\n    tables/\n      part1/\n        {sample}.part1.AOC.FEL_Results.csv\n        {sample}.part1.AOC.MEME_Results.csv\n        {sample}.part1.AOC.ABSREL_Results.csv\n        {sample}.part1.AOC.BUSTEDS-MH_Results.csv\n        {sample}.part1.AOC.RELAX_Results.csv\n        {sample}.part1.AOC.CFEL_Results.csv\n      {sample}.AOC.merged_FEL_Results.csv\n      {sample}.AOC.merged_MEME_Results.csv\n      {sample}.AOC.merged_ABSREL_Results.csv\n      {sample}.AOC.merged_BUSTEDS-MH_Results.csv\n      {sample}.AOC.merged_RELAX_Results.csv\n      {sample}.AOC.merged_CFEL_Results.csv\n      {sample}.selection_overview.csv\n    visualizations/\n      FEL.merged.png\n      MEME.merged.png"
+      },
+      {
+        "heading": "FEL Results",
+        "language": "",
+        "text": "{sample}.partX.AOC.FEL_Results.csv"
+      },
+      {
+        "heading": "MEME Results",
+        "language": "",
+        "text": "{sample}.partX.AOC.MEME_Results.csv"
+      },
+      {
+        "heading": "aBSREL Results",
+        "language": "",
+        "text": "{sample}.partX.AOC.ABSREL_Results.csv"
+      },
+      {
+        "heading": "BUSTED-S-MH Results",
+        "language": "",
+        "text": "{sample}.partX.AOC.BUSTEDS-MH_Results.csv"
+      },
+      {
+        "heading": "RELAX Results",
+        "language": "",
+        "text": "{sample}.partX.AOC.RELAX_Results.csv"
+      },
+      {
+        "heading": "CFEL Results",
+        "language": "",
+        "text": "{sample}.partX.AOC.CFEL_Results.csv"
+      },
+      {
+        "heading": "Merged Results",
+        "language": "",
+        "text": "{sample}.AOC.merged_FEL_Results.csv\n{sample}.AOC.merged_MEME_Results.csv\n{sample}.AOC.merged_ABSREL_Results.csv\n{sample}.AOC.merged_BUSTEDS-MH_Results.csv\n{sample}.AOC.merged_RELAX_Results.csv\n{sample}.AOC.merged_CFEL_Results.csv"
+      },
+      {
+        "heading": "Selection Overview Table",
+        "language": "",
+        "text": "{sample}.selection_overview.csv"
+      },
+      {
+        "heading": "Visualizations",
+        "language": "",
+        "text": "FEL.merged.png\nMEME.merged.png"
+      },
+      {
+        "heading": "Citation",
+        "language": "",
+        "text": "Lucaci et al., (2026). AOC: A Snakemake workflow for the characterization of natural selection in protein-coding genes. Journal of Open Source Software, 11(121), 9872, https://doi.org/10.21105/joss.09872"
+      }
+    ],
+    "doi": "10.21105/joss.09872",
+    "external_docs": false,
+    "external_documentation_links": [],
+    "host": "github",
+    "manual_hard_defects": [],
+    "manual_strict_ready": null,
+    "notes": "Mechanical acquisition; reference annotation not yet created.",
+    "order": 31,
+    "path_index": {
+      "data/BDNF/BDNF-8.sequence_labels.csv": true,
+      "envs/AOC.yaml": true,
+      "tests/test_installation.sh": true
+    },
+    "readme_sha": "8da10bd5efcea00393bb6667935f28457601ed9c",
+    "repository": "aglucaci/Analysis-of-Orthologous-Collections",
+    "title": "AOC: A Snakemake workflow for the characterization of natural selection in protein-coding genes"
+  },
+  {
+    "blocks": [
+      {
+        "heading": "Installation",
+        "language": "r",
+        "text": "install.packages(\"dySEM\")"
+      },
+      {
+        "heading": "Installation",
+        "language": "r",
+        "text": "devtools::install_github(\"jsakaluk/dySEM\")"
+      },
+      {
+        "heading": "1. Import and wrangle **data**",
+        "language": "r",
+        "placeholder_explained": false,
+        "text": "DRES\n#> # A tibble: 121 × 18\n#>    PRQC_1.1 PRQC_2.1 PRQC_3.1 PRQC_4.1 PRQC_5.1 PRQC_6.1 PRQC_7.1 PRQC_8.1\n#>       <int>    <int>    <int>    <int>    <int>    <int>    <int>    <int>\n#>  1        7        7        7        7        7        7        7        5\n#>  2        6        6        6        7        7        6        5        5\n#>  3        7        7        7        7        7        7        7        6\n#>  4        6        6        6        7        7        6        5        6\n#>  5        7        7        7        7        7        6        7        6\n#>  6        6        6        6        6        6        3        6        5\n#>  7        7        6        7        6        6        6        5        6\n#>  8        6        7        7        7        7        6        5        6\n#>  9        7        7        7        7        7        6        6        6\n#> 10        6        6        6        7        7        7        4        4\n#> # ℹ 111 more rows\n#> # ℹ 10 more variables: PRQC_9.1 <int>, PRQC_1.2 <int>, PRQC_2.2 <int>,\n#> #   PRQC_3.2 <int>, PRQC_4.2 <int>, PRQC_5.2 <int>, PRQC_6.2 <int>,\n#> #   PRQC_7.2 <int>, PRQC_8.2 <int>, PRQC_9.2 <int>"
+      },
+      {
+        "heading": "2. **Scrape** variables from your data frame",
+        "language": "r",
+        "text": "dvn <- scrapeVarCross(DRES, x_order = \"sip\", x_stem = \"PRQC\", x_delim1=\"_\",x_delim2=\".\",  distinguish_1=\"1\", distinguish_2=\"2\")\n#> \n#> ── Variable Scraping Summary ──\n#> \n#> ✔ Successfully scraped 1 latent variable: PRQC\n#> ℹ PRQC: 9 indicators for P1 (1), 9 indicators for P2 (2)\n#> ℹ Total indicators: 18"
+      },
+      {
+        "heading": "3. **Script** your preferred model",
+        "language": "r",
+        "text": "qual.indist.script <- scriptCor(dvn, lvname = \"Quality\")"
+      },
+      {
+        "heading": "4. **Fit** and **Inspect** your model via `lavaan`",
+        "language": "r",
+        "text": "qual.indist.fit <- lavaan::cfa(qual.indist.script, data = DRES, std.lv = FALSE, auto.fix.first= FALSE, meanstructure = TRUE)"
+      },
+      {
+        "heading": "4. **Fit** and **Inspect** your model via `lavaan`",
+        "language": "r",
+        "text": "summary(qual.indist.fit, fit.measures = TRUE, standardized = TRUE, rsquare = TRUE)"
+      },
+      {
+        "heading": "5. **Output** statistical visualizations and/or tables",
+        "language": "r",
+        "text": "outputParamTab(dvn, model = \"cfa\", fit = qual.indist.fit, \n               tabletype = \"measurement\", writeTo = tempdir(), \n               fileName = \"cfa_indist\")\n\noutputParamFig(fit = qual.indist.fit, figtype = \"standardized\",\n               writeTo = tempdir(), \n               fileName = \"cfa_indist\")"
+      }
+    ],
+    "doi": "10.21105/joss.10115",
+    "external_docs": true,
+    "external_documentation_links": [
+      "https://jsakaluk.github.io/dySEM/",
+      "https://jsakaluk.github.io/dySEM/CODE_OF_CONDUCT.html",
+      "https://jsakaluk.github.io/dySEM/articles/dySEM.html"
+    ],
+    "host": "github",
+    "manual_hard_defects": [],
+    "manual_strict_ready": null,
+    "notes": "Mechanical acquisition; reference annotation not yet created.",
+    "order": 32,
+    "path_index": {},
+    "readme_sha": "1fd9fe26c1df6aa8f52f51b633c23ee8c8f40f37",
+    "repository": "jsakaluk/dySEM",
+    "title": "dySEM: An R Package for Dyadic Structural Equation Modeling with Latent Variables"
+  },
+  {
+    "blocks": [
+      {
+        "heading": "🔢 Version Compatibility Matrix",
+        "language": "python",
+        "text": "versions = [\n    '0.21.3', '0.22.0', '0.22.1', '0.23.0', '0.23.1', '0.23.2',\n    '0.24.0', '0.24.1', '0.24.2', '1.0.0', '1.0.1', '1.0.2',\n    '1.1.0', '1.1.1', '1.1.2', '1.1.3', '1.2.0', '1.2.1', '1.2.2',\n    '1.3.0', '1.3.1', '1.3.2', '1.4.0', '1.4.2', '1.5.0', '1.5.1',\n    '1.5.2', '1.6.0', '1.6.1', '1.7.0', '1.7.1', '1.7.2'\n]"
+      },
+      {
+        "heading": "📊 Validation Metric",
+        "language": "python",
+        "text": "df_performance.abs().max().max()  # global worst case (32x32 matrix)"
+      },
+      {
+        "heading": "📂 Installation",
+        "language": "bash",
+        "text": "pip install sklearn-migrator"
+      },
+      {
+        "heading": "a. Serialize the model",
+        "language": "python",
+        "text": "import json\nimport sklearn\nimport numpy as np\nfrom sklearn.datasets import make_regression\nfrom sklearn.model_selection import train_test_split\nfrom sklearn.ensemble import RandomForestRegressor\nfrom sklearn_migrator.regression.random_forest_reg import serialize_random_forest_reg\n\nX, y = make_regression(n_samples=200, n_features=10, random_state=42)\nX_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)\n\nmodel = RandomForestRegressor().fit(X_train, y_train)\npredictions = model.predict(X_test)\ndata = serialize_random_forest_reg(model, sklearn.__version__)\n\nwith open(\"model.json\", \"w\") as f:\n    json.dump(data, f)"
+      },
+      {
+        "heading": "b. Deserialize the model",
+        "language": "python",
+        "text": "import json\nimport sklearn\nfrom sklearn_migrator.regression.random_forest_reg import deserialize_random_forest_reg\n\nwith open(\"model.json\") as f:\n    data = json.load(f)\n\nnew_model = deserialize_random_forest_reg(data, sklearn.__version__)\nnew_predictions = new_model.predict(X_test)"
+      },
+      {
+        "heading": "2. Docker: Step by Step",
+        "language": "bash",
+        "text": "/test_github"
+      },
+      {
+        "heading": "2. Docker: Step by Step",
+        "language": "bash",
+        "text": "/test_github/input/1.5.0/Dockerfile_input\n/test_github/input/1.5.0/requirements_input.txt"
+      },
+      {
+        "heading": "2. Docker: Step by Step",
+        "language": "bash",
+        "text": "/test_github/output/1.7.0/Dockerfile_output\n/test_github/output/1.7.0/requirements_output.txt"
+      },
+      {
+        "heading": "2. Docker: Step by Step",
+        "language": "python",
+        "referenced_paths": [
+          "input_model/all_data.json",
+          "input_model/y_pred.csv"
+        ],
+        "text": "import json\nimport joblib\nimport sklearn\nimport numpy as np\nimport pandas as pd\nfrom joblib import load\n\nfrom sklearn.ensemble import RandomForestClassifier\n\nfrom sklearn_migrator.classification.random_forest_clf import serialize_random_forest_clf\n\nversion_sklearn_in = sklearn.__version__\n\nmodel = load('model.pkl')\n\nall_data = serialize_random_forest_clf(model, version_sklearn_in)\n\ndef convert(o):\n    if isinstance(o, (np.integer, np.int64)):\n        return int(o)\n    elif isinstance(o, (np.floating, np.float64)):\n        return float(o)\n    elif isinstance(o, np.ndarray):\n        return o.tolist()\n    else:\n        raise TypeError(f\"Object of type {type(o).__name__} is not JSON serializable\")\n\nwith open(\"input_model/all_data.json\", \"w\") as f:\n    json.dump(all_data, f, default=convert)\n\nfake_row = np.array([[0.5, -1.2, 0.3, 1.1, -0.7, 0.9, 0.0, -0.3, 1.5, 0.2]])\n\ny_pred = pd.DataFrame(model.predict_proba(fake_row))\ny_pred.to_csv('input_model/y_pred.csv', index=False)"
+      },
+      {
+        "heading": "2. Docker: Step by Step",
+        "language": "python",
+        "referenced_paths": [
+          "input_model/all_data.json",
+          "output_model/y_pred_new.csv"
+        ],
+        "text": "import json\nimport joblib\nimport sklearn\nimport numpy as np\nimport pandas as pd\nfrom joblib import load\n\nfrom sklearn.ensemble import RandomForestClassifier\n\nfrom sklearn_migrator.classification.random_forest_clf import deserialize_random_forest_clf\n\nversion_sklearn_out = sklearn.__version__\n\nwith open(\"input_model/all_data.json\", \"r\") as f:\n    all_data = json.load(f)\n\nnew_model = deserialize_random_forest_clf(all_data, version_sklearn_out)\n\njoblib.dump(new_model, 'output_model/new_model.pkl')\n\nfake_row = np.array([[0.5, -1.2, 0.3, 1.1, -0.7, 0.9, 0.0, -0.3, 1.5, 0.2]])\n\ny_pred_new = pd.DataFrame(new_model.predict_proba(fake_row))\ny_pred_new.to_csv('output_model/y_pred_new.csv', index=False)"
+      },
+      {
+        "heading": "2. Docker: Step by Step",
+        "language": "bash",
+        "text": "cp input/1.5.0/* output/1.7.0/* ."
+      },
+      {
+        "heading": "2. Docker: Step by Step",
+        "language": "bash",
+        "text": "docker build -f Dockerfile_input -t image_input_1.5.0 .\ndocker build -f Dockerfile_output -t image_output_1.7.0 .\n\ndocker run --rm \\\n  -v \"$(pwd)/input_model:/app/input_model\" \\\n  -v \"$(pwd)/model.pkl:/app/model.pkl\" \\\n  image_input_1.5.0\n\ndocker run --rm \\\n  -v \"$(pwd)/input_model:/app/input_model\" \\\n  -v \"$(pwd)/output_model:/app/output_model\" \\\n  image_output_1.7.0"
+      },
+      {
+        "heading": "Run tests locally",
+        "language": "bash",
+        "text": "pytest tests/"
+      }
+    ],
+    "doi": "10.21105/joss.10374",
+    "external_docs": false,
+    "external_documentation_links": [],
+    "host": "github",
+    "manual_hard_defects": [],
+    "manual_strict_ready": null,
+    "notes": "Mechanical acquisition; reference annotation not yet created.",
+    "order": 33,
+    "path_index": {
+      "input_model/all_data.json": false,
+      "input_model/y_pred.csv": false,
+      "output_model/y_pred_new.csv": false
+    },
+    "readme_sha": "36a51525a013eb98b635f0ce8b2b3db1ae2a7bb4",
+    "repository": "anvaldes/sklearn-migrator",
+    "title": "sklearn-migrator: Cross-version migration of scikit-learn models for reproducible MLOps"
+  },
+  {
+    "blocks": [],
+    "doi": "10.21105/joss.10328",
+    "external_docs": true,
+    "external_documentation_links": [
+      "https://github.com/boostorg/geometry/actions/workflows/documentation.yml/badge.svg?branch=develop",
+      "https://github.com/boostorg/geometry/actions/workflows/documentation.yml/badge.svg?branch=master",
+      "https://github.com/boostorg/geometry/actions?query=branch:develop+workflow:documentation",
+      "https://github.com/boostorg/geometry/actions?query=branch:master+workflow:documentation",
+      "https://github.com/boostorg/geometry/wiki",
+      "https://img.shields.io/badge/-documentation-4480cc.png",
+      "https://img.shields.io/badge/-wiki-4480cc.png"
+    ],
+    "host": "github",
+    "manual_hard_defects": [],
+    "manual_strict_ready": null,
+    "notes": "Mechanical acquisition; reference annotation not yet created.",
+    "order": 34,
+    "path_index": {},
+    "readme_sha": "6f898496335b9a0bf64def628d2ff63852af89bf",
+    "repository": "boostorg/geometry",
+    "title": "Boost.Geometry: A Generic C++ Geometry Library"
+  },
+  {
+    "blocks": [
+      {
+        "heading": "Try It Out",
+        "language": "shell",
+        "text": "pip install ado-core"
+      },
+      {
+        "heading": "Try It Out",
+        "language": "shell",
+        "text": "git clone https://github.com/IBM/ado.git\ncd ado\npip install -e examples/density_example/"
+      },
+      {
+        "heading": "Try It Out",
+        "language": "shell",
+        "referenced_paths": [
+          "examples/density_example/operation.yaml",
+          "examples/density_example/space.yaml"
+        ],
+        "text": "ado create operation -f examples/density_example/operation.yaml --with space=examples/density_example/space.yaml"
+      },
+      {
+        "heading": "Try It Out",
+        "language": "shell",
+        "text": "ado show measurements operation --use-latest"
+      },
+      {
+        "heading": "Citation",
+        "language": "bibtex",
+        "text": "@article{Johnston_ado_a_Python_2026,\nauthor = {Johnston, Michael A. and Pomponio, Alessandro},\ndoi = {10.21105/joss.10304},\njournal = {Journal of Open Source Software},\nmonth = may,\nnumber = {121},\npages = {10304},\ntitle = {{ado: a Python framework for computational experimentation and benchmarking}},\nurl = {https://joss.theoj.org/papers/10.21105/joss.10304},\nvolume = {11},\nyear = {2026}\n}"
+      }
+    ],
+    "doi": "10.21105/joss.10304",
+    "external_docs": true,
+    "external_documentation_links": [
+      "https://docs.vllm.ai/en/stable/cli/bench/serve/",
+      "https://github.com/vllm-project/guidellm",
+      "https://ibm.github.io/ado/examples/vllm-performance-endpoint/",
+      "https://ibm.github.io/ado/user-guide/examples/density-example/",
+      "https://ibm.github.io/ado/user-guide/examples/finetune-remotely/",
+      "https://ibm.github.io/ado/user-guide/examples/trim/",
+      "https://ibm.github.io/ado/user-guide/getting-started/#__tabbed_1_2",
+      "https://ibm.github.io/ado/user-guide/install/"
+    ],
+    "host": "github",
+    "manual_hard_defects": [],
+    "manual_strict_ready": null,
+    "notes": "Mechanical acquisition; reference annotation not yet created.",
+    "order": 35,
+    "path_index": {
+      "examples/density_example/operation.yaml": true,
+      "examples/density_example/space.yaml": true
+    },
+    "readme_sha": "54cba4bf4e73241b178058a0e06bedabba5c4d8d",
+    "repository": "IBM/ado",
+    "title": "ado: a Python framework for computational experimentation and benchmarking"
+  },
+  {
+    "blocks": [
+      {
+        "heading": "1.1 For Users",
+        "language": "shell",
+        "text": "$ pip install pyshbundle"
+      },
+      {
+        "heading": "1.1 For Users",
+        "language": "shell",
+        "placeholder_explained": false,
+        "text": "# Clone the repository\n$ git clone https://github.com/GESS-research-group/pyshbundle.git\n$ cd pyshbundle\n\n# Create and activate a virtual environment\n$ python3 -m venv <name-env>\n$ source <name-env>/bin/activate  # On Windows: <name-env>\\Scripts\\activate\n\n# Install the package\n$ pip install ."
+      },
+      {
+        "heading": "1.2 For Devs/Contributors",
+        "language": "shell",
+        "placeholder_explained": false,
+        "text": "# Clone the repository\n$ git clone https://github.com/GESS-research-group/pyshbundle.git\n$ cd pyshbundle\n\n# Create and activate a virtual environment\n$ python3 -m venv <name-env>\n$ source <name-env>/bin/activate  # On Windows: <name-env>\\Scripts\\activate\n\n# Install the package in editable mode with dev dependencies\n$ pip install -r requirements-dev.txt\n$ pip install -e .\n\n# To build a source distribution\n$ python -m build"
+      },
+      {
+        "heading": "Running the tests",
+        "language": "shell",
+        "text": "# From the project root\npytest tests/ -v"
+      },
+      {
+        "heading": "Running the tests",
+        "language": "shell",
+        "text": "PYSHBUNDLE_DATA_DIR=/path/to/your/data pytest tests/ -v"
+      }
+    ],
+    "doi": "10.21105/joss.07550",
+    "external_docs": true,
+    "external_documentation_links": [
+      "https://gess-research-group.github.io/pyshbundle/",
+      "https://img.shields.io/badge/docs-github.io-green"
+    ],
+    "host": "github",
+    "manual_hard_defects": [],
+    "manual_strict_ready": null,
+    "notes": "Mechanical acquisition; reference annotation not yet created.",
+    "order": 36,
+    "path_index": {},
+    "readme_sha": "bfdb82ad519646f146b06a3b1cefcafaa36421b4",
+    "repository": "GESS-research-group/pyshbundle",
+    "title": "PySHbundle: A Python tool for processing GRACE gravimetry data into global surface mass change datasets"
+  },
+  {
+    "blocks": [
+      {
+        "heading": "Installation",
+        "language": "r",
+        "text": "install.packages('ecodive')"
+      },
+      {
+        "heading": "Installation",
+        "language": "r",
+        "text": "install.packages('pak')\npak::pak('cmmr/ecodive')"
+      },
+      {
+        "heading": "With `phyloseq` or `rbiom` objects",
+        "language": "r",
+        "text": "library(ecodive)\ndata(esophagus, package = 'phyloseq')\ndata(hmp50,     package = 'rbiom')\n\n# Calculate weighted UniFrac distance\nw_unifrac <- weighted_unifrac(esophagus)\nprint(w_unifrac)\n#>           B         C\n#> C 0.1050480          \n#> D 0.1401124 0.1422409\n\n# Calculate Faith's Phylogenetic Diversity\nfaith_pd <- faith(hmp50)\nprint(faith_pd[1:4])\n#>   HMP01   HMP02   HMP03   HMP04 \n#> 6.22296 8.59432 8.93375 9.86597 "
+      },
+      {
+        "heading": "With basic R objects",
+        "language": "r",
+        "text": "## Example Data ----------------------\ncounts <- rarefy(ex_counts)\ncounts[,1:4]\n#>        Streptococcus Bacteroides Corynebacterium Haemophilus\n#> Saliva           162           2               0         180\n#> Gums             309           2               0          34\n#> Nose               6           0             171           0\n#> Stool              1         341               1           1\n\n\n## Alpha Diversity -------------------\nshannon(counts)\n#>     Saliva       Gums       Nose      Stool \n#> 0.74119910 0.35692121 1.10615349 0.07927797 \n\nfaith(counts, tree = ex_tree)\n#> Saliva   Gums   Nose  Stool \n#>    180    155    101    202 \n\n\n## Beta Diversity --------------------\nbray(counts)\n#>          Saliva      Gums      Nose\n#> Gums  0.4260870                    \n#> Nose  0.9797101 0.9826087          \n#> Stool 0.9884058 0.9884058 0.9913043\n\nweighted_unifrac(counts, tree = ex_tree)\n#>          Saliva      Gums      Nose\n#> Gums   36.97681                    \n#> Nose   67.23768  55.97101          \n#> Stool 109.77971 109.44058 110.00870"
+      },
+      {
+        "heading": "Available Methods",
+        "language": "r",
+        "text": "# Alpha Diversity\nlist_metrics('alpha', 'id')\n#>  [1] \"ace\"         \"berger\"      \"brillouin\"   \"chao1\"       \"faith\"      \n#>  [6] \"fisher\"      \"simpson\"     \"inv_simpson\" \"margalef\"    \"mcintosh\"   \n#> [11] \"menhinick\"   \"observed\"    \"shannon\"     \"squares\"    \n\n# Beta Diversity\nlist_metrics('beta', 'id')\n#>  [1] \"aitchison\"                 \"bhattacharyya\"             \"bray\"                     \n#>  [4] \"canberra\"                  \"chebyshev\"                 \"chord\"                    \n#>  [7] \"clark\"                     \"sorensen\"                  \"divergence\"               \n#> [10] \"euclidean\"                 \"generalized_unifrac\"       \"gower\"                    \n#> [13] \"hamming\"                   \"hellinger\"                 \"horn\"                     \n#> [16] \"jaccard\"                   \"jensen\"                    \"jsd\"                      \n#> [19] \"lorentzian\"                \"manhattan\"                 \"matusita\"                 \n#> [22] \"minkowski\"                 \"morisita\"                  \"motyka\"                   \n#> [25] \"normalized_unifrac\"        \"ochiai\"                    \"psym_chisq\"               \n#> [28] \"robust_aitchison\"          \"soergel\"                   \"squared_chisq\"            \n#> [31] \"squared_chord\"             \"squared_euclidean\"         \"topsoe\"                   \n#> [34] \"unweighted_unifrac\"        \"variance_adjusted_unifrac\" \"wave_hedges\"              \n#> [37] \"weighted_unifrac\" "
+      }
+    ],
+    "doi": "10.21105/joss.09777",
+    "external_docs": true,
+    "external_documentation_links": [
+      "http://joey711.github.io/phyloseq/",
+      "https://cmmr.github.io/ecodive/",
+      "https://cmmr.github.io/ecodive/CODE_OF_CONDUCT.html",
+      "https://cmmr.github.io/ecodive/articles/benchmark.html",
+      "https://cmmr.github.io/rbiom/"
+    ],
+    "host": "github",
+    "manual_hard_defects": [],
+    "manual_strict_ready": null,
+    "notes": "Mechanical acquisition; reference annotation not yet created.",
+    "order": 37,
+    "path_index": {},
+    "readme_sha": "aba4ddfd2fc0fbfc0bfc0d4df5de10a7d94f7bc0",
+    "repository": "cmmr/ecodive",
+    "title": "ecodive: Parallel and Memory-Efficient R Package for Ecological Diversity Analysis"
+  },
+  {
+    "blocks": [
+      {
+        "heading": "Citation",
+        "language": "bibtex",
+        "text": "@article{\n  Görgen2026,\n  doi = {10.21105/joss.10166},\n  url = {https://doi.org/10.21105/joss.10166},\n  year = {2026}, publisher = {The Open Journal},\n  volume = {11},\n  number = {121},\n  pages = {10166},\n  author = {Görgen, Darius A. and Bhandari, Om Prakash and Petutschnig, Andreas and Karaman, Zivan and Bédécarrats, Florent and Schielein, Johannes},\n  title = {mapme.biodiversity: {Efficient} {Monitoring} of {Global} {Biodiversity} {Portfolios}},\n  journal = {Journal of Open Source Software} }"
+      },
+      {
+        "heading": "Stable version",
+        "language": "r",
+        "text": "install.packages(\"mapme.biodiversity\", dependencies = TRUE)"
+      },
+      {
+        "heading": "Development version",
+        "language": "r",
+        "text": "if (isFALSE(require(\"remotes\", quietly = TRUE))) install.packages(\"remotes\", dependencies = TRUE)\nremotes::install_github(\"https://github.com/mapme-initiative/mapme.biodiversity\", dependencies = TRUE)"
+      },
+      {
+        "heading": "Usage example",
+        "language": "r",
+        "placeholder_explained": false,
+        "text": "library(mapme.biodiversity)\nlibrary(sf)\n\nmapme_options(\n  outdir = system.file(\"res\", package = \"mapme.biodiversity\"),\n  chunk_size = 1e6, # in ha\n  verbose = FALSE\n)\n\naoi <- system.file(\"extdata\", \"sierra_de_neiba_478140_2.gpkg\", package = \"mapme.biodiversity\") |>\n  sf::read_sf() |>\n  get_resources(\n    get_gfw_treecover(version = \"GFC-2023-v1.11\"),\n    get_gfw_lossyear(version = \"GFC-2023-v1.11\"),\n    get_gfw_emissions()\n  ) |>\n  calc_indicators(calc_treecover_area_and_emissions(years = 2016:2017, min_size = 1, min_cover = 30)) |>\n  portfolio_long()\n\naoi"
+      },
+      {
+        "heading": "Using cloud storages",
+        "language": "ini",
+        "placeholder_explained": true,
+        "text": "[credentials]\n\n[.mapme-data]\npath=/vsis3/mapme-data\nAWS_SECRET_ACCESS_KEY=<your-access-key>\nAWS_ACCESS_KEY_ID=<your-access-id>"
+      },
+      {
+        "heading": "Using cloud storages",
+        "language": "ini",
+        "placeholder_explained": true,
+        "text": "GDAL_CONFIG_FILE = \"<path-to-your-config-file>\""
+      },
+      {
+        "heading": "Using cloud storages",
+        "language": "r",
+        "text": "mapme_options(outdir = \"/vsis3/mapme-data\")"
+      },
+      {
+        "heading": "A note on parallel computing",
+        "language": "r",
+        "text": "library(future)\nplan(cluster, workers = 6)"
+      },
+      {
+        "heading": "A note on parallel computing",
+        "language": "r",
+        "text": "library(progressr)\n\nplan(cluster, workers = 2)\n\nwith_progress({\n  aoi <- calc_indicators(\n    aoi,\n    calc_treecover_area_and_emissions(\n      min_size = 1,\n      min_cover = 30\n    )\n  )\n})\n\nplan(sequential) # close child processes"
+      }
+    ],
+    "doi": "10.21105/joss.10166",
+    "external_docs": true,
+    "external_documentation_links": [
+      "https://mapme-initiative.github.io/mapme.biodiversity/",
+      "https://mapme-initiative.github.io/mapme.biodiversity/articles/contributing.html"
+    ],
+    "host": "github",
+    "manual_hard_defects": [],
+    "manual_strict_ready": null,
+    "notes": "Mechanical acquisition; reference annotation not yet created.",
+    "order": 38,
+    "path_index": {},
+    "readme_sha": "7789542ea8afac9ef7f05a6bcc2cbdefb71c0ca9",
+    "repository": "mapme-initiative/mapme.biodiversity",
+    "title": "mapme.biodiversity: Efficient Monitoring of Global Biodiversity Portfolios"
+  },
+  {
+    "blocks": [
+      {
+        "heading": "Citation",
+        "language": "",
+        "text": "@article{Okawa:2014nda,\n    author = \"Okawa, Hirotada and Witek, Helvi and Cardoso, Vitor\",\n    title = \"{Black holes and fundamental fields in Numerical Relativity: initial data construction and evolution of bound states}\",\n    eprint = \"1401.1548\",\n    archivePrefix = \"arXiv\",\n    primaryClass = \"gr-qc\",\n    doi = \"10.1103/PhysRevD.89.104032\",\n    journal = \"Phys. Rev. D\",\n    volume = \"89\",\n    number = \"10\",\n    pages = \"104032\",\n    year = \"2014\"\n}\n@article{Yoo:2013yea,\n    author = \"Yoo, Chul-Moon and Okawa, Hirotada and Nakao, Ken-ichi\",\n    title = \"{Black Hole Universe: Time Evolution}\",\n    eprint = \"1306.1389\",\n    archivePrefix = \"arXiv\",\n    primaryClass = \"gr-qc\",\n    reportNumber = \"OCU-PHYS:382, AP-GR:105, YITP-13-45\",\n    doi = \"10.1103/PhysRevLett.111.161102\",\n    journal = \"Phys. Rev. Lett.\",\n    volume = \"111\",\n    pages = \"161102\",\n    year = \"2013\"\n}"
+      }
+    ],
+    "doi": "10.21105/joss.09570",
+    "external_docs": true,
+    "external_documentation_links": [
+      "https://cmyoo.github.io/cosmos/",
+      "https://github.com/GRChombo/GRChombo/wiki",
+      "https://github.com/cmyoo/cosmos/wiki"
+    ],
+    "host": "github",
+    "manual_hard_defects": [],
+    "manual_strict_ready": null,
+    "notes": "Mechanical acquisition; reference annotation not yet created.",
+    "order": 39,
+    "path_index": {},
+    "readme_sha": "9063a2ec6b5b25b342927dcd35a60a511f6eb0b6",
+    "repository": "cmyoo/cosmos",
+    "title": "COSMOS: A numerical relativity code specialized for PBH formation"
+  }
+]

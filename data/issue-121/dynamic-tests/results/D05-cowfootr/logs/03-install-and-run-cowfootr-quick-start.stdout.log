@@ -1,0 +1,56 @@
+gcc -std=gnu2x -I"/opt/R/4.6.1/lib/R/include" -DNDEBUG -Iinclude -DUSE_R_LANG  -I/usr/local/include   -fvisibility=hidden -fpic  -g -O2  -c write_xlsx.c -o write_xlsx.o
+gcc -std=gnu2x -I"/opt/R/4.6.1/lib/R/include" -DNDEBUG -Iinclude -DUSE_R_LANG  -I/usr/local/include   -fvisibility=hidden -fpic  -g -O2  -c libxlsxwriter/app.c -o libxlsxwriter/app.o
+gcc -std=gnu2x -I"/opt/R/4.6.1/lib/R/include" -DNDEBUG -Iinclude -DUSE_R_LANG  -I/usr/local/include   -fvisibility=hidden -fpic  -g -O2  -c libxlsxwriter/format.c -o libxlsxwriter/format.o
+gcc -std=gnu2x -I"/opt/R/4.6.1/lib/R/include" -DNDEBUG -Iinclude -DUSE_R_LANG  -I/usr/local/include   -fvisibility=hidden -fpic  -g -O2  -c libxlsxwriter/theme.c -o libxlsxwriter/theme.o
+gcc -std=gnu2x -I"/opt/R/4.6.1/lib/R/include" -DNDEBUG -Iinclude -DUSE_R_LANG  -I/usr/local/include   -fvisibility=hidden -fpic  -g -O2  -c libxlsxwriter/chart.c -o libxlsxwriter/chart.o
+gcc -std=gnu2x -I"/opt/R/4.6.1/lib/R/include" -DNDEBUG -Iinclude -DUSE_R_LANG  -I/usr/local/include   -fvisibility=hidden -fpic  -g -O2  -c libxlsxwriter/hash_table.c -o libxlsxwriter/hash_table.o
+gcc -std=gnu2x -I"/opt/R/4.6.1/lib/R/include" -DNDEBUG -Iinclude -DUSE_R_LANG  -I/usr/local/include   -fvisibility=hidden -fpic  -g -O2  -c libxlsxwriter/utility.c -o libxlsxwriter/utility.o
+gcc -std=gnu2x -I"/opt/R/4.6.1/lib/R/include" -DNDEBUG -Iinclude -DUSE_R_LANG  -I/usr/local/include   -fvisibility=hidden -fpic  -g -O2  -c libxlsxwriter/content_types.c -o libxlsxwriter/content_types.o
+gcc -std=gnu2x -I"/opt/R/4.6.1/lib/R/include" -DNDEBUG -Iinclude -DUSE_R_LANG  -I/usr/local/include   -fvisibility=hidden -fpic  -g -O2  -c libxlsxwriter/packager.c -o libxlsxwriter/packager.o
+gcc -std=gnu2x -I"/opt/R/4.6.1/lib/R/include" -DNDEBUG -Iinclude -DUSE_R_LANG  -I/usr/local/include   -fvisibility=hidden -fpic  -g -O2  -c libxlsxwriter/workbook.c -o libxlsxwriter/workbook.o
+gcc -std=gnu2x -I"/opt/R/4.6.1/lib/R/include" -DNDEBUG -Iinclude -DUSE_R_LANG  -I/usr/local/include   -fvisibility=hidden -fpic  -g -O2  -c libxlsxwriter/core.c -o libxlsxwriter/core.o
+gcc -std=gnu2x -I"/opt/R/4.6.1/lib/R/include" -DNDEBUG -Iinclude -DUSE_R_LANG  -I/usr/local/include   -fvisibility=hidden -fpic  -g -O2  -c libxlsxwriter/relationships.c -o libxlsxwriter/relationships.o
+gcc -std=gnu2x -I"/opt/R/4.6.1/lib/R/include" -DNDEBUG -Iinclude -DUSE_R_LANG  -I/usr/local/include   -fvisibility=hidden -fpic  -g -O2  -c libxlsxwriter/worksheet.c -o libxlsxwriter/worksheet.o
+gcc -std=gnu2x -I"/opt/R/4.6.1/lib/R/include" -DNDEBUG -Iinclude -DUSE_R_LANG  -I/usr/local/include   -fvisibility=hidden -fpic  -g -O2  -c libxlsxwriter/custom.c -o libxlsxwriter/custom.o
+gcc -std=gnu2x -I"/opt/R/4.6.1/lib/R/include" -DNDEBUG -Iinclude -DUSE_R_LANG  -I/usr/local/include   -fvisibility=hidden -fpic  -g -O2  -c libxlsxwriter/shared_strings.c -o libxlsxwriter/shared_strings.o
+gcc -std=gnu2x -I"/opt/R/4.6.1/lib/R/include" -DNDEBUG -Iinclude -DUSE_R_LANG  -I/usr/local/include   -fvisibility=hidden -fpic  -g -O2  -c libxlsxwriter/xmlwriter.c -o libxlsxwriter/xmlwriter.o
+gcc -std=gnu2x -I"/opt/R/4.6.1/lib/R/include" -DNDEBUG -Iinclude -DUSE_R_LANG  -I/usr/local/include   -fvisibility=hidden -fpic  -g -O2  -c libxlsxwriter/drawing.c -o libxlsxwriter/drawing.o
+gcc -std=gnu2x -I"/opt/R/4.6.1/lib/R/include" -DNDEBUG -Iinclude -DUSE_R_LANG  -I/usr/local/include   -fvisibility=hidden -fpic  -g -O2  -c libxlsxwriter/styles.c -o libxlsxwriter/styles.o
+gcc -std=gnu2x -I"/opt/R/4.6.1/lib/R/include" -DNDEBUG -Iinclude -DUSE_R_LANG  -I/usr/local/include   -fvisibility=hidden -fpic  -g -O2  -c tmpfileplus/tmpfileplus.c -o tmpfileplus/tmpfileplus.o
+gcc -std=gnu2x -I"/opt/R/4.6.1/lib/R/include" -DNDEBUG -Iinclude -DUSE_R_LANG  -I/usr/local/include   -fvisibility=hidden -fpic  -g -O2  -c libxlsxwriter/chartsheet.c -o libxlsxwriter/chartsheet.o
+gcc -std=gnu2x -I"/opt/R/4.6.1/lib/R/include" -DNDEBUG -Iinclude -DUSE_R_LANG  -I/usr/local/include   -fvisibility=hidden -fpic  -g -O2  -c minizip/ioapi.c -o minizip/ioapi.o
+gcc -std=gnu2x -I"/opt/R/4.6.1/lib/R/include" -DNDEBUG -Iinclude -DUSE_R_LANG  -I/usr/local/include   -fvisibility=hidden -fpic  -g -O2  -c minizip/zip.c -o minizip/zip.o
+gcc -std=gnu2x -I"/opt/R/4.6.1/lib/R/include" -DNDEBUG -Iinclude -DUSE_R_LANG  -I/usr/local/include   -fvisibility=hidden -fpic  -g -O2  -c libxlsxwriter/metadata.c -o libxlsxwriter/metadata.o
+gcc -std=gnu2x -I"/opt/R/4.6.1/lib/R/include" -DNDEBUG -Iinclude -DUSE_R_LANG  -I/usr/local/include   -fvisibility=hidden -fpic  -g -O2  -c libxlsxwriter/comment.c -o libxlsxwriter/comment.o
+gcc -std=gnu2x -I"/opt/R/4.6.1/lib/R/include" -DNDEBUG -Iinclude -DUSE_R_LANG  -I/usr/local/include   -fvisibility=hidden -fpic  -g -O2  -c libxlsxwriter/vml.c -o libxlsxwriter/vml.o
+gcc -std=gnu2x -I"/opt/R/4.6.1/lib/R/include" -DNDEBUG -Iinclude -DUSE_R_LANG  -I/usr/local/include   -fvisibility=hidden -fpic  -g -O2  -c md5/md5.c -o md5/md5.o
+gcc -std=gnu2x -I"/opt/R/4.6.1/lib/R/include" -DNDEBUG -Iinclude -DUSE_R_LANG  -I/usr/local/include   -fvisibility=hidden -fpic  -g -O2  -c libxlsxwriter/table.c -o libxlsxwriter/table.o
+gcc -std=gnu2x -shared -L/opt/R/4.6.1/lib/R/lib -L/usr/local/lib -o writexl.so write_xlsx.o -Llibxlsxwriter -lstatxlsxwriter -lz -L/opt/R/4.6.1/lib/R/lib -lR
+Carbon Footprint - Total Emissions
+==================================
+Total CO2eq: 451512.6 kg CO2eq yr-1 
+Number of sources: 5 
+
+Breakdown by source:
+  energy : 5740 kg CO2eq yr-1 
+  enteric : 312800 kg CO2eq yr-1 
+  inputs : 4000 kg CO2eq yr-1 
+  manure : 89880 kg CO2eq yr-1 
+  soil : 39092.62 kg CO2eq yr-1 
+
+Calculated on: 2026-07-25 
+Carbon Footprint Intensity
+==========================
+Intensity: 0.585 kg CO2eq/kg FPCM
+
+Production data:
+ Raw milk (L): 750,000 L
+ Raw milk (kg): 772,500 kg
+ FPCM (kg): 772,407 kg
+ Fat content: 4 %
+ Protein content: 3.3 %
+
+Total emissions: 451,513 kg CO2eq
+Calculated on: 2026-07-25 
+
+version= 0.1.3 

@@ -1,0 +1,74 @@
+sidebranch file not found, skipping: "source/examples/data/ivus_rest/branch_diastolic_contours.csv"
+calcification file not found, skipping: "source/examples/data/ivus_rest/calcium_diastolic_contours.csv"
+process_directory: unknown mapping name 'catheter', skipping
+eem file not found, skipping: "source/examples/data/ivus_rest/eem_diastolic_contours.csv"
+calcification file not found, skipping: "source/examples/data/ivus_rest/calcium_systolic_contours.csv"
+sidebranch file not found, skipping: "source/examples/data/ivus_rest/branch_systolic_contours.csv"
+eem file not found, skipping: "source/examples/data/ivus_rest/eem_systolic_contours.csv"
+process_directory: unknown mapping name 'catheter', skipping
+sidebranch file not found, skipping: "source/examples/data/ivus_stress/branch_diastolic_contours.csv"
+process_directory: unknown mapping name 'catheter', skipping
+eem file not found, skipping: "source/examples/data/ivus_stress/eem_diastolic_contours.csv"
+calcification file not found, skipping: "source/examples/data/ivus_stress/calcium_diastolic_contours.csv"
+eem file not found, skipping: "source/examples/data/ivus_stress/eem_systolic_contours.csv"
+calcification file not found, skipping: "source/examples/data/ivus_stress/calcium_systolic_contours.csv"
+process_directory: unknown mapping name 'catheter', skipping
+sidebranch file not found, skipping: "source/examples/data/ivus_stress/branch_systolic_contours.csv"
+resample_centerline_by_contours: centroid_count=14, centroid_mean_spacing=Some(1.2955758552631584), centerline_length=161.5421151319061, spacing=1.295576
+resample_centerline_by_contours: produced 125 points
+	Command being timed: "bash -lc venv/bin/python - <<'PY'
+import pathlib
+import multimodars as mm
+import numpy as np
+
+rest, stress, dia, sys, _ = mm.from_file_full(
+    "source/examples/data/ivus_rest",
+    "source/examples/data/ivus_stress",
+    write_obj=True,
+    output_path_ab="output/rest",
+    output_path_cd="output/stress",
+    output_path_ac="output/diastole",
+    output_path_bd="output/systole",
+)
+cl_raw = np.genfromtxt(
+    "source/examples/data/centerline_raw.csv",
+    delimiter=",",
+)
+centerline = mm.numpy_to_centerline(cl_raw)
+aligned_pair, cl_resampled = mm.align_three_point(
+    centerline,
+    rest,
+    main_ref_pt=(12.2605, -201.3643, 1751.0554),
+    counterclockwise_ref_pt=(11.7567, -202.1920, 1754.7975),
+    clockwise_ref_pt=(15.6605, -202.1920, 1749.9655),
+    write=True,
+    output_dir="output/aligned",
+)
+assert all(value is not None for value in (stress, dia, sys, aligned_pair))
+assert cl_resampled is not None
+artifacts = [path for path in pathlib.Path("output").rglob("*") if path.is_file()]
+assert artifacts
+print({"artifact_count": len(artifacts), "first": str(artifacts[0])})
+PY"
+	User time (seconds): 11.73
+	System time (seconds): 0.21
+	Percent of CPU this job got: 305%
+	Elapsed (wall clock) time (h:mm:ss or m:ss): 0:03.91
+	Average shared text size (kbytes): 0
+	Average unshared data size (kbytes): 0
+	Average stack size (kbytes): 0
+	Average total size (kbytes): 0
+	Maximum resident set size (kbytes): 133048
+	Average resident set size (kbytes): 0
+	Major (requiring I/O) page faults: 1
+	Minor (reclaiming a frame) page faults: 43561
+	Voluntary context switches: 757
+	Involuntary context switches: 4210
+	Swaps: 0
+	File system inputs: 2864
+	File system outputs: 88632
+	Socket messages sent: 0
+	Socket messages received: 0
+	Signals delivered: 0
+	Page size (bytes): 4096
+	Exit status: 0

@@ -1,0 +1,511 @@
+{
+  "baseline_commit": "2caeecc8678a4614f6fe6771df0ace6827a5f434",
+  "cases": [
+    {
+      "case_id": "D01-himap",
+      "correction_attempt": null,
+      "dependency_or_compatibility_blocker": false,
+      "direct_readme_blocker": false,
+      "disk_use": {
+        "unit": "bytes",
+        "value": 768813726
+      },
+      "evidence_status": "RAW_SUCCESS",
+      "external_docs_supplemented": false,
+      "final_status": "SUCCESS",
+      "first_meaningful_task_completed": true,
+      "harness_error": false,
+      "minor_friction": false,
+      "peak_memory": {
+        "unit": "KiB",
+        "value": 537056
+      },
+      "predicted_finding_confirmed": false,
+      "predicted_finding_disproved": false,
+      "predicted_hard_findings": [],
+      "predicted_strict_ready": false,
+      "raw_attempt": {
+        "disk_use_bytes": 768813726,
+        "peak_memory_kib": 537056,
+        "result_path": "data/issue-121/dynamic-tests/results/D01-himap/result.json",
+        "time_to_first_output_seconds": 74.038060137
+      },
+      "raw_status": "SUCCESS",
+      "reason": "The documented Monte Carlo command completed and produced CSV and figure artifacts.",
+      "reference_strict_ready": true,
+      "repository": "GroupiSP/himap",
+      "supporting_step_ids": [
+        "06-run-himap-monte-carlo-example"
+      ],
+      "time_to_first_output": 74.03806
+    },
+    {
+      "case_id": "D02-hlafreq",
+      "correction_attempt": null,
+      "dependency_or_compatibility_blocker": false,
+      "direct_readme_blocker": false,
+      "disk_use": {
+        "unit": "bytes",
+        "value": 686374996
+      },
+      "evidence_status": "RAW_SUCCESS",
+      "external_docs_supplemented": false,
+      "final_status": "SUCCESS",
+      "first_meaningful_task_completed": true,
+      "harness_error": false,
+      "minor_friction": false,
+      "peak_memory": {
+        "unit": "KiB",
+        "value": 169164
+      },
+      "predicted_finding_confirmed": false,
+      "predicted_finding_disproved": false,
+      "predicted_hard_findings": [],
+      "predicted_strict_ready": false,
+      "raw_attempt": {
+        "disk_use_bytes": 686374996,
+        "peak_memory_kib": 169164,
+        "result_path": "data/issue-121/dynamic-tests/results/D02-hlafreq/result.json",
+        "time_to_first_output_seconds": 36.878481832999995
+      },
+      "raw_status": "SUCCESS",
+      "reason": "The documented Uganda locus-A download and frequency-combination task completed with non-empty results.",
+      "reference_strict_ready": true,
+      "repository": "BarinthusBio/HLAfreq",
+      "supporting_step_ids": [
+        "06-run-hlafreq-uganda-example"
+      ],
+      "time_to_first_output": 36.878482
+    },
+    {
+      "case_id": "D03-woodtapper",
+      "correction_attempt": null,
+      "dependency_or_compatibility_blocker": true,
+      "direct_readme_blocker": false,
+      "disk_use": {
+        "unit": "bytes",
+        "value": 23650843
+      },
+      "evidence_status": "RAW_FAILURE_CURRENT_RECHECK",
+      "external_docs_supplemented": false,
+      "final_status": "FAILURE_DEPENDENCY_COMPATIBILITY",
+      "first_meaningful_task_completed": false,
+      "harness_error": false,
+      "minor_friction": false,
+      "peak_memory": {
+        "unit": "KiB",
+        "value": 253196
+      },
+      "predicted_finding_confirmed": false,
+      "predicted_finding_disproved": false,
+      "predicted_hard_findings": [],
+      "predicted_strict_ready": true,
+      "raw_attempt": {
+        "disk_use_bytes": 23650843,
+        "peak_memory_kib": 253196,
+        "result_path": "data/issue-121/dynamic-tests/results/D03-woodtapper/result.json",
+        "time_to_first_output_seconds": null
+      },
+      "raw_status": "FAILURE",
+      "reason": "The locked clean installation of PyPI woodtapper 0.0.13 failed against changed scikit-learn/Cython internals. The same published command failed again, while the current default branch installed and completed the first-use task after pinning scikit-learn 1.6.1. This is a dependency/package-release compatibility blocker, not a frozen detector finding or a direct README defect.",
+      "reference_strict_ready": true,
+      "repository": "artefactory/woodtapper",
+      "supporting_step_ids": [
+        "05-install-woodtapper",
+        "current-recheck:04-install-published-command",
+        "current-recheck:06-install-current-source",
+        "current-recheck:07-run-current-source-task"
+      ],
+      "time_to_first_output": null
+    },
+    {
+      "case_id": "D04-multimodars",
+      "correction_attempt": null,
+      "dependency_or_compatibility_blocker": false,
+      "direct_readme_blocker": false,
+      "disk_use": {
+        "unit": "bytes",
+        "value": 484324803
+      },
+      "evidence_status": "RAW_SUCCESS",
+      "external_docs_supplemented": false,
+      "final_status": "SUCCESS",
+      "first_meaningful_task_completed": true,
+      "harness_error": false,
+      "minor_friction": false,
+      "peak_memory": {
+        "unit": "KiB",
+        "value": 133048
+      },
+      "predicted_finding_confirmed": false,
+      "predicted_finding_disproved": false,
+      "predicted_hard_findings": [],
+      "predicted_strict_ready": true,
+      "raw_attempt": {
+        "disk_use_bytes": 484324803,
+        "peak_memory_kib": 133048,
+        "result_path": "data/issue-121/dynamic-tests/results/D04-multimodars/result.json",
+        "time_to_first_output_seconds": 24.525240752000002
+      },
+      "raw_status": "SUCCESS",
+      "reason": "The documented alignment example completed against bundled data and wrote 90 artifacts.",
+      "reference_strict_ready": true,
+      "repository": "yungselm/multimoda-rs",
+      "supporting_step_ids": [
+        "06-run-multimodars-quick-example"
+      ],
+      "time_to_first_output": 24.525241
+    },
+    {
+      "case_id": "D05-cowfootr",
+      "correction_attempt": null,
+      "dependency_or_compatibility_blocker": false,
+      "direct_readme_blocker": false,
+      "disk_use": {
+        "unit": "bytes",
+        "value": 10100893
+      },
+      "evidence_status": "RAW_SUCCESS",
+      "external_docs_supplemented": false,
+      "final_status": "SUCCESS",
+      "first_meaningful_task_completed": true,
+      "harness_error": false,
+      "minor_friction": false,
+      "peak_memory": {
+        "unit": "KiB",
+        "value": 138628
+      },
+      "predicted_finding_confirmed": false,
+      "predicted_finding_disproved": false,
+      "predicted_hard_findings": [],
+      "predicted_strict_ready": false,
+      "raw_attempt": {
+        "disk_use_bytes": 10100893,
+        "peak_memory_kib": 138628,
+        "result_path": "data/issue-121/dynamic-tests/results/D05-cowfootr/result.json",
+        "time_to_first_output_seconds": 29.156283064999997
+      },
+      "raw_status": "SUCCESS",
+      "reason": "The quick-start installation and carbon-footprint calculation completed and returned a non-empty result.",
+      "reference_strict_ready": true,
+      "repository": "juanmarcosmoreno-arch/cowfootR",
+      "supporting_step_ids": [
+        "03-install-and-run-cowfootr-quick-start"
+      ],
+      "time_to_first_output": 29.156283
+    },
+    {
+      "case_id": "D06-kigali",
+      "component_outcomes": {
+        "core_java_first_use": "SUCCESS",
+        "editor_note": "Direct webpack build omitted the official parser-generation flow; the prohibited extra rerun was not used to overwrite the raw result.",
+        "editor_source_build": "FAILURE_OTHER"
+      },
+      "correction_attempt": null,
+      "dependency_or_compatibility_blocker": false,
+      "direct_readme_blocker": false,
+      "disk_use": {
+        "unit": "bytes",
+        "value": 176800170
+      },
+      "evidence_status": "RAW_CORE_SUCCESS_POSTRUN_DOC_ADJUDICATION",
+      "external_docs_supplemented": true,
+      "final_status": "SUCCESS_WITH_FRICTION",
+      "first_meaningful_task_completed": true,
+      "harness_error": true,
+      "minor_friction": true,
+      "peak_memory": {
+        "unit": "KiB",
+        "value": 359372
+      },
+      "predicted_finding_confirmed": false,
+      "predicted_finding_disproved": false,
+      "predicted_hard_findings": [],
+      "predicted_strict_ready": true,
+      "raw_attempt": {
+        "disk_use_bytes": 176800170,
+        "peak_memory_kib": 359372,
+        "result_path": "data/issue-121/dynamic-tests/results/D06-kigali/result.json",
+        "time_to_first_output_seconds": null
+      },
+      "raw_status": "FAILURE",
+      "reason": "The core Java CLI completed and wrote a non-empty CSV. The optional editor build failed because the harness invoked webpack directly without the documented support/make.sh generation path. Official non-root development documentation explains the missing ANTLR generation step, so the editor failure is not a repository first-use failure and no maintainer contact is warranted.",
+      "reference_strict_ready": true,
+      "repository": "SchmidtDSE/kigali-sim",
+      "supporting_step_ids": [
+        "05-run-kigali-sim-java-cli",
+        "06-build-kigali-sim-javascript-editor",
+        "current-doc:DEVELOPING.md",
+        "current-doc:editor/support/make.sh"
+      ],
+      "time_to_first_output": 4.855869
+    },
+    {
+      "case_id": "D07-gapflow",
+      "correction_attempt": null,
+      "dependency_or_compatibility_blocker": false,
+      "direct_readme_blocker": false,
+      "disk_use": {
+        "unit": "bytes",
+        "value": 1306538910
+      },
+      "evidence_status": "RAW_TASK_SUCCESS_HARNESS_ASSERTION_ERROR",
+      "external_docs_supplemented": false,
+      "final_status": "SUCCESS",
+      "first_meaningful_task_completed": true,
+      "harness_error": true,
+      "minor_friction": false,
+      "peak_memory": {
+        "unit": "KiB",
+        "value": 455828
+      },
+      "predicted_finding_confirmed": false,
+      "predicted_finding_disproved": false,
+      "predicted_hard_findings": [],
+      "predicted_strict_ready": false,
+      "raw_attempt": {
+        "disk_use_bytes": 1306538910,
+        "peak_memory_kib": 455828,
+        "result_path": "data/issue-121/dynamic-tests/results/D07-gapflow/result.json",
+        "time_to_first_output_seconds": null
+      },
+      "raw_status": "FAILURE",
+      "reason": "GaPFlow completed all 200 simulation steps and wrote timestamped output. The harness then asserted a fixed data/journal path, causing the raw non-zero status. This is a harness assertion error and is not counted as a repository failure.",
+      "reference_strict_ready": true,
+      "repository": "hannes-holey/GaPFlow",
+      "supporting_step_ids": [
+        "07-run-gapflow-minimal-simulation"
+      ],
+      "time_to_first_output": 51.831271
+    },
+    {
+      "case_id": "D08-sklearn-migrator",
+      "correction_attempt": "attempt-2-harness-correction",
+      "correction_metrics": {
+        "disk_use_bytes": 293123110,
+        "peak_memory_kib": 136904,
+        "time_to_first_output_seconds": 18.437546
+      },
+      "dependency_or_compatibility_blocker": false,
+      "direct_readme_blocker": false,
+      "disk_use": {
+        "unit": "bytes",
+        "value": 293123110
+      },
+      "evidence_status": "CORRECTION_SUCCESS",
+      "external_docs_supplemented": false,
+      "final_status": "SUCCESS",
+      "first_meaningful_task_completed": true,
+      "harness_error": true,
+      "minor_friction": false,
+      "peak_memory": {
+        "unit": "KiB",
+        "value": 136904
+      },
+      "predicted_finding_confirmed": false,
+      "predicted_finding_disproved": true,
+      "predicted_findings_disposition": [
+        {
+          "disposition": "DISPROVED",
+          "finding": "missing_relative_path:input_model/all_data.json"
+        },
+        {
+          "disposition": "DISPROVED",
+          "finding": "missing_relative_path:input_model/y_pred.csv"
+        },
+        {
+          "disposition": "DISPROVED",
+          "finding": "missing_relative_path:output_model/y_pred_new.csv"
+        }
+      ],
+      "predicted_hard_findings": [
+        "missing_relative_path:input_model/all_data.json",
+        "missing_relative_path:input_model/y_pred.csv",
+        "missing_relative_path:output_model/y_pred_new.csv"
+      ],
+      "predicted_strict_ready": false,
+      "raw_attempt": {
+        "disk_use_bytes": 292744848,
+        "peak_memory_kib": 132760,
+        "result_path": "data/issue-121/dynamic-tests/results/D08-sklearn-migrator/result.json",
+        "time_to_first_output_seconds": null
+      },
+      "raw_status": "FAILURE",
+      "reason": "Attempt 1 used the nonexistent sklearn_migrator.ensemble import and omitted required version arguments. The frozen documented regression random-forest module completed the same round trip. All three path findings are DISPROVED because input_model and output_model are user-created runtime paths.",
+      "reference_strict_ready": true,
+      "repository": "anvaldes/sklearn-migrator",
+      "supporting_step_ids": [
+        "06-run-sklearn-migrator-round-trip",
+        "attempt-2:05-run-corrected-roundtrip"
+      ],
+      "time_to_first_output": 18.437546
+    },
+    {
+      "case_id": "D09-boost-geometry",
+      "correction_attempt": "attempt-2-external-doc-delegation",
+      "correction_metrics": {
+        "disk_use_bytes": 32928115,
+        "external_searches": 0,
+        "non_root_document_pages": 2,
+        "peak_memory_kib": 727732,
+        "time_to_first_output_seconds": 28.041608
+      },
+      "dependency_or_compatibility_blocker": false,
+      "direct_readme_blocker": false,
+      "disk_use": {
+        "unit": "bytes",
+        "value": 32928115
+      },
+      "evidence_status": "CORRECTION_SUCCESS_EXTERNAL_DOCS",
+      "external_docs_supplemented": true,
+      "final_status": "SUCCESS_WITH_FRICTION",
+      "first_meaningful_task_completed": true,
+      "harness_error": false,
+      "minor_friction": true,
+      "peak_memory": {
+        "unit": "KiB",
+        "value": 727732
+      },
+      "predicted_finding_confirmed": false,
+      "predicted_finding_disproved": false,
+      "predicted_hard_findings": [],
+      "predicted_strict_ready": false,
+      "raw_attempt": {
+        "disk_use_bytes": 32855041,
+        "peak_memory_kib": 26120,
+        "result_path": "data/issue-121/dynamic-tests/results/D09-boost-geometry/result.json",
+        "time_to_first_output_seconds": null
+      },
+      "raw_status": "FAILURE",
+      "reason": "The geometry subrepository alone lacks the complete Boost header graph. Following the root README delegation to a complete Boost distribution allowed the same C++14 polygon-area example to compile and run. This is external-documentation supplementation, not a change to the frozen strict-ready prediction.",
+      "reference_strict_ready": false,
+      "repository": "boostorg/geometry",
+      "supporting_step_ids": [
+        "04-compile-boost-geometry-example",
+        "attempt-2:04-compile-and-run-example"
+      ],
+      "time_to_first_output": 28.041608
+    },
+    {
+      "case_id": "D10-ecodive",
+      "correction_attempt": null,
+      "dependency_or_compatibility_blocker": false,
+      "direct_readme_blocker": false,
+      "disk_use": {
+        "unit": "bytes",
+        "value": 23772425
+      },
+      "evidence_status": "FROZEN_INPUT_MISMATCH",
+      "external_docs_supplemented": false,
+      "final_status": "UNTESTABLE_HERE",
+      "first_meaningful_task_completed": false,
+      "harness_error": false,
+      "minor_friction": false,
+      "peak_memory": {
+        "unit": "KiB",
+        "value": 19848
+      },
+      "predicted_finding_confirmed": false,
+      "predicted_finding_disproved": false,
+      "predicted_hard_findings": [],
+      "predicted_strict_ready": false,
+      "raw_attempt": {
+        "disk_use_bytes": 23772425,
+        "peak_memory_kib": 19848,
+        "result_path": "data/issue-121/dynamic-tests/results/D10-ecodive/result.json",
+        "time_to_first_output_seconds": null
+      },
+      "raw_status": "UNTESTABLE_HERE",
+      "reason": "The root README blob changed between acquisition and execution. No safe acquisition-time commit replay was established, so the frozen task remains untestable and the current README is not substituted into the primary result.",
+      "reference_strict_ready": true,
+      "repository": "cmmr/ecodive",
+      "supporting_step_ids": [
+        "02-verify-readme-blob"
+      ],
+      "time_to_first_output": null
+    }
+  ],
+  "detector_version": "0.1.0-frozen",
+  "generated_at": "2026-07-26",
+  "scope_note": "The dynamic sample contains ten preregistered cases and is not used for population-wide inference.",
+  "study_id": "joss-issue-121-external-validation",
+  "summary": {
+    "correction_attempts": {
+      "attempts": [
+        {
+          "attempt": "attempt-2-harness-correction",
+          "case_id": "D08-sklearn-migrator",
+          "separate_from_raw_attempt": true,
+          "status": "SUCCESS"
+        },
+        {
+          "attempt": "attempt-2-external-doc-delegation",
+          "case_id": "D09-boost-geometry",
+          "separate_from_raw_attempt": true,
+          "status": "SUCCESS"
+        }
+      ],
+      "count": 2,
+      "success_count": 2
+    },
+    "dependency_or_compatibility_blocker_count": 1,
+    "detector_false_negatives": {
+      "locked_count": 6,
+      "success_rate_all_locked": 0.833333,
+      "success_rate_testable": 1.0,
+      "successful_first_tasks": 5,
+      "testable_count": 5
+    },
+    "external_docs_supplemented_count": 2,
+    "external_docs_supplemented_rate_all_locked": 0.2,
+    "final_status_counts": {
+      "FAILURE_DEPENDENCY_COMPATIBILITY": 1,
+      "SUCCESS": 6,
+      "SUCCESS_WITH_FRICTION": 2,
+      "UNTESTABLE_HERE": 1
+    },
+    "first_task_success_count": 8,
+    "first_task_success_rate": 0.888889,
+    "harness_error_count": 3,
+    "locked_case_count": 10,
+    "median_first_output_seconds": 28.598945,
+    "predicted_hard_findings": {
+      "blocker_count": 0,
+      "blocker_rate": 0.0,
+      "dynamically_disproved_count": 3,
+      "finding_count": 3
+    },
+    "raw_status_counts": {
+      "FAILURE": 5,
+      "SUCCESS": 4,
+      "UNTESTABLE_HERE": 1
+    },
+    "raw_success_median_first_output_seconds": 33.017382,
+    "readme_direct_blocker_count": 0,
+    "resource_ranges": {
+      "correction_disk_use_bytes": {
+        "max": 293123110,
+        "min": 32928115
+      },
+      "correction_peak_memory_kib": {
+        "max": 727732,
+        "min": 136904
+      },
+      "raw_disk_use_bytes": {
+        "max": 1306538910,
+        "min": 10100893
+      },
+      "raw_peak_memory_kib": {
+        "max": 537056,
+        "min": 19848
+      }
+    },
+    "testable_case_count": 9
+  },
+  "verdicts": {
+    "detector_out_of_sample_validity": "NOT SUPPORTED",
+    "maintainer_intervention_actual_value": "INCONCLUSIVE",
+    "overall_productization": "NOT SUPPORTED",
+    "static_findings_first_use_friction_prediction_value": "NOT SUPPORTED"
+  }
+}

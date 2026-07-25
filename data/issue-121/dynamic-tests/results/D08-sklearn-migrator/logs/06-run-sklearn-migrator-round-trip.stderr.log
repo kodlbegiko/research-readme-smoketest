@@ -1,0 +1,63 @@
+Traceback (most recent call last):
+  File "<stdin>", line 7, in <module>
+ModuleNotFoundError: No module named 'sklearn_migrator.ensemble'
+Command exited with non-zero status 1
+	Command being timed: "bash -lc venv/bin/python - <<'PY'
+import json
+from pathlib import Path
+
+import numpy as np
+from sklearn.datasets import make_regression
+from sklearn.ensemble import RandomForestRegressor
+from sklearn_migrator.ensemble import (
+    deserialize_random_forest_reg,
+    serialize_random_forest_reg,
+)
+
+input_dir = Path("input_model")
+output_dir = Path("output_model")
+input_dir.mkdir()
+output_dir.mkdir()
+X, y = make_regression(
+    n_samples=120,
+    n_features=5,
+    noise=0.1,
+    random_state=0,
+)
+model = RandomForestRegressor(n_estimators=20, random_state=0)
+model.fit(X, y)
+expected = model.predict(X[:20])
+serialized = serialize_random_forest_reg(model)
+(input_dir / "all_data.json").write_text(json.dumps(serialized))
+np.savetxt(input_dir / "y_pred.csv", expected, delimiter=",")
+restored = deserialize_random_forest_reg(serialized)
+observed = restored.predict(X[:20])
+np.savetxt(output_dir / "y_pred_new.csv", observed, delimiter=",")
+max_difference = float(np.max(np.abs(expected - observed)))
+assert max_difference < 1e-8
+assert (input_dir / "all_data.json").is_file()
+assert (output_dir / "y_pred_new.csv").is_file()
+print({"max_abs_difference": max_difference})
+PY"
+	User time (seconds): 1.77
+	System time (seconds): 0.21
+	Percent of CPU this job got: 127%
+	Elapsed (wall clock) time (h:mm:ss or m:ss): 0:01.56
+	Average shared text size (kbytes): 0
+	Average unshared data size (kbytes): 0
+	Average stack size (kbytes): 0
+	Average total size (kbytes): 0
+	Maximum resident set size (kbytes): 132760
+	Average resident set size (kbytes): 0
+	Major (requiring I/O) page faults: 1
+	Minor (reclaiming a frame) page faults: 44825
+	Voluntary context switches: 345
+	Involuntary context switches: 136
+	Swaps: 0
+	File system inputs: 3056
+	File system outputs: 1608
+	Socket messages sent: 0
+	Socket messages received: 0
+	Signals delivered: 0
+	Page size (bytes): 4096
+	Exit status: 1

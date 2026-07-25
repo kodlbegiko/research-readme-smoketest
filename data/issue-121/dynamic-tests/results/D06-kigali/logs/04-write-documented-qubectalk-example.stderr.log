@@ -1,0 +1,64 @@
+	Command being timed: "bash -lc cat > script.qta <<'QTA'
+start default
+  define application "Commercial Refrigeration"
+    uses substance "HFC-134a"
+      enable domestic
+      initial charge with 1 kg / unit for domestic
+      initial charge with 0 kg / unit for import
+      initial charge with 0 kg / unit for export
+      equals 1430 kgCO2e / kg
+      equals 1 kwh / unit
+      set sales to 1 mt during year 1
+      retire 5 % / year
+      recharge 5 % with 0.85 kg / unit
+    end substance
+    uses substance "R-600a"
+      enable domestic
+      initial charge with 1 kg / unit for domestic
+      initial charge with 0 kg / unit for import
+      initial charge with 0 kg / unit for export
+      equals 3 kgCO2e / kg
+      equals 1 kwh / unit
+      set sales to 1 kg during year 1
+      retire 5 % / year
+      recharge 5 % with 0.85 kg / unit
+    end substance
+  end application
+end default
+start policy "Permit"
+  modify application "Commercial Refrigeration"
+    modify substance "HFC-134a"
+      cap sales to 80 % displacing "R-600a" during years 3 to 10
+    end substance
+  end application
+end policy
+start simulations
+  simulate "Business as Usual"
+  from years 1 to 10
+  simulate "With Permit"
+    using "Permit"
+  from years 1 to 10
+end simulations
+QTA"
+	User time (seconds): 0.04
+	System time (seconds): 0.09
+	Percent of CPU this job got: 117%
+	Elapsed (wall clock) time (h:mm:ss or m:ss): 0:00.11
+	Average shared text size (kbytes): 0
+	Average unshared data size (kbytes): 0
+	Average stack size (kbytes): 0
+	Average total size (kbytes): 0
+	Maximum resident set size (kbytes): 18728
+	Average resident set size (kbytes): 0
+	Major (requiring I/O) page faults: 0
+	Minor (reclaiming a frame) page faults: 18658
+	Voluntary context switches: 293
+	Involuntary context switches: 8
+	Swaps: 0
+	File system inputs: 0
+	File system outputs: 8
+	Socket messages sent: 0
+	Socket messages received: 0
+	Signals delivered: 0
+	Page size (bytes): 4096
+	Exit status: 0

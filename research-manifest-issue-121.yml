@@ -1,0 +1,76 @@
+study_id: joss-issue-121-external-validation
+status: closeout-complete
+closed_at_utc: '2026-07-26'
+repository: kodlbegiko/research-readme-smoketest
+branch: research/issue-121-external-validation
+baseline:
+  version: 0.1.0
+  main_commit: 2caeecc8678a4614f6fe6771df0ace6827a5f434
+  detector_rules_frozen: true
+  pilot_expected_json_sha256: 531f145706238996c499746bdb46c9f4d281221828b4f07691c68782ca2f80f8
+sampling:
+  source: https://joss.theoj.org/toc/issue/121
+  expected_papers: 39
+  eligible_github_repositories: 38
+  excluded_non_github_repositories: 1
+  replacement: false
+static_result:
+  predicted_strict_ready: 7
+  reference_strict_ready: 24
+  confusion_matrix: {tp: 7, fp: 0, tn: 14, fn: 17}
+  precision: 1.0
+  recall: 0.291667
+  specificity: 1.0
+  accuracy: 0.552632
+  f1: 0.451613
+  accuracy_gate: failed
+  hard_defect_precision_gate: failed
+dynamic_result:
+  locked_cases: 10
+  raw: {success: 4, failure: 5, untestable_here: 1}
+  final:
+    SUCCESS: 6
+    SUCCESS_WITH_FRICTION: 2
+    FAILURE_README_BLOCKER: 0
+    FAILURE_DEPENDENCY_COMPATIBILITY: 1
+    FAILURE_OTHER: 0
+    UNTESTABLE_HERE: 1
+  testable_cases: 9
+  first_task_successes: 8
+  first_task_success_rate: 0.888889
+  median_first_output_seconds: 28.598946
+  harness_errors: 3
+  direct_readme_blockers: 0
+  dependency_compatibility_blockers: 1
+  external_docs_supplemented: 2
+  predicted_hard_findings: 3
+  predicted_hard_findings_blocking: 0
+  predicted_hard_findings_disproved: 3
+corrections:
+  - case_id: D08-sklearn-migrator
+    attempt: attempt-2-harness-correction
+    status: SUCCESS
+    raw_attempt_preserved: true
+  - case_id: D09-boost-geometry
+    attempt: attempt-2-external-doc-delegation
+    status: SUCCESS
+    raw_attempt_preserved: true
+interventions:
+  contact_limit: 2
+  contacts_submitted: 0
+  accepted_or_merged: 0
+  decision: no_high_confidence_new_issue
+verdicts:
+  detector_out_of_sample_validity: NOT SUPPORTED
+  static_findings_first_use_friction_prediction_value: NOT SUPPORTED
+  maintainer_intervention_actual_value: INCONCLUSIVE
+  overall_productization: NOT SUPPORTED
+product_decision:
+  github_action_v0_2: prohibited
+  detector_rule_changes_in_this_study: prohibited
+  future_reassessment: new_preregistered_study_only
+limitations:
+  - ten_case_dynamic_sample_no_population_inference
+  - same_autonomous_agent_not_independent_second_human
+  - ecodive_frozen_state_not_safely_replayed
+  - maintainer_acceptance_and_measured_user_benefit_not_observed

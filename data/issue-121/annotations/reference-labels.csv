@@ -1,0 +1,39 @@
+order,repository,readme_sha,primary_language,readme_bytes,safe_installation_or_build,safe_first_meaningful_use,strict_ready,external_docs,relaxed_ready,manual_hard_defects,rationale
+1,GroupiSP/himap,910c0bdfb8a9f4968110e6cac13a450573d6f4da,Python,6623,True,True,True,True,True,,Install commands and `python -m himap.main` invocations are both present.
+2,Becksteinlab/zarrtraj,09a960fc59a5369604583e37050e0a01654e89d2,Jupyter Notebook,5537,True,False,False,True,True,,Concrete installation is present; product use is delegated to ReadTheDocs.
+3,CEA-MetroCarac/cdsaxs,fa5996b0a95094e2c796cf21d651a02cd70d8a99,Jupyter Notebook,10604,True,False,False,True,True,,Concrete installation is present; tutorials and use are delegated externally.
+4,KoslickiLab/YACHT,06337d79eb8c5460afbcc048d77a00163a602494,C++,25378,True,True,True,True,True,,Conda installation and a complete YACHT quick demonstration are present.
+5,abinit/abipy,3facfc1b1c43e4e914e291781ea4148af08ff057,Python,21256,False,False,False,True,True,,Root README is an RST landing page with external installation and gallery routes.
+6,JosephBrunet/cardiotensor,22e67e4e2322cf32f6324c8aa464eefe72c41d9b,Python,4534,True,False,False,True,True,,Root README has a PyPI install command; examples are routed to project documentation.
+7,SWeav02/baderkit,b253178829932c3bcaaef50c975ce2395c14370c,Python,1592,False,False,False,True,True,,"Root README is a short landing page linking Tutorials & Docs, without a root path."
+8,tue-bmd/zea,da61e523dbec7548d6a24c58786c01db0b14a4fe,Python,3506,False,False,False,True,True,,"Root README routes installation, getting started, and examples to ReadTheDocs."
+9,BarinthusBio/HLAfreq,3525159e744286f3007d174bd80217d6963e5dd2,Python,7782,True,True,True,True,True,,Conda installation and a minimal Python example are present.
+10,NPLinker/nplinker,4f3e6049812f903a6e2a217e80071aedfc6aa136,Python,4347,True,False,False,True,True,,Root README has installation and maintainer tests but no end-user first-use example.
+11,ncsa/NEAT,7b4407bac5d8a431d03d515f3d2c3c08c2e47f70,Python,42217,True,True,True,True,True,,Conda/source installation and concrete `neat read-simulator` usage are present.
+12,OpenBfS/UncertRadio,4363f5818216dcdcff1a050dcf84431bf5d8cb3e,Fortran,17572,True,True,True,True,True,,Build/install commands and `./bin/UncertRadio` startup are present.
+13,GRTLCollaboration/GRTresna,7f58edcd0b7c834abcd5b5f2d4c64e3e0acb027c,C++,1328,False,False,False,True,True,,Root README routes operational instructions to the GitHub wiki.
+14,omvatten/qdiv,daf2debccbec994e7f96e346d38b2c58aa94ce4a,Python,2184,True,False,False,True,True,,Root README has installation only and links to the qdiv documentation.
+16,stschiff/sequenceTools,7adeabfdebbee89f3150596532e8d527b9a18fda,Haskell,22474,True,False,False,True,True,,"A binary download is concrete installation, but usage syntax has no concrete input task."
+17,artefactory/woodtapper,b07652102469791d6b0c1ecab597a849a9aa31ae,Python,5434,True,True,True,True,True,,PyPI/source installation and Python usage examples are present.
+18,dragoon-rs/komodo,16afca5e48c95dccb78bef975529233130d19c5c,Rust,4385,False,False,False,True,True,,"The README installs rust-script and shows help/tests, not a project install/build path."
+19,rahulumrao/sparc,e73491d2116dd68f18e76a6a891d30d7953f6d18,Python,11921,True,True,True,True,True,,Environment installation and a concrete `sparc -i input.yaml` quick start are present.
+20,cwru-sdle/geospatialsuite,4d9e854a5f4a686b7997093098c03ac16001cc79,HTML,25587,True,True,True,True,True,,R installation and multiple concrete package usage examples are present.
+21,yungselm/multimoda-rs,e800131c61b0278714977389d92dd6999dbbd52f,Rust,6596,True,True,True,True,True,,PyPI installation and a Python quick example are present.
+22,juanmarcosmoreno-arch/cowfootR,c1ed625b365128550d66a7997c9ad6d624df3459,R,11400,True,True,True,True,True,,R installation and quick-start/batch examples are present.
+23,DanielChou0916/felino,f04e5ca2de2f91c3cdcfcc9ce584e41284f281ef,SWIG,3111,True,True,True,True,True,,Felino installation and concrete test/tutorial invocations are present.
+24,SchmidtDSE/kigali-sim,ee0bd1e3b319d22db49e5016a8da4ab8040e38b4,Java,19337,True,True,True,True,True,,Build setup and a concrete Java CLI invocation are present.
+25,youssef-mesri/sofia-mesh,837932e06a05305d152544f0f19c6de2814e40ab,Python,6043,True,True,True,True,True,,PyPI/source installation and Python mesh examples are present.
+26,hannes-holey/GaPFlow,45a5189c6849472e032a999b8cf7e97b08a0ef3c,Python,5975,True,True,True,True,True,,PyPI installation and command-line/Python minimal examples are present.
+27,rahildoshi97/materforge,6bd81a69fdcc2ab3b46255f74a4e4355a5dd97fe,Python,14811,True,True,True,True,True,,PyPI installation and library/CLI examples are present.
+28,DifferentiableUniverseInitiative/jaxDecomp,d466e7bebe51ce43ded3a95a264af64ad570e455,Python,9177,True,True,True,True,True,,PyPI installation and JAX usage examples are present.
+29,chrissoria/cat-llm,d4693d8bcb4af735ff6f17b106e9490df7712b6c,HTML,53065,True,True,True,True,True,,Package installation and multiple concrete Python/R usage examples are present.
+30,brodie-neuro/WAND-practice-and-fatigue-induction,c08224eb22e1e612f8243ea8ecd5b6c170071a1f,Python,20555,True,True,True,False,True,,Pip installation and `wand-launcher`/quick-test invocations are present.
+31,aglucaci/Analysis-of-Orthologous-Collections,8da10bd5efcea00393bb6667935f28457601ed9c,Python,19007,True,True,True,False,True,,Installer commands and a concrete bundled-data pipeline run are present.
+32,jsakaluk/dySEM,1fd9fe26c1df6aa8f52f51b633c23ee8c8f40f37,HTML,10123,True,True,True,True,True,,R installation and a complete dySEM workflow are present.
+33,anvaldes/sklearn-migrator,36a51525a013eb98b635f0ce8b2b3db1ae2a7bb4,Python,11367,True,True,True,False,True,,PyPI installation and serialize/deserialize examples are present.
+34,boostorg/geometry,6f898496335b9a0bf64def628d2ff63852af89bf,C++,4091,False,False,False,True,True,,"Root README is a project landing page linking documentation/wiki, without a root path."
+35,IBM/ado,54cba4bf4e73241b178058a0e06bedabba5c4d8d,Python,6278,True,True,True,True,True,,PyPI installation and concrete `ado create`/`ado show` commands are present.
+36,GESS-research-group/pyshbundle,bfdb82ad519646f146b06a3b1cefcafaa36421b4,Python,8328,True,False,False,True,True,,Root README has user installation and test commands; practical use is in external docs.
+37,cmmr/ecodive,aba4ddfd2fc0fbfc0bfc0d4df5de10a7d94f7bc0,R,7252,True,True,True,True,True,,R installation and concrete package usage examples are present.
+38,mapme-initiative/mapme.biodiversity,7789542ea8afac9ef7f05a6bcc2cbdefb71c0ca9,R,17977,True,True,True,True,True,,R installation and a usage example are present.
+39,cmyoo/cosmos,9063a2ec6b5b25b342927dcd35a60a511f6eb0b6,C++,4397,False,False,False,True,True,,Root README is citation-oriented and routes operational material to project websites/wiki.

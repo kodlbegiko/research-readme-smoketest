@@ -1,0 +1,128 @@
+{
+  "attempt_duration_seconds": 29.156283064999997,
+  "case": {
+    "case_id": "D05-cowfootr",
+    "default_branch": "main",
+    "documentation_scope": [
+      "root_readme"
+    ],
+    "ecosystem": "R/C library",
+    "order": 22,
+    "predeclared_task": "Install cowfootR from CRAN and run the documented single-farm quick-start calculations through total emissions and milk intensity.",
+    "predicted_hard_findings": [],
+    "predicted_strict_ready": false,
+    "readme_path": "README.md",
+    "readme_sha": "c1ed625b365128550d66a7997c9ad6d624df3459",
+    "reference_strict_ready": true,
+    "repository": "juanmarcosmoreno-arch/cowfootR",
+    "resource_caps": {
+      "disk_gib": 10,
+      "job_minutes": 18,
+      "runner": "ubuntu-latest"
+    },
+    "safety_review": "Isolated runner; CRAN package installation; deterministic numeric inputs; no credentials or external user data.",
+    "strata": [
+      "strict_false_negative",
+      "r",
+      "compiled_extension",
+      "library"
+    ],
+    "success_criterion": "R exits 0 and returns positive total-emissions and milk-intensity values.",
+    "timeout_seconds": 480
+  },
+  "completed_at": "2026-07-25T15:47:14Z",
+  "external_searches": 0,
+  "failure_reason": null,
+  "installation_seconds": 0.7632084520000006,
+  "interpretation_note": "Raw execution result only. Friction/blocker classification requires post-run review and cannot change the locked case or command.",
+  "manual_command_steps": 3,
+  "non_root_document_pages": 0,
+  "preliminary_relations": {
+    "external_docs_supplemented": false,
+    "manual_friction_classification_required": true,
+    "predicted_hard_findings_disproved_by_runtime_paths": false,
+    "strict_false_negative_completed": true
+  },
+  "runner": {
+    "github_job": "dynamic-execution",
+    "github_run_id": "30164215247",
+    "machine": "x86_64",
+    "platform": "Linux-6.17.0-1020-azure-x86_64-with-glibc2.39",
+    "python": "3.11.15"
+  },
+  "started_at": "2026-07-25T15:46:45Z",
+  "status": "SUCCESS",
+  "steps": [
+    {
+      "command": "git clone --depth 1 --branch main https://github.com/juanmarcosmoreno-arch/cowfootR.git source",
+      "completed_at": "2026-07-25T15:46:45Z",
+      "duration_seconds": 0.6631547610000013,
+      "name": "clone repository",
+      "peak_rss_kib": 17856,
+      "phase": "acquisition",
+      "required": true,
+      "return_code": 0,
+      "started_at": "2026-07-25T15:46:45Z",
+      "stderr_excerpt": "Cloning into 'source'...\n\tCommand being timed: \"bash -lc git clone --depth 1 --branch main https://github.com/juanmarcosmoreno-arch/cowfootR.git source\"\n\tUser time (seconds): 0.16\n\tSystem time (seconds): 0.12\n\tPercent of CPU this job got: 44%\n\tElapsed (wall clock) time (h:mm:ss or m:ss): 0:00.66\n\tAverage shared text size (kbytes): 0\n\tAverage unshared data size (kbytes): 0\n\tAverage stack size (kbytes): 0\n\tAverage total size (kbytes): 0\n\tMaximum resident set size (kbytes): 17856\n\tAverage resident set size (kbytes): 0\n\tMajor (requiring I/O) page faults: 197\n\tMinor (reclaiming a frame) page faults: 21454\n\tVoluntary context switches: 1278\n\tInvoluntary context switches: 10\n\tSwaps: 0\n\tFile system inputs: 40008\n\tFile system outputs: 20896\n\tSocket messages sent: 0\n\tSocket messages received: 0\n\tSignals delivered: 0\n\tPage size (bytes): 4096\n\tExit status: 0\n",
+      "stderr_log": "01-clone-repository.stderr.log",
+      "stdout_excerpt": "",
+      "stdout_log": "01-clone-repository.stdout.log",
+      "timed_out": false,
+      "timeout_seconds": 180
+    },
+    {
+      "command": "test \"$(git -C source hash-object README.md)\" = \"c1ed625b365128550d66a7997c9ad6d624df3459\"",
+      "completed_at": "2026-07-25T15:46:45Z",
+      "duration_seconds": 0.10005369099999939,
+      "name": "verify README blob",
+      "peak_rss_kib": 17992,
+      "phase": "acquisition",
+      "required": true,
+      "return_code": 0,
+      "started_at": "2026-07-25T15:46:45Z",
+      "stderr_excerpt": "\tCommand being timed: \"bash -lc test \"$(git -C source hash-object README.md)\" = \"c1ed625b365128550d66a7997c9ad6d624df3459\"\"\n\tUser time (seconds): 0.04\n\tSystem time (seconds): 0.07\n\tPercent of CPU this job got: 118%\n\tElapsed (wall clock) time (h:mm:ss or m:ss): 0:00.09\n\tAverage shared text size (kbytes): 0\n\tAverage unshared data size (kbytes): 0\n\tAverage stack size (kbytes): 0\n\tAverage total size (kbytes): 0\n\tMaximum resident set size (kbytes): 17992\n\tAverage resident set size (kbytes): 0\n\tMajor (requiring I/O) page faults: 0\n\tMinor (reclaiming a frame) page faults: 17546\n\tVoluntary context switches: 273\n\tInvoluntary context switches: 4\n\tSwaps: 0\n\tFile system inputs: 0\n\tFile system outputs: 0\n\tSocket messages sent: 0\n\tSocket messages received: 0\n\tSignals delivered: 0\n\tPage size (bytes): 4096\n\tExit status: 0\n",
+      "stderr_log": "02-verify-readme-blob.stderr.log",
+      "stdout_excerpt": "",
+      "stdout_log": "02-verify-readme-blob.stdout.log",
+      "timed_out": false,
+      "timeout_seconds": 30
+    },
+    {
+      "command": "Rscript - <<'RS'\noptions(repos = c(CRAN = \"https://cloud.r-project.org\"))\n        install.packages(\"cowfootR\")\n        library(cowfootR)\n        boundaries <- set_system_boundaries(\"farm_gate\")\n        enteric <- calc_emissions_enteric(\n          n_animals = 100,\n          cattle_category = \"dairy_cows\",\n          boundaries = boundaries\n        )\n        manure <- calc_emissions_manure(n_cows = 100, boundaries = boundaries)\n        soil <- calc_emissions_soil(\n          n_fertilizer_synthetic = 1500,\n          n_excreta_pasture = 5000,\n          area_ha = 120,\n          boundaries = boundaries\n        )\n        energy <- calc_emissions_energy(\n          diesel_l = 2000,\n          electricity_kwh = 5000,\n          boundaries = boundaries\n        )\n        inputs <- calc_emissions_inputs(\n          conc_kg = 1000,\n          fert_n_kg = 500,\n          boundaries = boundaries\n        )\n        total_emissions <- calc_total_emissions(\n          enteric, manure, soil, energy, inputs\n        )\n        milk_intensity <- calc_intensity_litre(\n          total_emissions = total_emissions,\n          milk_litres = 750000,\n          fat = 4.0,\n          protein = 3.3\n        )\n        rendered <- c(\n          capture.output(print(total_emissions)),\n          capture.output(print(milk_intensity))\n        )\n        stopifnot(any(grepl(\"Total CO2eq\", rendered)))\n        stopifnot(any(grepl(\"Intensity\", rendered)))\n        cat(rendered, sep = \"\n\")\n        cat(\"\nversion=\", as.character(packageVersion(\"cowfootR\")), \"\n\")\nRS",
+      "completed_at": "2026-07-25T15:47:14Z",
+      "duration_seconds": 28.111873894,
+      "name": "install and run cowfootR quick start",
+      "peak_rss_kib": 138628,
+      "phase": "task",
+      "required": true,
+      "return_code": 0,
+      "started_at": "2026-07-25T15:46:45Z",
+      "stderr_excerpt": "Installing package into ‘/home/runner/work/_temp/Library’\n(as ‘lib’ is unspecified)\nalso installing the dependency ‘writexl’\n\ntrying URL 'https://cloud.r-project.org/src/contrib/writexl_1.5.4.tar.gz'\ntrying URL 'https://cloud.r-project.org/src/contrib/cowfootR_0.1.3.tar.gz'\n* installing *source* package ‘writexl’ ...\n** this is package ‘writexl’ version ‘1.5.4’\n** package ‘writexl’ successfully unpacked and MD5 sums checked\n** using staged installation\n** libs\nusing C compiler: ‘gcc (Ubuntu 13.3.0-6ubuntu2~24.04.1) 13.3.0’\ninstalling to /home/runner/work/_temp/Library/00LOCK-writexl/00new/writexl/libs\n** R\n** inst\n** byte-compile and prepare package for lazy loading\n** help\n*** installing help indices\n** building package indices\n** testing if installed package can be loaded from temporary location\n** checking absolute paths in shared objects and dynamic libraries\n** testing if installed package can be loaded from final location\n** testing if installed package keeps a record of temporary installation path\n* DONE (writexl)\n* installing *source* package ‘cowfootR’ ...\n** this is package ‘cowfootR’ version ‘0.1.3’\n** package ‘cowfootR’ successfully unpacked and MD5 sums checked\n** using staged installation\n** R\n** inst\n** byte-compile and prepare package for lazy loading\n** help\n*** installing help indices\n*** copying figures\n** building package indices\n** installing vignettes\n** testing if installed package can be loaded from temporary location\n** testing if installed package can be loaded from final location\n** testing if installed package keeps a record of temporary installation path\n* DONE (cowfootR)\n\nThe downloaded source packages are in\n\t‘/tmp/RtmpTZeYw4/downloaded_packages’\n\tCommand being timed: \"bash -lc Rscript - <<'RS'\noptions(repos = c(CRAN = \"https://cloud.r-project.org\"))\n        install.packages(\"cowfootR\")\n        library(cowfootR)\n        boundaries <- set_system_boundaries(\"farm_gate\")\n        enteric <- calc_emissions_enteric(\n          n_animals = 100,\n          cattle_category = \"dairy_cows\",\n          boundaries = boundaries\n        )\n        manure <- calc_emissions_manure(n_cows = 100, boundaries = boundaries)\n        soil <- calc_emissions_soil(\n          n_fertilizer_synthetic = 1500,\n          n_excreta_pasture = 5000,\n          area_ha = 120,\n          boundaries = boundaries\n        )\n        energy <- calc_emissions_energy(\n          diesel_l = 2000,\n          electricity_kwh = 5000,\n          boundaries = boundaries\n        )\n        inputs <- calc_emissions_inputs(\n          conc_kg = 1000,\n          fert_n_kg = 500,\n          boundaries = boundaries\n        )\n        total_emissions <- calc_total_emissions(\n          enteric, manure, soil, energy, inputs\n        )\n        milk_intensity <- calc_intensity_litre(\n          total_emissions = total_emissions,\n          milk_litres = 750000,\n          fat = 4.0,\n          protein = 3.3\n        )\n        rendered <- c(\n          capture.output(print(total_emissions)),\n          capture.output(print(milk_intensity))\n        )\n        stopifnot(any(grepl(\"Total CO2eq\", rendered)))\n        stopifnot(any(grepl(\"Intensity\", rendered)))\n        cat(rendered, sep = \"\n\")\n        cat(\"\nversion=\", as.character(packageVersion(\"cowfootR\")), \"\n\")\nRS\"\n\tUser time (seconds): 10.08\n\tSystem time (seconds): 4.38\n\tPercent of CPU this job got: 51%\n\tElapsed (wall clock) time (h:mm:ss or m:ss): 0:28.11\n\tAverage shared text size (kbytes): 0\n\tAverage unshared data size (kbytes): 0\n\tAverage stack size (kbytes): 0\n\tAverage total size (kbytes): 0\n\tMaximum resident set size (kbytes): 138628\n\tAverage resident set size (kbytes): 0\n\tMajor (requiring I/O) page faults: 1902\n\tMinor (reclaiming a frame) page faults: 325162\n\tVoluntary context switches: 3298\n\tInvoluntary context switches: 2218\n\tSwaps: 0\n\tFile system inputs: 374432\n\tFile system outputs: 59872\n\tSocket messages sent: 0\n\tSocket messages received: 0\n\tSignals delivered: 0\n\tPage size (bytes): 4096\n\tExit status: 0\n",
+      "stderr_log": "03-install-and-run-cowfootr-quick-start.stderr.log",
+      "stdout_excerpt": "gcc -std=gnu2x -I\"/opt/R/4.6.1/lib/R/include\" -DNDEBUG -Iinclude -DUSE_R_LANG  -I/usr/local/include   -fvisibility=hidden -fpic  -g -O2  -c write_xlsx.c -o write_xlsx.o\ngcc -std=gnu2x -I\"/opt/R/4.6.1/lib/R/include\" -DNDEBUG -Iinclude -DUSE_R_LANG  -I/usr/local/include   -fvisibility=hidden -fpic  -g -O2  -c libxlsxwriter/app.c -o libxlsxwriter/app.o\ngcc -std=gnu2x -I\"/opt/R/4.6.1/lib/R/include\" -DNDEBUG -Iinclude -DUSE_R_LANG  -I/usr/local/include   -fvisibility=hidden -fpic  -g -O2  -c libxlsxwriter/format.c -o libxlsxwriter/format.o\ngcc -std=gnu2x -I\"/opt/R/4.6.1/lib/R/include\" -DNDEBUG -Iinclude -DUSE_R_LANG  -I/usr/local/include   -fvisibility=hidden -fpic  -g -O2  -c libxlsxwriter/theme.c -o libxlsxwriter/theme.o\ngcc -std=gnu2x -I\"/opt/R/4.6.1/lib/R/include\" -DNDEBUG -Iinclude -DUSE_R_LANG  -I/usr/local/include   -fvisibility=hidden -fpic  -g -O2  -c libxlsxwriter/chart.c -o libxlsxwriter/chart.o\ngcc -std=gnu2x -I\"/opt/R/4.6.1/lib/R/include\" -DNDEBUG -Iinclude -DUSE_R_LANG  -I/usr/local/include   -fvisibility=hidden -fpic  -g -O2  -c libxlsxwriter/hash_table.c -o libxlsxwriter/hash_table.o\ngcc -std=gnu2x -I\"/opt/R/4.6.1/lib/R/include\" -DNDEBUG -Iinclude -DUSE_R_LANG  -I/usr/local/include   -fvisibility=hidden -fpic  -g -O2  -c libxlsxwriter/utility.c -o libxlsxwriter/utility.o\ngcc -std=gnu2x -I\"/opt/R/4.6.1/lib/R/include\" -DNDEBUG -Iinclude -DUSE_R_LANG  -I/usr/local/include   -fvisibility=hidden -fpic  -g -O2  -c libxlsxwriter/content_types.c -o libxlsxwriter/content_types.o\ngcc -std=gnu2x -I\"/opt/R/4.6.1/lib/R/include\" -DNDEBUG -Iinclude -DUSE_R_LANG  -I/usr/local/include   -fvisibility=hidden -fpic  -g -O2  -c libxlsxwriter/packager.c -o libxlsxwriter/packager.o\ngcc -std=gnu2x -I\"/opt/R/4.6.1/lib/R/include\" -DNDEBUG -Iinclude -DUSE_R_LANG  -I/usr/local/include   -fvisibility=hidden -fpic  -g -O2  -c libxlsxwriter/workbook.c -o libxlsxwriter/workbook.o\ngcc -std=gnu2x -I\"/opt/R/4.6.1/lib/R/include\" -DNDEBUG -Iinclude -DUSE_R_LANG  -I/usr/local/include   -fvisibility=hidden -fpic  -g -O2  -c libxlsxwriter/core.c -o libxlsxwriter/core.o\ngcc -std=gnu2x -I\"/opt/R/4.6.1/lib/R/include\" -DNDEBUG -Iinclude -DUSE_R_LANG  -I/usr/local/include   -fvisibility=hidden -fpic  -g -O2  -c libxlsxwriter/relationships.c -o libxlsxwriter/relationships.o\ngcc -std=gnu2x -I\"/opt/R/4.6.1/lib/R/include\" -DNDEBUG -Iinclude -DUSE_R_LANG  -I/usr/local/include   -fvisibility=hidden -fpic  -g -O2  -c libxlsxwriter/worksheet.c -o libxlsxwriter/worksheet.o\ngcc -std=gnu2x -I\"/opt/R/4.6.1/lib/R/include\" -DNDEBUG -Iinclude -DUSE_R_LANG  -I/usr/local/include   -fvisibility=hidden -fpic  -g -O2  -c libxlsxwriter/custom.c -o libxlsxwriter/custom.o\ngcc -std=gnu2x -I\"/opt/R/4.6.1/lib/R/include\" -DNDEBUG -Iinclude -DUSE_R_LANG  -I/usr/local/include   -fvisibility=hidden -fpic  -g -O2  -c libxlsxwriter/shared_strings.c -o libxlsxwriter/shared_strings.o\ngcc -std=gnu2x -I\"/opt/R/4.6.1/lib/R/include\" -DNDEBUG -Iinclude -DUSE_R_LANG  -I/usr/local/include   -fvisibility=hidden -fpic  -g -O2  -c libxlsxwriter/xmlwriter.c -o libxlsxwriter/xmlwriter.o\ngcc -std=gnu2x -I\"/opt/R/4.6.1/lib/R/include\" -DNDEBUG -Iinclude -DUSE_R_LANG  -I/usr/local/include   -fvisibility=hidden -fpic  -g -O2  -c libxlsxwriter/drawing.c -o libxlsxwriter/drawing.o\ngcc -std=gnu2x -I\"/opt/R/4.6.1/lib/R/include\" -DNDEBUG -Iinclude -DUSE_R_LANG  -I/usr/local/include   -fvisibility=hidden -fpic  -g -O2  -c libxlsxwriter/styles.c -o libxlsxwriter/styles.o\ngcc -std=gnu2x -I\"/opt/R/4.6.1/lib/R/include\" -DNDEBUG -Iinclude -DUSE_R_LANG  -I/usr/local/include   -fvisibility=hidden -fpic  -g -O2  -c tmpfileplus/tmpfileplus.c -o tmpfileplus/tmpfileplus.o\ngcc -std=gnu2x -I\"/opt/R/4.6.1/lib/R/include\" -DNDEBUG -Iinclude -DUSE_R_LANG  -I/usr/local/include   -fvisibility=hidden -fpic  -g -O2  -c libxlsxwriter/chartsheet.c -o libxlsxwriter/chartsheet.o\ngcc -std=gnu2x -I\"/opt/R/4.6.1/lib/R/include\" -DNDEBUG -Iinclude -DUSE_R_LANG  -I/usr/local/include   -fvisibility=hidden -fpic  -g -O2  -c minizip/ioapi.c -o minizip/ioapi.o\ngcc -std=gnu2x -I\"/opt/R/4.6.1/lib/R/include\" -DNDEBUG -Iinclude -DUSE_R_LANG  -I/usr/local/include   -fvisibility=hidden -fpic  -g -O2  -c minizip/zip.c -o minizip/zip.o\ngcc -std=gnu2x -I\"/opt/R/4.6.1/lib/R/include\" -DNDEBUG -Iinclude -DUSE_R_LANG  -I/usr/local/include   -fvisibility=hidden -fpic  -g -O2  -c libxlsxwriter/metadata.c -o libxlsxwriter/metadata.o\ngcc -std=gnu2x -I\"/opt/R/4.6.1/lib/R/include\" -DNDEBUG -Iinclude -DUSE_R_LANG  -I/usr/local/include   -fvisibility=hidden -fpic  -g -O2  -c libxlsxwriter/comment.c -o libxlsxwriter/comment.o\ngcc -std=gnu2x -I\"/opt/R/4.6.1/lib/R/include\" -DNDEBUG -Iinclude -DUSE_R_LANG  -I/usr/local/include   -fvisibility=hidden -fpic  -g -O2  -c libxlsxwriter/vml.c -o libxlsxwriter/vml.o\ngcc -std=gnu2x -I\"/opt/R/4.6.1/lib/R/include\" -DNDEBUG -Iinclude -DUSE_R_LANG  -I/usr/local/include   -fvisibility=hidden -fpic  -g -O2  -c md5/md5.c -o md5/md5.o\ngcc -std=gnu2x -I\"/opt/R/4.6.1/lib/R/include\" -DNDEBUG -Iinclude -DUSE_R_LANG  -I/usr/local/include   -fvisibility=hidden -fpic  -g -O2  -c libxlsxwriter/table.c -o libxlsxwriter/table.o\ngcc -std=gnu2x -shared -L/opt/R/4.6.1/lib/R/lib -L/usr/local/lib -o writexl.so write_xlsx.o -Llibxlsxwriter -lstatxlsxwriter -lz -L/opt/R/4.6.1/lib/R/lib -lR\nCarbon Footprint - Total Emissions\n==================================\nTotal CO2eq: 451512.6 kg CO2eq yr-1 \nNumber of sources: 5 \n\nBreakdown by source:\n  energy : 5740 kg CO2eq yr-1 \n  enteric : 312800 kg CO2eq yr-1 \n  inputs : 4000 kg CO2eq yr-1 \n  manure : 89880 kg CO2eq yr-1 \n  soil : 39092.62 kg CO2eq yr-1 \n\nCalculated on: 2026-07-25 \nCarbon Footprint Intensity\n==========================\nIntensity: 0.585 kg CO2eq/kg FPCM\n\nProduction data:\n Raw milk (L): 750,000 L\n Raw milk (kg): 772,500 kg\n FPCM (kg): 772,407 kg\n Fat content: 4 %\n Protein content: 3.3 %\n\nTotal emissions: 451,513 kg CO2eq\nCalculated on: 2026-07-25 \n\nversion= 0.1.3 \n",
+      "stdout_log": "03-install-and-run-cowfootr-quick-start.stdout.log",
+      "timed_out": false,
+      "timeout_seconds": 480
+    },
+    {
+      "command": "Rscript -e 'sessionInfo()'",
+      "completed_at": "2026-07-25T15:47:14Z",
+      "duration_seconds": 0.2799697330000015,
+      "name": "capture R environment",
+      "peak_rss_kib": 59232,
+      "phase": "environment",
+      "required": false,
+      "return_code": 0,
+      "started_at": "2026-07-25T15:47:14Z",
+      "stderr_excerpt": "\tCommand being timed: \"bash -lc Rscript -e 'sessionInfo()'\"\n\tUser time (seconds): 0.20\n\tSystem time (seconds): 0.40\n\tPercent of CPU this job got: 221%\n\tElapsed (wall clock) time (h:mm:ss or m:ss): 0:00.27\n\tAverage shared text size (kbytes): 0\n\tAverage unshared data size (kbytes): 0\n\tAverage stack size (kbytes): 0\n\tAverage total size (kbytes): 0\n\tMaximum resident set size (kbytes): 59232\n\tAverage resident set size (kbytes): 0\n\tMajor (requiring I/O) page faults: 0\n\tMinor (reclaiming a frame) page faults: 31815\n\tVoluntary context switches: 317\n\tInvoluntary context switches: 71\n\tSwaps: 0\n\tFile system inputs: 0\n\tFile system outputs: 8\n\tSocket messages sent: 0\n\tSocket messages received: 0\n\tSignals delivered: 0\n\tPage size (bytes): 4096\n\tExit status: 0\n",
+      "stderr_log": "04-capture-r-environment.stderr.log",
+      "stdout_excerpt": "R version 4.6.1 (2026-06-24)\nPlatform: x86_64-pc-linux-gnu\nRunning under: Ubuntu 24.04.4 LTS\n\nMatrix products: default\nBLAS:   /usr/lib/x86_64-linux-gnu/openblas-pthread/libblas.so.3 \nLAPACK: /usr/lib/x86_64-linux-gnu/openblas-pthread/libopenblasp-r0.3.26.so;  LAPACK version 3.12.0\n\nlocale:\n [1] LC_CTYPE=C.UTF-8       LC_NUMERIC=C           LC_TIME=C.UTF-8       \n [4] LC_COLLATE=C.UTF-8     LC_MONETARY=C.UTF-8    LC_MESSAGES=C.UTF-8   \n [7] LC_PAPER=C.UTF-8       LC_NAME=C              LC_ADDRESS=C          \n[10] LC_TELEPHONE=C         LC_MEASUREMENT=C.UTF-8 LC_IDENTIFICATION=C   \n\ntime zone: UTC\ntzcode source: system (glibc)\n\nattached base packages:\n[1] stats     graphics  grDevices utils     datasets  methods   base     \n\nloaded via a namespace (and not attached):\n[1] compiler_4.6.1\n",
+      "stdout_log": "04-capture-r-environment.stdout.log",
+      "timed_out": false,
+      "timeout_seconds": 60
+    }
+  ],
+  "task_seconds": 28.111873894,
+  "total_seconds_to_first_output": 29.156283064999997,
+  "workspace_bytes": 10100893
+}

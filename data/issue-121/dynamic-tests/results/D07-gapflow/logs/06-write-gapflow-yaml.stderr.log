@@ -1,0 +1,57 @@
+	Command being timed: "bash -lc cat > my_input_file.yaml <<'YAML'
+options:
+    output: data/journal
+    write_freq: 10
+grid:
+    dx: 1.e-5
+    dy: 1.
+    Nx: 100
+    Ny: 1
+    xE: ['D', 'N', 'N']
+    xW: ['D', 'N', 'N']
+    yS: ['P', 'P', 'P']
+    yN: ['P', 'P', 'P']
+    xE_D: 877.7007
+    xW_D: 877.7007
+geometry:
+    type: journal
+    CR: 1.e-2
+    eps: 0.7
+    U: 0.1
+    V: 0.
+numerics:
+    tol: 1e-9
+    dt: 1e-10
+    max_it: 200
+properties:
+    shear: 0.0794
+    bulk: 0.
+    EOS: DH
+    P0: 101325
+    rho0: 877.7007
+    T0: 323.15
+    C1: 3.5e10
+    C2: 1.23
+YAML"
+	User time (seconds): 0.04
+	System time (seconds): 0.06
+	Percent of CPU this job got: 117%
+	Elapsed (wall clock) time (h:mm:ss or m:ss): 0:00.08
+	Average shared text size (kbytes): 0
+	Average unshared data size (kbytes): 0
+	Average stack size (kbytes): 0
+	Average total size (kbytes): 0
+	Maximum resident set size (kbytes): 18108
+	Average resident set size (kbytes): 0
+	Major (requiring I/O) page faults: 0
+	Minor (reclaiming a frame) page faults: 17447
+	Voluntary context switches: 276
+	Involuntary context switches: 5
+	Swaps: 0
+	File system inputs: 0
+	File system outputs: 8
+	Socket messages sent: 0
+	Socket messages received: 0
+	Signals delivered: 0
+	Page size (bytes): 4096
+	Exit status: 0

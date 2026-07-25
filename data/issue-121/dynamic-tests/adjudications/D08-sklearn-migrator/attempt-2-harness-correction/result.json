@@ -1,0 +1,101 @@
+{
+  "attempt": "attempt-2-harness-correction",
+  "case_id": "D08-sklearn-migrator",
+  "completed_at": "2026-07-25T16:43:34Z",
+  "correction_reason": "Attempt 1 imported a nonexistent module and omitted the documented sklearn version arguments.",
+  "environment": {
+    "captured_at": "2026-07-25T16:43:15Z",
+    "executable": "/opt/hostedtoolcache/Python/3.11.15/x64/bin/python",
+    "machine": "x86_64",
+    "platform": "Linux-6.17.0-1020-azure-x86_64-with-glibc2.39",
+    "python": "3.11.15 (main, Jun 16 2026, 21:41:52) [GCC 13.3.0]"
+  },
+  "frozen_readme_blob_sha": "36a51525a013eb98b635f0ce8b2b3db1ae2a7bb4",
+  "logs_compression": "gzip",
+  "only_task_semantic_difference": "The import path and required call signature were aligned to the frozen README/API; dataset, model, random seeds, round-trip criterion, and user-created runtime paths were unchanged.",
+  "original_attempt_relation": "Preserves the locked attempt-1 failure; this is a separate harness correction.",
+  "predicted_findings": [
+    "missing_relative_path:input_model/all_data.json",
+    "missing_relative_path:input_model/y_pred.csv",
+    "missing_relative_path:output_model/y_pred_new.csv"
+  ],
+  "predicted_findings_disposition": "DISPROVED",
+  "runtime_paths_require_upstream_assets": false,
+  "source_commit": "fe0e197d78faf8a17a34fd90025d23cbad37af0b",
+  "status": "SUCCESS",
+  "steps": [
+    {
+      "command": "git clone --depth 1 https://github.com/anvaldes/sklearn-migrator.git source && git -C source checkout fe0e197d78faf8a17a34fd90025d23cbad37af0b",
+      "completed_at": "2026-07-25T16:43:16Z",
+      "duration_seconds": 0.539508,
+      "name": "clone frozen source",
+      "peak_rss_kib": 17920,
+      "return_code": 0,
+      "started_at": "2026-07-25T16:43:15Z",
+      "stderr_log_ref": "logs.json.gz#/01-clone-frozen-source/stderr",
+      "stdout_log_ref": "logs.json.gz#/01-clone-frozen-source/stdout",
+      "step_id": "01-clone-frozen-source"
+    },
+    {
+      "command": "test \"$(git -C source hash-object README.md)\" = \"36a51525a013eb98b635f0ce8b2b3db1ae2a7bb4\"",
+      "completed_at": "2026-07-25T16:43:16Z",
+      "duration_seconds": 0.10514,
+      "name": "verify frozen README blob",
+      "peak_rss_kib": 18040,
+      "return_code": 0,
+      "started_at": "2026-07-25T16:43:16Z",
+      "stderr_log_ref": "logs.json.gz#/02-verify-frozen-readme/stderr",
+      "stdout_log_ref": "logs.json.gz#/02-verify-frozen-readme/stdout",
+      "step_id": "02-verify-frozen-readme"
+    },
+    {
+      "command": "python -m venv venv",
+      "completed_at": "2026-07-25T16:43:20Z",
+      "duration_seconds": 4.38046,
+      "name": "create virtual environment",
+      "peak_rss_kib": 78600,
+      "return_code": 0,
+      "started_at": "2026-07-25T16:43:16Z",
+      "stderr_log_ref": "logs.json.gz#/03-create-venv/stderr",
+      "stdout_log_ref": "logs.json.gz#/03-create-venv/stdout",
+      "step_id": "03-create-venv"
+    },
+    {
+      "command": "venv/bin/python -m pip install --upgrade pip && venv/bin/python -m pip install sklearn-migrator",
+      "completed_at": "2026-07-25T16:43:32Z",
+      "duration_seconds": 11.360981,
+      "name": "install sklearn-migrator",
+      "peak_rss_kib": 97280,
+      "return_code": 0,
+      "started_at": "2026-07-25T16:43:20Z",
+      "stderr_log_ref": "logs.json.gz#/04-install-published-package/stderr",
+      "stdout_log_ref": "logs.json.gz#/04-install-published-package/stdout",
+      "step_id": "04-install-published-package"
+    },
+    {
+      "command": "cat > corrected_roundtrip.py <<'PY'\nimport json\nfrom pathlib import Path\n\nimport numpy as np\nimport sklearn\nfrom sklearn.datasets import make_regression\nfrom sklearn.ensemble import RandomForestRegressor\nfrom sklearn_migrator.regression.random_forest_reg import (\n    deserialize_random_forest_reg,\n    serialize_random_forest_reg,\n)\n\ninput_dir = Path(\"input_model\")\noutput_dir = Path(\"output_model\")\ninput_dir.mkdir()\noutput_dir.mkdir()\nX, y = make_regression(\n    n_samples=120,\n    n_features=5,\n    noise=0.1,\n    random_state=0,\n)\nmodel = RandomForestRegressor(n_estimators=20, random_state=0)\nmodel.fit(X, y)\nexpected = model.predict(X[:20])\nserialized = serialize_random_forest_reg(model, sklearn.__version__)\n(input_dir / \"all_data.json\").write_text(json.dumps(serialized))\nnp.savetxt(input_dir / \"y_pred.csv\", expected, delimiter=\",\")\nrestored = deserialize_random_forest_reg(serialized, sklearn.__version__)\nobserved = restored.predict(X[:20])\nnp.savetxt(output_dir / \"y_pred_new.csv\", observed, delimiter=\",\")\nmax_difference = float(np.max(np.abs(expected - observed)))\nassert max_difference < 1e-8\nassert (input_dir / \"all_data.json\").is_file()\nassert (input_dir / \"y_pred.csv\").is_file()\nassert (output_dir / \"y_pred_new.csv\").is_file()\nprint(json.dumps({\n    \"max_abs_difference\": max_difference,\n    \"sklearn_version\": sklearn.__version__,\n    \"input_dir_created_by_user\": True,\n    \"output_dir_created_by_user\": True,\n}, sort_keys=True))\nPY\nvenv/bin/python corrected_roundtrip.py",
+      "completed_at": "2026-07-25T16:43:34Z",
+      "duration_seconds": 2.051457,
+      "name": "run corrected random-forest round trip",
+      "peak_rss_kib": 136904,
+      "return_code": 0,
+      "started_at": "2026-07-25T16:43:32Z",
+      "stderr_log_ref": "logs.json.gz#/05-run-corrected-roundtrip/stderr",
+      "stdout_log_ref": "logs.json.gz#/05-run-corrected-roundtrip/stdout",
+      "step_id": "05-run-corrected-roundtrip"
+    },
+    {
+      "command": "venv/bin/python -m pip freeze",
+      "completed_at": "2026-07-25T16:43:34Z",
+      "duration_seconds": 0.319119,
+      "name": "capture package versions",
+      "peak_rss_kib": 36680,
+      "return_code": 0,
+      "started_at": "2026-07-25T16:43:34Z",
+      "stderr_log_ref": "logs.json.gz#/06-capture-packages/stderr",
+      "stdout_log_ref": "logs.json.gz#/06-capture-packages/stdout",
+      "step_id": "06-capture-packages"
+    }
+  ],
+  "workspace_bytes": 293123110
+}
