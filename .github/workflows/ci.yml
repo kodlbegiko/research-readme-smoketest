@@ -1,0 +1,50 @@
+name: CI
+
+on:
+  push:
+    branches: [main, "research/**"]
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  quality:
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        python-version: ['3.11', '3.13']
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python-version }}
+          cache: pip
+      - name: Install
+        run: python -m pip install -e ".[dev]"
+      - name: Lint
+        run: ruff check .
+      - name: Format check
+        run: ruff format --check .
+      - name: Type check
+        run: mypy src
+      - name: Test
+        run: pytest
+      - name: Coverage
+        run: pytest --cov --cov-report=term-missing --cov-fail-under=90
+      - name: Build distributions
+        run: python -m build
+      - name: Reproduce published result
+        run: |
+          PYTHONHASHSEED=0 readme-smoketest pilot --output-dir /tmp/readme-a
+          PYTHONHASHSEED=321 readme-smoketest pilot --output-dir /tmp/readme-b
+          diff -u /tmp/readme-a/pilot-results.json /tmp/readme-b/pilot-results.json
+          diff -u /tmp/readme-a/pilot-results.csv /tmp/readme-b/pilot-results.csv
+          test "$(sha256sum /tmp/readme-a/pilot-results.json | cut -d' ' -f1)" = "531f145706238996c499746bdb46c9f4d281221828b4f07691c68782ca2f80f8"
+      - name: Upload reproduced outputs
+        if: matrix.python-version == '3.13'
+        uses: actions/upload-artifact@v4
+        with:
+          name: reproduced-results
+          path: /tmp/readme-a/
