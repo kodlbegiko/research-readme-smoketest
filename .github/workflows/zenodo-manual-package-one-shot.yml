@@ -17,32 +17,37 @@ jobs:
   package:
     runs-on: ubuntu-latest
     timeout-minutes: 20
+    env:
+      GH_TOKEN: ${{ github.token }}
+      TAG: research-closeout-issue-121
+      PUBLICATION_COMMIT: 4dfb0b961470974f9dc80a936db86450303d007a
+      PACKAGE_NAME: research-readme-smoketest-research-closeout-issue-121-zenodo.zip
     steps:
       - uses: actions/checkout@v4
         with:
           fetch-depth: 0
           fetch-tags: true
 
-      - name: Build exact formal-release Zenodo package
-        env:
-          GH_TOKEN: ${{ github.token }}
+      - name: Verify formal annotated tag
         run: |
-          set -euo pipefail
-          tag='research-closeout-issue-121'
-          publication_commit='4dfb0b961470974f9dc80a936db86450303d007a'
-          package_name='research-readme-smoketest-research-closeout-issue-121-zenodo.zip'
-
+          set -euxo pipefail
           git fetch --force --tags origin
-          test "$(git cat-file -t "$tag")" = 'tag'
-          test "$(git rev-parse "$tag^{}")" = "$publication_commit"
+          test "$(git cat-file -t "$TAG")" = 'tag'
+          test "$(git rev-parse "$TAG^{}")" = "$PUBLICATION_COMMIT"
 
+      - name: Export tagged source
+        run: |
+          set -euxo pipefail
           rm -rf zenodo-staging zenodo-output
           mkdir -p zenodo-staging/source zenodo-staging/release-assets zenodo-output
-
-          git archive --format=tar --prefix=research-readme-smoketest-research-closeout-issue-121/ "$tag^{}" \
+          git archive --format=tar --prefix=research-readme-smoketest-research-closeout-issue-121/ "$TAG^{}" \
             | tar -xf - -C zenodo-staging/source
+          find zenodo-staging/source -type f | LC_ALL=C sort > zenodo-output/source-file-list.txt
 
-          gh release download "$tag" \
+      - name: Download exact seven Release assets
+        run: |
+          set -euxo pipefail
+          gh release download "$TAG" \
             --repo kodlbegiko/research-readme-smoketest \
             --dir zenodo-staging/release-assets \
             --pattern 'dynamic-validation-results.json' \
@@ -52,9 +57,17 @@ jobs:
             --pattern 'DYNAMIC-FINAL-SHA256SUMS' \
             --pattern 'research-manifest-issue-121.yml' \
             --pattern 'EXTERNAL-VALIDATION.md'
+          find zenodo-staging/release-assets -maxdepth 1 -type f -printf '%f\n' \
+            | LC_ALL=C sort | tee zenodo-output/release-asset-list.txt
+          sha256sum zenodo-staging/release-assets/* \
+            | tee zenodo-output/release-assets-SHA256SUMS
 
-          python - <<'PY'
+      - name: Verify Release assets against tagged source
+        run: |
+          set -euxo pipefail
+          python - <<'PY' | tee zenodo-output/release-source-comparison.txt
           from pathlib import Path
+          import hashlib
 
           root = Path('zenodo-staging/source/research-readme-smoketest-research-closeout-issue-121')
           assets = Path('zenodo-staging/release-assets')
@@ -69,12 +82,23 @@ jobs:
           }
           actual = {p.name for p in assets.iterdir() if p.is_file()}
           expected = set(mapping)
+          print('actual=', sorted(actual))
+          print('expected=', sorted(expected))
           assert actual == expected, {'actual': sorted(actual), 'expected': sorted(expected)}
           for name, source in mapping.items():
               assert source.exists(), source
-              assert (assets / name).read_bytes() == source.read_bytes(), f'release/source mismatch: {name}'
+              release_bytes = (assets / name).read_bytes()
+              source_bytes = source.read_bytes()
+              release_sha = hashlib.sha256(release_bytes).hexdigest()
+              source_sha = hashlib.sha256(source_bytes).hexdigest()
+              equal = release_bytes == source_bytes
+              print(f'{name}: release={release_sha} source={source_sha} equal={equal}')
+              assert equal, f'release/source mismatch: {name}'
           PY
 
+      - name: Build deterministic single ZIP
+        run: |
+          set -euxo pipefail
           cat > zenodo-staging/ARCHIVAL-METADATA.txt <<'EOF'
           Title: Issue 121 External Validation — Negative Research Closeout
           Repository: https://github.com/kodlbegiko/research-readme-smoketest
@@ -95,17 +119,16 @@ jobs:
               | xargs -0 sha256sum > PACKAGE-SHA256SUMS
           )
           touch -t 202607260000.00 zenodo-staging/PACKAGE-SHA256SUMS
-
           (
             cd zenodo-staging
-            LC_ALL=C find . -print | LC_ALL=C sort | zip -X -q -9 -@ "../zenodo-output/$package_name"
+            LC_ALL=C find . -print | LC_ALL=C sort | zip -X -q -9 -@ "../zenodo-output/$PACKAGE_NAME"
           )
-
-          sha256sum "zenodo-output/$package_name" | tee zenodo-output/SHA256SUMS
-          unzip -t "zenodo-output/$package_name"
+          sha256sum "zenodo-output/$PACKAGE_NAME" | tee zenodo-output/SHA256SUMS
+          unzip -t "zenodo-output/$PACKAGE_NAME" | tee zenodo-output/zip-test.txt
 
       - uses: actions/upload-artifact@v4
+        if: always()
         with:
           name: zenodo-manual-upload-package
           path: zenodo-output
-          if-no-files-found: error
+          if-no-files-found: warn
