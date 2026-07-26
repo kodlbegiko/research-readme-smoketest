@@ -1,0 +1,171 @@
+name: One-shot archival verification
+
+on:
+  push:
+    branches:
+      - agent/archival-verification-one-shot
+    paths:
+      - .github/workflows/archival-verification-one-shot.yml
+
+permissions:
+  contents: read
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          fetch-tags: true
+
+      - name: Verify annotated tag, Release, assets, and frozen checksums
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          set -euo pipefail
+          mkdir -p archival-output
+          git fetch --force --tags origin
+
+          tag_type="$(git cat-file -t research-closeout-issue-121)"
+          tag_target="$(git rev-parse research-closeout-issue-121^{})"
+          printf 'tag_type=%s\ntag_target=%s\n' "$tag_type" "$tag_target" \
+            | tee archival-output/tag-verification.txt
+          test "$tag_type" = "tag"
+          test "$tag_target" = "4dfb0b961470974f9dc80a936db86450303d007a"
+
+          gh api \
+            repos/kodlbegiko/research-readme-smoketest/releases/tags/research-closeout-issue-121 \
+            > archival-output/release.json
+
+          python - <<'PY'
+          import json
+          from pathlib import Path
+
+          release = json.loads(Path('archival-output/release.json').read_text())
+          expected_assets = {
+              'dynamic-validation-results.json',
+              'dynamic-validation-results.csv',
+              'intervention-log.json',
+              'intervention-log.csv',
+              'DYNAMIC-FINAL-SHA256SUMS',
+              'research-manifest-issue-121.yml',
+              'EXTERNAL-VALIDATION.md',
+          }
+          actual_assets = {asset['name'] for asset in release['assets']}
+          summary = {
+              'name': release['name'],
+              'tag_name': release['tag_name'],
+              'draft': release['draft'],
+              'prerelease': release['prerelease'],
+              'html_url': release['html_url'],
+              'assets': sorted(actual_assets),
+              'missing_assets': sorted(expected_assets - actual_assets),
+              'unexpected_assets': sorted(actual_assets - expected_assets),
+          }
+          Path('archival-output/release-summary.json').write_text(
+              json.dumps(summary, indent=2, ensure_ascii=False) + '\n'
+          )
+          assert release['name'] == 'Issue 121 External Validation — Negative Research Closeout'
+          assert release['tag_name'] == 'research-closeout-issue-121'
+          assert release['draft'] is False
+          assert release['prerelease'] is False
+          assert actual_assets == expected_assets, summary
+          PY
+
+          git checkout --detach research-closeout-issue-121
+          sha256sum -c results/issue-121/DYNAMIC-FINAL-SHA256SUMS \
+            | tee archival-output/detached-tag-checksums.txt
+
+      - name: Submit and poll Software Heritage Save Code Now
+        run: |
+          set -u
+          mkdir -p archival-output
+          endpoint='https://archive.softwareheritage.org/api/1/origin/save/git/url/https://github.com/kodlbegiko/research-readme-smoketest/'
+          http_status="$(curl -sS -o archival-output/swh-post.json -w '%{http_code}' \
+            -X POST -H 'Accept: application/json' "$endpoint" || true)"
+          printf '%s\n' "$http_status" > archival-output/swh-post-http-status.txt
+
+          request_url="$(python - <<'PY'
+          import json
+          from pathlib import Path
+          try:
+              data = json.loads(Path('archival-output/swh-post.json').read_text())
+          except Exception:
+              print('')
+          else:
+              print(data.get('request_url', ''))
+          PY
+          )"
+
+          if [ -n "$request_url" ]; then
+            case "$request_url" in
+              http*) ;;
+              *) request_url="https://archive.softwareheritage.org${request_url}" ;;
+            esac
+            printf '%s\n' "$request_url" > archival-output/swh-request-url.txt
+
+            for attempt in $(seq 1 20); do
+              curl -sS -H 'Accept: application/json' "$request_url" \
+                > archival-output/swh-status.json || true
+              task_status="$(python - <<'PY'
+          import json
+          from pathlib import Path
+          try:
+              data = json.loads(Path('archival-output/swh-status.json').read_text())
+          except Exception:
+              print('unknown')
+          else:
+              print(data.get('save_task_status', 'unknown'))
+          PY
+              )"
+              printf 'attempt=%s task_status=%s\n' "$attempt" "$task_status" \
+                | tee -a archival-output/swh-poll-log.txt
+              case "$task_status" in
+                succeeded|failed) break ;;
+              esac
+              sleep 30
+            done
+          fi
+
+      - name: Produce archival summary
+        if: always()
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+
+          out = Path('archival-output')
+          def load_json(name):
+              path = out / name
+              if not path.exists():
+                  return None
+              try:
+                  return json.loads(path.read_text())
+              except Exception:
+                  return {'raw': path.read_text(errors='replace')}
+
+          summary = {
+              'tag_verification': (out / 'tag-verification.txt').read_text(errors='replace')
+                  if (out / 'tag-verification.txt').exists() else None,
+              'release': load_json('release-summary.json'),
+              'checksums': (out / 'detached-tag-checksums.txt').read_text(errors='replace')
+                  if (out / 'detached-tag-checksums.txt').exists() else None,
+              'software_heritage_post_http_status':
+                  (out / 'swh-post-http-status.txt').read_text().strip()
+                  if (out / 'swh-post-http-status.txt').exists() else None,
+              'software_heritage_post': load_json('swh-post.json'),
+              'software_heritage_final_status': load_json('swh-status.json'),
+          }
+          (out / 'summary.json').write_text(
+              json.dumps(summary, indent=2, ensure_ascii=False) + '\n'
+          )
+          PY
+
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: archival-verification-output
+          path: archival-output
+          if-no-files-found: error
