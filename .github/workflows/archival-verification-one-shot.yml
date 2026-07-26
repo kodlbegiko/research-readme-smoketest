@@ -6,6 +6,9 @@ on:
       - agent/archival-verification-one-shot
     paths:
       - .github/workflows/archival-verification-one-shot.yml
+  pull_request:
+    paths:
+      - .github/workflows/archival-verification-one-shot.yml
 
 permissions:
   contents: read
