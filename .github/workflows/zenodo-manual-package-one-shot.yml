@@ -75,8 +75,8 @@ jobs:
           mapping = {
               'dynamic-validation-results.json': root / 'results/issue-121/dynamic-validation-results.json',
               'dynamic-validation-results.csv': root / 'results/issue-121/dynamic-validation-results.csv',
-              'intervention-log.json': root / 'results/issue-121/intervention-log.json',
-              'intervention-log.csv': root / 'results/issue-121/intervention-log.csv',
+              'intervention-log.json': root / 'results/interventions/intervention-log.json',
+              'intervention-log.csv': root / 'results/interventions/intervention-log.csv',
               'DYNAMIC-FINAL-SHA256SUMS': root / 'results/issue-121/DYNAMIC-FINAL-SHA256SUMS',
               'research-manifest-issue-121.yml': root / 'research-manifest-issue-121.yml',
               'EXTERNAL-VALIDATION.md': root / 'EXTERNAL-VALIDATION.md',
