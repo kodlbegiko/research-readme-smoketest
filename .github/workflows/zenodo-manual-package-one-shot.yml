@@ -1,0 +1,111 @@
+name: One-shot Zenodo archival package
+
+on:
+  push:
+    branches:
+      - agent/zenodo-manual-package
+    paths:
+      - .github/workflows/zenodo-manual-package-one-shot.yml
+  pull_request:
+    paths:
+      - .github/workflows/zenodo-manual-package-one-shot.yml
+
+permissions:
+  contents: read
+
+jobs:
+  package:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          fetch-tags: true
+
+      - name: Build exact formal-release Zenodo package
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          set -euo pipefail
+          tag='research-closeout-issue-121'
+          publication_commit='4dfb0b961470974f9dc80a936db86450303d007a'
+          package_name='research-readme-smoketest-research-closeout-issue-121-zenodo.zip'
+
+          git fetch --force --tags origin
+          test "$(git cat-file -t "$tag")" = 'tag'
+          test "$(git rev-parse "$tag^{}")" = "$publication_commit"
+
+          rm -rf zenodo-staging zenodo-output
+          mkdir -p zenodo-staging/source zenodo-staging/release-assets zenodo-output
+
+          git archive --format=tar --prefix=research-readme-smoketest-research-closeout-issue-121/ "$tag^{}" \
+            | tar -xf - -C zenodo-staging/source
+
+          gh release download "$tag" \
+            --repo kodlbegiko/research-readme-smoketest \
+            --dir zenodo-staging/release-assets \
+            --pattern 'dynamic-validation-results.json' \
+            --pattern 'dynamic-validation-results.csv' \
+            --pattern 'intervention-log.json' \
+            --pattern 'intervention-log.csv' \
+            --pattern 'DYNAMIC-FINAL-SHA256SUMS' \
+            --pattern 'research-manifest-issue-121.yml' \
+            --pattern 'EXTERNAL-VALIDATION.md'
+
+          python - <<'PY'
+          from pathlib import Path
+
+          root = Path('zenodo-staging/source/research-readme-smoketest-research-closeout-issue-121')
+          assets = Path('zenodo-staging/release-assets')
+          mapping = {
+              'dynamic-validation-results.json': root / 'results/issue-121/dynamic-validation-results.json',
+              'dynamic-validation-results.csv': root / 'results/issue-121/dynamic-validation-results.csv',
+              'intervention-log.json': root / 'results/issue-121/intervention-log.json',
+              'intervention-log.csv': root / 'results/issue-121/intervention-log.csv',
+              'DYNAMIC-FINAL-SHA256SUMS': root / 'results/issue-121/DYNAMIC-FINAL-SHA256SUMS',
+              'research-manifest-issue-121.yml': root / 'research-manifest-issue-121.yml',
+              'EXTERNAL-VALIDATION.md': root / 'EXTERNAL-VALIDATION.md',
+          }
+          actual = {p.name for p in assets.iterdir() if p.is_file()}
+          expected = set(mapping)
+          assert actual == expected, {'actual': sorted(actual), 'expected': sorted(expected)}
+          for name, source in mapping.items():
+              assert source.exists(), source
+              assert (assets / name).read_bytes() == source.read_bytes(), f'release/source mismatch: {name}'
+          PY
+
+          cat > zenodo-staging/ARCHIVAL-METADATA.txt <<'EOF'
+          Title: Issue 121 External Validation — Negative Research Closeout
+          Repository: https://github.com/kodlbegiko/research-readme-smoketest
+          Formal tag: research-closeout-issue-121
+          Publication commit: 4dfb0b961470974f9dc80a936db86450303d007a
+          GitHub Release: https://github.com/kodlbegiko/research-readme-smoketest/releases/tag/research-closeout-issue-121
+          Software Heritage snapshot: swh:1:snp:ece8d8c66053310b42035491d500d0647b3caccc
+          Research result: NEGATIVE RESULT PRESERVED
+          Product status: NOT A PRODUCT
+          GitHub Action v0.2: NOT CREATED AND NOT PLANNED
+          EOF
+
+          find zenodo-staging -exec touch -t 202607260000.00 {} +
+          (
+            cd zenodo-staging
+            find . -type f ! -name PACKAGE-SHA256SUMS -print0 \
+              | LC_ALL=C sort -z \
+              | xargs -0 sha256sum > PACKAGE-SHA256SUMS
+          )
+          touch -t 202607260000.00 zenodo-staging/PACKAGE-SHA256SUMS
+
+          (
+            cd zenodo-staging
+            LC_ALL=C find . -print | LC_ALL=C sort | zip -X -q -9 -@ "../zenodo-output/$package_name"
+          )
+
+          sha256sum "zenodo-output/$package_name" | tee zenodo-output/SHA256SUMS
+          unzip -t "zenodo-output/$package_name"
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: zenodo-manual-upload-package
+          path: zenodo-output
+          if-no-files-found: error
