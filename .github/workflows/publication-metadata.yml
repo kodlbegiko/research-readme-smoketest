@@ -12,6 +12,7 @@ on:
       - results/public-interest/**
       - scripts/validate_replication_submission.py
       - scripts/validate_impact_log.py
+      - .github/ISSUE_TEMPLATE/independent-replication.yml
       - .github/workflows/publication-metadata.yml
   pull_request:
     paths:
@@ -23,6 +24,7 @@ on:
       - results/public-interest/**
       - scripts/validate_replication_submission.py
       - scripts/validate_impact_log.py
+      - .github/ISSUE_TEMPLATE/independent-replication.yml
       - .github/workflows/publication-metadata.yml
 
 permissions:
@@ -43,10 +45,25 @@ jobs:
           cache: pip
       - name: Install metadata validators
         run: python -m pip install "jsonschema[format]==4.26.0" "PyYAML==6.0.3"
+      - name: Validate independent replication issue form
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          import yaml
+
+          form = yaml.safe_load(
+              Path('.github/ISSUE_TEMPLATE/independent-replication.yml').read_text()
+          )
+          assert form['name']
+          assert form['description']
+          assert 'about' not in form
+          assert isinstance(form['body'], list) and form['body']
+          PY
       - name: Validate replication and impact records
         run: |
           python scripts/validate_replication_submission.py --check-schema
           python scripts/validate_impact_log.py
+          python scripts/validate_impact_log.py --self-test
           sha256sum -c results/public-interest/SHA256SUMS
       - name: Verify deterministic figures
         run: python docs/manuscript/figures/generate_figures.py --check
