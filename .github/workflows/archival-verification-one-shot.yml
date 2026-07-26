@@ -86,17 +86,13 @@ jobs:
           set -euo pipefail
           mkdir -p archival-output
           request_url='https://archive.softwareheritage.org/api/1/origin/save/2399784/'
-          curl -fsS -H 'Accept: application/json' "$request_url" \
+          curl -fsS -A 'research-readme-smoketest-archival-verification' \
+            -H 'Accept: application/json' "$request_url" \
             > archival-output/swh-status.json
 
-          python - <<'PY'
+          snapshot_url="$(python - <<'PY'
           import json
           from pathlib import Path
-          from urllib.request import Request, urlopen
-
-          publication_commit = '4dfb0b961470974f9dc80a936db86450303d007a'
-          research_tag = 'refs/tags/research-closeout-issue-121'
-
           status = json.loads(Path('archival-output/swh-status.json').read_text())
           assert status['id'] == 2399784
           assert status['origin_url'] == 'https://github.com/kodlbegiko/research-readme-smoketest'
@@ -104,32 +100,64 @@ jobs:
           assert status['save_task_status'] == 'succeeded'
           assert status['visit_status'] == 'full'
           assert status['snapshot_swhid'].startswith('swh:1:snp:')
+          print(status['snapshot_url'])
+          PY
+          )"
 
-          req = Request(status['snapshot_url'], headers={'Accept': 'application/json'})
-          with urlopen(req) as response:
-              snapshot = json.load(response)
-          Path('archival-output/swh-snapshot.json').write_text(
-              json.dumps(snapshot, indent=2, ensure_ascii=False) + '\n'
-          )
+          curl -fsS -A 'research-readme-smoketest-archival-verification' \
+            -H 'Accept: application/json' "$snapshot_url" \
+            > archival-output/swh-snapshot.json
 
+          python - <<'PY'
+          import json
+          from pathlib import Path
+
+          publication_commit = '4dfb0b961470974f9dc80a936db86450303d007a'
+          research_tag = 'refs/tags/research-closeout-issue-121'
+          snapshot = json.loads(Path('archival-output/swh-snapshot.json').read_text())
           branches = snapshot['branches']
           assert research_tag in branches, sorted(branches)
           branch = branches[research_tag]
-          trace = [{'name': research_tag, **branch}]
-
+          Path('archival-output/swh-tag-branch.json').write_text(
+              json.dumps(branch, indent=2, ensure_ascii=False) + '\n'
+          )
           if branch['target_type'] == 'release':
-              req = Request(branch['target_url'], headers={'Accept': 'application/json'})
-              with urlopen(req) as response:
-                  release = json.load(response)
-              Path('archival-output/swh-tag-release.json').write_text(
-                  json.dumps(release, indent=2, ensure_ascii=False) + '\n'
-              trace.append({'release': release})
-              assert release['target_type'] == 'revision'
-              assert release['target'] == publication_commit
+              Path('archival-output/swh-tag-target-url.txt').write_text(
+                  branch['target_url'] + '\n'
+              )
           elif branch['target_type'] == 'revision':
               assert branch['target'] == publication_commit
           else:
               raise AssertionError(f"Unexpected tag target type: {branch['target_type']}")
+          PY
+
+          if [ -f archival-output/swh-tag-target-url.txt ]; then
+            target_url="$(cat archival-output/swh-tag-target-url.txt)"
+            curl -fsS -A 'research-readme-smoketest-archival-verification' \
+              -H 'Accept: application/json' "$target_url" \
+              > archival-output/swh-tag-release.json
+          fi
+
+          python - <<'PY'
+          import json
+          from pathlib import Path
+
+          publication_commit = '4dfb0b961470974f9dc80a936db86450303d007a'
+          research_tag = 'refs/tags/research-closeout-issue-121'
+          status = json.loads(Path('archival-output/swh-status.json').read_text())
+          snapshot = json.loads(Path('archival-output/swh-snapshot.json').read_text())
+          branch = snapshot['branches'][research_tag]
+          trace = [{'name': research_tag, **branch}]
+
+          release_path = Path('archival-output/swh-tag-release.json')
+          if release_path.exists():
+              release = json.loads(release_path.read_text())
+              trace.append({'release': release})
+              assert release['target_type'] == 'revision'
+              assert release['target'] == publication_commit
+          else:
+              assert branch['target_type'] == 'revision'
+              assert branch['target'] == publication_commit
 
           verification = {
               'request_id': status['id'],
