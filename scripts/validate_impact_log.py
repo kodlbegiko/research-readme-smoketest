@@ -83,18 +83,14 @@ def normalize_csv_entry(row: dict[str, str]) -> dict[str, Any]:
     return normalized
 
 
-def index_entries(
-    entries: list[dict[str, Any]], *, source_name: str
-) -> dict[str, dict[str, Any]]:
+def index_entries(entries: list[dict[str, Any]], *, source_name: str) -> dict[str, dict[str, Any]]:
     indexed: dict[str, dict[str, Any]] = {}
     for entry in entries:
         evidence_id = str(entry.get("evidence_id", ""))
         if not evidence_id:
             raise ImpactLogValidationError(f"{source_name} entry is missing evidence_id")
         if evidence_id in indexed:
-            raise ImpactLogValidationError(
-                f"duplicate evidence_id in {source_name}: {evidence_id}"
-            )
+            raise ImpactLogValidationError(f"duplicate evidence_id in {source_name}: {evidence_id}")
         indexed[evidence_id] = entry
     return indexed
 
@@ -117,9 +113,7 @@ def validate_entry_consistency(
 
     for evidence_id, json_entry in json_by_id.items():
         csv_entry = csv_by_id[evidence_id]
-        differing = [
-            field for field in ENTRY_FIELDS if json_entry[field] != csv_entry[field]
-        ]
+        differing = [field for field in ENTRY_FIELDS if json_entry[field] != csv_entry[field]]
         if differing:
             details = ", ".join(
                 f"{field}: JSON={json_entry[field]!r}, CSV={csv_entry[field]!r}"
@@ -174,14 +168,10 @@ def validate_files() -> None:
             raise ImpactLogValidationError(f"CSV summary mismatch for {name}")
 
     unexpected = [
-        row.get("record_type", "")
-        for row in rows[1:]
-        if row.get("record_type") != "EVIDENCE"
+        row.get("record_type", "") for row in rows[1:] if row.get("record_type") != "EVIDENCE"
     ]
     if unexpected:
-        raise ImpactLogValidationError(
-            f"unexpected CSV record types after SUMMARY: {unexpected}"
-        )
+        raise ImpactLogValidationError(f"unexpected CSV record types after SUMMARY: {unexpected}")
     entry_rows = rows[1:]
     validate_entry_consistency(log["entries"], entry_rows)
 
@@ -204,10 +194,7 @@ def run_self_test() -> None:
     }
     matching_row = {
         "record_type": "EVIDENCE",
-        **{
-            field: ("true" if field == "counted" else str(entry[field]))
-            for field in ENTRY_FIELDS
-        },
+        **{field: ("true" if field == "counted" else str(entry[field])) for field in ENTRY_FIELDS},
     }
     validate_entry_consistency([entry], [matching_row])
 
