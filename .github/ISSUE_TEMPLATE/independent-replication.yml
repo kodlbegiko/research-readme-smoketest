@@ -1,5 +1,5 @@
 name: Independent replication submission
-about: Register a computational reproduction, human re-annotation, or new-data replication
+description: Register a computational reproduction, human re-annotation, or new-data replication
 labels: ["independent-replication"]
 body:
   - type: markdown
